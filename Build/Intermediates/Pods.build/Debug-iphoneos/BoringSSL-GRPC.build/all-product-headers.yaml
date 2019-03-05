@@ -675,6 +675,431 @@
     },
     {
       'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxCoreNavigation/MapboxCoreNavigation.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MBNavigationSettings.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxCoreNavigation/MapboxCoreNavigation/MBNavigationSettings.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBRouteController.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxCoreNavigation/MapboxCoreNavigation/MBRouteController.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxCoreNavigation-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxCoreNavigation/MapboxCoreNavigation.framework/Headers/MapboxCoreNavigation-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxCoreNavigation-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/MapboxCoreNavigation/MapboxCoreNavigation-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxCoreNavigation.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxCoreNavigation/MapboxCoreNavigation/MapboxCoreNavigation.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxCoreNavigation/MapboxCoreNavigation.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/MapboxCoreNavigation.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxDirections.swift/MapboxDirections.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MBAttribute.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxDirections.swift/MapboxDirections/MBAttribute.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBLaneIndication.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxDirections.swift/MapboxDirections/MBLaneIndication.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBRoadClasses.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxDirections.swift/MapboxDirections/MBRoadClasses.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBRouteOptions.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxDirections.swift/MapboxDirections/MBRouteOptions.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxDirections-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxDirections.swift/MapboxDirections.framework/Headers/MapboxDirections-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxDirections.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxDirections.swift/MapboxDirections/MapboxDirections.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxDirections.swift-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/MapboxDirections.swift/MapboxDirections.swift-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxDirections.swift/MapboxDirections.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/MapboxDirections.swift.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxMobileEvents/MapboxMobileEvents.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CLLocation+MMEMobileEvents.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/CLLocation+MMEMobileEvents.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEAPIClient.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEAPIClient.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMECategoryLoader.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMECategoryLoader.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMECommonEventData.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMECommonEventData.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEConfigurator.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEConfigurator.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEConstants.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEConstants.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEDependencyManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEDependencyManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEDispatchManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEDispatchManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEEvent.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEEvent.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEEventLogReportViewController.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEEventLogReportViewController.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEEventLogger.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEEventLogger.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEEventsConfiguration.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEEventsConfiguration.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEEventsManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEEventsManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEHashProvider.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEHashProvider.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMELocationManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMELocationManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEMetrics.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEMetrics.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEMetricsManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEMetricsManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMENSDateWrapper.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMENSDateWrapper.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMENSURLSessionWrapper.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMENSURLSessionWrapper.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEReachability.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/Reachability/MMEReachability.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMETimerManager.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMETimerManager.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMETrustKitProvider.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMETrustKitProvider.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMETypes.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMETypes.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEUIApplicationWrapper.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEUIApplicationWrapper.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEUINavigation.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEUINavigation.h"
+        },
+        {
+          'type': 'file',
+          'name': "MMEUniqueIdentifier.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MMEUniqueIdentifier.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxMobileEvents-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxMobileEvents/MapboxMobileEvents.framework/Headers/MapboxMobileEvents-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxMobileEvents-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/MapboxMobileEvents/MapboxMobileEvents-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxMobileEvents.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/MapboxMobileEvents.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSData+MMEGZIP.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/MapboxMobileEvents/NSData+MMEGZIP.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKBackgroundReporter.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Reporting/TSKBackgroundReporter.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKLog.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKLog.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPinFailureReport.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Reporting/TSKPinFailureReport.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPinningValidator.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKPinningValidator.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPinningValidatorCallback.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKPinningValidatorCallback.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPinningValidatorResult.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKPinningValidatorResult.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPinningValidator_Private.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKPinningValidator_Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKPublicKeyAlgorithm.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Pinning/TSKPublicKeyAlgorithm.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKReportsRateLimiter.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Reporting/TSKReportsRateLimiter.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKSPKIHashCache.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Pinning/TSKSPKIHashCache.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKTrustDecision.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKTrustDecision.h"
+        },
+        {
+          'type': 'file',
+          'name': "TSKTrustKitConfig.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TSKTrustKitConfig.h"
+        },
+        {
+          'type': 'file',
+          'name': "TrustKit.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/TrustKit.h"
+        },
+        {
+          'type': 'file',
+          'name': "configuration_utils.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/configuration_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "parse_configuration.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/parse_configuration.h"
+        },
+        {
+          'type': 'file',
+          'name': "reporting_utils.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Reporting/reporting_utils.h"
+        },
+        {
+          'type': 'file',
+          'name': "ssl_pin_verifier.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Pinning/ssl_pin_verifier.h"
+        },
+        {
+          'type': 'file',
+          'name': "vendor_identifier.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxMobileEvents/vendor/TrustKit/Reporting/vendor_identifier.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxMobileEvents/MapboxMobileEvents.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/MapboxMobileEvents.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxNavigation/MapboxNavigation.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MBRouteVoiceController.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxNavigation/MapboxNavigation/MBRouteVoiceController.h"
+        },
+        {
+          'type': 'file',
+          'name': "MGLMapView+MGLNavigationAdditions.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxNavigation/MapboxNavigation/MGLMapView+MGLNavigationAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxNavigation-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxNavigation/MapboxNavigation.framework/Headers/MapboxNavigation-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxNavigation-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/MapboxNavigation/MapboxNavigation-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxNavigation.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxNavigation/MapboxNavigation/MapboxNavigation.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxNavigation/MapboxNavigation.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/MapboxNavigation.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxSpeech/MapboxSpeech.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MapboxSpeech-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxSpeech/MapboxSpeech.framework/Headers/MapboxSpeech-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxSpeech-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/MapboxSpeech/MapboxSpeech-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "MapboxSpeech.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/MapboxSpeech/MapboxSpeech/MapboxSpeech.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxSpeech/MapboxSpeech.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/MapboxSpeech.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
       'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Pods_Wanderlist.framework/Headers",
       'contents': [
         {
@@ -697,6 +1122,38 @@
           'type': 'file',
           'name': "module.modulemap",
           'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Pods-Wanderlist.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Polyline/Polyline.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Polyline-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Polyline/Polyline.framework/Headers/Polyline-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Polyline-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Polyline/Polyline-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Polyline.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Polyline/Polyline/Polyline.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Polyline/Polyline.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Polyline.build/module.modulemap"
         }
       ]
     },
@@ -941,6 +1398,65 @@
           'type': 'file',
           'name': "module.modulemap",
           'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Protobuf.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Solar/Solar.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Solar-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Solar/Solar.framework/Headers/Solar-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Solar-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Solar/Solar-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Solar/Solar.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Solar.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Turf/Turf.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Turf-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Turf/Turf.framework/Headers/Turf-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Turf-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Turf/Turf-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Turf.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Turf/Sources/Turf/Turf.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Turf/Turf.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Turf.build/module.modulemap"
         }
       ]
     },

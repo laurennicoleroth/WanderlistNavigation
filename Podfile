@@ -8,6 +8,7 @@ target 'Wanderlist' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Mapbox-iOS-SDK'
+  pod 'MapboxNavigation'
 
   target 'WanderlistTests' do
     inherit! :search_paths

@@ -5,9 +5,28 @@
 ## Build generated
 build/
 DerivedData/
+Build/*
 
 Pods/Target Support Files/Mapbox-iOS-SDK/
 Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox
+Pods/MapboxCoreNavigation/
+Pods/MapboxDirections.swift/
+Pods/MapboxMobileEvents/ 
+Pods/MapboxNavigation/
+Pods/MapboxNavigationNative/
+Pods/MapboxSpeech/
+Pods/Polyline/
+Pods/Solar/
+Pods/Target Support Files/MapboxCoreNavigation/
+Pods/Target Support Files/MapboxDirections.swift/
+Pods/Target Support Files/MapboxMobileEvents/
+Pods/Target Support Files/MapboxNavigation/
+Pods/Target Support Files/MapboxNavigationNative/
+Pods/Target Support Files/MapboxSpeech/
+Pods/Target Support Files/Polyline/
+Pods/Target Support Files/Solar/
+Pods/Target Support Files/Turf/
+Pods/Turf/
 
 secret.swift
 
