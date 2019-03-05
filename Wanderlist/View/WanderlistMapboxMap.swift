@@ -21,7 +21,8 @@ class WanderlistMapboxMap : MGLMapView {
   func showCurrentLocation() {
     
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-      self.setCenter(location.coordinate, zoomLevel: 12, animated: false)
+      print("Setting center to: ", location.coordinate)
+      self.setCenter(location.coordinate, zoomLevel: 15, animated: true)
       self.getWanderlistsNear(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
       
     }) { (error, location) -> (Void) in
@@ -34,7 +35,7 @@ class WanderlistMapboxMap : MGLMapView {
     
     if let latitude = wanderlist?.latitude, let longitude = wanderlist?.longitude {
       let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-      self.setCenter(coordinate, zoomLevel: 12, animated: true)
+      self.setCenter(coordinate, zoomLevel: 14, animated: true)
       let currentLocation = MGLPointAnnotation()
       currentLocation.coordinate = coordinate
       currentLocation.title = wanderlist?.title
@@ -124,9 +125,9 @@ class WanderlistMapboxMap : MGLMapView {
     })
   }
   
-  func addHitsToMap(hits: [[String: Any]]) {
-    var annotations = [MGLPointAnnotation]()
-    var coordinates = [CLLocationCoordinate2D]()
+  func fitHitsToMap(hits: [[String: Any]]) {
+        var annotations = [MGLPointAnnotation]()
+        var coordinates = [CLLocationCoordinate2D]()
     for hit in hits {
       let hello = MGLPointAnnotation()
       let latitude = hit["latitude"] as! Double
@@ -139,12 +140,25 @@ class WanderlistMapboxMap : MGLMapView {
       self.addAnnotation(hello)
     }
     
-    self.setVisibleCoordinates(
-      coordinates,
-      count: UInt(coordinates.count),
-      edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
-      animated: true
-    )
+        self.setVisibleCoordinates(
+          coordinates,
+          count: UInt(coordinates.count),
+          edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
+          animated: true
+        )
+  }
+  
+  func addHitsToMap(hits: [[String: Any]]) {
+    for hit in hits {
+      let wanderlist = MGLPointAnnotation()
+      let latitude = hit["latitude"] as! Double
+      let longitude = hit["longitude"] as! Double
+      wanderlist.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+      wanderlist.title = hit["title"] as! String
+      wanderlist.subtitle = hit["about"] as! String
+      
+      self.addAnnotation(wanderlist)
+    }
   }
   
   func removeAllAnnotations() {

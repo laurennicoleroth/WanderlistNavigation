@@ -15,7 +15,7 @@ class ExploreMapViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.title = "WANDERLY"
     setupMapUI()
   }
  
@@ -38,14 +38,7 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   }
   
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-    if mapView.userTrackingMode != .followWithHeading {
-      mapView.userTrackingMode = .followWithHeading
-    } else {
-      mapView.resetNorth()
-    }
-    
-    // We're borrowing this method as a gesture recognizer, so reset selection state.
-    mapView.deselectAnnotation(annotation, animated: false)
+    print("Did select annotation on map", annotation)
   }
   
   // Allow callout view to appear when an annotation is tapped.
