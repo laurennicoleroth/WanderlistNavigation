@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRj-C8-Lg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273" y="1601"/>
+            <point key="canvasLocation" x="273" y="1506"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5mW-9J-kSx">
@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARw-2z-RmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="1601"/>
+            <point key="canvasLocation" x="1190" y="1507"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="KpN-0W-ta5">
@@ -171,13 +171,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHd-N0-grL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="272.80000000000001" y="817.24137931034488"/>
+            <point key="canvasLocation" x="273" y="788"/>
         </scene>
-        <!--ME-->
+        <!--GO-->
         <scene sceneID="ZmF-Gb-oJJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPi-eL-7vu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ME" image="person-outline" id="hkB-JB-4l9"/>
+                    <tabBarItem key="tabBarItem" title="GO" image="directionswalk" id="hkB-JB-4l9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ss6-0D-0AU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -190,13 +190,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Oj-Me-B0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1373.5999999999999" y="816.34182908545733"/>
+            <point key="canvasLocation" x="1191" y="788"/>
         </scene>
     </scenes>
     <resources>
         <image name="add-circle-outline" width="20" height="20"/>
+        <image name="directionswalk" width="14" height="22"/>
         <image name="explore" width="20" height="20"/>
-        <image name="person-outline" width="16" height="16"/>
         <image name="search" width="18" height="18"/>
     </resources>
 </document>
