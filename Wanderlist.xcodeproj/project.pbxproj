@@ -14,6 +14,13 @@
 		969354E2222EF1B400752858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 969354E1222EF1B400752858 /* Assets.xcassets */; };
 		969354E5222EF1B400752858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969354E3222EF1B400752858 /* LaunchScreen.storyboard */; };
 		969354F0222EF1B500752858 /* WanderlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354EF222EF1B500752858 /* WanderlistTests.swift */; };
+		969354FE222F151000752858 /* ExploreMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354FD222F151000752858 /* ExploreMapViewController.swift */; };
+		96935500222F174500752858 /* WanderlistMapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354FF222F174500752858 /* WanderlistMapboxMap.swift */; };
+		96935504222F177500752858 /* Wanderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96935503222F177500752858 /* Wanderlist.swift */; };
+		96935507222F17F400752858 /* Wanderspot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96935506222F17F400752858 /* Wanderspot.swift */; };
+		96935509222F1AFF00752858 /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96935508222F1AFF00752858 /* secret.swift */; };
+		9693550C222F1B6B00752858 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693550B222F1B6B00752858 /* AuthService.swift */; };
+		9693550E222F1BC000752858 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693550D222F1BC000752858 /* ArrayExt.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +48,13 @@
 		969354EB222EF1B500752858 /* WanderlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WanderlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		969354EF222EF1B500752858 /* WanderlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderlistTests.swift; sourceTree = "<group>"; };
 		969354F1222EF1B500752858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		969354FD222F151000752858 /* ExploreMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapViewController.swift; sourceTree = "<group>"; };
+		969354FF222F174500752858 /* WanderlistMapboxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderlistMapboxMap.swift; sourceTree = "<group>"; };
+		96935503222F177500752858 /* Wanderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wanderlist.swift; sourceTree = "<group>"; };
+		96935506222F17F400752858 /* Wanderspot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wanderspot.swift; sourceTree = "<group>"; };
+		96935508222F1AFF00752858 /* secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
+		9693550B222F1B6B00752858 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9693550D222F1BC000752858 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +109,10 @@
 				969354E3222EF1B400752858 /* LaunchScreen.storyboard */,
 				969354E6222EF1B400752858 /* Info.plist */,
 				969354DE222EF1B400752858 /* Wanderlist.xcdatamodeld */,
+				96935502222F176500752858 /* Controller */,
+				96935501222F175600752858 /* View */,
+				96935505222F17E300752858 /* Model */,
+				9693550A222F1B4800752858 /* Helper */,
 			);
 			path = Wanderlist;
 			sourceTree = "<group>";
@@ -106,6 +124,41 @@
 				969354F1222EF1B500752858 /* Info.plist */,
 			);
 			path = WanderlistTests;
+			sourceTree = "<group>";
+		};
+		96935501222F175600752858 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				969354FF222F174500752858 /* WanderlistMapboxMap.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96935502222F176500752858 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				969354FD222F151000752858 /* ExploreMapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96935505222F17E300752858 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96935503222F177500752858 /* Wanderlist.swift */,
+				96935506222F17F400752858 /* Wanderspot.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9693550A222F1B4800752858 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				96935508222F1AFF00752858 /* secret.swift */,
+				9693550B222F1B6B00752858 /* AuthService.swift */,
+				9693550D222F1BC000752858 /* ArrayExt.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		AA226DDD2DC226378A47DEFA /* Frameworks */ = {
@@ -140,6 +193,7 @@
 				969354D1222EF1B400752858 /* Frameworks */,
 				969354D2222EF1B400752858 /* Resources */,
 				0AF393C5B7A3706CFA873943 /* [CP] Embed Pods Frameworks */,
+				90A7D9FFB8C3B82C58E4B64F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,7 +294,24 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearch/InstantSearch.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearchClient/InstantSearchClient.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearchCore/InstantSearchCore.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework",
+				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -253,7 +324,24 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigationNative.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/MapboxNavigationNative.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxSpeech.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -286,6 +374,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		90A7D9FFB8C3B82C58E4B64F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9CB3C05954822F3F31C5F085 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,8 +425,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969354FE222F151000752858 /* ExploreMapViewController.swift in Sources */,
 				969354E0222EF1B400752858 /* Wanderlist.xcdatamodeld in Sources */,
+				9693550E222F1BC000752858 /* ArrayExt.swift in Sources */,
+				96935509222F1AFF00752858 /* secret.swift in Sources */,
+				96935507222F17F400752858 /* Wanderspot.swift in Sources */,
+				96935500222F174500752858 /* WanderlistMapboxMap.swift in Sources */,
 				969354D8222EF1B400752858 /* AppDelegate.swift in Sources */,
+				96935504222F177500752858 /* Wanderlist.swift in Sources */,
+				9693550C222F1B6B00752858 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
