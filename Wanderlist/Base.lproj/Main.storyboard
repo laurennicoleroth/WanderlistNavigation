@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="812" y="740"/>
         </scene>
-        <!--View Controller-->
+        <!--Explore Map View Controller-->
         <scene sceneID="KpN-0W-ta5">
             <objects>
-                <viewController id="3kE-Js-y1L" sceneMemberID="viewController">
+                <viewController id="3kE-Js-y1L" customClass="ExploreMapViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VG-AZ-bXL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

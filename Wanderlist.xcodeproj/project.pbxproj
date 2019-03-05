@@ -14,6 +14,7 @@
 		969354E2222EF1B400752858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 969354E1222EF1B400752858 /* Assets.xcassets */; };
 		969354E5222EF1B400752858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969354E3222EF1B400752858 /* LaunchScreen.storyboard */; };
 		969354F0222EF1B500752858 /* WanderlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354EF222EF1B500752858 /* WanderlistTests.swift */; };
+		969354FE222F151000752858 /* ExploreMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354FD222F151000752858 /* ExploreMapViewController.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		969354EB222EF1B500752858 /* WanderlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WanderlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		969354EF222EF1B500752858 /* WanderlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderlistTests.swift; sourceTree = "<group>"; };
 		969354F1222EF1B500752858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		969354FD222F151000752858 /* ExploreMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMapViewController.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				969354E3222EF1B400752858 /* LaunchScreen.storyboard */,
 				969354E6222EF1B400752858 /* Info.plist */,
 				969354DE222EF1B400752858 /* Wanderlist.xcdatamodeld */,
+				969354FD222F151000752858 /* ExploreMapViewController.swift */,
 			);
 			path = Wanderlist;
 			sourceTree = "<group>";
@@ -240,6 +243,8 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -253,6 +258,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -315,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969354FE222F151000752858 /* ExploreMapViewController.swift in Sources */,
 				969354E0222EF1B400752858 /* Wanderlist.xcdatamodeld in Sources */,
 				969354D8222EF1B400752858 /* AppDelegate.swift in Sources */,
 			);

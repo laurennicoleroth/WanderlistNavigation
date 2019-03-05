@@ -1,5 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
-options: "53ce55170d1ae9a16bcb29825fbe9cab"
-build_time: [1551817202, 64704000]
+options: "56f6faae65f1f3332b6a32be34c7c10c"
+build_time: [1551818219, 464324000]
 inputs:
+  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/ExploreMapViewController.swift": [1551818144, 0]
   "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/AppDelegate.swift": [1551809230, 0]

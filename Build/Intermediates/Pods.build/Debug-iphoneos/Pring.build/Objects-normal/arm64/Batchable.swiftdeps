@@ -16,8 +16,6 @@ depends-top-level:
 - "BatchType"
 - "Batchable"
 - "Document"
-- !private "FloatLiteralType"
-- !private "IntegerLiteralType"
 - "String"
 - "WriteBatch"
 depends-member:

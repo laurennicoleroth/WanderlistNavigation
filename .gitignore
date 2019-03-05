@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+Pods/Target Support Files/Mapbox-iOS-SDK/
+Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Mapbox
+
 secret.swift
 
 ## Various settings

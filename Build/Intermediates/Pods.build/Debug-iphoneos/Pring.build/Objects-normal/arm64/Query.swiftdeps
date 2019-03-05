@@ -204,6 +204,7 @@ depends-member:
 - ["5Pring10DataSourceC5QueryC", "String"]
 - !private ["So8FIRQueryC", "addSnapshotListener"]
 - ["5Pring10DataSourceC5QueryC", "dataSource"]
+- ["5Pring10DataSourceC5QueryC", "deinit"]
 - ["5Pring10DataSourceC5QueryC", "end"]
 - !private ["So8FIRQueryC", "end"]
 - !private ["5Pring10DataSourceC5QueryC", "fatalError"]

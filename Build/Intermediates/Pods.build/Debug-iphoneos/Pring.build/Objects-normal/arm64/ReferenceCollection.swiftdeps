@@ -18,7 +18,6 @@ depends-top-level:
 - !private "Dictionary"
 - "Document"
 - !private "DocumentReference"
-- "Element"
 - "Error"
 - !private "FieldValue"
 - !private "Firestore"
@@ -32,7 +31,7 @@ depends-top-level:
 - "WriteBatch"
 depends-member:
 - !private ["s10AnyKeyPathC", "_kvcKeyPathString"]
-- ["5Pring16AnySubCollectionP", "Element"]
+- !private ["5Pring16AnySubCollectionP", "Element"]
 - !private ["5Pring16AnySubCollectionP", "FieldValue"]
 - !private ["5Pring16AnySubCollectionP", "Firestore"]
 - !private ["5Pring16AnySubCollectionP", "Object"]
@@ -60,7 +59,7 @@ depends-member:
 - ["5Pring9BatchTypeO", "delete"]
 - ["5Pring9BatchTypeO", "save"]
 - ["5Pring9BatchTypeO", "update"]
-- ["5Pring9BatchableP", "Element"]
+- !private ["5Pring9BatchableP", "Element"]
 - !private ["5Pring9BatchableP", "FieldValue"]
 - !private ["5Pring9BatchableP", "Firestore"]
 - !private ["5Pring9BatchableP", "Object"]
@@ -105,7 +104,7 @@ depends-member:
 - !private ["s7CVarArgP", "subscript"]
 - !private ["s7CVarArgP", "subtracting"]
 - !private ["s7CVarArgP", "updatedAt"]
-- ["Sl", "Element"]
+- !private ["Sl", "Element"]
 - !private ["Sl", "FieldValue"]
 - !private ["Sl", "Firestore"]
 - !private ["Sl", "Object"]
@@ -226,7 +225,7 @@ depends-member:
 - ["SQ", "update"]
 - !private ["SQ", "updatedAt"]
 - !private ["SQ", "value"]
-- ["s25ExpressibleByArrayLiteralP", "Element"]
+- !private ["s25ExpressibleByArrayLiteralP", "Element"]
 - !private ["s25ExpressibleByArrayLiteralP", "FieldValue"]
 - !private ["s25ExpressibleByArrayLiteralP", "Firestore"]
 - !private ["s25ExpressibleByArrayLiteralP", "Object"]
@@ -353,7 +352,7 @@ depends-member:
 - !private ["5Pring19ReferenceCollectionC", "reference"]
 - ["5Pring19ReferenceCollectionC", "remove"]
 - !private ["s24ReferenceWritableKeyPathC", "_kvcKeyPathString"]
-- ["ST", "Element"]
+- !private ["ST", "Element"]
 - !private ["ST", "FieldValue"]
 - !private ["ST", "Firestore"]
 - !private ["ST", "Object"]
@@ -380,7 +379,7 @@ depends-member:
 - !private ["s10SetAlgebraP", "forEach"]
 - !private ["s10SetAlgebraP", "insert"]
 - !private ["s10SetAlgebraP", "subtracting"]
-- ["5Pring15StorageLinkableP", "Element"]
+- !private ["5Pring15StorageLinkableP", "Element"]
 - !private ["5Pring15StorageLinkableP", "FieldValue"]
 - !private ["5Pring15StorageLinkableP", "Firestore"]
 - !private ["5Pring15StorageLinkableP", "Object"]

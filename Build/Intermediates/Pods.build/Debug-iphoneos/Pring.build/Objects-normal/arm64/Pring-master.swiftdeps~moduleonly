@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "d127f6703642ef16ad6f71bf8c6df8ac"
-build_time: [1551809211, 203952000]
+build_time: [1551818217, 757048000]
 inputs:
   "/Users/laurennicoleroth/Development/Wanderlist/Pods/Pring/Pring/AnySubCollection.swift": [1551809198, 0]
   "/Users/laurennicoleroth/Development/Wanderlist/Pods/Pring/Pring/Batchable.swift": [1551809198, 0]

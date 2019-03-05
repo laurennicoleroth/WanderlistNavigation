@@ -103,6 +103,7 @@ PODS:
   - gRPC-Core/Interface (1.17.0)
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
+  - Mapbox-iOS-SDK (4.8.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -117,6 +118,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - Mapbox-iOS-SDK
   - Pring
 
 SPEC REPOS:
@@ -136,6 +138,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - Mapbox-iOS-SDK
     - nanopb
     - Pring
     - Protobuf
@@ -156,10 +159,11 @@ SPEC CHECKSUMS:
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Pring: 934abdeba2797a6b1b4fb94212c7d881291d46be
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 7060599d8cafecebbac3b2fb48244201d2bda43d
+PODFILE CHECKSUM: 977a8804c3521efeb5b2fd4428a8a23ecbbe0505
 
 COCOAPODS: 1.6.0.beta.1

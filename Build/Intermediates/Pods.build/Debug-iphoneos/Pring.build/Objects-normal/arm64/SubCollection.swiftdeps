@@ -27,7 +27,6 @@ depends-top-level:
 - "Disposer"
 - "Document"
 - !private "DocumentSnapshot"
-- "Element"
 - "Error"
 - "ExpressibleByArrayLiteral"
 - !private "Firestore"
