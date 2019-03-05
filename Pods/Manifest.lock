@@ -67,6 +67,9 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GooglePlaces (3.0.3):
+    - GoogleMaps/Base (= 3.0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.3.7):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -102,22 +105,56 @@ PODS:
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.17.0)
   - GTMSessionFetcher/Core (1.2.1)
+  - InstantSearch (3.1.3):
+    - InstantSearch/UI (= 3.1.3)
+  - InstantSearch/UI (3.1.3):
+    - InstantSearchCore (~> 4.0)
+  - InstantSearchClient (6.2.0)
+  - InstantSearchCore (4.0.0):
+    - InstantSearchClient (~> 6.0)
   - leveldb-library (1.20)
+  - Mapbox-iOS-SDK (4.8.0)
+  - MapboxCoreNavigation (0.29.1):
+    - MapboxDirections.swift (~> 0.27.0)
+    - MapboxMobileEvents (~> 0.8.1)
+    - MapboxNavigationNative (~> 5.0.0)
+    - Turf (~> 0.3.0)
+  - MapboxDirections.swift (0.27.1):
+    - Polyline (~> 4.2)
+  - MapboxMobileEvents (0.8.1)
+  - MapboxNavigation (0.29.1):
+    - Mapbox-iOS-SDK (~> 4.3)
+    - MapboxCoreNavigation (= 0.29.1)
+    - MapboxSpeech (~> 0.1.0)
+    - Solar (~> 2.1)
+  - MapboxNavigationNative (5.0.0)
+  - MapboxSpeech (0.1.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Polyline (4.2.0)
   - Pring (0.15.2):
     - Firebase
     - Firebase/Firestore
     - Firebase/Storage
   - Protobuf (3.6.1)
+  - Solar (2.1.0)
+  - SwiftLocation (3.2.3):
+    - SwiftyJSON (~> 4.0.0-alpha.1)
+  - SwiftyJSON (4.0.0)
+  - Turf (0.3.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - GooglePlaces
+  - InstantSearch (~> 3.0)
+  - Mapbox-iOS-SDK
+  - MapboxNavigation
   - Pring
+  - SwiftLocation (~> 3.2.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -131,14 +168,31 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseStorage
     - GoogleAppMeasurement
+    - GoogleMaps
+    - GooglePlaces
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - InstantSearch
+    - InstantSearchClient
+    - InstantSearchCore
     - leveldb-library
+    - Mapbox-iOS-SDK
+    - MapboxCoreNavigation
+    - MapboxDirections.swift
+    - MapboxMobileEvents
+    - MapboxNavigation
+    - MapboxNavigationNative
+    - MapboxSpeech
     - nanopb
+    - Polyline
     - Pring
     - Protobuf
+    - Solar
+    - SwiftLocation
+    - SwiftyJSON
+    - Turf
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
@@ -151,15 +205,32 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
   FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
+  GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  InstantSearch: c5ec1dd67f2d68b68026dd8086ad858659b5a2cd
+  InstantSearchClient: b307f315542bb9db47b1a3480a6cd654c89d7da4
+  InstantSearchCore: d7213fee88c766297624c54f8257cff987cd1037
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
+  MapboxCoreNavigation: 7a6dea9a19dea2ad3247f43e6b6854f4afe3341e
+  MapboxDirections.swift: b53792956b0233c8c5aa75972ce99b2001cafd10
+  MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
+  MapboxNavigation: 6093c01352cfda65ea7a15b5588e024f66d4bae2
+  MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
+  MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Pring: 934abdeba2797a6b1b4fb94212c7d881291d46be
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
+  SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 7060599d8cafecebbac3b2fb48244201d2bda43d
+PODFILE CHECKSUM: 487f0dd75c6c03c5753c1e152738f24ef86c403b
 
 COCOAPODS: 1.6.0.beta.1
