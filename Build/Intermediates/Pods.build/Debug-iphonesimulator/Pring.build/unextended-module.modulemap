@@ -1,0 +1,10 @@
+framework module Pring {
+  umbrella header "Pring-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Pring.__Swift {
+    exclude header "Pring-Swift.h"
+}

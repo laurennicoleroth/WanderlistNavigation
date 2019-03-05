@@ -1,0 +1,8 @@
+dependencies: \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/AuthProviders/GitHub/FIRGitHubAuthProvider.m \
+  /Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/FirebaseAuth.build/module.modulemap \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRGitHubAuthProvider.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/AuthProviders/GitHub/FIRGitHubAuthCredential.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/FIRAuthCredential_Internal.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthCredential.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAuth/Firebase/Auth/Source/FIRAuthExceptionUtils.h

@@ -1,0 +1,129 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "BatchType"
+- "Batchable"
+provides-nominal:
+- "5Pring9BatchTypeO"
+- "5Pring9BatchableP"
+provides-member:
+- ["5Pring9BatchTypeO", ""]
+- ["5Pring9BatchableP", ""]
+- ["So13FIRWriteBatchC", ""]
+- ["So13FIRWriteBatchC", "add"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "BatchType"
+- "Batchable"
+- "Document"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "String"
+- "WriteBatch"
+depends-member:
+- ["5Pring9BatchTypeO", "__derived_enum_equals"]
+- ["5Pring9BatchTypeO", "deinit"]
+- ["5Pring9BatchTypeO", "delete"]
+- ["5Pring9BatchTypeO", "hash"]
+- ["5Pring9BatchTypeO", "hashValue"]
+- ["5Pring9BatchTypeO", "save"]
+- ["5Pring9BatchTypeO", "update"]
+- ["5Pring9BatchableP", "BatchType"]
+- ["5Pring9BatchableP", "String"]
+- ["5Pring9BatchableP", "WriteBatch"]
+- ["5Pring9BatchableP", "batch"]
+- ["5Pring9BatchableP", "batchID"]
+- ["5Pring9BatchableP", "pack"]
+- !private ["5Pring8DocumentP", "pack"]
+- ["SQ", ""]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "pack"]
+- ["SH", ""]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "pack"]
+- !private ["s6HasherV", "combine"]
+- ["So8NSObjectC", "BatchType"]
+- ["So8NSObjectC", "Document"]
+- ["So8NSObjectC", "WriteBatch"]
+- ["So8NSObjectC", "add"]
+- !private ["So8NSObjectP", "pack"]
+- !private ["5Pring15StorageLinkableP", "pack"]
+- ["So13FIRWriteBatchC", "BatchType"]
+- ["So13FIRWriteBatchC", "Document"]
+- ["So13FIRWriteBatchC", "WriteBatch"]
+- ["So13FIRWriteBatchC", "add"]
+depends-nominal:
+- "5Pring9BatchTypeO"
+- "5Pring9BatchableP"
+- !private "5Pring8DocumentP"
+- "SQ"
+- "SH"
+- !private "s6HasherV"
+- "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "5Pring15StorageLinkableP"
+- "So13FIRWriteBatchC"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseStorage/FirebaseStorage-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Pring/Pring-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRSnapshotMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRCollectionReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSource.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FirebaseStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentChange.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FirebaseFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldValue.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRWriteBatch.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldPath.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRListenerRegistration.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTransaction.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTimestamp.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSettings.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreErrors.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRGeoPoint.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTaskSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuerySnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuery.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Pring.build/unextended-module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/FirebaseStorage.build/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/FirebaseFirestore.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "cb1c866edd2cc25a860a816f901c6695"

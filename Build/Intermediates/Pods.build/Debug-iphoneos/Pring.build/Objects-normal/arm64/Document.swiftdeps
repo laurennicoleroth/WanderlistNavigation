@@ -1,0 +1,909 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Document"
+provides-nominal:
+- "5Pring8DocumentP"
+provides-member:
+- ["5Pring8DocumentP", ""]
+- ["So20FIRDocumentReferenceC", ""]
+- ["5Pring8DocumentP", "shouldUploadFiles"]
+- ["5Pring8DocumentP", "saveFiles"]
+- ["5Pring8DocumentP", "deleteFiles"]
+- ["5Pring8DocumentP", "query"]
+- ["5Pring8DocumentP", "get"]
+- ["5Pring8DocumentP", "listen"]
+- ["5Pring8DocumentP", "listen"]
+- ["5Pring8DocumentP", "listen"]
+- ["5Pring8DocumentP", "listen"]
+- ["So20FIRDocumentReferenceC", "get"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "order"]
+- ["5Pring8DocumentP", "order"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "where"]
+- ["5Pring8DocumentP", "order"]
+- ["5Pring8DocumentP", "order"]
+- ["5Pring8DocumentP", "limit"]
+- ["5Pring8DocumentP", "start"]
+- ["5Pring8DocumentP", "start"]
+- ["5Pring8DocumentP", "start"]
+- ["5Pring8DocumentP", "start"]
+- ["5Pring8DocumentP", "end"]
+- ["5Pring8DocumentP", "end"]
+- ["5Pring8DocumentP", "end"]
+- ["5Pring8DocumentP", "end"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "=="
+- !private "??"
+- "AssignmentPrecedence"
+- "Batchable"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CollectionReference"
+- "DataSource"
+- !private "DataType"
+- "DeleteContainer"
+- "Disposer"
+- "Document"
+- "DocumentReference"
+- "DocumentSnapshot"
+- "Error"
+- !private "FloatLiteralType"
+- "Hashable"
+- "Int"
+- !private "IntegerLiteralType"
+- "ListenerRegistration"
+- !private "Mirror"
+- "NSObjectProtocol"
+- "Object"
+- "PartialKeyPath"
+- "StorageLinkable"
+- "StorageReference"
+- "StorageUploadTask"
+- "String"
+- !private "StringLiteralType"
+- "Timestamp"
+- !private "UnicodeScalarType"
+- "UploadContainer"
+- "Void"
+- !private "fatalError"
+depends-member:
+- !private ["s13AnyCollectionV", "enumerated"]
+- !private ["s10AnyKeyPathC", "_kvcKeyPathString"]
+- !private ["5Pring12AnyReferenceP", "saveFiles"]
+- !private ["5Pring12AnyReferenceP", "shouldUploadFiles"]
+- !private ["5Pring11AnyRelationP", "saveFiles"]
+- !private ["5Pring11AnyRelationP", "shouldUploadFiles"]
+- !private ["5Pring16AnySubCollectionP", "saveFiles"]
+- !private ["5Pring16AnySubCollectionP", "shouldUploadFiles"]
+- !private ["Sa", "contains"]
+- !private ["Sa", "enumerated"]
+- !private ["Sa", "isEmpty"]
+- !private ["Sa", "map"]
+- !private ["s13ArrayProtocolP", "contains"]
+- !private ["s13ArrayProtocolP", "enumerated"]
+- !private ["s13ArrayProtocolP", "isEmpty"]
+- !private ["s13ArrayProtocolP", "map"]
+- ["5Pring9BatchableP", "Bool"]
+- ["5Pring9BatchableP", "CollectionReference"]
+- ["5Pring9BatchableP", "DataSource"]
+- !private ["5Pring9BatchableP", "DataType"]
+- !private ["5Pring9BatchableP", "DeleteContainer"]
+- ["5Pring9BatchableP", "Disposer"]
+- ["5Pring9BatchableP", "DocumentReference"]
+- ["5Pring9BatchableP", "DocumentSnapshot"]
+- ["5Pring9BatchableP", "Error"]
+- ["5Pring9BatchableP", "Int"]
+- ["5Pring9BatchableP", "ListenerRegistration"]
+- !private ["5Pring9BatchableP", "Mirror"]
+- ["5Pring9BatchableP", "Object"]
+- ["5Pring9BatchableP", "Self"]
+- ["5Pring9BatchableP", "StorageReference"]
+- ["5Pring9BatchableP", "StorageUploadTask"]
+- ["5Pring9BatchableP", "String"]
+- ["5Pring9BatchableP", "Timestamp"]
+- !private ["5Pring9BatchableP", "UploadContainer"]
+- ["5Pring9BatchableP", "Void"]
+- ["5Pring9BatchableP", ""]
+- !private ["5Pring9BatchableP", "batchID"]
+- !private ["5Pring9BatchableP", "fatalError"]
+- !private ["5Pring9BatchableP", "ignore"]
+- !private ["5Pring9BatchableP", "init"]
+- !private ["5Pring9BatchableP", "listen"]
+- !private ["5Pring9BatchableP", "order"]
+- !private ["5Pring9BatchableP", "reference"]
+- !private ["5Pring9BatchableP", "saveFiles"]
+- !private ["5Pring9BatchableP", "shouldUploadFiles"]
+- !private ["5Pring9BatchableP", "update"]
+- !private ["5Pring9BatchableP", "where"]
+- !private ["SK", "contains"]
+- !private ["SK", "enumerated"]
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["SK", "isEmpty"]
+- !private ["SK", "map"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "DataSource"]
+- !private ["s7CVarArgP", "DataType"]
+- !private ["s7CVarArgP", "DeleteContainer"]
+- !private ["s7CVarArgP", "Mirror"]
+- !private ["s7CVarArgP", "UploadContainer"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "addSnapshotListener"]
+- !private ["s7CVarArgP", "batchID"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "delete"]
+- !private ["s7CVarArgP", "document"]
+- !private ["s7CVarArgP", "end"]
+- !private ["s7CVarArgP", "enter"]
+- !private ["s7CVarArgP", "enumerated"]
+- !private ["s7CVarArgP", "exists"]
+- !private ["s7CVarArgP", "fatalError"]
+- !private ["s7CVarArgP", "getDocument"]
+- !private ["s7CVarArgP", "ignore"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isEmpty"]
+- !private ["s7CVarArgP", "key"]
+- !private ["s7CVarArgP", "leave"]
+- !private ["s7CVarArgP", "limit"]
+- !private ["s7CVarArgP", "map"]
+- !private ["s7CVarArgP", "order"]
+- !private ["s7CVarArgP", "parent"]
+- !private ["s7CVarArgP", "reference"]
+- !private ["s7CVarArgP", "save"]
+- !private ["s7CVarArgP", "saveFiles"]
+- !private ["s7CVarArgP", "shouldBeSaved"]
+- !private ["s7CVarArgP", "shouldUploadFiles"]
+- !private ["s7CVarArgP", "start"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "update"]
+- !private ["s7CVarArgP", "value"]
+- !private ["s7CVarArgP", "where"]
+- !private ["s7CVarArgP", "whereField"]
+- ["Sl", "Query"]
+- !private ["Sl", "contains"]
+- !private ["Sl", "enumerated"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["Sl", "isEmpty"]
+- !private ["Sl", "map"]
+- !private ["Sl", "subscript"]
+- !private ["So22FIRCollectionReferenceC", "document"]
+- !private ["So22FIRCollectionReferenceC", "end"]
+- !private ["So22FIRCollectionReferenceC", "limit"]
+- !private ["So22FIRCollectionReferenceC", "order"]
+- !private ["So22FIRCollectionReferenceC", "start"]
+- !private ["So22FIRCollectionReferenceC", "whereField"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "DataSource"]
+- !private ["s28CustomDebugStringConvertibleP", "DataType"]
+- !private ["s28CustomDebugStringConvertibleP", "DeleteContainer"]
+- !private ["s28CustomDebugStringConvertibleP", "Mirror"]
+- !private ["s28CustomDebugStringConvertibleP", "UploadContainer"]
+- !private ["s28CustomDebugStringConvertibleP", "addSnapshotListener"]
+- !private ["s28CustomDebugStringConvertibleP", "batchID"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "delete"]
+- !private ["s28CustomDebugStringConvertibleP", "document"]
+- !private ["s28CustomDebugStringConvertibleP", "end"]
+- !private ["s28CustomDebugStringConvertibleP", "enter"]
+- !private ["s28CustomDebugStringConvertibleP", "enumerated"]
+- !private ["s28CustomDebugStringConvertibleP", "exists"]
+- !private ["s28CustomDebugStringConvertibleP", "fatalError"]
+- !private ["s28CustomDebugStringConvertibleP", "getDocument"]
+- !private ["s28CustomDebugStringConvertibleP", "ignore"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
+- !private ["s28CustomDebugStringConvertibleP", "key"]
+- !private ["s28CustomDebugStringConvertibleP", "leave"]
+- !private ["s28CustomDebugStringConvertibleP", "limit"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "order"]
+- !private ["s28CustomDebugStringConvertibleP", "parent"]
+- !private ["s28CustomDebugStringConvertibleP", "reference"]
+- !private ["s28CustomDebugStringConvertibleP", "save"]
+- !private ["s28CustomDebugStringConvertibleP", "saveFiles"]
+- !private ["s28CustomDebugStringConvertibleP", "shouldBeSaved"]
+- !private ["s28CustomDebugStringConvertibleP", "shouldUploadFiles"]
+- !private ["s28CustomDebugStringConvertibleP", "start"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "update"]
+- !private ["s28CustomDebugStringConvertibleP", "value"]
+- !private ["s28CustomDebugStringConvertibleP", "where"]
+- !private ["s28CustomDebugStringConvertibleP", "whereField"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "children"]
+- !private ["s17CustomReflectableP", "contains"]
+- !private ["s17CustomReflectableP", "enumerated"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "isEmpty"]
+- !private ["s17CustomReflectableP", "map"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "DataSource"]
+- !private ["s23CustomStringConvertibleP", "DataType"]
+- !private ["s23CustomStringConvertibleP", "DeleteContainer"]
+- !private ["s23CustomStringConvertibleP", "Mirror"]
+- !private ["s23CustomStringConvertibleP", "UploadContainer"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "addSnapshotListener"]
+- !private ["s23CustomStringConvertibleP", "batchID"]
+- !private ["s23CustomStringConvertibleP", "children"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "delete"]
+- !private ["s23CustomStringConvertibleP", "document"]
+- !private ["s23CustomStringConvertibleP", "end"]
+- !private ["s23CustomStringConvertibleP", "enter"]
+- !private ["s23CustomStringConvertibleP", "enumerated"]
+- !private ["s23CustomStringConvertibleP", "exists"]
+- !private ["s23CustomStringConvertibleP", "fatalError"]
+- !private ["s23CustomStringConvertibleP", "getDocument"]
+- !private ["s23CustomStringConvertibleP", "ignore"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isEmpty"]
+- !private ["s23CustomStringConvertibleP", "key"]
+- !private ["s23CustomStringConvertibleP", "leave"]
+- !private ["s23CustomStringConvertibleP", "limit"]
+- !private ["s23CustomStringConvertibleP", "map"]
+- !private ["s23CustomStringConvertibleP", "order"]
+- !private ["s23CustomStringConvertibleP", "parent"]
+- !private ["s23CustomStringConvertibleP", "reference"]
+- !private ["s23CustomStringConvertibleP", "save"]
+- !private ["s23CustomStringConvertibleP", "saveFiles"]
+- !private ["s23CustomStringConvertibleP", "shouldBeSaved"]
+- !private ["s23CustomStringConvertibleP", "shouldUploadFiles"]
+- !private ["s23CustomStringConvertibleP", "start"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "update"]
+- !private ["s23CustomStringConvertibleP", "value"]
+- !private ["s23CustomStringConvertibleP", "where"]
+- !private ["s23CustomStringConvertibleP", "whereField"]
+- ["5Pring10DataSourceC", "Query"]
+- ["5Pring8DataTypeO", "collection"]
+- ["5Pring8DataTypeO", "document"]
+- ["5Pring8DataTypeO", "file"]
+- ["5Pring8DataTypeO", "files"]
+- !private ["5Pring8DataTypeO", "init"]
+- ["5Pring8DataTypeO", "reference"]
+- ["5Pring8DataTypeO", "relation"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "contains"]
+- !private ["Se", "enumerated"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "isEmpty"]
+- !private ["Se", "map"]
+- !private ["Se", "subscript"]
+- !private ["5Pring15DeleteContainerC", "error"]
+- !private ["5Pring15DeleteContainerC", "group"]
+- !private ["5Pring15DeleteContainerC", "init"]
+- !private ["5Pring15DeleteContainerC", "wait"]
+- !private ["SD", "subscript"]
+- !private ["So17OS_dispatch_groupC", "enter"]
+- !private ["So17OS_dispatch_groupC", "leave"]
+- !private ["So18OS_dispatch_objectC", "enter"]
+- !private ["So18OS_dispatch_objectC", "leave"]
+- !private ["5Pring8DisposerC", "init"]
+- !private ["5Pring8DisposerC", "init"]
+- ["5Pring8DocumentP", "Bool"]
+- ["5Pring8DocumentP", "CollectionReference"]
+- ["5Pring8DocumentP", "DataSource"]
+- !private ["5Pring8DocumentP", "DataType"]
+- !private ["5Pring8DocumentP", "DeleteContainer"]
+- ["5Pring8DocumentP", "Disposer"]
+- ["5Pring8DocumentP", "DocumentReference"]
+- ["5Pring8DocumentP", "DocumentSnapshot"]
+- ["5Pring8DocumentP", "Error"]
+- ["5Pring8DocumentP", "Int"]
+- ["5Pring8DocumentP", "ListenerRegistration"]
+- !private ["5Pring8DocumentP", "Mirror"]
+- ["5Pring8DocumentP", "Object"]
+- ["5Pring8DocumentP", "Self"]
+- ["5Pring8DocumentP", "StorageReference"]
+- ["5Pring8DocumentP", "StorageUploadTask"]
+- ["5Pring8DocumentP", "String"]
+- ["5Pring8DocumentP", "Timestamp"]
+- !private ["5Pring8DocumentP", "UploadContainer"]
+- ["5Pring8DocumentP", "Void"]
+- !private ["5Pring8DocumentP", "batchID"]
+- ["5Pring8DocumentP", "createdAt"]
+- ["5Pring8DocumentP", "delete"]
+- ["5Pring8DocumentP", "deleteFiles"]
+- ["5Pring8DocumentP", "end"]
+- !private ["5Pring8DocumentP", "fatalError"]
+- ["5Pring8DocumentP", "get"]
+- ["5Pring8DocumentP", "id"]
+- ["5Pring8DocumentP", "ignore"]
+- ["5Pring8DocumentP", "init"]
+- ["5Pring8DocumentP", "isSaved"]
+- ["5Pring8DocumentP", "limit"]
+- ["5Pring8DocumentP", "listen"]
+- ["5Pring8DocumentP", "modelName"]
+- ["5Pring8DocumentP", "modelVersion"]
+- ["5Pring8DocumentP", "order"]
+- ["5Pring8DocumentP", "path"]
+- ["5Pring8DocumentP", "query"]
+- ["5Pring8DocumentP", "rawValue"]
+- ["5Pring8DocumentP", "reference"]
+- ["5Pring8DocumentP", "save"]
+- ["5Pring8DocumentP", "saveFiles"]
+- ["5Pring8DocumentP", "setReference"]
+- ["5Pring8DocumentP", "shouldBeReplicated"]
+- ["5Pring8DocumentP", "shouldUploadFiles"]
+- ["5Pring8DocumentP", "start"]
+- ["5Pring8DocumentP", "storageRef"]
+- ["5Pring8DocumentP", "update"]
+- ["5Pring8DocumentP", "updateValue"]
+- ["5Pring8DocumentP", "updatedAt"]
+- ["5Pring8DocumentP", "value"]
+- ["5Pring8DocumentP", "where"]
+- ["So20FIRDocumentReferenceC", "Document"]
+- !private ["So20FIRDocumentReferenceC", "DocumentSnapshot"]
+- ["So20FIRDocumentReferenceC", "Error"]
+- ["So20FIRDocumentReferenceC", "Void"]
+- !private ["So20FIRDocumentReferenceC", "addSnapshotListener"]
+- ["So20FIRDocumentReferenceC", "get"]
+- !private ["So20FIRDocumentReferenceC", "getDocument"]
+- !private ["So19FIRDocumentSnapshotC", "exists"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "contains"]
+- !private ["SE", "enumerated"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "isEmpty"]
+- !private ["SE", "map"]
+- !private ["SE", "subscript"]
+- ["SQ", "Bool"]
+- ["SQ", "CollectionReference"]
+- ["SQ", "DataSource"]
+- !private ["SQ", "DataType"]
+- !private ["SQ", "DeleteContainer"]
+- ["SQ", "Disposer"]
+- ["SQ", "DocumentReference"]
+- ["SQ", "DocumentSnapshot"]
+- ["SQ", "Error"]
+- ["SQ", "Int"]
+- ["SQ", "ListenerRegistration"]
+- !private ["SQ", "Mirror"]
+- ["SQ", "Object"]
+- ["SQ", "Self"]
+- ["SQ", "StorageReference"]
+- ["SQ", "StorageUploadTask"]
+- ["SQ", "String"]
+- ["SQ", "Timestamp"]
+- !private ["SQ", "UploadContainer"]
+- ["SQ", "Void"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "_kvcKeyPathString"]
+- !private ["SQ", "addSnapshotListener"]
+- !private ["SQ", "batchID"]
+- !private ["SQ", "contains"]
+- !private ["SQ", "delete"]
+- !private ["SQ", "document"]
+- !private ["SQ", "end"]
+- !private ["SQ", "enter"]
+- !private ["SQ", "enumerated"]
+- !private ["SQ", "exists"]
+- !private ["SQ", "fatalError"]
+- !private ["SQ", "getDocument"]
+- !private ["SQ", "ignore"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "isEmpty"]
+- !private ["SQ", "key"]
+- !private ["SQ", "leave"]
+- !private ["SQ", "limit"]
+- !private ["SQ", "listen"]
+- !private ["SQ", "map"]
+- !private ["SQ", "order"]
+- !private ["SQ", "parent"]
+- !private ["SQ", "reference"]
+- !private ["SQ", "save"]
+- !private ["SQ", "saveFiles"]
+- !private ["SQ", "shouldBeSaved"]
+- !private ["SQ", "shouldUploadFiles"]
+- !private ["SQ", "start"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "update"]
+- !private ["SQ", "value"]
+- !private ["SQ", "where"]
+- !private ["SQ", "whereField"]
+- ["s25ExpressibleByArrayLiteralP", "Query"]
+- !private ["s25ExpressibleByArrayLiteralP", "contains"]
+- !private ["s25ExpressibleByArrayLiteralP", "enumerated"]
+- !private ["s25ExpressibleByArrayLiteralP", "isEmpty"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["5Pring4FileC", "delete"]
+- !private ["5Pring4FileC", "key"]
+- !private ["5Pring4FileC", "parent"]
+- !private ["5Pring4FileC", "save"]
+- !private ["5Pring4FileC", "shouldBeSaved"]
+- !private ["5Pring4FileC", "value"]
+- !private ["5Pring9HasParentP", "saveFiles"]
+- !private ["5Pring9HasParentP", "shouldUploadFiles"]
+- ["SH", "Bool"]
+- ["SH", "CollectionReference"]
+- ["SH", "DataSource"]
+- !private ["SH", "DataType"]
+- !private ["SH", "DeleteContainer"]
+- ["SH", "Disposer"]
+- ["SH", "DocumentReference"]
+- ["SH", "DocumentSnapshot"]
+- ["SH", "Error"]
+- ["SH", "Int"]
+- ["SH", "ListenerRegistration"]
+- !private ["SH", "Mirror"]
+- ["SH", "Object"]
+- ["SH", "Self"]
+- ["SH", "StorageReference"]
+- ["SH", "StorageUploadTask"]
+- ["SH", "String"]
+- ["SH", "Timestamp"]
+- !private ["SH", "UploadContainer"]
+- ["SH", "Void"]
+- ["SH", ""]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "_kvcKeyPathString"]
+- !private ["SH", "addSnapshotListener"]
+- !private ["SH", "batchID"]
+- !private ["SH", "contains"]
+- !private ["SH", "delete"]
+- !private ["SH", "document"]
+- !private ["SH", "end"]
+- !private ["SH", "enter"]
+- !private ["SH", "enumerated"]
+- !private ["SH", "exists"]
+- !private ["SH", "fatalError"]
+- !private ["SH", "getDocument"]
+- !private ["SH", "ignore"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "isEmpty"]
+- !private ["SH", "key"]
+- !private ["SH", "leave"]
+- !private ["SH", "limit"]
+- !private ["SH", "listen"]
+- !private ["SH", "map"]
+- !private ["SH", "order"]
+- !private ["SH", "parent"]
+- !private ["SH", "reference"]
+- !private ["SH", "save"]
+- !private ["SH", "saveFiles"]
+- !private ["SH", "shouldBeSaved"]
+- !private ["SH", "shouldUploadFiles"]
+- !private ["SH", "start"]
+- !private ["SH", "subscript"]
+- !private ["SH", "update"]
+- !private ["SH", "value"]
+- !private ["SH", "where"]
+- !private ["SH", "whereField"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s6MirrorV", "children"]
+- !private ["s6MirrorV", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["SM", "contains"]
+- !private ["SM", "enumerated"]
+- !private ["SM", "isEmpty"]
+- !private ["SM", "map"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "DataSource"]
+- !private ["So8NSObjectC", "DataType"]
+- ["So8NSObjectC", "DeleteContainer"]
+- ["So8NSObjectC", "Document"]
+- ["So8NSObjectC", "DocumentSnapshot"]
+- ["So8NSObjectC", "Error"]
+- ["So8NSObjectC", "Int"]
+- !private ["So8NSObjectC", "Mirror"]
+- ["So8NSObjectC", "PartialKeyPath"]
+- ["So8NSObjectC", "Self"]
+- ["So8NSObjectC", "StorageUploadTask"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "UploadContainer"]
+- ["So8NSObjectC", "Void"]
+- !private ["So8NSObjectC", "addSnapshotListener"]
+- !private ["So8NSObjectC", "batchID"]
+- !private ["So8NSObjectC", "delete"]
+- !private ["So8NSObjectC", "document"]
+- !private ["So8NSObjectC", "end"]
+- !private ["So8NSObjectC", "enter"]
+- !private ["So8NSObjectC", "exists"]
+- !private ["So8NSObjectC", "fatalError"]
+- ["So8NSObjectC", "get"]
+- !private ["So8NSObjectC", "getDocument"]
+- !private ["So8NSObjectC", "ignore"]
+- !private ["So8NSObjectC", "key"]
+- !private ["So8NSObjectC", "leave"]
+- !private ["So8NSObjectC", "limit"]
+- !private ["So8NSObjectC", "order"]
+- !private ["So8NSObjectC", "parent"]
+- !private ["So8NSObjectC", "reference"]
+- !private ["So8NSObjectC", "save"]
+- !private ["So8NSObjectC", "saveFiles"]
+- !private ["So8NSObjectC", "shouldBeSaved"]
+- !private ["So8NSObjectC", "shouldUploadFiles"]
+- !private ["So8NSObjectC", "start"]
+- !private ["So8NSObjectC", "update"]
+- !private ["So8NSObjectC", "value"]
+- !private ["So8NSObjectC", "where"]
+- !private ["So8NSObjectC", "whereField"]
+- ["So8NSObjectP", "Bool"]
+- ["So8NSObjectP", "CollectionReference"]
+- ["So8NSObjectP", "DataSource"]
+- !private ["So8NSObjectP", "DataType"]
+- !private ["So8NSObjectP", "DeleteContainer"]
+- ["So8NSObjectP", "Disposer"]
+- ["So8NSObjectP", "DocumentReference"]
+- ["So8NSObjectP", "DocumentSnapshot"]
+- ["So8NSObjectP", "Error"]
+- ["So8NSObjectP", "Int"]
+- ["So8NSObjectP", "ListenerRegistration"]
+- !private ["So8NSObjectP", "Mirror"]
+- ["So8NSObjectP", "Object"]
+- ["So8NSObjectP", "Self"]
+- ["So8NSObjectP", "StorageReference"]
+- ["So8NSObjectP", "StorageUploadTask"]
+- ["So8NSObjectP", "String"]
+- ["So8NSObjectP", "Timestamp"]
+- !private ["So8NSObjectP", "UploadContainer"]
+- ["So8NSObjectP", "Void"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "addSnapshotListener"]
+- !private ["So8NSObjectP", "batchID"]
+- !private ["So8NSObjectP", "delete"]
+- !private ["So8NSObjectP", "document"]
+- !private ["So8NSObjectP", "end"]
+- !private ["So8NSObjectP", "enter"]
+- !private ["So8NSObjectP", "exists"]
+- !private ["So8NSObjectP", "fatalError"]
+- !private ["So8NSObjectP", "getDocument"]
+- !private ["So8NSObjectP", "ignore"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "key"]
+- !private ["So8NSObjectP", "leave"]
+- !private ["So8NSObjectP", "limit"]
+- !private ["So8NSObjectP", "listen"]
+- !private ["So8NSObjectP", "order"]
+- !private ["So8NSObjectP", "parent"]
+- !private ["So8NSObjectP", "reference"]
+- !private ["So8NSObjectP", "save"]
+- !private ["So8NSObjectP", "saveFiles"]
+- !private ["So8NSObjectP", "shouldBeSaved"]
+- !private ["So8NSObjectP", "shouldUploadFiles"]
+- !private ["So8NSObjectP", "start"]
+- !private ["So8NSObjectP", "update"]
+- !private ["So8NSObjectP", "value"]
+- !private ["So8NSObjectP", "where"]
+- !private ["So8NSObjectP", "whereField"]
+- !private ["So9OS_objectC", "enter"]
+- !private ["So9OS_objectC", "leave"]
+- ["5Pring6ObjectC", "Bool"]
+- ["5Pring6ObjectC", "DataSource"]
+- !private ["5Pring6ObjectC", "DataType"]
+- ["5Pring6ObjectC", "DeleteContainer"]
+- ["5Pring6ObjectC", "DocumentSnapshot"]
+- ["5Pring6ObjectC", "Error"]
+- ["5Pring6ObjectC", "Int"]
+- !private ["5Pring6ObjectC", "Mirror"]
+- ["5Pring6ObjectC", "PartialKeyPath"]
+- ["5Pring6ObjectC", "Self"]
+- ["5Pring6ObjectC", "StorageUploadTask"]
+- ["5Pring6ObjectC", "String"]
+- ["5Pring6ObjectC", "UploadContainer"]
+- ["5Pring6ObjectC", "Void"]
+- !private ["5Pring6ObjectC", "batchID"]
+- !private ["5Pring6ObjectC", "deinit"]
+- !private ["5Pring6ObjectC", "fatalError"]
+- !private ["5Pring6ObjectC", "ignore"]
+- !private ["5Pring6ObjectC", "order"]
+- !private ["5Pring6ObjectC", "reference"]
+- !private ["5Pring6ObjectC", "saveFiles"]
+- !private ["5Pring6ObjectC", "shouldUploadFiles"]
+- !private ["5Pring6ObjectC", "update"]
+- !private ["5Pring6ObjectC", "where"]
+- !private ["5Pring8DisposerC11ObserveTypeO", "value"]
+- !private ["s14PartialKeyPathC", "_kvcKeyPathString"]
+- !private ["So8FIRQueryC", "document"]
+- !private ["So8FIRQueryC", "end"]
+- !private ["5Pring10DataSourceC5QueryC", "init"]
+- !private ["So8FIRQueryC", "limit"]
+- !private ["So8FIRQueryC", "order"]
+- !private ["So8FIRQueryC", "start"]
+- !private ["So8FIRQueryC", "whereField"]
+- !private ["Sk", "contains"]
+- !private ["Sk", "enumerated"]
+- !private ["Sk", "isEmpty"]
+- !private ["Sk", "map"]
+- !private ["Sm", "contains"]
+- !private ["Sm", "enumerated"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["Sm", "isEmpty"]
+- !private ["Sm", "map"]
+- !private ["5Pring30ReferenceObservationDisposableP", "init"]
+- !private ["5Pring30ReferenceObservationDisposableP", "init"]
+- ["ST", "Query"]
+- !private ["ST", "contains"]
+- !private ["ST", "enumerated"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["ST", "isEmpty"]
+- !private ["ST", "map"]
+- !private ["ST", "subscript"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- ["5Pring15StorageLinkableP", "Bool"]
+- ["5Pring15StorageLinkableP", "CollectionReference"]
+- ["5Pring15StorageLinkableP", "DataSource"]
+- !private ["5Pring15StorageLinkableP", "DataType"]
+- !private ["5Pring15StorageLinkableP", "DeleteContainer"]
+- ["5Pring15StorageLinkableP", "Disposer"]
+- ["5Pring15StorageLinkableP", "DocumentReference"]
+- ["5Pring15StorageLinkableP", "DocumentSnapshot"]
+- ["5Pring15StorageLinkableP", "Error"]
+- ["5Pring15StorageLinkableP", "Int"]
+- ["5Pring15StorageLinkableP", "ListenerRegistration"]
+- !private ["5Pring15StorageLinkableP", "Mirror"]
+- ["5Pring15StorageLinkableP", "Object"]
+- ["5Pring15StorageLinkableP", "Self"]
+- ["5Pring15StorageLinkableP", "StorageReference"]
+- ["5Pring15StorageLinkableP", "StorageUploadTask"]
+- ["5Pring15StorageLinkableP", "String"]
+- ["5Pring15StorageLinkableP", "Timestamp"]
+- !private ["5Pring15StorageLinkableP", "UploadContainer"]
+- ["5Pring15StorageLinkableP", "Void"]
+- ["5Pring15StorageLinkableP", ""]
+- !private ["5Pring15StorageLinkableP", "batchID"]
+- !private ["5Pring15StorageLinkableP", "fatalError"]
+- !private ["5Pring15StorageLinkableP", "ignore"]
+- !private ["5Pring15StorageLinkableP", "init"]
+- !private ["5Pring15StorageLinkableP", "listen"]
+- !private ["5Pring15StorageLinkableP", "order"]
+- !private ["5Pring15StorageLinkableP", "reference"]
+- !private ["5Pring15StorageLinkableP", "saveFiles"]
+- !private ["5Pring15StorageLinkableP", "shouldUploadFiles"]
+- !private ["5Pring15StorageLinkableP", "update"]
+- !private ["5Pring15StorageLinkableP", "where"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["5Pring15UploadContainerC", "error"]
+- !private ["5Pring15UploadContainerC", "group"]
+- !private ["5Pring15UploadContainerC", "init"]
+- !private ["5Pring15UploadContainerC", "tasks"]
+- !private ["5Pring15UploadContainerC", "wait"]
+- !private ["s22_AnyCollectionProtocolP", "enumerated"]
+- !private ["s14_AppendKeyPathP", "_kvcKeyPathString"]
+- !private ["s24_DestructorSafeContainerP", "contains"]
+- !private ["s24_DestructorSafeContainerP", "enumerated"]
+- !private ["s24_DestructorSafeContainerP", "isEmpty"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "contains"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "enumerated"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "isEmpty"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DataSource"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DataType"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DeleteContainer"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Mirror"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UploadContainer"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addSnapshotListener"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "batchID"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "delete"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "document"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "end"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "enter"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "exists"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fatalError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "getDocument"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "ignore"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "key"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "leave"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "limit"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "order"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "parent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "reference"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "save"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "saveFiles"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shouldBeSaved"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shouldUploadFiles"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "start"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "update"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "value"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "where"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "whereField"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "contains"]
+- !private ["s21_ObjectiveCBridgeableP", "enumerated"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "s13AnyCollectionV"
+- !private "s10AnyKeyPathC"
+- !private "5Pring12AnyReferenceP"
+- !private "5Pring11AnyRelationP"
+- !private "5Pring16AnySubCollectionP"
+- !private "Sa"
+- !private "s13ArrayProtocolP"
+- "5Pring9BatchableP"
+- !private "SK"
+- !private "Sb"
+- !private "s7CVarArgP"
+- "Sl"
+- !private "So22FIRCollectionReferenceC"
+- !private "SL"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- "5Pring10DataSourceC"
+- "5Pring8DataTypeO"
+- !private "Se"
+- !private "5Pring15DeleteContainerC"
+- !private "SD"
+- !private "So17OS_dispatch_groupC"
+- !private "So18OS_dispatch_objectC"
+- !private "5Pring8DisposerC"
+- "5Pring8DocumentP"
+- "So20FIRDocumentReferenceC"
+- !private "So19FIRDocumentSnapshotC"
+- !private "SE"
+- "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "5Pring4FileC"
+- !private "5Pring9HasParentP"
+- "SH"
+- !private "s25LosslessStringConvertibleP"
+- !private "s6MirrorV"
+- !private "s10MirrorPathP"
+- !private "SM"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So9OS_objectC"
+- "5Pring6ObjectC"
+- !private "5Pring8DisposerC11ObserveTypeO"
+- !private "s14PartialKeyPathC"
+- !private "So8FIRQueryC"
+- !private "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- !private "Sk"
+- !private "Sm"
+- !private "5Pring30ReferenceObservationDisposableP"
+- "ST"
+- !private "s12StaticStringV"
+- "5Pring15StorageLinkableP"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "5Pring15UploadContainerC"
+- !private "s22_AnyCollectionProtocolP"
+- !private "s14_AppendKeyPathP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseStorage/FirebaseStorage-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Pring/Pring-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRSnapshotMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRCollectionReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSource.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FirebaseStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentChange.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FirebaseFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldValue.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRWriteBatch.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldPath.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRListenerRegistration.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTransaction.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTimestamp.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSettings.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreErrors.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRGeoPoint.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTaskSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuerySnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuery.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/Pring.build/unextended-module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/FirebaseStorage.build/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/FirebaseFirestore.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "4b914444af24e37a43403a9583985eb0"

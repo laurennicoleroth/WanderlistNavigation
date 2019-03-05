@@ -1,0 +1,199 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ReferenceObservationDisposable"
+- "Disposer"
+- "AnyDisposer"
+- "NoDisposer"
+provides-nominal:
+- "5Pring30ReferenceObservationDisposableP"
+- "5Pring8DisposerC"
+- "5Pring8DisposerC11ObserveTypeO"
+- "5Pring11AnyDisposerC"
+- "5Pring10NoDisposerC"
+provides-member:
+- ["5Pring30ReferenceObservationDisposableP", ""]
+- ["5Pring8DisposerC", ""]
+- ["5Pring8DisposerC11ObserveTypeO", ""]
+- ["5Pring11AnyDisposerC", ""]
+- ["5Pring10NoDisposerC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AnyDisposer"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- "Disposer"
+- "Document"
+- "ListenerRegistration"
+- "NSLock"
+- "NoDisposer"
+- "ReferenceObservationDisposable"
+depends-member:
+- !private ["5Pring11AnyDisposerC", "NoDisposer"]
+- ["5Pring11AnyDisposerC", "ReferenceObservationDisposable"]
+- ["5Pring11AnyDisposerC", "base"]
+- ["5Pring11AnyDisposerC", "deinit"]
+- ["5Pring11AnyDisposerC", "dispose"]
+- ["5Pring11AnyDisposerC", "init"]
+- !private ["5Pring11AnyDisposerC", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "lock"]
+- !private ["s7CVarArgP", "unlock"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "lock"]
+- !private ["s28CustomDebugStringConvertibleP", "unlock"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "lock"]
+- !private ["s23CustomStringConvertibleP", "unlock"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- ["5Pring8DisposerC", "AnyDisposer"]
+- ["5Pring8DisposerC", "ListenerRegistration"]
+- ["5Pring8DisposerC", "NSLock"]
+- ["5Pring8DisposerC", "ObserveType"]
+- ["5Pring8DisposerC", "deinit"]
+- ["5Pring8DisposerC", "dispose"]
+- ["5Pring8DisposerC", "init"]
+- !private ["5Pring8DisposerC", "isDisposed"]
+- !private ["5Pring8DisposerC", "lock"]
+- ["5Pring8DisposerC", "toAny"]
+- !private ["5Pring8DisposerC", "type"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- ["SQ", "init"]
+- !private ["SQ", "lock"]
+- !private ["SQ", "unlock"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- ["SH", "init"]
+- !private ["SH", "lock"]
+- !private ["SH", "unlock"]
+- !private ["So23FIRListenerRegistrationP", "remove"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["So6NSLockC", "init"]
+- !private ["So6NSLockC", "lock"]
+- !private ["So6NSLockC", "unlock"]
+- ["So9NSLockingP", "init"]
+- !private ["So9NSLockingP", "lock"]
+- !private ["So9NSLockingP", "unlock"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "lock"]
+- !private ["So8NSObjectC", "unlock"]
+- ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "lock"]
+- !private ["So8NSObjectP", "remove"]
+- !private ["So8NSObjectP", "unlock"]
+- ["5Pring10NoDisposerC", "deinit"]
+- ["5Pring10NoDisposerC", "dispose"]
+- ["5Pring10NoDisposerC", "init"]
+- ["5Pring8DisposerC11ObserveTypeO", "ListenerRegistration"]
+- ["5Pring8DisposerC11ObserveTypeO", "array"]
+- ["5Pring8DisposerC11ObserveTypeO", "listener"]
+- ["5Pring8DisposerC11ObserveTypeO", "none"]
+- ["5Pring8DisposerC11ObserveTypeO", "value"]
+- ["5Pring30ReferenceObservationDisposableP", "NSLock"]
+- !private ["5Pring30ReferenceObservationDisposableP", "NoDisposer"]
+- ["5Pring30ReferenceObservationDisposableP", ""]
+- !private ["5Pring30ReferenceObservationDisposableP", "base"]
+- ["5Pring30ReferenceObservationDisposableP", "dispose"]
+- !private ["5Pring30ReferenceObservationDisposableP", "init"]
+- !private ["5Pring30ReferenceObservationDisposableP", "init"]
+- !private ["5Pring30ReferenceObservationDisposableP", "isDisposed"]
+- !private ["5Pring30ReferenceObservationDisposableP", "lock"]
+- !private ["5Pring30ReferenceObservationDisposableP", "type"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "lock"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "unlock"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+depends-nominal:
+- "5Pring11AnyDisposerC"
+- !private "Sb"
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "Se"
+- "5Pring8DisposerC"
+- !private "SE"
+- "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "SH"
+- !private "So23FIRListenerRegistrationP"
+- !private "s25LosslessStringConvertibleP"
+- "So6NSLockC"
+- "So9NSLockingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "5Pring10NoDisposerC"
+- "5Pring8DisposerC11ObserveTypeO"
+- "5Pring30ReferenceObservationDisposableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseStorage/FirebaseStorage-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Pring/Pring-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRSnapshotMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRCollectionReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSource.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FirebaseStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentChange.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FirebaseFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldValue.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRWriteBatch.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldPath.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRListenerRegistration.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTransaction.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTimestamp.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSettings.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreErrors.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRGeoPoint.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTaskSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuerySnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuery.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pring.build/unextended-module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/FirebaseFirestore.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "5ae075b9f8a7970850f80c3f15c6c726"

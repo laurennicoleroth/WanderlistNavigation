@@ -1,0 +1,5 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "d60777a3315c65c6a23d7247d5d53075"
+build_time: [1551810042, 275135000]
+inputs:
+  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/AppDelegate.swift": [1551809230, 0]

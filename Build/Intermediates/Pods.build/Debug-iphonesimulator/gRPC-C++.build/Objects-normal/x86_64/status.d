@@ -1,0 +1,8 @@
+dependencies: \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/gRPC-C++/src/cpp/util/status.cc \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/Target\ Support\ Files/gRPC-C++/gRPC-C++-prefix.pch \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/gRPC-C++/include/grpcpp/support/status.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/gRPC-C++/include/grpcpp/impl/codegen/status.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphonesimulator/gRPC-Core/grpc.framework/Headers/impl/codegen/status.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/gRPC-C++/include/grpcpp/impl/codegen/config.h \
+  /Users/laurennicoleroth/Development/Wanderlist/Pods/gRPC-C++/include/grpcpp/impl/codegen/status_code_enum.h

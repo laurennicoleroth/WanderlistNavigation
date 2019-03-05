@@ -1,0 +1,396 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "5Pring10DataSourceC5QueryC"
+provides-member:
+- ["5Pring10DataSourceC", ""]
+- ["5Pring10DataSourceC5QueryC", ""]
+- ["5Pring10DataSourceC", "Query"]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "CollectionReference"
+- "DataSource"
+- "DocumentSnapshot"
+- "FIRQuerySnapshotBlock"
+- "FirebaseFirestore"
+- !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
+- "ListenerRegistration"
+- "NSPredicate"
+- "Options"
+- "PartialKeyPath"
+- "String"
+- !private "StringLiteralType"
+- !private "fatalError"
+depends-member:
+- !private ["s10AnyKeyPathC", "_kvcKeyPathString"]
+- !private ["SK", "init"]
+- !private ["SK", "init"]
+- !private ["s7CVarArgP", "addSnapshotListener"]
+- !private ["s7CVarArgP", "end"]
+- !private ["s7CVarArgP", "filter"]
+- !private ["s7CVarArgP", "getDocuments"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "limit"]
+- !private ["s7CVarArgP", "order"]
+- !private ["s7CVarArgP", "start"]
+- !private ["s7CVarArgP", "whereField"]
+- !private ["Sl", "DataSource"]
+- !private ["Sl", "Options"]
+- !private ["Sl", "Query"]
+- !private ["Sl", "fatalError"]
+- !private ["Sl", "init"]
+- !private ["Sl", "init"]
+- !private ["SL", "init"]
+- !private ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "addSnapshotListener"]
+- !private ["s28CustomDebugStringConvertibleP", "end"]
+- !private ["s28CustomDebugStringConvertibleP", "filter"]
+- !private ["s28CustomDebugStringConvertibleP", "getDocuments"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "limit"]
+- !private ["s28CustomDebugStringConvertibleP", "order"]
+- !private ["s28CustomDebugStringConvertibleP", "start"]
+- !private ["s28CustomDebugStringConvertibleP", "whereField"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "addSnapshotListener"]
+- !private ["s17CustomReflectableP", "end"]
+- !private ["s17CustomReflectableP", "filter"]
+- !private ["s17CustomReflectableP", "getDocuments"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "limit"]
+- !private ["s17CustomReflectableP", "order"]
+- !private ["s17CustomReflectableP", "start"]
+- !private ["s17CustomReflectableP", "whereField"]
+- !private ["s23CustomStringConvertibleP", "addSnapshotListener"]
+- !private ["s23CustomStringConvertibleP", "end"]
+- !private ["s23CustomStringConvertibleP", "filter"]
+- !private ["s23CustomStringConvertibleP", "getDocuments"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "limit"]
+- !private ["s23CustomStringConvertibleP", "order"]
+- !private ["s23CustomStringConvertibleP", "start"]
+- !private ["s23CustomStringConvertibleP", "whereField"]
+- ["5Pring10DataSourceC", "Bool"]
+- ["5Pring10DataSourceC", "CollectionReference"]
+- ["5Pring10DataSourceC", "DataSource"]
+- ["5Pring10DataSourceC", "DocumentSnapshot"]
+- ["5Pring10DataSourceC", "Element"]
+- ["5Pring10DataSourceC", "FIRQuerySnapshotBlock"]
+- ["5Pring10DataSourceC", "FirebaseFirestore"]
+- ["5Pring10DataSourceC", "Int"]
+- ["5Pring10DataSourceC", "ListenerRegistration"]
+- ["5Pring10DataSourceC", "NSPredicate"]
+- ["5Pring10DataSourceC", "Options"]
+- ["5Pring10DataSourceC", "PartialKeyPath"]
+- ["5Pring10DataSourceC", "Query"]
+- ["5Pring10DataSourceC", "String"]
+- !private ["5Pring10DataSourceC", "deinit"]
+- !private ["5Pring10DataSourceC", "fatalError"]
+- !private ["5Pring10DataSourceC", "init"]
+- !private ["Se", "addSnapshotListener"]
+- !private ["Se", "end"]
+- !private ["Se", "filter"]
+- !private ["Se", "getDocuments"]
+- !private ["Se", "init"]
+- !private ["Se", "init"]
+- !private ["Se", "limit"]
+- !private ["Se", "order"]
+- !private ["Se", "start"]
+- !private ["Se", "whereField"]
+- !private ["SE", "addSnapshotListener"]
+- !private ["SE", "end"]
+- !private ["SE", "filter"]
+- !private ["SE", "getDocuments"]
+- !private ["SE", "init"]
+- !private ["SE", "init"]
+- !private ["SE", "limit"]
+- !private ["SE", "order"]
+- !private ["SE", "start"]
+- !private ["SE", "whereField"]
+- !private ["SQ", "_kvcKeyPathString"]
+- !private ["SQ", "addSnapshotListener"]
+- !private ["SQ", "end"]
+- !private ["SQ", "filter"]
+- !private ["SQ", "getDocuments"]
+- !private ["SQ", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "limit"]
+- !private ["SQ", "order"]
+- !private ["SQ", "start"]
+- !private ["SQ", "whereField"]
+- !private ["s25ExpressibleByArrayLiteralP", "DataSource"]
+- !private ["s25ExpressibleByArrayLiteralP", "Options"]
+- !private ["s25ExpressibleByArrayLiteralP", "Query"]
+- !private ["s25ExpressibleByArrayLiteralP", "fatalError"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s23ExpressibleByNilLiteralP", "addSnapshotListener"]
+- !private ["s23ExpressibleByNilLiteralP", "end"]
+- !private ["s23ExpressibleByNilLiteralP", "filter"]
+- !private ["s23ExpressibleByNilLiteralP", "getDocuments"]
+- !private ["s23ExpressibleByNilLiteralP", "limit"]
+- !private ["s23ExpressibleByNilLiteralP", "order"]
+- !private ["s23ExpressibleByNilLiteralP", "start"]
+- !private ["s23ExpressibleByNilLiteralP", "whereField"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "_kvcKeyPathString"]
+- !private ["SH", "addSnapshotListener"]
+- !private ["SH", "end"]
+- !private ["SH", "filter"]
+- !private ["SH", "getDocuments"]
+- !private ["SH", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "limit"]
+- !private ["SH", "order"]
+- !private ["SH", "start"]
+- !private ["SH", "whereField"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["So8NSObjectC", "addSnapshotListener"]
+- !private ["So8NSObjectC", "end"]
+- !private ["So8NSObjectC", "filter"]
+- !private ["So8NSObjectC", "getDocuments"]
+- !private ["So8NSObjectC", "limit"]
+- !private ["So8NSObjectC", "order"]
+- !private ["So8NSObjectC", "start"]
+- !private ["So8NSObjectC", "whereField"]
+- !private ["So8NSObjectP", "addSnapshotListener"]
+- !private ["So8NSObjectP", "end"]
+- !private ["So8NSObjectP", "filter"]
+- !private ["So8NSObjectP", "getDocuments"]
+- !private ["So8NSObjectP", "limit"]
+- !private ["So8NSObjectP", "order"]
+- !private ["So8NSObjectP", "start"]
+- !private ["So8NSObjectP", "whereField"]
+- !private ["Sq", "addSnapshotListener"]
+- !private ["Sq", "end"]
+- !private ["Sq", "filter"]
+- !private ["Sq", "getDocuments"]
+- !private ["Sq", "limit"]
+- !private ["Sq", "order"]
+- !private ["Sq", "start"]
+- !private ["Sq", "whereField"]
+- !private ["5Pring7OptionsC", "init"]
+- !private ["s14PartialKeyPathC", "_kvcKeyPathString"]
+- ["5Pring10DataSourceC5QueryC", "Bool"]
+- ["5Pring10DataSourceC5QueryC", "CollectionReference"]
+- ["5Pring10DataSourceC5QueryC", "DataSource"]
+- ["5Pring10DataSourceC5QueryC", "DocumentSnapshot"]
+- ["5Pring10DataSourceC5QueryC", "Element"]
+- ["5Pring10DataSourceC5QueryC", "FIRQuerySnapshotBlock"]
+- ["5Pring10DataSourceC5QueryC", "FirebaseFirestore"]
+- ["5Pring10DataSourceC5QueryC", "Int"]
+- ["5Pring10DataSourceC5QueryC", "ListenerRegistration"]
+- ["5Pring10DataSourceC5QueryC", "NSPredicate"]
+- ["5Pring10DataSourceC5QueryC", "Options"]
+- ["5Pring10DataSourceC5QueryC", "PartialKeyPath"]
+- ["5Pring10DataSourceC5QueryC", "Query"]
+- ["5Pring10DataSourceC5QueryC", "String"]
+- !private ["So8FIRQueryC", "addSnapshotListener"]
+- ["5Pring10DataSourceC5QueryC", "dataSource"]
+- ["5Pring10DataSourceC5QueryC", "end"]
+- !private ["So8FIRQueryC", "end"]
+- !private ["5Pring10DataSourceC5QueryC", "fatalError"]
+- ["5Pring10DataSourceC5QueryC", "filter"]
+- !private ["So8FIRQueryC", "filter"]
+- ["5Pring10DataSourceC5QueryC", "get"]
+- !private ["So8FIRQueryC", "getDocuments"]
+- ["5Pring10DataSourceC5QueryC", "hasRealities"]
+- ["5Pring10DataSourceC5QueryC", "init"]
+- ["5Pring10DataSourceC5QueryC", "limit"]
+- !private ["So8FIRQueryC", "limit"]
+- ["5Pring10DataSourceC5QueryC", "listen"]
+- ["5Pring10DataSourceC5QueryC", "order"]
+- !private ["So8FIRQueryC", "order"]
+- ["5Pring10DataSourceC5QueryC", "query"]
+- ["5Pring10DataSourceC5QueryC", "reference"]
+- ["5Pring10DataSourceC5QueryC", "start"]
+- !private ["So8FIRQueryC", "start"]
+- ["5Pring10DataSourceC5QueryC", "where"]
+- !private ["So8FIRQueryC", "whereField"]
+- !private ["Sm", "init"]
+- !private ["Sm", "init"]
+- !private ["ST", "DataSource"]
+- !private ["ST", "Options"]
+- !private ["ST", "Query"]
+- !private ["ST", "fatalError"]
+- !private ["ST", "init"]
+- !private ["ST", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["SS", "init"]
+- !private ["SS", "init"]
+- !private ["Sy", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s14_AppendKeyPathP", "_kvcKeyPathString"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addSnapshotListener"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "end"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "filter"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "getDocuments"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "limit"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "order"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "start"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "whereField"]
+- !private ["s21_ObjectiveCBridgeableP", "addSnapshotListener"]
+- !private ["s21_ObjectiveCBridgeableP", "end"]
+- !private ["s21_ObjectiveCBridgeableP", "filter"]
+- !private ["s21_ObjectiveCBridgeableP", "getDocuments"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "limit"]
+- !private ["s21_ObjectiveCBridgeableP", "order"]
+- !private ["s21_ObjectiveCBridgeableP", "start"]
+- !private ["s21_ObjectiveCBridgeableP", "whereField"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "s10AnyKeyPathC"
+- !private "SK"
+- !private "s7CVarArgP"
+- !private "Sl"
+- !private "SL"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- "5Pring10DataSourceC"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SH"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "Sq"
+- !private "5Pring7OptionsC"
+- !private "s14PartialKeyPathC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- "5Pring10DataSourceC5QueryC"
+- !private "So8FIRQueryC"
+- !private "Sm"
+- !private "ST"
+- !private "s12StaticStringV"
+- !private "SS"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s14_AppendKeyPathP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseStorage/FirebaseStorage-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/FirebaseFirestore/FirebaseFirestore-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/Pring/Pring-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRSnapshotMetadata.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRCollectionReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentReference.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSource.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FirebaseStorage.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentChange.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FirebaseFirestore.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldValue.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRWriteBatch.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFieldPath.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRListenerRegistration.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTransaction.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRTimestamp.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreSettings.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRFirestoreErrors.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRGeoPoint.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTaskSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRDocumentSnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuerySnapshot.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseFirestore/Firestore/Source/Public/FIRQuery.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pring.build/unextended-module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphonesimulator/FirebaseFirestore.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "954b60338bbcc4cbc1ddd3b62ffb613f"
