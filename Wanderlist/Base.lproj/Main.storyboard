@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--CREATE-->
+        <!--View Controller-->
         <scene sceneID="4U2-MS-L2M">
             <objects>
                 <viewController id="wKe-lz-hRq" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wGP-ae-bdg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="CREATE" image="add-circle-outline" id="8PJ-lo-mYZ"/>
+                    <navigationItem key="navigationItem" id="OMH-W0-u6U"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRj-C8-Lg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="770"/>
+            <point key="canvasLocation" x="54" y="1538"/>
         </scene>
-        <!--SEARCH-->
+        <!--View Controller-->
         <scene sceneID="5mW-9J-kSx">
             <objects>
                 <viewController id="lai-7A-pMq" sceneMemberID="viewController">
@@ -36,31 +36,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="49z-ss-xon"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SEARCH" image="search" id="hkB-JB-4l9"/>
+                    <navigationItem key="navigationItem" id="beG-k0-9bf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARw-2z-RmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1004" y="770"/>
+            <point key="canvasLocation" x="-831" y="1476"/>
         </scene>
-        <!--HOME-->
+        <!--Explore Map View Controller-->
         <scene sceneID="KpN-0W-ta5">
             <objects>
-                <viewController id="3kE-Js-y1L" sceneMemberID="viewController">
+                <viewController id="3kE-Js-y1L" customClass="ExploreMapViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VG-AZ-bXL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="IEI-O7-1sh">
-                        <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="cE7-I2-x70"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1682" y="771"/>
+            <point key="canvasLocation" x="-1682" y="1491"/>
         </scene>
-        <!--ME-->
+        <!--View Controller-->
         <scene sceneID="bUc-cb-sER">
             <objects>
                 <viewController id="cPF-O2-uPf" sceneMemberID="viewController">
@@ -70,11 +68,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="byf-pl-4wf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ME" image="person-outline" id="kGT-UX-ftW"/>
+                    <navigationItem key="navigationItem" id="HDw-d2-s7g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVR-ug-3QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="789"/>
+            <point key="canvasLocation" x="969" y="1538"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b3t-mD-hzs">
@@ -85,24 +83,102 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="3kE-Js-y1L" kind="relationship" relationship="viewControllers" id="6oo-HR-hrc"/>
-                        <segue destination="lai-7A-pMq" kind="relationship" relationship="viewControllers" id="Fap-2E-mVE"/>
-                        <segue destination="wKe-lz-hRq" kind="relationship" relationship="viewControllers" id="lp0-6c-CKO"/>
-                        <segue destination="cPF-O2-uPf" kind="relationship" relationship="viewControllers" id="ats-kp-LmO"/>
+                        <segue destination="oze-Hn-NEr" kind="relationship" relationship="viewControllers" id="6oo-HR-hrc"/>
+                        <segue destination="Y9I-hP-AXO" kind="relationship" relationship="viewControllers" id="Fap-2E-mVE"/>
+                        <segue destination="HLI-0D-RBF" kind="relationship" relationship="viewControllers" id="lp0-6c-CKO"/>
+                        <segue destination="xSr-Mb-mLh" kind="relationship" relationship="viewControllers" id="ats-kp-LmO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyS-ad-Lny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-684" y="-29"/>
         </scene>
+        <!--EXPLORE-->
+        <scene sceneID="LKf-cQ-KHh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xzv-hx-01e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oze-Hn-NEr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="EXPLORE" image="explore" id="IEI-O7-1sh">
+                        <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1x2-Wx-JSe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3kE-Js-y1L" kind="relationship" relationship="rootViewController" id="9F1-j8-GW3"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1682.4000000000001" y="770.46476761619192"/>
+        </scene>
+        <!--SEARCH-->
+        <scene sceneID="r0U-04-yKC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y9I-hP-AXO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="SEARCH" image="search" id="hkB-JB-4l9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RBY-W5-Ri3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lai-7A-pMq" kind="relationship" relationship="rootViewController" id="4FU-Sd-UGH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpw-Xv-VSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-831" y="770"/>
+        </scene>
+        <!--CREATE-->
+        <scene sceneID="DTs-9z-S7T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLI-0D-RBF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CREATE" image="add-circle-outline" id="8PJ-lo-mYZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a4X-hH-qm2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wKe-lz-hRq" kind="relationship" relationship="rootViewController" id="ABA-8L-cLC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ge5-ax-fAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="770"/>
+        </scene>
+        <!--ME-->
+        <scene sceneID="qf5-bV-YO6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xSr-Mb-mLh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ME" image="person-outline" id="kGT-UX-ftW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UFg-tp-ua0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cPF-O2-uPf" kind="relationship" relationship="rootViewController" id="fwu-vp-aKq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtg-Ke-wyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="769.56521739130437"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add-circle-outline" width="20" height="20"/>
-        <image name="home" width="20" height="18"/>
+        <image name="explore" width="20" height="20"/>
         <image name="person-outline" width="16" height="16"/>
         <image name="search" width="18" height="18"/>
     </resources>

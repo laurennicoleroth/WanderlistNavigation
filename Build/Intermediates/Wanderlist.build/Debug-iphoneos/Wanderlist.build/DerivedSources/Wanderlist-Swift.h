@@ -199,8 +199,8 @@ SWIFT_CLASS("_TtC10Wanderlist11AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC10Wanderlist14ViewController")
-@interface ViewController : UIViewController
+SWIFT_CLASS("_TtC10Wanderlist24ExploreMapViewController")
+@interface ExploreMapViewController : UIViewController
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
