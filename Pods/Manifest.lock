@@ -141,6 +141,9 @@ PODS:
     - Firebase/Storage
   - Protobuf (3.6.1)
   - Solar (2.1.0)
+  - SwiftLocation (3.2.3):
+    - SwiftyJSON (~> 4.0.0-alpha.1)
+  - SwiftyJSON (4.0.0)
   - Turf (0.3.0)
 
 DEPENDENCIES:
@@ -151,6 +154,7 @@ DEPENDENCIES:
   - Mapbox-iOS-SDK
   - MapboxNavigation
   - Pring
+  - SwiftLocation (~> 3.2.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -186,6 +190,8 @@ SPEC REPOS:
     - Pring
     - Protobuf
     - Solar
+    - SwiftLocation
+    - SwiftyJSON
     - Turf
 
 SPEC CHECKSUMS:
@@ -221,8 +227,10 @@ SPEC CHECKSUMS:
   Pring: 934abdeba2797a6b1b4fb94212c7d881291d46be
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
+  SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 47ace078481fa74ac0da552ebcf565530f0f5551
+PODFILE CHECKSUM: 487f0dd75c6c03c5753c1e152738f24ef86c403b
 
 COCOAPODS: 1.6.0.beta.1
