@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="812" y="740"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="KpN-0W-ta5">
             <objects>
                 <viewController id="3kE-Js-y1L" sceneMemberID="viewController">
@@ -52,13 +52,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="IEI-O7-1sh"/>
+                    <tabBarItem key="tabBarItem" title="" id="IEI-O7-1sh">
+                        <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1681" y="723"/>
+            <point key="canvasLocation" x="-1682" y="771"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="bUc-cb-sER">
             <objects>
                 <viewController id="cPF-O2-uPf" sceneMemberID="viewController">
@@ -68,11 +70,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="byf-pl-4wf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="" id="kGT-UX-ftW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVR-ug-3QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="752"/>
+            <point key="canvasLocation" x="-930" y="771"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b3t-mD-hzs">
@@ -82,11 +84,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="3kE-Js-y1L" kind="relationship" relationship="viewControllers" id="6oo-HR-hrc"/>
                         <segue destination="lai-7A-pMq" kind="relationship" relationship="viewControllers" id="Fap-2E-mVE"/>
                         <segue destination="wKe-lz-hRq" kind="relationship" relationship="viewControllers" id="lp0-6c-CKO"/>
-                        <segue destination="3kE-Js-y1L" kind="relationship" relationship="viewControllers" id="6oo-HR-hrc"/>
                         <segue destination="cPF-O2-uPf" kind="relationship" relationship="viewControllers" id="ats-kp-LmO"/>
                     </connections>
                 </tabBarController>
