@@ -10,6 +10,7 @@ target 'Wanderlist' do
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
   pod 'GooglePlaces'
+  pod 'InstantSearch', '~> 3.0'
 
   target 'WanderlistTests' do
     inherit! :search_paths

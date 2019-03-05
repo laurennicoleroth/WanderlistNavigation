@@ -89,4 +89,108 @@ class Wanderspot: Object {
       }
       completion(newWanderspot)
     }
+  }
+  
+  class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
+    let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
+    let index = client.index(withName: "wanderspot_search")
+    wanderspot.wanderlistOwnerIDs.append(wanderlistID)
+    print("Saving spot to algolia: ", wanderspot)
+    let wanderspotJSON : [String: Any] = [
+      "wanderlistOwnerIDs": wanderspot.wanderlistOwnerIDs.joined(separator: ", "),
+      "name": wanderspot.name as! String,
+      "creatorID": wanderspot.creatorID as! String,
+      "address": wanderspot.address as! String,
+      "latitude": wanderspot.latitude as! Double,
+      "longitude": wanderspot.longitude as! Double,
+      "placeID": wanderspot.placeID as! String,
+      "distanceAway": wanderspot.distanceAway as! Double,
+      "categories": wanderspot.categories.joined(separator: ", ") as! String,
+      "sundayHours": wanderspot.sundayHours as! String,
+      "mondayHours": wanderspot.mondayHours as! String,
+      "tuesdayHours": wanderspot.tuesdayHours as! String,
+      "wednesdayHours": wanderspot.wednesdayHours as! String,
+      "thursdayHours": wanderspot.thursdayHours as! String,
+      "fridayHours": wanderspot.fridayHours as! String,
+      "saturdayHours": wanderspot.saturdayHours as! String,
+      "city": wanderspot.city as! String,
+      "zipcode": wanderspot.zipcode as! String
+    ]
+    
+    print("Spot json: ", wanderspotJSON)
+    
+    index.addObject(wanderspotJSON, completionHandler: { (content, error) -> Void in
+      if error == nil {
+        
+      } else {
+        print("Error indexing")
+      }
+    })
+  }
+  
+  class func saveToFirestore(wanderspot: Wanderspot, completion: @escaping (DocumentReference?) -> ()) {
+    wanderspot.save { (wanderspotRef, error) in
+      if error != nil {
+        print("Something went wrong saving the wanderspot", error)
+      }
+      completion(wanderspotRef)
+    }
+  }
+  
+  class func getPhotoFor(_ placeID: String, completion: @escaping (UIImage?) -> Void ) {
+    // Specify the place data types to return (just photos).
+    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
+    let placesClient = GMSPlacesClient()
+    placesClient.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil, callback:
+      { (place: GMSPlace?, error: Error?) in
+        if let error = error {
+          // TODO: Handle the error.
+          print("An error occurred: \(error.localizedDescription)")
+          return
+        }
+        if let place = place {
+          if place.photos?[0] != nil {
+            let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
+            
+            placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+              if let error = error {
+                print("Error loading photo metadata: \(error.localizedDescription)")
+                return
+              } else {
+                completion(photo)
+              }
+            })
+          } else {
+            completion(UIImage(named: "wanderlist-8"))
+          }
+        }
+    })
+  }
+  
+  func getHoursForTodayFor(_ wanderspot: Wanderspot) -> String? {
+    
+    let date = Date()
+    let calendar = Calendar.current
+    let dayOfWeek = calendar.component(.weekday, from: date)
+    
+    switch dayOfWeek {
+    case 0:
+      return wanderspot.saturdayHours
+    case 1:
+      return wanderspot.sundayHours
+    case 2:
+      return wanderspot.mondayHours
+    case 3:
+      return wanderspot.tuesdayHours
+    case 4:
+      return wanderspot.wednesdayHours
+    case 5:
+      return wanderspot.thursdayHours
+    case 6:
+      return wanderspot.fridayHours
+    default:
+      return "No hours"
+    }
+  }
 }
+

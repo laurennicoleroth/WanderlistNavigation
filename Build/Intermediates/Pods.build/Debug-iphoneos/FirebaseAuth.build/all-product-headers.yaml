@@ -675,6 +675,87 @@
     },
     {
       'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "InstantSearch-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Headers/InstantSearch-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "InstantSearch-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/InstantSearch/InstantSearch-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/InstantSearch.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "InstantSearchClient-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Headers/InstantSearchClient-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "InstantSearchClient-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/InstantSearchClient/InstantSearchClient-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/InstantSearchClient.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "InstantSearchCore-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Headers/InstantSearchCore-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "InstantSearchCore-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/InstantSearchCore/InstantSearchCore-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/InstantSearchCore.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
       'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/MapboxCoreNavigation/MapboxCoreNavigation.framework/Headers",
       'contents': [
         {
