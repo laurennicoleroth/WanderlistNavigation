@@ -9,16 +9,23 @@
 import UIKit
 import CoreData
 import Firebase
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    setupDependencies()
+    
     return true
+  }
+  
+  func setupDependencies() {
+    FirebaseApp.configure()
+    GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

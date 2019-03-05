@@ -31,8 +31,6 @@ class WanderlistMapboxMap : MGLMapView {
   }
   
   func zoomToWanderlistWithMapPreview(wanderlist: Wanderlist?) {
-    
-    
     if let latitude = wanderlist?.latitude, let longitude = wanderlist?.longitude {
       let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       self.setCenter(coordinate, zoomLevel: 14, animated: true)

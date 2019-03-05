@@ -57,11 +57,36 @@
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="jQl-z1-hcZ"/>
                                 </connections>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-wN-XRw" customClass="WanderlistCollectionView">
+                                <rect key="frame" x="0.0" y="368" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="p8h-2p-C2K"/>
+                                </constraints>
+                                <collectionViewLayout key="collectionViewLayout" id="tP2-iS-9QC" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderlistCollectionViewCell" id="RFr-co-Y9z" customClass="WanderlistCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="3kE-Js-y1L" id="ltb-hi-PEg"/>
+                                    <outlet property="delegate" destination="3kE-Js-y1L" id="JhM-YY-fis"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="YjQ-wN-XRw" secondAttribute="bottom" id="5qe-Ah-bFX"/>
                             <constraint firstItem="tYE-DT-STA" firstAttribute="trailing" secondItem="Cbs-0n-sIn" secondAttribute="trailing" id="9UM-Wa-QmT"/>
                             <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="Cbs-0n-sIn" secondAttribute="bottom" id="VsQ-LY-GO7"/>
+                            <constraint firstItem="YjQ-wN-XRw" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="Wr1-QA-dDg"/>
+                            <constraint firstAttribute="trailing" secondItem="YjQ-wN-XRw" secondAttribute="trailing" id="byf-SN-M1N"/>
                             <constraint firstItem="Cbs-0n-sIn" firstAttribute="top" secondItem="tYE-DT-STA" secondAttribute="top" id="lzy-Qr-M3f"/>
                             <constraint firstItem="Cbs-0n-sIn" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="tfs-AL-4oW"/>
                         </constraints>
@@ -70,6 +95,7 @@
                     <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
                     <connections>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
+                        <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
