@@ -18,10 +18,18 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var wanderlistCollectionView: UICollectionView!
   
   var wanderlists = [Wanderlist]()
+  var currentLocation : CLLocation?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "WANDERLY"
+    
+    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+      self.currentLocation = location
+    }) { (error, location) -> (Void) in
+      print("Failed to get location: ", error)
+    }
+    
     setupMapUI()
     searchWanderlistsWithQueryAndCurrentLocation(query: "")
     setupCollectionUI()
@@ -41,7 +49,7 @@ class ExploreMapViewController: UIViewController {
     wanderlistCollectionView.showsHorizontalScrollIndicator = false
     if let layout = wanderlistCollectionView.collectionViewLayout as? MMBannerLayout {
       layout.itemSpace = 10
-      layout.itemSize = self.wanderlistCollectionView.frame.insetBy(dx: 40, dy: 40).size
+      layout.itemSize = self.wanderlistCollectionView.frame.insetBy(dx: 30, dy: 30).size
       layout.minimuAlpha = 0.4
       layout.angle = 30.0
     }
@@ -114,7 +122,9 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 }
 
 extension ExploreMapViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    mapView.drawWanderlistPathForWanderlist(wanderlist: wanderlists[indexPath.row])
+  }
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource {
@@ -126,11 +136,22 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     let wanderlist = wanderlists[indexPath.row]
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
     cell.configureCellFrom(wanderlist: wanderlist)
+    
+    if let origin = currentLocation {
+      cell.categoriesLabel.text = "\(wanderlist.distanceFromUserAt(origin: origin)) away"
+    }
     cell.backgroundColor = .white
     return cell
   }
 
 }
 
+extension ExploreMapViewController: BannerLayoutDelegate {
+  func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
+    let wanderlist = wanderlists[indexPath.row]
+    
+    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlists[indexPath.row])
+  }
+}
 
 
