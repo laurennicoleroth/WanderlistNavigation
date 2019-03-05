@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create-->
+        <!--CREATE-->
         <scene sceneID="4U2-MS-L2M">
             <objects>
                 <viewController id="wKe-lz-hRq" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wGP-ae-bdg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Create" id="8PJ-lo-mYZ"/>
+                    <tabBarItem key="tabBarItem" title="CREATE" image="add-circle-outline" id="8PJ-lo-mYZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRj-C8-Lg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="770"/>
         </scene>
-        <!--Search-->
+        <!--SEARCH-->
         <scene sceneID="5mW-9J-kSx">
             <objects>
                 <viewController id="lai-7A-pMq" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="49z-ss-xon"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="hkB-JB-4l9"/>
+                    <tabBarItem key="tabBarItem" title="SEARCH" image="search" id="hkB-JB-4l9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARw-2z-RmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="-1682" y="771"/>
         </scene>
-        <!--Me-->
+        <!--ME-->
         <scene sceneID="bUc-cb-sER">
             <objects>
                 <viewController id="cPF-O2-uPf" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="byf-pl-4wf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="ME" image="person-outline" id="kGT-UX-ftW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVR-ug-3QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,6 +101,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-circle-outline" width="20" height="20"/>
         <image name="home" width="20" height="18"/>
+        <image name="person-outline" width="16" height="16"/>
+        <image name="search" width="18" height="18"/>
     </resources>
 </document>
