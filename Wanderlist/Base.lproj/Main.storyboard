@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Create-->
         <scene sceneID="4U2-MS-L2M">
             <objects>
                 <viewController id="wKe-lz-hRq" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wGP-ae-bdg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8PJ-lo-mYZ"/>
+                    <tabBarItem key="tabBarItem" title="Create" id="8PJ-lo-mYZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRj-C8-Lg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-73" y="740"/>
+            <point key="canvasLocation" x="-270" y="770"/>
         </scene>
-        <!--Item 1-->
+        <!--Search-->
         <scene sceneID="5mW-9J-kSx">
             <objects>
                 <viewController id="lai-7A-pMq" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="49z-ss-xon"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hkB-JB-4l9"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="hkB-JB-4l9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARw-2z-RmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="740"/>
+            <point key="canvasLocation" x="-1004" y="770"/>
         </scene>
-        <!--View Controller-->
+        <!--HOME-->
         <scene sceneID="KpN-0W-ta5">
             <objects>
                 <viewController id="3kE-Js-y1L" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="IEI-O7-1sh">
+                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="IEI-O7-1sh">
                         <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                 </viewController>
@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="-1682" y="771"/>
         </scene>
-        <!--View Controller-->
+        <!--Me-->
         <scene sceneID="bUc-cb-sER">
             <objects>
                 <viewController id="cPF-O2-uPf" sceneMemberID="viewController">
@@ -70,21 +70,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="byf-pl-4wf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="Me" id="kGT-UX-ftW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVR-ug-3QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-930" y="771"/>
+            <point key="canvasLocation" x="409" y="789"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b3t-mD-hzs">
             <objects>
                 <tabBarController id="r2X-8d-xeR" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OJW-YO-Nob">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="OJW-YO-Nob">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="3kE-Js-y1L" kind="relationship" relationship="viewControllers" id="6oo-HR-hrc"/>
@@ -98,4 +100,7 @@
             <point key="canvasLocation" x="-684" y="-29"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="20" height="18"/>
+    </resources>
 </document>
