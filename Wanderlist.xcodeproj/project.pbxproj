@@ -20,6 +20,7 @@
 		96935507222F17F400752858 /* Wanderspot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96935506222F17F400752858 /* Wanderspot.swift */; };
 		96935509222F1AFF00752858 /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96935508222F1AFF00752858 /* secret.swift */; };
 		9693550C222F1B6B00752858 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693550B222F1B6B00752858 /* AuthService.swift */; };
+		9693550E222F1BC000752858 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693550D222F1BC000752858 /* ArrayExt.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		96935506222F17F400752858 /* Wanderspot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wanderspot.swift; sourceTree = "<group>"; };
 		96935508222F1AFF00752858 /* secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secret.swift; sourceTree = "<group>"; };
 		9693550B222F1B6B00752858 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9693550D222F1BC000752858 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				96935508222F1AFF00752858 /* secret.swift */,
 				9693550B222F1B6B00752858 /* AuthService.swift */,
+				9693550D222F1BC000752858 /* ArrayExt.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			files = (
 				969354FE222F151000752858 /* ExploreMapViewController.swift in Sources */,
 				969354E0222EF1B400752858 /* Wanderlist.xcdatamodeld in Sources */,
+				9693550E222F1BC000752858 /* ArrayExt.swift in Sources */,
 				96935509222F1AFF00752858 /* secret.swift in Sources */,
 				96935507222F17F400752858 /* Wanderspot.swift in Sources */,
 				96935500222F174500752858 /* WanderlistMapboxMap.swift in Sources */,

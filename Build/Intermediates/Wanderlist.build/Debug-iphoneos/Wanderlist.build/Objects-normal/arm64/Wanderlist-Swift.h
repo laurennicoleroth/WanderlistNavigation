@@ -163,6 +163,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import CoreGraphics;
+@import CoreLocation;
+@import Foundation;
+@import Mapbox;
+@import Pring;
 @import UIKit;
 #endif
 
@@ -196,14 +201,90 @@ SWIFT_CLASS("_TtC10Wanderlist11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class WanderlistMapboxMap;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC10Wanderlist24ExploreMapViewController")
 @interface ExploreMapViewController : UIViewController
+@property (nonatomic, strong) IBOutlet WanderlistMapboxMap * _Null_unspecified mapView;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MGLMapView;
+@protocol MGLAnnotation;
+@class MGLAnnotationView;
+
+@interface ExploreMapViewController (SWIFT_EXTENSION(Wanderlist)) <MGLMapViewDelegate>
+- (MGLAnnotationView * _Nullable)mapView:(MGLMapView * _Nonnull)mapView viewForAnnotation:(id <MGLAnnotation> _Nonnull)annotation SWIFT_WARN_UNUSED_RESULT;
+- (void)mapView:(MGLMapView * _Nonnull)mapView didSelectAnnotation:(id <MGLAnnotation> _Nonnull)annotation;
+- (BOOL)mapView:(MGLMapView * _Nonnull)mapView annotationCanShowCallout:(id <MGLAnnotation> _Nonnull)annotation SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class CLLocation;
+@class Wanderspot;
+@class UIImage;
+
+SWIFT_CLASS("_TtC10Wanderlist10Wanderlist")
+@interface Wanderlist : Object
+@property (nonatomic, copy) NSString * _Nullable objectID;
+@property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, copy) NSString * _Nullable about;
+@property (nonatomic, copy) NSString * _Nullable creatorID;
+@property (nonatomic, copy) NSString * _Nullable city;
+@property (nonatomic, copy) NSString * _Nullable zipcode;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable categories;
+@property (nonatomic) NSInteger spotsCount;
+- (CLLocationDistance)distanceFromUserAtOrigin:(CLLocation * _Nonnull)origin SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json OBJC_DESIGNATED_INITIALIZER;
+- (Wanderlist * _Nonnull)initializeWithDataWithTitle:(NSString * _Nonnull)title about:(NSString * _Nonnull)about wanderspots:(NSArray<Wanderspot *> * _Nonnull)wanderspots SWIFT_WARN_UNUSED_RESULT;
++ (void)addWanderlistToAlgoliaWithWanderlist:(Wanderlist * _Nonnull)wanderlist;
+- (void)getOrderedByTitle;
+- (void)getPhotoFor:(Wanderlist * _Nonnull)wanderlist completion:(void (^ _Nonnull)(UIImage * _Nullable))completion;
+@end
+
+
+SWIFT_CLASS("_TtC10Wanderlist19WanderlistMapboxMap")
+@interface WanderlistMapboxMap : MGLMapView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame styleURL:(NSURL * _Nullable)styleURL OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class File;
+@class FIRDocumentReference;
+
+SWIFT_CLASS("_TtC10Wanderlist10Wanderspot")
+@interface Wanderspot : Object
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull wanderlistOwnerIDs;
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic, strong) File * _Nullable imageFile;
+@property (nonatomic, copy) NSString * _Nonnull creatorID;
+@property (nonatomic, copy) NSString * _Nonnull address;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, copy) NSString * _Nonnull placeID;
+@property (nonatomic) double distanceAway;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull categories;
+@property (nonatomic, copy) NSString * _Nonnull sundayHours;
+@property (nonatomic, copy) NSString * _Nonnull mondayHours;
+@property (nonatomic, copy) NSString * _Nonnull tuesdayHours;
+@property (nonatomic, copy) NSString * _Nonnull wednesdayHours;
+@property (nonatomic, copy) NSString * _Nonnull thursdayHours;
+@property (nonatomic, copy) NSString * _Nonnull fridayHours;
+@property (nonatomic, copy) NSString * _Nonnull saturdayHours;
+@property (nonatomic, copy) NSString * _Nonnull city;
+@property (nonatomic, copy) NSString * _Nullable zipcode;
++ (void)saveToAlgoliaWithWanderlistID:(NSString * _Nonnull)wanderlistID wanderspot:(Wanderspot * _Nonnull)wanderspot;
++ (void)saveToFirestoreWithWanderspot:(Wanderspot * _Nonnull)wanderspot completion:(void (^ _Nonnull)(FIRDocumentReference * _Nullable))completion;
++ (void)getPhotoFor:(NSString * _Nonnull)placeID completion:(void (^ _Nonnull)(UIImage * _Nullable))completion;
+- (NSString * _Nullable)getHoursForTodayFor:(Wanderspot * _Nonnull)wanderspot SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #if __has_attribute(external_source_symbol)

@@ -214,6 +214,8 @@ depends-member:
 - !private ["SH", "userInfo"]
 - !private ["SH", "viewContext"]
 - ["SH", "window"]
+- !private ["10SwiftyJSON17JSONSubscriptTypeP", "init"]
+- !private ["10SwiftyJSON17JSONSubscriptTypeP", "init"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "init"]
@@ -472,6 +474,7 @@ depends-nominal:
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - "SH"
+- !private "10SwiftyJSON17JSONSubscriptTypeP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "So8NSCodingP"
@@ -508,9 +511,11 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/arm64.swiftmodule"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Modules/InstantSearchCore.swiftmodule/arm64.swiftmodule"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Pring/Pring.framework/Modules/Pring.swiftmodule/arm64.swiftmodule"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Modules/InstantSearch.swiftmodule/arm64.swiftmodule"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Modules/SwiftLocation.swiftmodule/arm64.swiftmodule"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Modules/InstantSearchClient.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
@@ -523,11 +528,14 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Contacts.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseStorage/FirebaseStorage.framework/Headers/FirebaseStorage-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Headers/InstantSearchCore-umbrella.h"
@@ -535,6 +543,7 @@ depends-external:
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Pring/Pring.framework/Headers/Pring-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Headers/InstantSearch-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseAuth/FirebaseAuth.framework/Headers/FirebaseAuth-umbrella.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Headers/SwiftLocation-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Headers/InstantSearchClient-umbrella.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLMapCamera.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseStorage/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
@@ -673,9 +682,11 @@ depends-external:
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesErrors.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSOpeningHours.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseStorage/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Headers/InstantSearchCore-Swift.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Pring/Pring.framework/Headers/Pring-Swift.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Headers/InstantSearch-Swift.h"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Headers/SwiftLocation-Swift.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Headers/InstantSearchClient-Swift.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLLight.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseAuth/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
@@ -700,6 +711,7 @@ depends-external:
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/Mapbox-iOS-SDK/dynamic/Mapbox.framework/Headers/MGLGeometry.h"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/Firebase/CoreOnly/Sources/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseStorage/FirebaseStorage.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchCore/InstantSearchCore.framework/Modules/module.modulemap"
@@ -708,6 +720,7 @@ depends-external:
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Pring/Pring.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearch/InstantSearch.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/FirebaseAuth/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Modules/module.modulemap"
 - "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/InstantSearchClient/InstantSearchClient.framework/Modules/module.modulemap"
@@ -722,7 +735,9 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Contacts.framework/Headers/Contacts.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
 interface-hash: "e4ddb39c873b195a916beea916e68b34"
