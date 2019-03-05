@@ -12,6 +12,7 @@ target 'Wanderlist' do
   pod 'GooglePlaces'
   pod 'InstantSearch', '~> 3.0'
   pod 'SwiftLocation', '~> 3.2.3'
+  pod 'MMBannerLayout'
 
   target 'WanderlistTests' do
     inherit! :search_paths

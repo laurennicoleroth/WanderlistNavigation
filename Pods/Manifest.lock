@@ -129,6 +129,7 @@ PODS:
     - Solar (~> 2.1)
   - MapboxNavigationNative (5.0.0)
   - MapboxSpeech (0.1.0)
+  - MMBannerLayout (1.1.1)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -153,6 +154,7 @@ DEPENDENCIES:
   - InstantSearch (~> 3.0)
   - Mapbox-iOS-SDK
   - MapboxNavigation
+  - MMBannerLayout
   - Pring
   - SwiftLocation (~> 3.2.3)
 
@@ -185,6 +187,7 @@ SPEC REPOS:
     - MapboxNavigation
     - MapboxNavigationNative
     - MapboxSpeech
+    - MMBannerLayout
     - nanopb
     - Polyline
     - Pring
@@ -222,6 +225,7 @@ SPEC CHECKSUMS:
   MapboxNavigation: 6093c01352cfda65ea7a15b5588e024f66d4bae2
   MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
   MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
+  MMBannerLayout: ca952bbfcb6b27b5753a17c4733da53345ffcae5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Pring: 934abdeba2797a6b1b4fb94212c7d881291d46be
@@ -231,6 +235,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 487f0dd75c6c03c5753c1e152738f24ef86c403b
+PODFILE CHECKSUM: 67de39c60eaf55865788ba3606835b870bffe1d5
 
 COCOAPODS: 1.6.0.beta.1
