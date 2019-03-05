@@ -114,11 +114,11 @@
             </objects>
             <point key="canvasLocation" x="-684" y="-29"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--EXPLORE-->
         <scene sceneID="5m0-Bi-3ku">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uUX-g1-xdV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="IEI-O7-1sh">
+                    <tabBarItem key="tabBarItem" title="EXPLORE" image="explore" id="IEI-O7-1sh">
                         <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -135,11 +135,11 @@
             </objects>
             <point key="canvasLocation" x="-1682.4000000000001" y="770.46476761619192"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--SEARCH-->
         <scene sceneID="NE4-v0-oSA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IlV-7M-fxw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="SEARCH" image="search" id="kGT-UX-ftW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sVH-dd-ExO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -154,11 +154,11 @@
             </objects>
             <point key="canvasLocation" x="-684" y="789"/>
         </scene>
-        <!--Item 2-->
+        <!--CREATE-->
         <scene sceneID="6Vn-2l-r2k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6W-Z5-7m3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8PJ-lo-mYZ"/>
+                    <tabBarItem key="tabBarItem" title="CREATE" image="add-circle-outline" id="8PJ-lo-mYZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mnx-9X-Ykt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -173,11 +173,11 @@
             </objects>
             <point key="canvasLocation" x="272.80000000000001" y="817.24137931034488"/>
         </scene>
-        <!--Item 1-->
+        <!--ME-->
         <scene sceneID="ZmF-Gb-oJJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPi-eL-7vu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hkB-JB-4l9"/>
+                    <tabBarItem key="tabBarItem" title="ME" image="person-outline" id="hkB-JB-4l9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ss6-0D-0AU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -193,4 +193,10 @@
             <point key="canvasLocation" x="1373.5999999999999" y="816.34182908545733"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-circle-outline" width="20" height="20"/>
+        <image name="explore" width="20" height="20"/>
+        <image name="person-outline" width="16" height="16"/>
+        <image name="search" width="18" height="18"/>
+    </resources>
 </document>
