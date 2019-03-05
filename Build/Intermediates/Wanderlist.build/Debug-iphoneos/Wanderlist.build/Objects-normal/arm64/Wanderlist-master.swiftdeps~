@@ -1,9 +1,9 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
-options: "7163195b4832cb44904efe0fb40a3d33"
-build_time: [1551819250, 877403000]
+options: "61cd73e6ba1417c60cef2fda35f1df87"
+build_time: [1551819603, 554959000]
 inputs:
-  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/Controller/ExploreMapViewController.swift": !dirty [1551818935, 0]
-  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/Model/Wanderspot.swift": !dirty [1551819243, 0]
+  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/Controller/ExploreMapViewController.swift": [1551818935, 0]
+  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/Model/Wanderspot.swift": !dirty [1551819385, 0]
   "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/View/WanderlistMapboxMap.swift": !dirty [1551818711, 0]
-  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/AppDelegate.swift": !dirty [1551809230, 0]
+  "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/AppDelegate.swift": [1551809230, 0]
   "/Users/laurennicoleroth/Development/Wanderlist/Wanderlist/Model/Wanderlist.swift": !dirty [1551818852, 0]

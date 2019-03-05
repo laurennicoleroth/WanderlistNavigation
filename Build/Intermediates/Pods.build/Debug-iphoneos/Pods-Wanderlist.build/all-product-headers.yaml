@@ -1511,6 +1511,60 @@
     },
     {
       'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftLocation-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Headers/SwiftLocation-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftLocation-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/SwiftLocation/SwiftLocation-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftLocation/SwiftLocation.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/SwiftLocation.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftyJSON-Swift.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftyJSON-umbrella.h",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/laurennicoleroth/Development/Wanderlist/Build/Intermediates/Pods.build/Debug-iphoneos/SwiftyJSON.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
       'name': "/Users/laurennicoleroth/Development/Wanderlist/Build/Products/Debug-iphoneos/Turf/Turf.framework/Headers",
       'contents': [
         {
