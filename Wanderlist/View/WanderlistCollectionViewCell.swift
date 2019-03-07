@@ -8,15 +8,18 @@
 
 import UIKit
 
+protocol WanderlistCollectionViewCellDelegate {
+  func expandButtonTouched()
+}
+
 class WanderlistCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var aboutLabel: UILabel!
   @IBOutlet var distanceAwayButton: UIButton!
   @IBOutlet var imageView: UIImageView!
-  
   @IBOutlet var spotsCountButton: UIButton!
-  
+  var delegate : WanderlistCollectionViewCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -31,16 +34,27 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   
   
   func configureCellFrom(wanderlist: Wanderlist) {
-
+  
     titleLabel.text = wanderlist.title
     let count = wanderlist.spotsCount
-//    countLabel.text = "\(count) spots"
     aboutLabel.text = wanderlist.about
+    
+    if wanderlist.wanderspots.count == 1 {
+      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spot", for: .normal)
+    } else {
+      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spots", for: .normal)
+    }
+   
 //    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
 
   }
+  
+  @IBAction func distanceLabelTouched(_ sender: UIButton) {
+    print("distance label touched")
+  }
+  
   @IBAction func expandButtonTouched(_ sender: UIButton) {
-    print("Expand button touched")
+    delegate?.expandButtonTouched()
   }
   
   @IBAction func shareButtonTouched(_ sender: UIButton) {

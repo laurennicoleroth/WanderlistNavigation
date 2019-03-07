@@ -53,6 +53,9 @@
                                         <state key="normal" title="0.3 mi away">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="distanceLabelTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="2cL-Dv-OCK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGE-Ri-vg7">
                                         <rect key="frame" x="152" y="0.0" width="39" height="24"/>
@@ -133,7 +136,6 @@
                             <constraint firstItem="teq-tW-SZH" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" constant="10" id="Nck-6z-BvV"/>
                             <constraint firstAttribute="trailing" secondItem="GLT-EC-dFr" secondAttribute="trailing" constant="10" id="T4c-nn-udJ"/>
                             <constraint firstItem="GuW-HL-Y8k" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" id="TwR-wa-5eX"/>
-                            <constraint firstAttribute="height" constant="201" id="VDF-fm-ZLA"/>
                             <constraint firstItem="gRb-1f-zbo" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" id="VgT-5k-h51"/>
                             <constraint firstItem="GLT-EC-dFr" firstAttribute="top" secondItem="gRb-1f-zbo" secondAttribute="bottom" constant="5" id="VjC-ha-4jO"/>
                             <constraint firstAttribute="trailing" secondItem="sZs-mr-tfv" secondAttribute="trailing" constant="10" id="fA6-L0-LAX"/>

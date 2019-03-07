@@ -26,9 +26,11 @@ class Wanderlist: Object {
   dynamic var spotsCount : Int = 0
   dynamic var wanderspots: List<Wanderspot> = []
   
-  func distanceFromUserAt(origin: CLLocation) -> CLLocationDistance {
+  func distanceFromUserAt(origin: CLLocation) -> String {
     let destination = CLLocation(latitude: latitude, longitude: longitude)
-    return destination.distance(from: origin) / 1609.344
+    let distance = destination.distance(from: origin) / 1609.344
+    
+    return String(format: "%.2f", distance)
   }
   
   required init() {

@@ -70,6 +70,7 @@ class ExploreMapViewController: UIViewController {
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
       let latitude = location.coordinate.latitude
       let longitude = location.coordinate.longitude
+      self.currentLocation = location
       
       let query = Query(query: query)
       query.aroundLatLng = LatLng(lat: latitude, lng: longitude)
@@ -149,6 +150,12 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     let wanderlist = wanderlists[indexPath.row]
     cell.configureCellFrom(wanderlist: wanderlist)
     
+    if let origin = currentLocation {
+      let distance = wanderlist.distanceFromUserAt(origin: origin)
+      cell.distanceAwayButton.setTitle("\(distance) miles away", for: .normal)
+    }
+    cell.delegate = self
+ 
     if let placeID = wanderlist.wanderspots.first?.placeID {
       setPhotoOnCell(cell: cell, id: placeID)
     }
@@ -225,4 +232,9 @@ extension ExploreMapViewController: BannerLayoutDelegate {
   }
 }
 
-
+extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
+  func expandButtonTouched() {
+    print("Protocols, woo!")
+  }
+ 
+}
