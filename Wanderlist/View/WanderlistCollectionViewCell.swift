@@ -12,8 +12,10 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var aboutLabel: UILabel!
-  @IBOutlet var countLabel: UILabel!
-  @IBOutlet var categoriesLabel: UILabel!
+  @IBOutlet var distanceAwayButton: UIButton!
+  
+  @IBOutlet var spotsCountButton: UIButton!
+  
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -26,6 +28,7 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
     self.layer.shadowPath = shadowPath.cgPath
   }
   
+  
   func configureCellFrom(wanderlist: Wanderlist) {
 
     titleLabel.text = wanderlist.title
@@ -35,7 +38,22 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
 //    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
 
   }
-
+  @IBAction func expandButtonTouched(_ sender: UIButton) {
+    print("Expand button touched")
+  }
+  
+  @IBAction func shareButtonTouched(_ sender: UIButton) {
+    print("Share button touched")
+  }
+  
+  @IBAction func walkButtonTouched(_ sender: UIButton) {
+    print("Walk button touched")
+  }
+  
+  @IBAction func favoriteButtonTouched(_ sender: UIButton) {
+    print("Favorite button touched")
+  }
+  
   
   func prepareView() {
     self.contentView.layer.cornerRadius = 2.0
