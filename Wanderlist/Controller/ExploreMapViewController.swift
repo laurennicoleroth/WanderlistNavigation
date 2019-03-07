@@ -138,7 +138,7 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     cell.configureCellFrom(wanderlist: wanderlist)
     
     if let origin = currentLocation {
-      cell.categoriesLabel.text = "\(wanderlist.distanceFromUserAt(origin: origin)) away"
+//      cell.categoriesLabel.text = "\(wanderlist.distanceFromUserAt(origin: origin)) away"
     }
     cell.backgroundColor = .white
     return cell

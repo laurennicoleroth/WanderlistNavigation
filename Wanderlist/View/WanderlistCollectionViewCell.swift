@@ -30,9 +30,9 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
 
     titleLabel.text = wanderlist.title
     let count = wanderlist.spotsCount
-    countLabel.text = "\(count) spots"
+//    countLabel.text = "\(count) spots"
     aboutLabel.text = wanderlist.about
-    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
+//    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
 
   }
 
