@@ -20,24 +20,29 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var mapView: WanderlistMapboxMap!
   @IBOutlet var wanderlistCollectionView: UICollectionView!
   
-  var wanderlists = [Wanderlist]()
+  var wanderlists = [Wanderlist]() {
+    didSet {
+      if wanderlists.count == 2 {
+        self.wanderlistCollectionView.reloadData()
+      }
+    }
+  }
   var currentLocation : CLLocation?
   
+  override func viewWillAppear(_ animated: Bool) {
+
+    searchWanderlistsWithQueryAndCurrentLocation(query: "")
+  }
+  
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     self.title = "WANDERLY"
     
-    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-      self.currentLocation = location
-    }) { (error, location) -> (Void) in
-      print("Failed to get location: ", error)
-    }
- 
     setupMapUI()
-    searchWanderlistsWithQueryAndCurrentLocation(query: "")
     setupCollectionUI()
   }
- 
+  
   private func setupMapUI() {
     mapView.showCurrentLocation()
     mapView.userTrackingMode = .followWithHeading
@@ -46,8 +51,6 @@ class ExploreMapViewController: UIViewController {
   }
   
   private func setupCollectionUI() {
-    searchWanderlistsWithQueryAndCurrentLocation(query: "")
-    
     self.view.layoutIfNeeded()
     wanderlistCollectionView.showsHorizontalScrollIndicator = false
     if let layout = wanderlistCollectionView.collectionViewLayout as? MMBannerLayout {
@@ -72,7 +75,7 @@ class ExploreMapViewController: UIViewController {
       query.aroundLatLng = LatLng(lat: latitude, lng: longitude)
       query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
       
-      index.search(query, completionHandler: { (results, error) in
+      index.search(query, completionHandler: { [unowned self] (results, error) in
         guard let results = results else {
           return
         }
@@ -81,25 +84,30 @@ class ExploreMapViewController: UIViewController {
         
         if hits.count < 1 {
           self.wanderlists = []
-//          self.getWanderlistsNearCurrentLocation()
+          
+        } else {
+          self.getWanderlistsFromHits(hits: hits)
         }
-        
-        self.addHitsToCollection(hits: hits)
-        self.mapView.addHitsToMap(hits: hits)
       })
     }) { (error, location) -> (Void) in
       print("location error: ", error)
     }
   }
   
-  func addHitsToCollection(hits: [[String: Any]]) {
-    wanderlists = []
+  func getWanderlistsFromHits(hits: [[String: Any]]) {
     for hit in hits {
-      let wanderlist = Wanderlist(json: hit)
-      wanderlists.append(wanderlist)
+      if let id = hit["objectID"] as? String {
+        Wanderlist.get(id) { [unowned self] (wanderlist, error) in
+          if let wanderlist = wanderlist {
+            self.wanderlists.insert(wanderlist, at: 0)
+            
+          }
+        }
+      }
     }
-    wanderlistCollectionView.reloadData()
+    self.wanderlistCollectionView.reloadData()
   }
+  
 }
 
 extension ExploreMapViewController: MGLMapViewDelegate {
@@ -138,15 +146,11 @@ extension ExploreMapViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
+    let wanderlist = wanderlists[indexPath.row]
+    cell.configureCellFrom(wanderlist: wanderlist)
     
-    if let id = wanderlists[indexPath.row].objectID {
-      Wanderlist.get(id) { (wanderlist, error) in
-        
-        if let placeID = wanderlist?.wanderspots.first?.placeID {
-          self.setPhotoOnCell(cell: cell, id: placeID)
-        }
-        
-      }
+    if let placeID = wanderlist.wanderspots.first?.placeID {
+      setPhotoOnCell(cell: cell, id: placeID)
     }
     
     cell.backgroundColor = .white
@@ -166,23 +170,25 @@ extension ExploreMapViewController: UICollectionViewDataSource {
                               }
                               if let place = place {
                                 // Get the metadata for the first photo in the place photo metadata list.
-                                let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
+                                if let photoMetadata: GMSPlacePhotoMetadata = place.photos?[0] {
+                                  // Call loadPlacePhoto to display the bitmap and attribution.
+                                  placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+                                    if let error = error {
+                                      // TODO: Handle the error.
+                                      print("Error loading photo metadata: \(error.localizedDescription)")
+                                      return
+                                    } else {
+                                      // Display the first image and its attributions.
+                                      cell.imageView.image = photo
+                                    }
+                                  })
+                                }
                                 
-                                // Call loadPlacePhoto to display the bitmap and attribution.
-                                placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-                                  if let error = error {
-                                    // TODO: Handle the error.
-                                    print("Error loading photo metadata: \(error.localizedDescription)")
-                                    return
-                                  } else {
-                                    // Display the first image and its attributions.
-                                    cell.imageView.image = photo
-                                  }
-                                })
+                                
                               }
     })
   }
-
+  
   private func setImage(cell: WanderlistCollectionViewCell, placeID: String) {
     let imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(placeID)&key=\(GOOGLE_PLACES_KEY)"
     
@@ -208,7 +214,7 @@ extension ExploreMapViewController: UICollectionViewDataSource {
       }
     }
   }
-
+  
 }
 
 extension ExploreMapViewController: BannerLayoutDelegate {
