@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func setupDependencies() {
     FirebaseApp.configure()
-    GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
+    GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_KEY)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

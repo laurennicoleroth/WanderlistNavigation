@@ -112,6 +112,7 @@ PODS:
   - InstantSearchClient (6.2.0)
   - InstantSearchCore (4.0.0):
     - InstantSearchClient (~> 6.0)
+  - Kingfisher (5.1.1)
   - leveldb-library (1.20)
   - Mapbox-iOS-SDK (4.8.0)
   - MapboxCoreNavigation (0.29.1):
@@ -152,6 +153,7 @@ DEPENDENCIES:
   - Firebase/Core
   - GooglePlaces
   - InstantSearch (~> 3.0)
+  - Kingfisher
   - Mapbox-iOS-SDK
   - MapboxNavigation
   - MMBannerLayout
@@ -179,6 +181,7 @@ SPEC REPOS:
     - InstantSearch
     - InstantSearchClient
     - InstantSearchCore
+    - Kingfisher
     - leveldb-library
     - Mapbox-iOS-SDK
     - MapboxCoreNavigation
@@ -217,6 +220,7 @@ SPEC CHECKSUMS:
   InstantSearch: c5ec1dd67f2d68b68026dd8086ad858659b5a2cd
   InstantSearchClient: b307f315542bb9db47b1a3480a6cd654c89d7da4
   InstantSearchCore: d7213fee88c766297624c54f8257cff987cd1037
+  Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
   MapboxCoreNavigation: 7a6dea9a19dea2ad3247f43e6b6854f4afe3341e
@@ -235,6 +239,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 67de39c60eaf55865788ba3606835b870bffe1d5
+PODFILE CHECKSUM: d2d29b83b2594db0d6b123d13f2b2928c24af011
 
 COCOAPODS: 1.6.0.beta.1

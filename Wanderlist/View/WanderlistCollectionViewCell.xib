@@ -158,6 +158,7 @@
             <connections>
                 <outlet property="aboutLabel" destination="GLT-EC-dFr" id="sXi-fY-iCW"/>
                 <outlet property="distanceAwayButton" destination="z5g-fl-9LS" id="Vit-It-hK4"/>
+                <outlet property="imageView" destination="GuW-HL-Y8k" id="4Lp-rj-XP4"/>
                 <outlet property="spotsCountButton" destination="tGE-Ri-vg7" id="MxC-ys-1zq"/>
                 <outlet property="titleLabel" destination="sZs-mr-tfv" id="wlV-WN-hUf"/>
             </connections>

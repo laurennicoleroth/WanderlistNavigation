@@ -13,6 +13,7 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var aboutLabel: UILabel!
   @IBOutlet var distanceAwayButton: UIButton!
+  @IBOutlet var imageView: UIImageView!
   
   @IBOutlet var spotsCountButton: UIButton!
   
