@@ -45,7 +45,7 @@
                                 <rect key="frame" x="10" y="10" width="223" height="24"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-fl-9LS">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="84P-vL-XOF"/>
                                         </constraints>
@@ -58,15 +58,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGE-Ri-vg7">
-                                        <rect key="frame" x="152" y="0.0" width="39" height="24"/>
+                                        <rect key="frame" x="144" y="0.0" width="39" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="4 spots">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-dG-ph3">
-                                        <rect key="frame" x="211" y="0.0" width="12" height="24"/>
-                                        <state key="normal" image="expand-more-white">
+                                        <rect key="frame" x="203" y="0.0" width="20" height="24"/>
+                                        <state key="normal" image="favorite-outline-white">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -85,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zza-fy-gZL">
-                                <rect key="frame" x="99" y="179" width="134" height="12"/>
+                                <rect key="frame" x="161" y="179" width="72" height="12"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47a-Jr-lED">
                                         <rect key="frame" x="0.0" y="0.0" width="10" height="12"/>
@@ -105,16 +105,6 @@
                                         <state key="normal" backgroundImage="directions-walking-gray"/>
                                         <connections>
                                             <action selector="walkButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="i9u-KB-ty7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-bp-LIK">
-                                        <rect key="frame" x="122" y="0.0" width="12" height="12"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Axu-bp-LIK" secondAttribute="height" multiplier="1:1" id="SQE-U3-1On"/>
-                                        </constraints>
-                                        <state key="normal" image="heart-outline-gray"/>
-                                        <connections>
-                                            <action selector="favoriteButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="jXR-hD-BpM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -169,8 +159,7 @@
     </objects>
     <resources>
         <image name="directions-walking-gray" width="14" height="22"/>
-        <image name="expand-more-white" width="12" height="8"/>
-        <image name="heart-outline-gray" width="20" height="19"/>
+        <image name="favorite-outline-white" width="20" height="19"/>
         <image name="share-alt-gray" width="18" height="20"/>
         <image name="times-square" width="290" height="174"/>
     </resources>
