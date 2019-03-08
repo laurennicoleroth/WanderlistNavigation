@@ -19,18 +19,23 @@ class ExploreMapViewController: UIViewController {
   
   @IBOutlet var mapView: WanderlistMapboxMap!
   @IBOutlet var wanderlistCollectionView: UICollectionView!
+  @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
   
-  var wanderlists = [Wanderlist]() {
+  var wanderlistsWithState = [(Wanderlist, Bool)]() {
     didSet {
-      if wanderlists.count == 2 {
+      if wanderlistsWithState.count == 2 {
         self.wanderlistCollectionView.reloadData()
       }
+      
     }
   }
-  var currentLocation : CLLocation?
   
+  var currentLocation : CLLocation?
+  var expandedHeight : CGFloat = 600
+  var notExpandedHeight : CGFloat = 200
+  var isExpanded = [Bool]()
+ 
   override func viewWillAppear(_ animated: Bool) {
-
     searchWanderlistsWithQueryAndCurrentLocation(query: "")
   }
   
@@ -84,7 +89,7 @@ class ExploreMapViewController: UIViewController {
         guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
         
         if hits.count < 1 {
-          self.wanderlists = []
+          self.wanderlistsWithState = []
           
         } else {
           self.getWanderlistsFromHits(hits: hits)
@@ -100,8 +105,7 @@ class ExploreMapViewController: UIViewController {
       if let id = hit["objectID"] as? String {
         Wanderlist.get(id) { [unowned self] (wanderlist, error) in
           if let wanderlist = wanderlist {
-            self.wanderlists.insert(wanderlist, at: 0)
-            
+            self.wanderlistsWithState.insert((wanderlist, false), at: 0)
           }
         }
       }
@@ -135,19 +139,21 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 
 extension ExploreMapViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    mapView.drawWanderlistPathForWanderlist(wanderlist: wanderlists[indexPath.row])
+    mapView.drawWanderlistPathForWanderlist(wanderlist: wanderlistsWithState[indexPath.row].0)
   }
+  
+ 
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return wanderlists.count
+    return wanderlistsWithState.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
-    let wanderlist = wanderlists[indexPath.row]
+    let wanderlist = wanderlistsWithState[indexPath.row].0
     cell.configureCellFrom(wanderlist: wanderlist)
     
     if let origin = currentLocation {
@@ -155,6 +161,7 @@ extension ExploreMapViewController: UICollectionViewDataSource {
       cell.distanceAwayButton.setTitle("\(distance) miles away", for: .normal)
     }
     cell.delegate = self
+    cell.indexPath = indexPath
  
     if let placeID = wanderlist.wanderspots.first?.placeID {
       setPhotoOnCell(cell: cell, id: placeID)
@@ -224,17 +231,43 @@ extension ExploreMapViewController: UICollectionViewDataSource {
   
 }
 
+extension ExploreMapViewController: UICollectionViewDelegateFlowLayout{
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    if wanderlistsWithState[indexPath.row].1 == true{
+      return CGSize(width: self.view.frame.width, height: expandedHeight)
+      
+    }else{
+
+      return CGSize(width: self.view.frame.width, height: notExpandedHeight)
+    }
+    
+  }
+  
+}
+
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
-    let wanderlist = wanderlists[indexPath.row]
-    
-    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlists[indexPath.row])
+    let wanderlist = wanderlistsWithState[indexPath.row].0
+    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
   }
+  
+  
 }
 
 extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
-  func expandButtonTouched() {
-    print("Protocols, woo!")
+  func expandButtonTouched(indexPath: IndexPath) {
+  
+    wanderlistsWithState[indexPath.row].1 = !wanderlistsWithState[indexPath.row].1
+ 
+    UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
+                   options: UIView.AnimationOptions.curveEaseInOut, animations: {
+      self.wanderlistCollectionView.reloadItems(at: [indexPath])
+    }, completion: { success in
+      print("success")
+    })
   }
+  
+ 
  
 }

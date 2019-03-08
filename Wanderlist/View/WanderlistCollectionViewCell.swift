@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WanderlistCollectionViewCellDelegate {
-  func expandButtonTouched()
+  func expandButtonTouched(indexPath: IndexPath)
 }
 
 class WanderlistCollectionViewCell: UICollectionViewCell {
@@ -20,6 +20,8 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var spotsCountButton: UIButton!
   var delegate : WanderlistCollectionViewCellDelegate?
+  var wanderlist : Wanderlist?
+  public var indexPath: IndexPath!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -34,7 +36,7 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   
   
   func configureCellFrom(wanderlist: Wanderlist) {
-  
+    self.wanderlist = wanderlist
     titleLabel.text = wanderlist.title
     let count = wanderlist.spotsCount
     aboutLabel.text = wanderlist.about
@@ -54,7 +56,10 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   }
   
   @IBAction func expandButtonTouched(_ sender: UIButton) {
-    delegate?.expandButtonTouched()
+    if let wanderlist = self.wanderlist {
+      delegate?.expandButtonTouched(indexPath: indexPath)
+    }
+    
   }
   
   @IBAction func shareButtonTouched(_ sender: UIButton) {
