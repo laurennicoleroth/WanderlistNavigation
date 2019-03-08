@@ -70,7 +70,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="expandButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="Op2-Zk-hl3"/>
+                                            <action selector="favoriteButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="ZXG-fq-S6e"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,6 +150,7 @@
             <connections>
                 <outlet property="aboutLabel" destination="GLT-EC-dFr" id="sXi-fY-iCW"/>
                 <outlet property="distanceAwayButton" destination="z5g-fl-9LS" id="Vit-It-hK4"/>
+                <outlet property="favoriteButton" destination="IYY-dG-ph3" id="U3y-fR-YeC"/>
                 <outlet property="imageView" destination="GuW-HL-Y8k" id="4Lp-rj-XP4"/>
                 <outlet property="spotsCountButton" destination="tGE-Ri-vg7" id="MxC-ys-1zq"/>
                 <outlet property="titleLabel" destination="sZs-mr-tfv" id="wlV-WN-hUf"/>

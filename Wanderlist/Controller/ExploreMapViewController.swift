@@ -21,12 +21,12 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var wanderlistCollectionView: UICollectionView!
   @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
   
+  var currentUser : User?
   var wanderlistsWithState = [(Wanderlist, Bool)]() {
     didSet {
       if wanderlistsWithState.count == 2 {
         self.wanderlistCollectionView.reloadData()
       }
-      
     }
   }
   
@@ -34,15 +34,28 @@ class ExploreMapViewController: UIViewController {
   var expandedHeight : CGFloat = 600
   var notExpandedHeight : CGFloat = 200
   var isExpanded = [Bool]()
- 
+  
   override func viewWillAppear(_ animated: Bool) {
     searchWanderlistsWithQueryAndCurrentLocation(query: "")
   }
   
   override func viewDidLoad() {
-    
     super.viewDidLoad()
     self.title = "WANDERLY"
+    
+    User.get("M2MnZTZhUe239WW4bIP6", block: { (user, error) in
+      if error != nil {
+        print(error)
+        return
+      } else {
+        if let user = user {
+          print("Setting current user", user.fullName)
+          self.currentUser = user
+        }
+      }
+    })
+    //    let user = User()
+    //    user.addUserToFirestore(userID: "laurennicoleroth", fullName: "Lauren Nicole Roth", email: "laurennicoleroth@gmail.com")
     
     setupMapUI()
     setupCollectionUI()
@@ -142,7 +155,7 @@ extension ExploreMapViewController: UICollectionViewDelegate {
     mapView.drawWanderlistPathForWanderlist(wanderlist: wanderlistsWithState[indexPath.row].0)
   }
   
- 
+  
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource {
@@ -154,6 +167,27 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
     let wanderlist = wanderlistsWithState[indexPath.row].0
+    let favoritedState = wanderlistsWithState[indexPath.row].1
+    
+    if favoritedState == true {
+      cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
+      if let user = currentUser {
+        user.favoriteWanderlists.insert(wanderlist)
+        user.update()
+        wanderlist.usersWhoFavorited.insert(currentUser!)
+        wanderlist.update()
+      }
+    } else {
+      cell.favoriteButton.setImage(UIImage(named: "favorite-outline-white"), for: .normal)
+      if let user = currentUser {
+        user.favoriteWanderlists.remove(wanderlist)
+        user.update()
+        wanderlist.usersWhoFavorited.remove(currentUser!)
+        wanderlist.update()
+      }
+    }
+    
+    
     cell.configureCellFrom(wanderlist: wanderlist)
     
     if let origin = currentLocation {
@@ -162,7 +196,7 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     }
     cell.delegate = self
     cell.indexPath = indexPath
- 
+    
     if let placeID = wanderlist.wanderspots.first?.placeID {
       setPhotoOnCell(cell: cell, id: placeID)
     }
@@ -231,21 +265,6 @@ extension ExploreMapViewController: UICollectionViewDataSource {
   
 }
 
-extension ExploreMapViewController: UICollectionViewDelegateFlowLayout{
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-    if wanderlistsWithState[indexPath.row].1 == true{
-      return CGSize(width: self.view.frame.width, height: expandedHeight)
-      
-    }else{
-
-      return CGSize(width: self.view.frame.width, height: notExpandedHeight)
-    }
-    
-  }
-  
-}
-
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
     let wanderlist = wanderlistsWithState[indexPath.row].0
@@ -256,18 +275,18 @@ extension ExploreMapViewController: BannerLayoutDelegate {
 }
 
 extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
-  func expandButtonTouched(indexPath: IndexPath) {
-  
+  func favoriteButtonTouched(indexPath: IndexPath) {
+    
     wanderlistsWithState[indexPath.row].1 = !wanderlistsWithState[indexPath.row].1
- 
+    
     UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
                    options: UIView.AnimationOptions.curveEaseInOut, animations: {
-      self.wanderlistCollectionView.reloadItems(at: [indexPath])
+                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
     }, completion: { success in
       print("success")
     })
   }
   
- 
- 
+  
+  
 }

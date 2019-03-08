@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WanderlistCollectionViewCellDelegate {
-  func expandButtonTouched(indexPath: IndexPath)
+  func favoriteButtonTouched(indexPath: IndexPath)
 }
 
 class WanderlistCollectionViewCell: UICollectionViewCell {
@@ -19,6 +19,9 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   @IBOutlet var distanceAwayButton: UIButton!
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var spotsCountButton: UIButton!
+  @IBOutlet var favoriteButton: UIButton!
+  
+  
   var delegate : WanderlistCollectionViewCellDelegate?
   var wanderlist : Wanderlist?
   public var indexPath: IndexPath!
@@ -55,9 +58,10 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
     print("distance label touched")
   }
   
-  @IBAction func expandButtonTouched(_ sender: UIButton) {
+  @IBAction func favoriteButtonTouched(_ sender: UIButton) {
     if let wanderlist = self.wanderlist {
-      delegate?.expandButtonTouched(indexPath: indexPath)
+      print("Favorite button touched ", wanderlist)
+      delegate?.favoriteButtonTouched(indexPath: indexPath)
     }
     
   }
@@ -68,10 +72,6 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   
   @IBAction func walkButtonTouched(_ sender: UIButton) {
     print("Walk button touched")
-  }
-  
-  @IBAction func favoriteButtonTouched(_ sender: UIButton) {
-    print("Favorite button touched")
   }
   
   

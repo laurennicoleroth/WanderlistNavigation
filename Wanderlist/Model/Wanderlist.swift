@@ -25,6 +25,8 @@ class Wanderlist: Object {
   dynamic var categories : [String]?
   dynamic var spotsCount : Int = 0
   dynamic var wanderspots: List<Wanderspot> = []
+  dynamic var favoritedBy: List<User> = []
+  dynamic var usersWhoFavorited: ReferenceCollection<User> = []
   
   func distanceFromUserAt(origin: CLLocation) -> String {
     let destination = CLLocation(latitude: latitude, longitude: longitude)
