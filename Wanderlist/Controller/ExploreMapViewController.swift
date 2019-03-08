@@ -183,18 +183,16 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     if isFavoritedByCurrentUser {
       cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
       if let user = currentUser {
-        user.favoriteWanderlists.insert(wanderlist)
-        user.update()
-        wanderlist.usersWhoFavorited.insert(currentUser!)
-        wanderlist.update()
+//        user.favoriteWanderlists.insert(wanderlist)
+//        user.update()
+
       }
     } else {
       cell.favoriteButton.setImage(UIImage(named: "favorite-outline-white"), for: .normal)
       if let user = currentUser {
-        user.favoriteWanderlists.remove(wanderlist)
-        user.update()
-        wanderlist.usersWhoFavorited.remove(currentUser!)
-        wanderlist.update()
+//        user.favoriteWanderlists.remove(wanderlist)
+//        user.update()
+   
       }
     }
     
@@ -292,7 +290,7 @@ extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
     
     UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
                    options: UIView.AnimationOptions.curveEaseInOut, animations: {
-                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
+//                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
     }, completion: { success in
       print("success")
     })
