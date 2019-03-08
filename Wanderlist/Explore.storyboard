@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uUX-g1-xdV">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delegate-->
+        <scene sceneID="KpN-0W-ta5">
+            <objects>
+                <viewController id="3kE-Js-y1L" customClass="ExploreMapViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3VG-AZ-bXL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbs-0n-sIn" customClass="WanderlistMapboxMap" customModule="Wanderlist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3kE-Js-y1L" id="jQl-z1-hcZ"/>
+                                </connections>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-wN-XRw" customClass="WanderlistCollectionView">
+                                <rect key="frame" x="0.0" y="368" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="p8h-2p-C2K"/>
+                                </constraints>
+                                <collectionViewLayout key="collectionViewLayout" id="4Wq-Vn-00r" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderlistCollectionViewCell" id="RFr-co-Y9z" customClass="WanderlistCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="0.0" width="300" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="300" height="200"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="3kE-Js-y1L" id="ltb-hi-PEg"/>
+                                    <outlet property="delegate" destination="3kE-Js-y1L" id="JhM-YY-fis"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="YjQ-wN-XRw" secondAttribute="bottom" id="5qe-Ah-bFX"/>
+                            <constraint firstItem="tYE-DT-STA" firstAttribute="trailing" secondItem="Cbs-0n-sIn" secondAttribute="trailing" id="9UM-Wa-QmT"/>
+                            <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="Cbs-0n-sIn" secondAttribute="bottom" id="VsQ-LY-GO7"/>
+                            <constraint firstItem="YjQ-wN-XRw" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="Wr1-QA-dDg"/>
+                            <constraint firstAttribute="trailing" secondItem="YjQ-wN-XRw" secondAttribute="trailing" id="byf-SN-M1N"/>
+                            <constraint firstItem="Cbs-0n-sIn" firstAttribute="top" secondItem="tYE-DT-STA" secondAttribute="top" id="lzy-Qr-M3f"/>
+                            <constraint firstItem="Cbs-0n-sIn" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="tfs-AL-4oW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
+                    <connections>
+                        <outlet property="collectionViewHeightConstraint" destination="p8h-2p-C2K" id="Lho-rZ-Efa"/>
+                        <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
+                        <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1682" y="1508"/>
+        </scene>
+        <!--EXPLORE-->
+        <scene sceneID="5m0-Bi-3ku">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uUX-g1-xdV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="EXPLORE" image="explore" id="IEI-O7-1sh">
+                        <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="94i-a4-zxg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3kE-Js-y1L" kind="relationship" relationship="rootViewController" id="aLd-f3-Tpb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rch-mi-IlI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1682.4000000000001" y="770.46476761619192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="explore" width="20" height="20"/>
+    </resources>
+</document>

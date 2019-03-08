@@ -36,7 +36,7 @@ class ExploreMapViewController: UIViewController {
   var isExpanded = [Bool]()
   
   override func viewWillAppear(_ animated: Bool) {
-    searchWanderlistsWithQueryAndCurrentLocation(query: "")
+    
   }
   
   override func viewDidLoad() {
@@ -51,6 +51,7 @@ class ExploreMapViewController: UIViewController {
         if let user = user {
           print("Setting current user", user.fullName)
           self.currentUser = user
+          self.searchWanderlistsWithQueryAndCurrentLocation(query: "")
         }
       }
     })
@@ -116,8 +117,18 @@ class ExploreMapViewController: UIViewController {
   func getWanderlistsFromHits(hits: [[String: Any]]) {
     for hit in hits {
       if let id = hit["objectID"] as? String {
+ 
+        
+     
         Wanderlist.get(id) { [unowned self] (wanderlist, error) in
           if let wanderlist = wanderlist {
+            
+ 
+            self.currentUser?.favoriteWanderlists.where(\Wanderlist.objectID, isEqualTo: wanderlist.objectID).get { (query, error)  in
+              self.wanderlistsWithState.insert((wanderlist, true), at: 0)
+            }
+           
+
             self.wanderlistsWithState.insert((wanderlist, false), at: 0)
           }
         }
@@ -167,9 +178,9 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
     let wanderlist = wanderlistsWithState[indexPath.row].0
-    let favoritedState = wanderlistsWithState[indexPath.row].1
+    let isFavoritedByCurrentUser = wanderlistsWithState[indexPath.row].1
     
-    if favoritedState == true {
+    if isFavoritedByCurrentUser {
       cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
       if let user = currentUser {
         user.favoriteWanderlists.insert(wanderlist)

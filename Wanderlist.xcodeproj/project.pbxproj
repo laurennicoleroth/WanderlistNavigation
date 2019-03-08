@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7B8FF32AF21AA93E1F410E1C /* Pods_WanderlistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD87FABFE7F9809E2933975 /* Pods_WanderlistTests.framework */; };
 		968ED31D22330220005F6AE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ED31C22330220005F6AE1 /* User.swift */; };
+		968ED32022331902005F6AE1 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968ED31F22331902005F6AE1 /* Explore.storyboard */; };
 		969354D8222EF1B400752858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969354D7222EF1B400752858 /* AppDelegate.swift */; };
 		969354DD222EF1B400752858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969354DB222EF1B400752858 /* Main.storyboard */; };
 		969354E0222EF1B400752858 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 969354DE222EF1B400752858 /* Wanderlist.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		4DD87FABFE7F9809E2933975 /* Pods_WanderlistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderlistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A2F5A35146DD408797D780 /* Pods-Wanderlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.debug.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.debug.xcconfig"; sourceTree = "<group>"; };
 		968ED31C22330220005F6AE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		968ED31F22331902005F6AE1 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		969354D4222EF1B400752858 /* Wanderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wanderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969354D7222EF1B400752858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969354DC222EF1B400752858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		969354D6222EF1B400752858 /* Wanderlist */ = {
 			isa = PBXGroup;
 			children = (
+				968ED31F22331902005F6AE1 /* Explore.storyboard */,
 				969354D7222EF1B400752858 /* AppDelegate.swift */,
 				969354DB222EF1B400752858 /* Main.storyboard */,
 				969354E1222EF1B400752858 /* Assets.xcassets */,
@@ -282,6 +285,7 @@
 				969354E2222EF1B400752858 /* Assets.xcassets in Resources */,
 				96935518222F32A300752858 /* GoogleService-Info.plist in Resources */,
 				96935516222F2B0E00752858 /* WanderlistCollectionViewCell.xib in Resources */,
+				968ED32022331902005F6AE1 /* Explore.storyboard in Resources */,
 				969354DD222EF1B400752858 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
