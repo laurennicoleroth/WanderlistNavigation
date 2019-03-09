@@ -41,7 +41,7 @@ class ExploreMapViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "WANDERLY"
+    self.title = "EXPLORE"
     
     User.get("M2MnZTZhUe239WW4bIP6", block: { (user, error) in
       if error != nil {
@@ -55,8 +55,7 @@ class ExploreMapViewController: UIViewController {
         }
       }
     })
-    //    let user = User()
-    //    user.addUserToFirestore(userID: "laurennicoleroth", fullName: "Lauren Nicole Roth", email: "laurennicoleroth@gmail.com")
+ 
     
     setupMapUI()
     setupCollectionUI()
@@ -163,9 +162,12 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 
 extension ExploreMapViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    mapView.drawWanderlistPathForWanderlist(wanderlist: wanderlistsWithState[indexPath.row].0)
+    let wanderlist = wanderlistsWithState[indexPath.row].0
+    let storyboard = UIStoryboard(name: "Explore", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
+        controller.wanderlist = wanderlist
+        self.navigationController?.pushViewController(controller, animated: true)
   }
-  
   
 }
 
@@ -277,8 +279,10 @@ extension ExploreMapViewController: UICollectionViewDataSource {
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
     let wanderlist = wanderlistsWithState[indexPath.row].0
-    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
+//    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
   }
+  
+  
   
   
 }
@@ -295,6 +299,7 @@ extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
       print("success")
     })
   }
+  
   
   
   

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uUX-g1-xdV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,18 +15,18 @@
             <objects>
                 <viewController id="3kE-Js-y1L" customClass="ExploreMapViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VG-AZ-bXL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cbs-0n-sIn" customClass="WanderlistMapboxMap" customModule="Wanderlist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="jQl-z1-hcZ"/>
                                 </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-wN-XRw" customClass="WanderlistCollectionView">
-                                <rect key="frame" x="0.0" y="368" width="375" height="250"/>
+                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="p8h-2p-C2K"/>
@@ -62,11 +66,68 @@
                         <outlet property="collectionViewHeightConstraint" destination="p8h-2p-C2K" id="Lho-rZ-Efa"/>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
                         <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
+                        <segue destination="12y-zC-gnI" kind="show" id="4J8-Re-CJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1682" y="1508"/>
+        </scene>
+        <!--Wanderlist Preview View Controller-->
+        <scene sceneID="SU5-rF-LmZ">
+            <objects>
+                <viewController storyboardIdentifier="WanderlistPreviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="12y-zC-gnI" customClass="WanderlistPreviewViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bGp-s9-LSt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maI-lz-4hv" customClass="WanderlistDetailMapboxMap" customModule="Wanderly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-LL-S3s">
+                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Dbw-jz-Q2L"/>
+                                </constraints>
+                                <collectionViewLayout key="collectionViewLayout" id="JLS-3y-zU7" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderspotCollectionViewCell" id="kNv-KB-qrh" customClass="WanderspotCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="12y-zC-gnI" id="Ag1-4k-IAK"/>
+                                    <outlet property="delegate" destination="12y-zC-gnI" id="g92-mj-BXl"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RkY-Mf-Wbd" firstAttribute="bottom" secondItem="maI-lz-4hv" secondAttribute="bottom" id="Egx-bz-I6M"/>
+                            <constraint firstItem="fQY-LL-S3s" firstAttribute="leading" secondItem="RkY-Mf-Wbd" secondAttribute="leading" id="LBZ-XB-9SC"/>
+                            <constraint firstItem="fQY-LL-S3s" firstAttribute="trailing" secondItem="RkY-Mf-Wbd" secondAttribute="trailing" id="WaV-Jh-lxF"/>
+                            <constraint firstItem="maI-lz-4hv" firstAttribute="top" secondItem="RkY-Mf-Wbd" secondAttribute="top" id="bhV-18-uVV"/>
+                            <constraint firstItem="maI-lz-4hv" firstAttribute="leading" secondItem="RkY-Mf-Wbd" secondAttribute="leading" id="mGB-89-OhL"/>
+                            <constraint firstItem="RkY-Mf-Wbd" firstAttribute="trailing" secondItem="maI-lz-4hv" secondAttribute="trailing" id="vux-10-dsz"/>
+                            <constraint firstItem="RkY-Mf-Wbd" firstAttribute="bottom" secondItem="fQY-LL-S3s" secondAttribute="bottom" id="vvg-et-47H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RkY-Mf-Wbd"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="maI-lz-4hv" id="Bce-5e-6Sj"/>
+                        <outlet property="wanderspotsCollectionView" destination="fQY-LL-S3s" id="zHn-QI-WFV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJ0-qg-hvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-911" y="1507"/>
         </scene>
         <!--EXPLORE-->
         <scene sceneID="5m0-Bi-3ku">
