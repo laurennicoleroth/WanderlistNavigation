@@ -8,12 +8,23 @@
 
 import UIKit
 
+protocol WanderlistCollectionViewCellDelegate {
+  func favoriteButtonTouched(indexPath: IndexPath)
+}
+
 class WanderlistCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var aboutLabel: UILabel!
-  @IBOutlet var countLabel: UILabel!
-  @IBOutlet var categoriesLabel: UILabel!
+  @IBOutlet var distanceAwayButton: UIButton!
+  @IBOutlet var imageView: UIImageView!
+  @IBOutlet var spotsCountButton: UIButton!
+  @IBOutlet var favoriteButton: UIButton!
+  
+  
+  var delegate : WanderlistCollectionViewCellDelegate?
+  var wanderlist : Wanderlist?
+  public var indexPath: IndexPath!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -26,16 +37,43 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
     self.layer.shadowPath = shadowPath.cgPath
   }
   
+  
   func configureCellFrom(wanderlist: Wanderlist) {
-
+    self.wanderlist = wanderlist
     titleLabel.text = wanderlist.title
     let count = wanderlist.spotsCount
-    countLabel.text = "\(count) spots"
     aboutLabel.text = wanderlist.about
-    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
+    
+    if wanderlist.wanderspots.count == 1 {
+      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spot", for: .normal)
+    } else {
+      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spots", for: .normal)
+    }
+   
+//    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
 
   }
-
+  
+  @IBAction func distanceLabelTouched(_ sender: UIButton) {
+    print("distance label touched")
+  }
+  
+  @IBAction func favoriteButtonTouched(_ sender: UIButton) {
+    if let wanderlist = self.wanderlist {
+      print("Favorite button touched ", wanderlist)
+      delegate?.favoriteButtonTouched(indexPath: indexPath)
+    }
+    
+  }
+  
+  @IBAction func shareButtonTouched(_ sender: UIButton) {
+    print("Share button touched")
+  }
+  
+  @IBAction func walkButtonTouched(_ sender: UIButton) {
+    print("Walk button touched")
+  }
+  
   
   func prepareView() {
     self.contentView.layer.cornerRadius = 2.0

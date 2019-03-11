@@ -24,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func setupDependencies() {
+    
     FirebaseApp.configure()
-    GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
+    let settings = FirestoreSettings()
+    settings.isPersistenceEnabled = true
+    
+    GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_KEY)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

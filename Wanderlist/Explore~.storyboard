@@ -63,15 +63,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="p8h-2p-C2K"/>
                                 </constraints>
-                                <collectionViewLayout key="collectionViewLayout" id="tP2-iS-9QC" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
+                                <collectionViewLayout key="collectionViewLayout" id="4Wq-Vn-00r" customClass="MMBannerLayout" customModule="MMBannerLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderlistCollectionViewCell" id="RFr-co-Y9z" customClass="WanderlistCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="37.5" y="0.0" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <size key="customSize" width="300" height="200"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -94,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
                     <connections>
+                        <outlet property="collectionViewHeightConstraint" destination="p8h-2p-C2K" id="Lho-rZ-Efa"/>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
                         <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
                     </connections>
