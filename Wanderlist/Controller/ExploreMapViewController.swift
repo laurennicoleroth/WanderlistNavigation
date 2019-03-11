@@ -22,14 +22,20 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
   
   var currentUser : User?
-  var wanderlists = [Wanderlist]()
+  var wanderlists = [Wanderlist]() {
+    didSet {
+      if wanderlists.count == 1 {
+        wanderlistCollectionView.reloadData()
+      }
+    }
+  }
   var currentLocation : CLLocation?
   var expandedHeight : CGFloat = 600
   var notExpandedHeight : CGFloat = 200
   var isExpanded = [Bool]()
   
   override func viewWillAppear(_ animated: Bool) {
-    getData()
+    //getData()
   }
   
   override func viewDidLoad() {
@@ -64,6 +70,7 @@ class ExploreMapViewController: UIViewController {
   func getData() {
     AlgoliaService.searchWanderlistsWithQueryAndCurrentLocation(query: "") { [unowned self] (wanderlists) in
       self.wanderlists = wanderlists
+      self.wanderlistCollectionView.reloadData()
     }
   }
 }
@@ -92,7 +99,7 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 
 extension ExploreMapViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let wanderlist = wanderlistsWithState[indexPath.row].0
+    let wanderlist = wanderlists[indexPath.row]
     let storyboard = UIStoryboard(name: "Explore", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
     controller.wanderlist = wanderlist
