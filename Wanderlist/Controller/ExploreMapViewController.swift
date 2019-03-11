@@ -41,19 +41,20 @@ class ExploreMapViewController: UIViewController {
     setupMapUI()
     setupCollectionUI()
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-      self.searchNearby(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
+      self.searchQueryNearby(queryString: "", lat: location.coordinate.latitude, lon: location.coordinate.longitude)
     }) { (error, location) -> (Void) in
       print("Error getting location: ", error)
     }
   }
-  
-  func searchNearby(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+
+  func searchQueryNearby(queryString: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
     InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
     InstantSearch.shared.params.attributesToHighlight = ["title"]
 
     InstantSearch.shared.registerAllWidgets(in: self.view, doSearch: true)
     query.aroundLatLng = LatLng(lat: lat, lng: lon)
+    query.query = queryString
     query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
@@ -147,9 +148,12 @@ extension ExploreMapViewController: UISearchBarDelegate {
   }
   
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    if let query = searchBar.text {
-//      searchWanderlistsWithQueryAndCurrentLocation(query: query)
-      print("New query", searchBar.text)
+    if let queryString = searchBar.text {
+      Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+        self.searchQueryNearby(queryString: queryString, lat: location.coordinate.latitude, lon: location.coordinate.longitude)
+      }) { (error, location) -> (Void) in
+        print("Error getting location: ", error)
+      }
     }
     
   }
