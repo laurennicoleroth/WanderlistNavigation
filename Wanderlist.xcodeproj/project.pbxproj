@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B8FF32AF21AA93E1F410E1C /* Pods_WanderlistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD87FABFE7F9809E2933975 /* Pods_WanderlistTests.framework */; };
+		964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BF9462236B99D003E77DC /* AlgoliaService.swift */; };
 		968ED31D22330220005F6AE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ED31C22330220005F6AE1 /* User.swift */; };
 		968ED32022331902005F6AE1 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968ED31F22331902005F6AE1 /* Explore.storyboard */; };
 		968ED323223347AA005F6AE1 /* WanderlistPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */; };
@@ -47,6 +48,7 @@
 		3E70BCECD9E39F27C8C2F34F /* Pods-WanderlistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.debug.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4DD87FABFE7F9809E2933975 /* Pods_WanderlistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderlistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A2F5A35146DD408797D780 /* Pods-Wanderlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.debug.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.debug.xcconfig"; sourceTree = "<group>"; };
+		964BF9462236B99D003E77DC /* AlgoliaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaService.swift; sourceTree = "<group>"; };
 		968ED31C22330220005F6AE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		968ED31F22331902005F6AE1 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderlistPreviewViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		968ED32C2236B286005F6AE1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				964BF9462236B99D003E77DC /* AlgoliaService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				969354D8222EF1B400752858 /* AppDelegate.swift in Sources */,
 				96935504222F177500752858 /* Wanderlist.swift in Sources */,
 				968ED32822334C96005F6AE1 /* WanderspotCollectionViewCell.swift in Sources */,
+				964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */,
 				9693550C222F1B6B00752858 /* AuthService.swift in Sources */,
 				968ED31D22330220005F6AE1 /* User.swift in Sources */,
 			);
