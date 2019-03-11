@@ -48,15 +48,25 @@
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="JhM-YY-fis"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="A6S-ER-Nps">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="w7j-FA-Gg2"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="YjQ-wN-XRw" secondAttribute="bottom" id="5qe-Ah-bFX"/>
                             <constraint firstItem="tYE-DT-STA" firstAttribute="trailing" secondItem="Cbs-0n-sIn" secondAttribute="trailing" id="9UM-Wa-QmT"/>
                             <constraint firstItem="tYE-DT-STA" firstAttribute="bottom" secondItem="Cbs-0n-sIn" secondAttribute="bottom" id="VsQ-LY-GO7"/>
+                            <constraint firstItem="A6S-ER-Nps" firstAttribute="top" secondItem="tYE-DT-STA" secondAttribute="top" id="WLv-g4-25f"/>
                             <constraint firstItem="YjQ-wN-XRw" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="Wr1-QA-dDg"/>
                             <constraint firstAttribute="trailing" secondItem="YjQ-wN-XRw" secondAttribute="trailing" id="byf-SN-M1N"/>
+                            <constraint firstItem="A6S-ER-Nps" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="ggd-gz-mxB"/>
                             <constraint firstItem="Cbs-0n-sIn" firstAttribute="top" secondItem="tYE-DT-STA" secondAttribute="top" id="lzy-Qr-M3f"/>
+                            <constraint firstItem="A6S-ER-Nps" firstAttribute="trailing" secondItem="tYE-DT-STA" secondAttribute="trailing" id="qNX-bb-lfm"/>
                             <constraint firstItem="Cbs-0n-sIn" firstAttribute="leading" secondItem="tYE-DT-STA" secondAttribute="leading" id="tfs-AL-4oW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
@@ -81,7 +91,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maI-lz-4hv" customClass="WanderlistDetailMapboxMap" customModule="Wanderly" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maI-lz-4hv" customClass="WanderlistDetailMapboxMap" customModule="Wanderlist" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>

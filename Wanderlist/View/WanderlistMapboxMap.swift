@@ -62,18 +62,8 @@ class WanderlistMapboxMap : MGLMapView {
   }
   
   func drawWanderlistPathForWanderlist(wanderlist: Wanderlist) {
-    if let id = wanderlist.objectID {
-      Wanderlist.get(id) { [unowned self] (wanderlist, error) in
-        var wanderspots = [Wanderspot]()
-        if wanderlist != nil && wanderlist?.wanderspots != nil {
-          for spot in (wanderlist?.wanderspots.makeIterator())! {
-            wanderspots.append(spot)
-          }
-          wanderspots = wanderspots.sorted(by: { $0.distanceAway ?? 0.0 < $1.distanceAway ?? 0.0 })
-          self.addWanderspotsToMap(wanderspots)
-        }
-      }
-    }
+    let id = wanderlist.objectID
+
   }
   
   func addWanderspotsToMap(_ wanderspots: [Wanderspot]) {

@@ -20,20 +20,20 @@ struct Wanderlist {
   var zipcode : String = ""
   var latitude : Double = 0.0
   var longitude : Double = 0.0
-  var categories : [String] = []
+  var categories : String = ""
   var spotsCount : Int = 0
   var wanderspots : [Wanderspot] = []
   
   init(json: [String: Any]) {
-    self.title = json["title"] as! String
-    self.about = json["about"] as! String
-    self.objectID = json["objectID"] as! String
-    self.creatorID = json["creatorID"] as! String
-    self.city = json["city"] as! String
-    self.zipcode = json["zipcode"] as! String
-    self.latitude = json["latitude"] as! Double
-    self.longitude = json["longitude"] as! Double
-    self.categories = json["categories"] as! [String]
+    self.title = json["title"] as? String ?? ""
+    self.about = json["about"] as? String ?? ""
+    self.objectID = json["objectID"] as? String ?? ""
+    self.creatorID = json["creatorID"] as? String ?? ""
+    self.city = json["city"] as? String ?? ""
+    self.zipcode = json["zipcode"] as? String ?? ""
+    self.latitude = json["latitude"] as? Double ?? 0.0
+    self.longitude = json["longitude"] as? Double ?? 0.0
+    self.categories = json["categories"] as? String ?? ""
   }
   
   func distanceFromCurrentLocation(origin: CLLocation) -> CLLocationDistance {

@@ -35,13 +35,17 @@ class ExploreMapViewController: UIViewController {
   var isExpanded = [Bool]()
   
   override func viewWillAppear(_ animated: Bool) {
-    //getData()
+
+    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+      self.setupDataNear(location: location)
+    }) { (error, location) -> (Void) in
+      print("Error getting location: ", error)
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "EXPLORE"
-    
     
     setupMapUI()
     setupCollectionUI()
@@ -66,12 +70,27 @@ class ExploreMapViewController: UIViewController {
     
     wanderlistCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
   }
-  
-  func getData() {
-    AlgoliaService.searchWanderlistsWithQueryAndCurrentLocation(query: "") { [unowned self] (wanderlists) in
-      self.wanderlists = wanderlists
+ 
+  func setupDataNear(location: CLLocation) {
+    let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
+    let index = client.index(withName: "wanderlist_search")
+    
+    let query = Query(query: "")
+    query.aroundLatLng = LatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+    query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
+    
+    index.search(query, completionHandler: { [unowned self] (results, error) in
+      guard let results = results else {
+        return
+      }
+      
+      guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
+      
+      for hit in hits {
+        self.wanderlists.append(Wanderlist(json: hit))
+      }
       self.wanderlistCollectionView.reloadData()
-    }
+    })
   }
 }
 
@@ -139,7 +158,7 @@ extension ExploreMapViewController: UICollectionViewDataSource {
     cell.configureCellFrom(wanderlist: wanderlist)
     
     if let origin = currentLocation {
-      let distance = wanderlist.distanceFromUserAt(origin: origin)
+      let distance = wanderlist.distanceFromCurrentLocation(origin: origin)
       cell.distanceAwayButton.setTitle("\(distance) miles away", for: .normal)
     }
     cell.delegate = self

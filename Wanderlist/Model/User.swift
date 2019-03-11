@@ -16,7 +16,7 @@ class User: Object {
   dynamic var fullName: String?
   dynamic var email: String?
   dynamic var followers: ReferenceCollection<User> = []
-  dynamic var favoriteWanderlists: ReferenceCollection<Wanderlist> = []
+//  dynamic var favoriteWanderlists: ReferenceCollection<Wanderlist> = []
   
   func addUserToFirestore(userID: String, fullName: String, email: String) {
     let user = User()
