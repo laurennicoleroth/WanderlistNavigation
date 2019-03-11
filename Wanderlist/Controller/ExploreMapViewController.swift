@@ -22,27 +22,20 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
   
   var currentUser : User?
-  var wanderlistsWithState = [(Wanderlist, Bool)]() {
-    didSet {
-      if wanderlistsWithState.count == 2 {
-        self.wanderlistCollectionView.reloadData()
-      }
-    }
-  }
-  
+  var wanderlists = [Wanderlist]()
   var currentLocation : CLLocation?
   var expandedHeight : CGFloat = 600
   var notExpandedHeight : CGFloat = 200
   var isExpanded = [Bool]()
   
   override func viewWillAppear(_ animated: Bool) {
-    
+    getData()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "EXPLORE"
-
+    
     
     setupMapUI()
     setupCollectionUI()
@@ -68,10 +61,11 @@ class ExploreMapViewController: UIViewController {
     wanderlistCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
   }
   
- 
-  
-  
-  
+  func getData() {
+    AlgoliaService.searchWanderlistsWithQueryAndCurrentLocation(query: "") { [unowned self] (wanderlists) in
+      self.wanderlists = wanderlists
+    }
+  }
 }
 
 extension ExploreMapViewController: MGLMapViewDelegate {
@@ -101,38 +95,38 @@ extension ExploreMapViewController: UICollectionViewDelegate {
     let wanderlist = wanderlistsWithState[indexPath.row].0
     let storyboard = UIStoryboard(name: "Explore", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
-        controller.wanderlist = wanderlist
-        self.navigationController?.pushViewController(controller, animated: true)
+    controller.wanderlist = wanderlist
+    self.navigationController?.pushViewController(controller, animated: true)
   }
   
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return wanderlistsWithState.count
+    return wanderlists.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
-    let wanderlist = wanderlistsWithState[indexPath.row].0
-    let isFavoritedByCurrentUser = wanderlistsWithState[indexPath.row].1
+    let wanderlist = wanderlists[indexPath.row]
+//    let isFavoritedByCurrentUser = wanderlists[indexPath.row]
     
-    if isFavoritedByCurrentUser {
-      cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
-      if let user = currentUser {
-//        user.favoriteWanderlists.insert(wanderlist)
-//        user.update()
-
-      }
-    } else {
-      cell.favoriteButton.setImage(UIImage(named: "favorite-outline-white"), for: .normal)
-      if let user = currentUser {
-//        user.favoriteWanderlists.remove(wanderlist)
-//        user.update()
-   
-      }
-    }
+//    if isFavoritedByCurrentUser {
+//      cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
+//      if let user = currentUser {
+//        //        user.favoriteWanderlists.insert(wanderlist)
+//        //        user.update()
+//
+//      }
+//    } else {
+//      cell.favoriteButton.setImage(UIImage(named: "favorite-outline-white"), for: .normal)
+//      if let user = currentUser {
+//        //        user.favoriteWanderlists.remove(wanderlist)
+//        //        user.update()
+//
+//      }
+//    }
     
     
     cell.configureCellFrom(wanderlist: wanderlist)
@@ -214,29 +208,21 @@ extension ExploreMapViewController: UICollectionViewDataSource {
 
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
-    let wanderlist = wanderlistsWithState[indexPath.row].0
-//    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
+    let wanderlist = wanderlists[indexPath.row]
+    //    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
   }
-  
-  
-  
-  
 }
 
 extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
   func favoriteButtonTouched(indexPath: IndexPath) {
     
-    wanderlistsWithState[indexPath.row].1 = !wanderlistsWithState[indexPath.row].1
-    
-    UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
-                   options: UIView.AnimationOptions.curveEaseInOut, animations: {
-//                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
-    }, completion: { success in
-      print("success")
-    })
+//    wanderlistsWithState[indexPath.row].1 = !wanderlistsWithState[indexPath.row].1
+//
+//    UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
+//                   options: UIView.AnimationOptions.curveEaseInOut, animations: {
+//                    //                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
+//    }, completion: { success in
+//      print("success")
+//    })
   }
-  
-  
-  
-  
 }
