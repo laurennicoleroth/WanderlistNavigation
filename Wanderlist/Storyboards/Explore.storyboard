@@ -43,8 +43,11 @@
                                         <size key="customSize" width="300" height="200"/>
                                     </collectionViewCell>
                                 </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showItemsOnEmptyQuery" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="dataSource" destination="3kE-Js-y1L" id="ltb-hi-PEg"/>
+                                    <outlet property="dataSource" destination="3kE-Js-y1L" id="eCP-HC-YOL"/>
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="JhM-YY-fis"/>
                                 </connections>
                             </collectionView>
@@ -54,6 +57,9 @@
                                     <constraint firstAttribute="height" constant="56" id="w7j-FA-Gg2"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3kE-Js-y1L" id="Rbl-ev-eIp"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

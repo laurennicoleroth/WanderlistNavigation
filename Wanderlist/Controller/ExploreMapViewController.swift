@@ -21,6 +21,8 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var wanderlistsHitsCollectionView: HitsCollectionWidget!
   @IBOutlet var searchBarWidget: SearchBarWidget!
   
+  var wanderlistSearcher: Searcher!
+  var originIsLocal: Bool = false
   var currentUser : User?
   var wanderlists = [Wanderlist]()
   var currentLocation : CLLocation?
@@ -45,6 +47,7 @@ class ExploreMapViewController: UIViewController {
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
     InstantSearch.shared.params.attributesToHighlight = ["title"]
     InstantSearch.shared.register(searchBar: searchBarWidget)
+    InstantSearch.shared.registerAllWidgets(in: self.view, doSearch: true)
   }
   
   private func setupMapUI() {
@@ -118,24 +121,22 @@ extension ExploreMapViewController: HitsCollectionViewDelegate {
   }
 }
 
-extension ExploreMapViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let wanderlist = wanderlists[indexPath.row]
-    let storyboard = UIStoryboard(name: "Explore", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
-    controller.wanderlist = wanderlist
-    self.navigationController?.pushViewController(controller, animated: true)
+extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return wanderlists.count
   }
   
-}
-
-extension ExploreMapViewController: HitsCollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    return UICollectionViewCell()
+  }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, containing hit: [String : Any]) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
     let wanderlist = Wanderlist(json: hit)
     cell.configureCellFrom(wanderlist: wanderlist)
     return cell
   }
+ 
   
   func setPhotoOnCell(cell: WanderlistCollectionViewCell, id: String) {
     let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
@@ -194,7 +195,6 @@ extension ExploreMapViewController: HitsCollectionViewDataSource {
       }
     }
   }
-  
 }
 
 extension ExploreMapViewController: BannerLayoutDelegate {
