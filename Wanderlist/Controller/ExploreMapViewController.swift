@@ -9,6 +9,8 @@
 import UIKit
 import Mapbox
 import InstantSearch
+import InstantSearchCore
+import InstantSearchClient
 import MMBannerLayout
 import SwiftLocation
 import GooglePlaces
@@ -19,9 +21,9 @@ class ExploreMapViewController: UIViewController {
   
   @IBOutlet var mapView: WanderlistMapboxMap!
   @IBOutlet var wanderlistsHitsCollectionView: HitsCollectionWidget!
-  @IBOutlet var searchBarWidget: SearchBarWidget!
+  @IBOutlet var searchBar: UISearchBar!
+  var searchController = UISearchController()
   
-  var wanderlistSearcher: Searcher!
   var originIsLocal: Bool = false
   var currentUser : User?
   var wanderlists = [Wanderlist]()
@@ -34,7 +36,8 @@ class ExploreMapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "EXPLORE"
-    
+
+  
     setupMapUI()
     setupCollectionUI()
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
@@ -48,7 +51,7 @@ class ExploreMapViewController: UIViewController {
     InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
     InstantSearch.shared.params.attributesToHighlight = ["title"]
-    InstantSearch.shared.register(searchBar: searchBarWidget)
+
     InstantSearch.shared.registerAllWidgets(in: self.view, doSearch: true)
     query.aroundLatLng = LatLng(lat: lat, lng: lon)
     query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
@@ -115,6 +118,51 @@ class ExploreMapViewController: UIViewController {
   }
 }
 
+extension ExploreMapViewController: UISearchBarDelegate {
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    print("Cancel clicked")
+  }
+  
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    print("Search began")
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    if let query = searchBar.text {
+      print("Search query")
+    }
+    
+    searchBar.resignFirstResponder()
+  }
+  
+  func updateCollectionWithHits(hits: [[String: Any]]) {
+    
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    print("textDidChange", searchText)
+    
+    
+  }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    if let query = searchBar.text {
+//      searchWanderlistsWithQueryAndCurrentLocation(query: query)
+      print("New query", searchBar.text)
+    }
+    
+  }
+}
+
+extension ExploreMapViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    print("Update them results")
+  }
+  
+  
+}
+
 extension ExploreMapViewController: MGLMapViewDelegate {
   
   func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
@@ -140,6 +188,7 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 extension ExploreMapViewController: HitsCollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, containing hit: [String : Any]) {
     print("hit \(String(describing: hit["name"]!)) has been clicked")
+    
   }
 }
 
@@ -225,7 +274,7 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
     let wanderlist = wanderlists[indexPath.row]
-    //    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
+    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
   }
 }
 

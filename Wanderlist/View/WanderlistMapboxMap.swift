@@ -22,7 +22,7 @@ class WanderlistMapboxMap : MGLMapView {
     
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
       print("Setting center to: ", location.coordinate)
-      self.setCenter(location.coordinate, zoomLevel: 15, animated: true)
+      self.setCenter(location.coordinate, zoomLevel: 12, animated: true)
       self.getWanderlistsNear(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
       
     }) { (error, location) -> (Void) in

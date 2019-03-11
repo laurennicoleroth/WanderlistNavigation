@@ -57,8 +57,11 @@
                                     <constraint firstAttribute="height" constant="56" id="w7j-FA-Gg2"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="index" value="wanderlist_search"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="delegate" destination="3kE-Js-y1L" id="Rbl-ev-eIp"/>
+                                    <outlet property="delegate" destination="3kE-Js-y1L" id="MS2-Du-TyD"/>
                                 </connections>
                             </searchBar>
                         </subviews>
@@ -80,7 +83,7 @@
                     <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
                     <connections>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
-                        <outlet property="searchBarWidget" destination="A6S-ER-Nps" id="LnZ-DT-uW2"/>
+                        <outlet property="searchBar" destination="A6S-ER-Nps" id="wfi-4C-h1W"/>
                         <outlet property="wanderlistsHitsCollectionView" destination="YjQ-wN-XRw" id="YLx-cW-KL6"/>
                         <segue destination="12y-zC-gnI" kind="show" id="4J8-Re-CJf"/>
                     </connections>
