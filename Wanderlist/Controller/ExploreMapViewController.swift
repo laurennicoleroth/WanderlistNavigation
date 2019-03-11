@@ -29,10 +29,7 @@ class ExploreMapViewController: UIViewController {
   var expandedHeight : CGFloat = 600
   var notExpandedHeight : CGFloat = 200
   var isExpanded = [Bool]()
-  
-  override func viewWillAppear(_ animated: Bool) {
-    setupSearch()
-  }
+  var query = Query()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,14 +37,37 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
+    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+      self.searchNearby(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
+    }) { (error, location) -> (Void) in
+      print("Error getting location: ", error)
+    }
   }
   
-  func setupSearch() {
+  func searchNearby(lat: CLLocationDegrees, lon: CLLocationDegrees) {
     InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
     InstantSearch.shared.params.attributesToHighlight = ["title"]
     InstantSearch.shared.register(searchBar: searchBarWidget)
     InstantSearch.shared.registerAllWidgets(in: self.view, doSearch: true)
+    query.aroundLatLng = LatLng(lat: lat, lng: lon)
+    query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
+    let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
+    let index = client.index(withName: "wanderlist_search")
+    
+    
+    index.search(query, completionHandler: { [unowned self] (results, error) in
+      guard let results = results else {
+        return
+      }
+      
+      guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
+      
+      for hit in hits {
+        self.wanderlists.append(Wanderlist(json: hit))
+      }
+      self.wanderlistsHitsCollectionView.reloadHits()
+    })
   }
   
   private func setupMapUI() {
@@ -69,7 +89,7 @@ class ExploreMapViewController: UIViewController {
     
     wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
   }
- 
+  
   func setupDataNear(location: CLLocation) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
@@ -88,7 +108,7 @@ class ExploreMapViewController: UIViewController {
       for hit in hits {
         self.wanderlists.append(Wanderlist(json: hit))
       }
-     
+      
     })
   }
 }
@@ -122,12 +142,15 @@ extension ExploreMapViewController: HitsCollectionViewDelegate {
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return wanderlists.count
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
+    let wanderlist = wanderlists[indexPath.row]
+    cell.configureCellFrom(wanderlist: wanderlist)
+    return cell
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    return UICollectionViewCell()
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return wanderlists.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, containing hit: [String : Any]) -> UICollectionViewCell {
@@ -136,7 +159,7 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
     cell.configureCellFrom(wanderlist: wanderlist)
     return cell
   }
- 
+  
   
   func setPhotoOnCell(cell: WanderlistCollectionViewCell, id: String) {
     let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
