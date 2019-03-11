@@ -20,6 +20,7 @@ class ExploreMapViewController: UIViewController {
   @IBOutlet var mapView: WanderlistMapboxMap!
   @IBOutlet var wanderlistCollectionView: UICollectionView!
   @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet var searchBarWidget: SearchBarWidget!
   
   var currentUser : User?
   var wanderlists = [Wanderlist]() {
@@ -35,12 +36,12 @@ class ExploreMapViewController: UIViewController {
   var isExpanded = [Bool]()
   
   override func viewWillAppear(_ animated: Bool) {
-
-    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-      self.setupDataNear(location: location)
-    }) { (error, location) -> (Void) in
-      print("Error getting location: ", error)
-    }
+    setupSearch()
+//    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+//      self.setupDataNear(location: location)
+//    }) { (error, location) -> (Void) in
+//      print("Error getting location: ", error)
+//    }
   }
   
   override func viewDidLoad() {
@@ -49,6 +50,13 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
+  }
+  
+  func setupSearch() {
+    InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
+    InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
+    InstantSearch.shared.params.attributesToHighlight = ["title"]
+    InstantSearch.shared.register(searchBar: searchBarWidget)
   }
   
   private func setupMapUI() {

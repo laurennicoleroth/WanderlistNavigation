@@ -75,6 +75,7 @@
                     <connections>
                         <outlet property="collectionViewHeightConstraint" destination="p8h-2p-C2K" id="Lho-rZ-Efa"/>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
+                        <outlet property="searchBarWidget" destination="A6S-ER-Nps" id="LnZ-DT-uW2"/>
                         <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
                         <segue destination="12y-zC-gnI" kind="show" id="4J8-Re-CJf"/>
                     </connections>
