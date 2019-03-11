@@ -18,18 +18,11 @@ import Pring
 class ExploreMapViewController: UIViewController {
   
   @IBOutlet var mapView: WanderlistMapboxMap!
-  @IBOutlet var wanderlistCollectionView: UICollectionView!
-  @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet var wanderlistsHitsCollectionView: HitsCollectionWidget!
   @IBOutlet var searchBarWidget: SearchBarWidget!
   
   var currentUser : User?
-  var wanderlists = [Wanderlist]() {
-    didSet {
-      if wanderlists.count == 1 {
-        wanderlistCollectionView.reloadData()
-      }
-    }
-  }
+  var wanderlists = [Wanderlist]()
   var currentLocation : CLLocation?
   var expandedHeight : CGFloat = 600
   var notExpandedHeight : CGFloat = 200
@@ -37,11 +30,6 @@ class ExploreMapViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     setupSearch()
-//    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-//      self.setupDataNear(location: location)
-//    }) { (error, location) -> (Void) in
-//      print("Error getting location: ", error)
-//    }
   }
   
   override func viewDidLoad() {
@@ -68,15 +56,15 @@ class ExploreMapViewController: UIViewController {
   
   private func setupCollectionUI() {
     self.view.layoutIfNeeded()
-    wanderlistCollectionView.showsHorizontalScrollIndicator = false
-    if let layout = wanderlistCollectionView.collectionViewLayout as? MMBannerLayout {
+    wanderlistsHitsCollectionView.showsHorizontalScrollIndicator = false
+    if let layout = wanderlistsHitsCollectionView.collectionViewLayout as? MMBannerLayout {
       layout.itemSpace = 10
-      layout.itemSize = self.wanderlistCollectionView.frame.insetBy(dx: 30, dy: 30).size
+      layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 30, dy: 30).size
       layout.minimuAlpha = 0.4
       layout.angle = 30.0
     }
     
-    wanderlistCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
+    wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
   }
  
   func setupDataNear(location: CLLocation) {
@@ -97,7 +85,7 @@ class ExploreMapViewController: UIViewController {
       for hit in hits {
         self.wanderlists.append(Wanderlist(json: hit))
       }
-      self.wanderlistCollectionView.reloadData()
+     
     })
   }
 }
@@ -124,6 +112,12 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   
 }
 
+extension ExploreMapViewController: HitsCollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, containing hit: [String : Any]) {
+    print("hit \(String(describing: hit["name"]!)) has been clicked")
+  }
+}
+
 extension ExploreMapViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let wanderlist = wanderlists[indexPath.row]
@@ -135,48 +129,11 @@ extension ExploreMapViewController: UICollectionViewDelegate {
   
 }
 
-extension ExploreMapViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return wanderlists.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
+extension ExploreMapViewController: HitsCollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, containing hit: [String : Any]) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
-    let wanderlist = wanderlists[indexPath.row]
-//    let isFavoritedByCurrentUser = wanderlists[indexPath.row]
-    
-//    if isFavoritedByCurrentUser {
-//      cell.favoriteButton.setImage(UIImage(named: "favorite-whole-white"), for: .normal)
-//      if let user = currentUser {
-//        //        user.favoriteWanderlists.insert(wanderlist)
-//        //        user.update()
-//
-//      }
-//    } else {
-//      cell.favoriteButton.setImage(UIImage(named: "favorite-outline-white"), for: .normal)
-//      if let user = currentUser {
-//        //        user.favoriteWanderlists.remove(wanderlist)
-//        //        user.update()
-//
-//      }
-//    }
-    
-    
+    let wanderlist = Wanderlist(json: hit)
     cell.configureCellFrom(wanderlist: wanderlist)
-    
-    if let origin = currentLocation {
-      let distance = wanderlist.distanceFromCurrentLocation(origin: origin)
-      cell.distanceAwayButton.setTitle("\(distance) miles away", for: .normal)
-    }
-    cell.delegate = self
-    cell.indexPath = indexPath
-    
-    if let placeID = wanderlist.wanderspots.first?.placeID {
-      setPhotoOnCell(cell: cell, id: placeID)
-    }
-    
-    cell.backgroundColor = .white
     return cell
   }
   
@@ -247,16 +204,3 @@ extension ExploreMapViewController: BannerLayoutDelegate {
   }
 }
 
-extension ExploreMapViewController: WanderlistCollectionViewCellDelegate {
-  func favoriteButtonTouched(indexPath: IndexPath) {
-    
-//    wanderlistsWithState[indexPath.row].1 = !wanderlistsWithState[indexPath.row].1
-//
-//    UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9,
-//                   options: UIView.AnimationOptions.curveEaseInOut, animations: {
-//                    //                    self.wanderlistCollectionView.reloadItems(at: [indexPath])
-//    }, completion: { success in
-//      print("success")
-//    })
-  }
-}

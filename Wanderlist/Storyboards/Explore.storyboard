@@ -25,7 +25,7 @@
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="jQl-z1-hcZ"/>
                                 </connections>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-wN-XRw" customClass="WanderlistCollectionView">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-wN-XRw" customClass="HitsCollectionWidget" customModule="InstantSearch">
                                 <rect key="frame" x="0.0" y="417" width="375" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -73,10 +73,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
                     <connections>
-                        <outlet property="collectionViewHeightConstraint" destination="p8h-2p-C2K" id="Lho-rZ-Efa"/>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
                         <outlet property="searchBarWidget" destination="A6S-ER-Nps" id="LnZ-DT-uW2"/>
-                        <outlet property="wanderlistCollectionView" destination="YjQ-wN-XRw" id="28m-CU-PEM"/>
+                        <outlet property="wanderlistsHitsCollectionView" destination="YjQ-wN-XRw" id="YLx-cW-KL6"/>
                         <segue destination="12y-zC-gnI" kind="show" id="4J8-Re-CJf"/>
                     </connections>
                 </viewController>
