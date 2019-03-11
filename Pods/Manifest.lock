@@ -153,6 +153,7 @@ DEPENDENCIES:
   - Firebase/Core
   - GooglePlaces
   - InstantSearch (~> 3.0)
+  - InstantSearchClient (~> 6.0)
   - Kingfisher
   - Mapbox-iOS-SDK
   - MapboxNavigation
@@ -239,6 +240,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: d2d29b83b2594db0d6b123d13f2b2928c24af011
+PODFILE CHECKSUM: aeeb4ec86c3b3614faac721213c933764f93339f
 
 COCOAPODS: 1.6.0.beta.1

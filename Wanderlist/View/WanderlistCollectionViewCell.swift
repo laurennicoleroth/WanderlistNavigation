@@ -44,10 +44,10 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
     let count = wanderlist.spotsCount
     aboutLabel.text = wanderlist.about
     
-    if wanderlist.wanderspots.count == 1 {
-      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spot", for: .normal)
+    if count == 1 {
+      spotsCountButton.setTitle("\(count) spot", for: .normal)
     } else {
-      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spots", for: .normal)
+      spotsCountButton.setTitle("\(count) spots", for: .normal)
     }
    
 //    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")

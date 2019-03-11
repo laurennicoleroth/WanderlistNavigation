@@ -21,7 +21,7 @@ struct Wanderlist {
   var latitude : Double = 0.0
   var longitude : Double = 0.0
   var categories : String = ""
-  var spotsCount : Int = 0
+  var spotsCount : Int = 1
   var wanderspots : [Wanderspot] = []
   
   init(json: [String: Any]) {
@@ -30,6 +30,7 @@ struct Wanderlist {
     self.objectID = json["objectID"] as? String ?? ""
     self.creatorID = json["creatorID"] as? String ?? ""
     self.city = json["city"] as? String ?? ""
+    self.spotsCount = json["spots_count"] as? Int ?? 1
     self.zipcode = json["zipcode"] as? String ?? ""
     self.latitude = json["latitude"] as? Double ?? 0.0
     self.longitude = json["longitude"] as? Double ?? 0.0
