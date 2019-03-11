@@ -42,20 +42,7 @@ class ExploreMapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "EXPLORE"
-    
-    User.get("M2MnZTZhUe239WW4bIP6", block: { (user, error) in
-      if error != nil {
-        print(error)
-        return
-      } else {
-        if let user = user {
-          print("Setting current user", user.fullName)
-          self.currentUser = user
-          self.searchWanderlistsWithQueryAndCurrentLocation(query: "")
-        }
-      }
-    })
- 
+
     
     setupMapUI()
     setupCollectionUI()
@@ -115,23 +102,7 @@ class ExploreMapViewController: UIViewController {
   
   func getWanderlistsFromHits(hits: [[String: Any]]) {
     for hit in hits {
-      if let id = hit["objectID"] as? String {
- 
-        
-     
-        Wanderlist.get(id) { [unowned self] (wanderlist, error) in
-          if let wanderlist = wanderlist {
-            
- 
-            self.currentUser?.favoriteWanderlists.where(\Wanderlist.objectID, isEqualTo: wanderlist.objectID).get { (query, error)  in
-              self.wanderlistsWithState.insert((wanderlist, true), at: 0)
-            }
-           
-
-            self.wanderlistsWithState.insert((wanderlist, false), at: 0)
-          }
-        }
-      }
+      print(hit)
     }
     self.wanderlistCollectionView.reloadData()
   }
