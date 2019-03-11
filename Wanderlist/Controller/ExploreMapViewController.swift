@@ -69,7 +69,7 @@ class ExploreMapViewController: UIViewController {
       self.wanderlists = hits.map({Wanderlist(json: $0)})
     
       self.wanderlistsHitsCollectionView.reloadHits()
-      self.mapView.addHitsToMap(hits: hits)
+      self.mapView.fitHitsToMap(hits: hits)
     })
   }
   
@@ -189,10 +189,16 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   
 }
 
-extension ExploreMapViewController: HitsCollectionViewDelegate {
+extension ExploreMapViewController: UICollectionViewDelegate, HitsCollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, containing hit: [String : Any]) {
     print("hit \(String(describing: hit["name"]!)) has been clicked")
     
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print("Selected item", wanderlists[indexPath.row].title)
+    let wanderlist = wanderlists[indexPath.row]
+    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
   }
 }
 
