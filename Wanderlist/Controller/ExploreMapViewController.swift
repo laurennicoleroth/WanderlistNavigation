@@ -131,7 +131,7 @@ extension ExploreMapViewController: UISearchBarDelegate {
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     if let query = searchBar.text {
-      print("Search query")
+      print("Search query:", query)
     }
     
     searchBar.resignFirstResponder()
@@ -177,7 +177,14 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   }
   
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-    print("Did select annotation on map", annotation)
+    print("Did select annotation on map", annotation.title)
+    if let index = wanderlists.firstIndex(where: { $0.title == annotation.title }) {
+      print("The first index = \(index)")
+  
+      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
+      wanderlistsHitsCollectionView.layoutSubviews()
+      mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists[index].latitude, longitude: wanderlists[index].longitude), animated: true)
+    }
   }
   
   // Allow callout view to appear when an annotation is tapped.
@@ -185,6 +192,10 @@ extension ExploreMapViewController: MGLMapViewDelegate {
     
     debugPrint("Annotation callout shown")
     return true
+  }
+  
+  func zoomToWanderlist() {
+    
   }
   
 }
