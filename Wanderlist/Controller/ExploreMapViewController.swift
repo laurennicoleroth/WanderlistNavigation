@@ -28,8 +28,6 @@ class ExploreMapViewController: UIViewController {
   var currentUser : User?
   var wanderlists = [Wanderlist]()
   var currentLocation : CLLocation?
-  var expandedHeight : CGFloat = 600
-  var notExpandedHeight : CGFloat = 200
   var isExpanded = [Bool]()
   var query = Query()
   
