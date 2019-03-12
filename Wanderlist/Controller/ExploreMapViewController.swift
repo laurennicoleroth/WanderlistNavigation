@@ -146,9 +146,25 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   
   func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
     if annotation is MGLUserLocation && mapView.userLocation != nil {
-      print("View for annotation, y'all")
+      
     }
     return nil
+  }
+  
+  func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+  
+    var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "map-pin-purple")
+    
+    if annotationImage == nil {
+      var image = UIImage(named: "map-pin-purple")!
+   
+      image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/4, right: 0))
+      
+      // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
+      annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "map-pin-purple")
+    }
+    
+    return annotationImage
   }
   
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {

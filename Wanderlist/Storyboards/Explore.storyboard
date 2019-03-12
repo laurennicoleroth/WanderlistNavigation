@@ -93,8 +93,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="WANDERLY" id="NWf-nY-qIc">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YL5-pk-Vi8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
-                                <rect key="frame" x="287" y="11" width="72" height="22"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
+                                <rect key="frame" x="287" y="8" width="72" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
