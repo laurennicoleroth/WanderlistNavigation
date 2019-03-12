@@ -84,7 +84,7 @@
         <scene sceneID="NE4-v0-oSA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IlV-7M-fxw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SEARCH" image="search" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="SEARCH" image="Search" id="kGT-UX-ftW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sVH-dd-ExO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -149,8 +149,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Search" width="28" height="28"/>
         <image name="add-circle-outline" width="20" height="20"/>
         <image name="directionswalk" width="14" height="22"/>
-        <image name="search" width="18" height="18"/>
     </resources>
 </document>

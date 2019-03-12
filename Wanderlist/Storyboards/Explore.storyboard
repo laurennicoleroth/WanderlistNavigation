@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Delegate-->
         <scene sceneID="KpN-0W-ta5">
@@ -86,13 +91,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NWf-nY-qIc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="YL5-pk-Vi8">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
+                    <navigationItem key="navigationItem" title="WANDERLY" id="NWf-nY-qIc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="YL5-pk-Vi8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
                                 <rect key="frame" x="287" y="11" width="72" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="list"/>
+                                <state key="normal" image="Search"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -187,7 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Search" width="28" height="28"/>
         <image name="explore" width="20" height="20"/>
-        <image name="list" width="18" height="10"/>
     </resources>
 </document>
