@@ -31,7 +31,7 @@ class ExploreMapViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   
-    setupMapUI()
+//    setupMapUI()
     setupCollectionUI()
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
       self.searchQueryNearby(queryString: "", lat: location.coordinate.latitude, lon: location.coordinate.longitude)
