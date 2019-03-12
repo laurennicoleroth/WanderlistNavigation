@@ -92,6 +92,13 @@
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
                     <navigationItem key="navigationItem" title="WANDERLY" id="NWf-nY-qIc">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="geS-DD-Npk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PvD-6f-3JH">
+                                <rect key="frame" x="16" y="11" width="30" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Menu"/>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YL5-pk-Vi8">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
                                 <rect key="frame" x="287" y="8" width="72" height="28"/>
@@ -169,11 +176,12 @@
             </objects>
             <point key="canvasLocation" x="-911" y="1507"/>
         </scene>
-        <!--EXPLORE-->
+        <!--Navigation Controller-->
         <scene sceneID="5m0-Bi-3ku">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uUX-g1-xdV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="EXPLORE" image="explore" id="IEI-O7-1sh">
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="IEI-O7-1sh">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                         <color key="badgeColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -193,7 +201,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home" width="30" height="31"/>
+        <image name="Menu" width="30" height="21"/>
         <image name="Search" width="28" height="28"/>
-        <image name="explore" width="20" height="20"/>
     </resources>
 </document>

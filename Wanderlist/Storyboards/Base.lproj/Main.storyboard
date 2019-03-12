@@ -62,7 +62,7 @@
         <scene sceneID="b3t-mD-hzs">
             <objects>
                 <tabBarController id="r2X-8d-xeR" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OJW-YO-Nob">
+                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" id="OJW-YO-Nob">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="-684" y="-29"/>
         </scene>
-        <!--SEARCH-->
+        <!--Navigation Controller-->
         <scene sceneID="NE4-v0-oSA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IlV-7M-fxw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SEARCH" image="Search" id="kGT-UX-ftW"/>
+                    <tabBarItem key="tabBarItem" title="" image="Search" id="kGT-UX-ftW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sVH-dd-ExO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -99,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="-684" y="789"/>
         </scene>
-        <!--CREATE-->
+        <!--Navigation Controller-->
         <scene sceneID="6Vn-2l-r2k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6W-Z5-7m3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CREATE" image="add-circle-outline" id="8PJ-lo-mYZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="plus-button" id="8PJ-lo-mYZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mnx-9X-Ykt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -118,11 +118,13 @@
             </objects>
             <point key="canvasLocation" x="273" y="788"/>
         </scene>
-        <!--GO-->
+        <!--Navigation Controller-->
         <scene sceneID="ZmF-Gb-oJJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hPi-eL-7vu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="GO" image="directionswalk" id="hkB-JB-4l9"/>
+                    <tabBarItem key="tabBarItem" title="" image="User" id="hkB-JB-4l9">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ss6-0D-0AU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -141,7 +143,9 @@
         <scene sceneID="HGb-zB-NCn">
             <objects>
                 <viewControllerPlaceholder storyboardName="Explore" id="jXx-JI-5M4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VpM-9X-Wls"/>
+                    <tabBarItem key="tabBarItem" title="" id="VpM-9X-Wls">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39o-rp-l92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,7 +154,7 @@
     </scenes>
     <resources>
         <image name="Search" width="28" height="28"/>
-        <image name="add-circle-outline" width="20" height="20"/>
-        <image name="directionswalk" width="14" height="22"/>
+        <image name="User" width="14" height="34"/>
+        <image name="plus-button" width="27" height="27"/>
     </resources>
 </document>

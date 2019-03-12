@@ -45,7 +45,7 @@
                                 <rect key="frame" x="10" y="10" width="223" height="24"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-fl-9LS">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="84P-vL-XOF"/>
                                         </constraints>
@@ -58,20 +58,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGE-Ri-vg7">
-                                        <rect key="frame" x="144" y="0.0" width="39" height="24"/>
+                                        <rect key="frame" x="184" y="0.0" width="39" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                         <state key="normal" title="4 spots">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-dG-ph3">
-                                        <rect key="frame" x="203" y="0.0" width="20" height="24"/>
-                                        <state key="normal" image="favorite-outline-white">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="favoriteButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="ZXG-fq-S6e"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -85,20 +76,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zza-fy-gZL">
-                                <rect key="frame" x="161" y="179" width="72" height="12"/>
+                                <rect key="frame" x="79" y="179" width="154" height="12"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-dG-ph3">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="12"/>
+                                        <state key="normal" image="Favorite">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="favoriteButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="ZXG-fq-S6e"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47a-Jr-lED">
-                                        <rect key="frame" x="0.0" y="0.0" width="10" height="12"/>
+                                        <rect key="frame" x="82" y="0.0" width="10" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="47a-Jr-lED" secondAttribute="height" multiplier="9:11" id="I1f-Q3-aqW"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="share-alt-gray"/>
+                                        <state key="normal" image="Reply"/>
                                         <connections>
                                             <action selector="shareButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="ogT-H0-OoQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-jf-1yy">
-                                        <rect key="frame" x="60" y="0.0" width="12" height="12"/>
+                                        <rect key="frame" x="142" y="0.0" width="12" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AZv-jf-1yy" secondAttribute="height" multiplier="1:1" id="D0M-fn-CbH"/>
                                         </constraints>
@@ -159,9 +159,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Favorite" width="32" height="26"/>
+        <image name="Reply" width="30" height="22"/>
         <image name="directions-walking-gray" width="14" height="22"/>
-        <image name="favorite-outline-white" width="20" height="19"/>
-        <image name="share-alt-gray" width="18" height="20"/>
         <image name="times-square" width="290" height="174"/>
     </resources>
 </document>
