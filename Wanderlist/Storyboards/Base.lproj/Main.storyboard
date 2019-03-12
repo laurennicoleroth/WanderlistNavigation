@@ -42,15 +42,71 @@
             </objects>
             <point key="canvasLocation" x="1190" y="1507"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="bUc-cb-sER">
             <objects>
-                <viewController id="cPF-O2-uPf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FUo-Df-UOU">
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cPF-O2-uPf" customClass="SearchViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hZ1-qa-pMf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTU-Kc-u6u" customClass="WanderlistMapboxMap" customModule="Wanderlist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-EO-5Am" customClass="HitsCollectionWidget" customModule="InstantSearch">
+                                <rect key="frame" x="0.0" y="418" width="375" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="cKo-AR-vPP"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eTX-WF-MVv">
+                                    <size key="itemSize" width="250" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderlistCollectionViewCell" id="Ikh-b0-NO8" customClass="WanderlistCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="25" width="250" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="250" height="150"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showItemsOnEmptyQuery" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="infiniteScrolling" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Top Wanderlists Near Me" translatesAutoresizingMaskIntoConstraints="NO" id="Bbb-vC-z1C">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="eEf-Bb-1HD"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="index" value="wanderlist_search"/>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="byf-pl-4wf"/>
+                        <constraints>
+                            <constraint firstItem="OFo-cb-2oS" firstAttribute="bottom" secondItem="FAq-EO-5Am" secondAttribute="bottom" id="DWw-5r-CEE"/>
+                            <constraint firstItem="rTU-Kc-u6u" firstAttribute="top" secondItem="OFo-cb-2oS" secondAttribute="top" id="JfG-s0-jhO"/>
+                            <constraint firstItem="OFo-cb-2oS" firstAttribute="trailing" secondItem="rTU-Kc-u6u" secondAttribute="trailing" id="ZVG-c5-qRv"/>
+                            <constraint firstItem="Bbb-vC-z1C" firstAttribute="leading" secondItem="OFo-cb-2oS" secondAttribute="leading" id="ZwK-LV-wIP"/>
+                            <constraint firstItem="FAq-EO-5Am" firstAttribute="leading" secondItem="OFo-cb-2oS" secondAttribute="leading" id="d0v-Ky-Tvv"/>
+                            <constraint firstItem="Bbb-vC-z1C" firstAttribute="trailing" secondItem="OFo-cb-2oS" secondAttribute="trailing" id="eRN-Qd-mWS"/>
+                            <constraint firstItem="OFo-cb-2oS" firstAttribute="bottom" secondItem="rTU-Kc-u6u" secondAttribute="bottom" id="lDd-PE-qUt"/>
+                            <constraint firstItem="Bbb-vC-z1C" firstAttribute="top" secondItem="OFo-cb-2oS" secondAttribute="top" id="vgr-bf-6hm"/>
+                            <constraint firstItem="rTU-Kc-u6u" firstAttribute="leading" secondItem="OFo-cb-2oS" secondAttribute="leading" id="xEb-KR-qup"/>
+                            <constraint firstAttribute="trailing" secondItem="FAq-EO-5Am" secondAttribute="trailing" id="z15-WH-USv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OFo-cb-2oS"/>
                     </view>
                     <navigationItem key="navigationItem" id="oJt-HP-KmK"/>
                 </viewController>

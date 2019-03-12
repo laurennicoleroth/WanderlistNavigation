@@ -34,30 +34,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="243" height="201"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="times-square" translatesAutoresizingMaskIntoConstraints="NO" id="GuW-HL-Y8k">
-                                <rect key="frame" x="0.0" y="0.0" width="243" height="150.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="243" height="142"/>
                             </imageView>
-                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRb-1f-zbo">
-                                <rect key="frame" x="0.0" y="0.0" width="243" height="150.5"/>
+                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRb-1f-zbo">
+                                <rect key="frame" x="0.0" y="0.0" width="243" height="142"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sZs-mr-tfv">
-                                <rect key="frame" x="10" y="109" width="223" height="31.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
+                                <rect key="frame" x="10" y="104.5" width="223" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-DZ-eWW">
+                                <rect key="frame" x="208" y="5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="d12-iG-ZSa"/>
+                                    <constraint firstAttribute="height" constant="30" id="euw-hP-sGp"/>
+                                </constraints>
+                                <state key="normal" image="Favorite-Button"/>
+                                <connections>
+                                    <action selector="favoriteButtonTouched:" destination="f3Y-XX-o2a" eventType="touchUpInside" id="5Mq-ow-9nz"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vps-8n-0AQ">
-                                <rect key="frame" x="10" y="150.5" width="223" height="40.5"/>
+                                <rect key="frame" x="10" y="152" width="223" height="39"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Museum, Indoor, Arts &amp; Culture" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMm-8e-4Vk">
+                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="15"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="teq-tW-SZH">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="24"/>
+                                        <rect key="frame" x="0.0" y="15" width="103" height="24"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5g-fl-9LS">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="84P-vL-XOF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans-BoldItalic" family="Open Sans" pointSize="11"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-BoldItalic" family="Open Sans" pointSize="9"/>
                                                 <state key="normal" title="0.3 mi away">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -66,20 +83,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGE-Ri-vg7">
-                                                <rect key="frame" x="82" y="0.0" width="39" height="24"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="11"/>
+                                                <rect key="frame" x="71" y="0.0" width="32" height="24"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="9"/>
                                                 <state key="normal" title="4 spots">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Museum, Indoor, Arts &amp; Culture" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMm-8e-4Vk">
-                                        <rect key="frame" x="0.0" y="24" width="177.5" height="16.5"/>
-                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -88,18 +99,20 @@
                             <constraint firstItem="sZs-mr-tfv" firstAttribute="bottom" secondItem="gRb-1f-zbo" secondAttribute="bottom" constant="-10" id="2RI-YS-gyD"/>
                             <constraint firstItem="vps-8n-0AQ" firstAttribute="leading" secondItem="aBr-3F-yuS" secondAttribute="leading" constant="10" id="4PC-Zn-cCY"/>
                             <constraint firstItem="sZs-mr-tfv" firstAttribute="leading" secondItem="aBr-3F-yuS" secondAttribute="leading" constant="10" id="7YR-7T-yxp"/>
-                            <constraint firstItem="vps-8n-0AQ" firstAttribute="top" secondItem="GuW-HL-Y8k" secondAttribute="bottom" id="8v2-xd-oBX"/>
+                            <constraint firstItem="vps-8n-0AQ" firstAttribute="top" secondItem="GuW-HL-Y8k" secondAttribute="bottom" constant="10" id="8v2-xd-oBX"/>
                             <constraint firstAttribute="trailing" secondItem="gRb-1f-zbo" secondAttribute="trailing" id="HEd-M8-cn4"/>
                             <constraint firstItem="gRb-1f-zbo" firstAttribute="leading" secondItem="aBr-3F-yuS" secondAttribute="leading" id="JPC-jt-WW4"/>
                             <constraint firstItem="GuW-HL-Y8k" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" id="TwR-wa-5eX"/>
                             <constraint firstItem="gRb-1f-zbo" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" id="VgT-5k-h51"/>
+                            <constraint firstAttribute="trailing" secondItem="pHe-DZ-eWW" secondAttribute="trailing" constant="5" id="ZkG-2n-iTy"/>
                             <constraint firstAttribute="trailing" secondItem="vps-8n-0AQ" secondAttribute="trailing" constant="10" id="f82-Ps-7CE"/>
                             <constraint firstAttribute="trailing" secondItem="sZs-mr-tfv" secondAttribute="trailing" constant="10" id="fA6-L0-LAX"/>
                             <constraint firstAttribute="bottom" secondItem="vps-8n-0AQ" secondAttribute="bottom" constant="10" id="gDx-J2-V7u"/>
-                            <constraint firstItem="vps-8n-0AQ" firstAttribute="top" secondItem="gRb-1f-zbo" secondAttribute="bottom" id="gVZ-Gg-Gpm"/>
+                            <constraint firstItem="vps-8n-0AQ" firstAttribute="top" secondItem="gRb-1f-zbo" secondAttribute="bottom" constant="10" id="gVZ-Gg-Gpm"/>
                             <constraint firstAttribute="trailing" secondItem="GuW-HL-Y8k" secondAttribute="trailing" id="oRJ-12-xje"/>
                             <constraint firstItem="sZs-mr-tfv" firstAttribute="centerX" secondItem="aBr-3F-yuS" secondAttribute="centerX" id="pBH-9z-KFz"/>
                             <constraint firstItem="GuW-HL-Y8k" firstAttribute="leading" secondItem="aBr-3F-yuS" secondAttribute="leading" id="wdb-iM-92i"/>
+                            <constraint firstItem="pHe-DZ-eWW" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" constant="5" id="yo2-9Q-pfc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -115,6 +128,7 @@
             <size key="customSize" width="243" height="201"/>
             <connections>
                 <outlet property="distanceAwayButton" destination="z5g-fl-9LS" id="Vit-It-hK4"/>
+                <outlet property="favoriteButton" destination="pHe-DZ-eWW" id="NWF-B2-h7a"/>
                 <outlet property="imageView" destination="GuW-HL-Y8k" id="4Lp-rj-XP4"/>
                 <outlet property="spotsCountButton" destination="tGE-Ri-vg7" id="MxC-ys-1zq"/>
                 <outlet property="titleLabel" destination="sZs-mr-tfv" id="wlV-WN-hUf"/>
@@ -123,6 +137,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Favorite-Button" width="60" height="60"/>
         <image name="times-square" width="290" height="174"/>
     </resources>
 </document>
