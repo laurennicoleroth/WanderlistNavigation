@@ -91,32 +91,7 @@ class ExploreMapViewController: UIViewController {
     }
     
     wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
-  }
-  
-  func setupDataNear(location: CLLocation) {
-    let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
-    let index = client.index(withName: "wanderlist_search")
-    
-    let query = Query(query: "")
-    query.aroundLatLng = LatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
-    query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
-    
-//    index.search(query, completionHandler: { [unowned self] (results, error) in
-//      guard let results = results else {
-//        return
-//      }
-//
-//      guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
-//
-//      handleResults(results: results, error: error, userInfo: ["Lauren": "Stuff"])
-//
-//    })
-  }
-  
-  func handleResults(results: SearchResults?, error: Error?) {
-
-    
-  }
+  } 
 }
 
 extension ExploreMapViewController: UISearchBarDelegate {

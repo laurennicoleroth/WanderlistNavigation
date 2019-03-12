@@ -57,7 +57,7 @@
                                     <outlet property="delegate" destination="3kE-Js-y1L" id="JhM-YY-fis"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="A6S-ER-Nps">
+                            <searchBar contentMode="redraw" placeholder="Top Wanderlists Near Me" translatesAutoresizingMaskIntoConstraints="NO" id="A6S-ER-Nps">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="w7j-FA-Gg2"/>
@@ -86,7 +86,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tYE-DT-STA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NWf-nY-qIc"/>
+                    <navigationItem key="navigationItem" id="NWf-nY-qIc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="YL5-pk-Vi8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CXY-4b-cmd">
+                                <rect key="frame" x="287" y="11" width="72" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="list"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Cbs-0n-sIn" id="Cid-AA-zgx"/>
                         <outlet property="searchBar" destination="A6S-ER-Nps" id="wfi-4C-h1W"/>
@@ -96,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwn-mT-A4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1682" y="1508"/>
+            <point key="canvasLocation" x="-1682.4000000000001" y="1507.1964017991006"/>
         </scene>
         <!--Wanderlist Preview View Controller-->
         <scene sceneID="SU5-rF-LmZ">
@@ -179,5 +188,6 @@
     </scenes>
     <resources>
         <image name="explore" width="20" height="20"/>
+        <image name="list" width="18" height="10"/>
     </resources>
 </document>
