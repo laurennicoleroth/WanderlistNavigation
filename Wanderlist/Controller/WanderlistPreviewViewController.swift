@@ -34,11 +34,9 @@ class WanderlistPreviewViewController: UIViewController {
     
     print("Wanderlist in preview: ", wanderlist?.title)
     
-    setupData()
+    setupWanderlist()
     
     mapView.showCurrentLocation()
-    mapView.userTrackingMode = .followWithHeading
-    mapView.showsUserHeadingIndicator = true
     
     self.view.layoutIfNeeded()
     wanderspotsCollectionView.showsHorizontalScrollIndicator = false
@@ -53,7 +51,9 @@ class WanderlistPreviewViewController: UIViewController {
   }
   
   
-  func setupWanderlist(objectID: String) {
+  func setupWanderlist() {
+    self.title = wanderlist?.title
+    mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlist?.latitude ?? 0.0, longitude: wanderlist?.longitude ?? 0.0), animated: true)
     
   }
   

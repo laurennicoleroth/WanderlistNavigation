@@ -73,8 +73,6 @@ class ExploreMapViewController: UIViewController {
   
   private func setupMapUI() {
     mapView.showCurrentLocation()
-    mapView.userTrackingMode = .followWithHeading
-    mapView.showsUserHeadingIndicator = true
     mapView.delegate = self
   }
   
