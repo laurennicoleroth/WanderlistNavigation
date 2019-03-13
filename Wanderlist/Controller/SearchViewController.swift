@@ -19,9 +19,12 @@ import Pring
 
 class SearchViewController: UIViewController {
   
+
   @IBOutlet var mapView: WanderlistMapboxMap!
-  @IBOutlet var wanderlistsHitsCollectionView: HitsCollectionWidget!
+ 
+  @IBOutlet var wanderlistHitsCollectionView: HitsCollectionWidget!
   @IBOutlet var searchBar: UISearchBar!
+  
   var searchController = UISearchController()
   
   var originIsLocal: Bool = false
@@ -64,7 +67,7 @@ class SearchViewController: UIViewController {
       
       self.wanderlists = hits.map({Wanderlist(json: $0)})
       
-      self.wanderlistsHitsCollectionView.reloadHits()
+      self.wanderlistHitsCollectionView.reloadHits()
       self.mapView.fitHitsToMap(hits: hits)
     })
   }
@@ -78,15 +81,15 @@ class SearchViewController: UIViewController {
   
   private func setupCollectionUI() {
     self.view.layoutIfNeeded()
-    wanderlistsHitsCollectionView.showsHorizontalScrollIndicator = false
-    if let layout = wanderlistsHitsCollectionView.collectionViewLayout as? MMBannerLayout {
+    wanderlistHitsCollectionView.showsHorizontalScrollIndicator = false
+    if let layout = wanderlistHitsCollectionView.collectionViewLayout as? MMBannerLayout {
       layout.itemSpace = 10
-      layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 30, dy: 30).size
+      layout.itemSize = self.wanderlistHitsCollectionView.frame.insetBy(dx: 30, dy: 30).size
       layout.minimuAlpha = 0.4
       layout.angle = 30.0
     }
     
-    wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
+    wanderlistHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
   }
 }
 
@@ -186,8 +189,8 @@ extension SearchViewController: MGLMapViewDelegate {
     if let index = wanderlists.firstIndex(where: { $0.title == annotation.title }) {
       print("The first index = \(index)")
       
-      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
-      wanderlistsHitsCollectionView.layoutSubviews()
+      wanderlistHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
+      wanderlistHitsCollectionView.layoutSubviews()
       mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists[index].latitude, longitude: wanderlists[index].longitude), animated: true)
     }
   }

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,15 +15,15 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cPF-O2-uPf" customClass="SearchViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZ1-qa-pMf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTU-Kc-u6u" customClass="WanderlistMapboxMap" customModule="Wanderlist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAq-EO-5Am" customClass="HitsCollectionWidget" customModule="InstantSearch">
-                                <rect key="frame" x="0.0" y="418" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="cKo-AR-vPP"/>
@@ -73,6 +77,11 @@
                         <viewLayoutGuide key="safeArea" id="OFo-cb-2oS"/>
                     </view>
                     <navigationItem key="navigationItem" id="oJt-HP-KmK"/>
+                    <connections>
+                        <outlet property="mapView" destination="rTU-Kc-u6u" id="jnY-M5-WnY"/>
+                        <outlet property="searchBar" destination="Bbb-vC-z1C" id="nkM-uY-sb2"/>
+                        <outlet property="wanderlistHitsCollectionView" destination="FAq-EO-5Am" id="82b-ju-83u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVR-ug-3QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
