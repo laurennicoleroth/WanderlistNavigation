@@ -27,6 +27,11 @@ class ExploreMapViewController: UIViewController {
   var currentLocation : CLLocation?
   var isExpanded = [Bool]()
   var query = Query()
+  var selectedWanderlist : Wanderlist? {
+    didSet {
+      print("Wanderlist selected: ", selectedWanderlist?.title)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +44,7 @@ class ExploreMapViewController: UIViewController {
       print("Error getting location: ", error)
     }
   }
-
+  
   func searchQueryNearby(queryString: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
     InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
@@ -62,7 +67,7 @@ class ExploreMapViewController: UIViewController {
       self.wanderlists = hits.map({Wanderlist(json: $0)})
     
       self.wanderlistsHitsCollectionView.reloadHits()
-      self.mapView.addHitsToMap(hits: hits)
+//      self.mapView.addHitsToMap(hits: hits)
     })
   }
   
@@ -77,16 +82,37 @@ class ExploreMapViewController: UIViewController {
     self.view.layoutIfNeeded()
     wanderlistsHitsCollectionView.showsHorizontalScrollIndicator = true
     wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
-  } 
+  }
+  
+  private func findWanderlistFromAnnotation(annotation: MGLAnnotation) -> Wanderlist? {
+    var wanderlist : Wanderlist?
+    if let index = wanderlists.firstIndex(where: { $0.title == annotation.title }) {
+      print("The first index = \(index)")
+      wanderlist = wanderlists[index]
+      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
+      wanderlistsHitsCollectionView.layoutSubviews()
+      mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists[index].latitude, longitude: wanderlists[index].longitude), animated: true)
+    }
+    return wanderlist
+  }
 }
 
 extension ExploreMapViewController: MGLMapViewDelegate {
   
   func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
     if annotation is MGLUserLocation && mapView.userLocation != nil {
-      
+      print("Have annotation ", annotation)
     }
     return nil
+  }
+  
+  func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+    // Optionally handle taps on the callout.
+    
+    let wanderlist = findWanderlistFromAnnotation(annotation: annotation)
+    print("Tapped the callout. Let's go see \(wanderlist?.title)")
+
+    mapView.deselectAnnotation(annotation, animated: true)
   }
   
   func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
@@ -95,10 +121,7 @@ extension ExploreMapViewController: MGLMapViewDelegate {
     
     if annotationImage == nil {
       var image = UIImage(named: "map-pin-purple")!
-   
       image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/4, right: 0))
-      
-      // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
       annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "map-pin-purple")
     }
     
@@ -124,20 +147,12 @@ extension ExploreMapViewController: MGLMapViewDelegate {
   }
   
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-    print("Did select annotation on map", annotation.title)
-    if let index = wanderlists.firstIndex(where: { $0.title == annotation.title }) {
-      print("The first index = \(index)")
-  
-      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
-      wanderlistsHitsCollectionView.layoutSubviews()
-      mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists[index].latitude, longitude: wanderlists[index].longitude), animated: true)
-    }
+    findWanderlistFromAnnotation(annotation: annotation)
   }
   
   // Allow callout view to appear when an annotation is tapped.
   func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-    
-    debugPrint("Annotation callout shown")
+  
     return true
   }
   

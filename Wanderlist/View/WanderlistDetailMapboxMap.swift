@@ -124,9 +124,9 @@ class WanderlistDetailMapboxMap : MGLMapView {
       let longitude = hit["longitude"] as! Double
       hello.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       coordinates.append(hello.coordinate)
-      hello.title = hit["title"] as! String
-      hello.subtitle = hit["about"] as! String
-      
+//      hello.title = hit["title"] as! String
+      hello.title = "title"
+
       self.addAnnotation(hello)
     }
     

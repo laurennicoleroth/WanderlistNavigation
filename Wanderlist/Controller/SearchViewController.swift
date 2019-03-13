@@ -18,10 +18,7 @@ import Kingfisher
 import Pring
 
 class SearchViewController: UIViewController {
-  
-
   @IBOutlet var mapView: WanderlistMapboxMap!
- 
   @IBOutlet var wanderlistHitsCollectionView: HitsCollectionWidget!
   @IBOutlet var searchBar: UISearchBar!
   
@@ -36,7 +33,7 @@ class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.title = "Search"
     setupMapUI()
     setupCollectionUI()
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
@@ -166,19 +163,19 @@ extension SearchViewController: MGLMapViewDelegate {
     return annotationImage
   }
   
-  func mapView(_ mapView: MGLMapView, leftCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    if (annotation.title! == "Kinkaku-ji") {
-      // Callout height is fixed; width expands to fit its content.
-      let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-      label.textAlignment = .right
-      label.textColor = UIColor(red: 0.81, green: 0.71, blue: 0.23, alpha: 1)
-      label.text = "金閣寺"
-      
-      return label
-    }
-    
-    return nil
-  }
+//  func mapView(_ mapView: MGLMapView, leftCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
+//    if (annotation.title! == "Kinkaku-ji") {
+//      // Callout height is fixed; width expands to fit its content.
+//      let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
+//      label.textAlignment = .right
+//      label.textColor = UIColor(red: 0.81, green: 0.71, blue: 0.23, alpha: 1)
+//      label.text = "金閣寺"
+//      
+//      return label
+//    }
+//    
+//    return nil
+//  }
   
   func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
     return UIButton(type: .detailDisclosure)
