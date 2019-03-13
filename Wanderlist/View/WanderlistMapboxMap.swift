@@ -22,7 +22,7 @@ class WanderlistMapboxMap : MGLMapView {
     
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
       print("Setting center to: ", location.coordinate)
-      self.setCenter(location.coordinate, zoomLevel: 15, animated: true)
+      self.setCenter(location.coordinate, zoomLevel: 12, animated: true)
       self.getWanderlistsNear(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
       
     }) { (error, location) -> (Void) in
@@ -62,18 +62,8 @@ class WanderlistMapboxMap : MGLMapView {
   }
   
   func drawWanderlistPathForWanderlist(wanderlist: Wanderlist) {
-    if let id = wanderlist.objectID {
-      Wanderlist.get(id) { [unowned self] (wanderlist, error) in
-        var wanderspots = [Wanderspot]()
-        if wanderlist != nil && wanderlist?.wanderspots != nil {
-          for spot in (wanderlist?.wanderspots.makeIterator())! {
-            wanderspots.append(spot)
-          }
-          wanderspots = wanderspots.sorted(by: { $0.distanceAway ?? 0.0 < $1.distanceAway ?? 0.0 })
-          self.addWanderspotsToMap(wanderspots)
-        }
-      }
-    }
+    let id = wanderlist.objectID
+
   }
   
   func addWanderspotsToMap(_ wanderspots: [Wanderspot]) {

@@ -15,13 +15,11 @@ protocol WanderlistCollectionViewCellDelegate {
 class WanderlistCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var statsLabel: UILabel!
   @IBOutlet var aboutLabel: UILabel!
-  @IBOutlet var distanceAwayButton: UIButton!
   @IBOutlet var imageView: UIImageView!
-  @IBOutlet var spotsCountButton: UIButton!
   @IBOutlet var favoriteButton: UIButton!
-  
-  
+
   var delegate : WanderlistCollectionViewCellDelegate?
   var wanderlist : Wanderlist?
   public var indexPath: IndexPath!
@@ -40,22 +38,18 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   
   func configureCellFrom(wanderlist: Wanderlist) {
     self.wanderlist = wanderlist
-    titleLabel.text = wanderlist.title
-    let count = wanderlist.spotsCount
+    titleLabel.text = wanderlist.title.uppercased()
     aboutLabel.text = wanderlist.about
-    
-    if wanderlist.wanderspots.count == 1 {
-      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spot", for: .normal)
-    } else {
-      spotsCountButton.setTitle("\(wanderlist.wanderspots.count) spots", for: .normal)
-    }
-   
-//    categoriesLabel.text = wanderlist.categories?.joined(separator: ", ")
+    let count = wanderlist.spotsCount
 
-  }
-  
-  @IBAction func distanceLabelTouched(_ sender: UIButton) {
-    print("distance label touched")
+    
+    if count == 1 {
+      
+    } else {
+ 
+    }
+
+
   }
   
   @IBAction func favoriteButtonTouched(_ sender: UIButton) {
@@ -64,14 +58,6 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
       delegate?.favoriteButtonTouched(indexPath: indexPath)
     }
     
-  }
-  
-  @IBAction func shareButtonTouched(_ sender: UIButton) {
-    print("Share button touched")
-  }
-  
-  @IBAction func walkButtonTouched(_ sender: UIButton) {
-    print("Walk button touched")
   }
   
   
