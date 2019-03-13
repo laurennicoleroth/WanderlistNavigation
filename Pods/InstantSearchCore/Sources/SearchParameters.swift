@@ -24,21 +24,20 @@
 import InstantSearchClient
 import Foundation
 
-
 /// A refinement of a facet.
 ///
 @objcMembers public class FacetRefinement: NSObject {
     // MARK: Properties
-    
+
     /// Name of the facet.
     @objc public var name: String
-    
+
     /// Value for the facet.
     @objc public var value: String
-    
+
     /// Whether the refinement is inclusive (default) or exclusive (value prefixed with a dash).
     @objc public var inclusive: Bool = true
-    
+
     // MARK: Initialization
 
     @objc public init(name: String, value: String, inclusive: Bool = true) {
@@ -52,15 +51,15 @@ import Foundation
         self.value = copy.value
         self.inclusive = copy.inclusive
     }
-    
+
     // MARK: Debug
-    
+
     override public var description: String {
         return "FacetRefinement{\(buildFilter())}"
     }
-    
+
     // MARK: Equatable
-    
+
     override public func isEqual(_ object: Any?) -> Bool {
         guard let rhs = object as? FacetRefinement else {
             return false
@@ -81,7 +80,7 @@ import Foundation
     @objc public func buildFacetFilter() -> String {
         return "\(name):\(buildFacetRefinement())"
     }
-    
+
     /// Build a facet refinement corresponding to this value.
     ///
     /// - returns: A string suitable for use in `Index.searchDisjunctiveFaceting(...)`.
@@ -89,7 +88,7 @@ import Foundation
     @objc public func buildFacetRefinement() -> String {
         return inclusive ? value : "-" + value
     }
-    
+
     /// Build a filter corresponding to this refinement.
     ///
     /// - returns: An expression suitable for use in `Query.filters`.
@@ -102,12 +101,11 @@ import Foundation
     }
 }
 
-
 /// A refinement on a numeric attribute.
 ///
 @objcMembers public class NumericRefinement: NSObject {
     // MARK: Types
-    
+
     /// Comparison operator that can be applied to a numeric.
     @objc public enum Operator: Int {
         case lessThan
@@ -116,7 +114,7 @@ import Foundation
         case notEqual
         case greaterThanOrEqual
         case greaterThan
-        
+
         internal func toString() -> String {
             switch self {
             case .lessThan: return "<"
@@ -128,21 +126,21 @@ import Foundation
             }
         }
     }
-    
+
     // MARK: Properties
-    
+
     /// Name of the attribute to filter.
     @objc public var name: String
-    
+
     /// Operator to apply on the attribute.
     @objc public var op: Operator
-    
+
     /// Value to compare the attribute to.
     @objc public var value: NSNumber
-    
+
     /// Whether the filter is inclusive (the default) or exclusive (negated with a `NOT`).
     @objc public var inclusive: Bool = true
-    
+
     // MARK: Initialization
 
     /// Create a numeric refinement with the specified operator and operands.
@@ -159,7 +157,7 @@ import Foundation
         self.value = value
         self.inclusive = inclusive
     }
-    
+
     /// Create a numeric refinement with the specified operator and operands.
     ///
     /// - parameter name: Name of the attribute to filter (first operand).
@@ -171,7 +169,7 @@ import Foundation
     public convenience init(_ name: String, _ op: Operator, _ value: Int, inclusive: Bool = true) {
         self.init(name, op, NSNumber(value: value), inclusive: inclusive)
     }
-    
+
     /// Create a numeric refinement with the specified operator and operands.
     ///
     /// - parameter name: Name of the attribute to filter (first operand).
@@ -183,7 +181,7 @@ import Foundation
     public convenience init(_ name: String, _ op: Operator, _ value: Double, inclusive: Bool = true) {
         self.init(name, op, NSNumber(value: value), inclusive: inclusive)
     }
-    
+
     /// Create a copy of a numeric refinement.
     ///
     /// - parameter copy: Numeric refinement to copy.
@@ -194,15 +192,15 @@ import Foundation
         self.op = copy.op
         self.inclusive = copy.inclusive
     }
-    
+
     // MARK: Debug
-    
+
     override public var description: String {
         return "NumericRefinement{\(buildFilter())}"
     }
-    
+
     // MARK: Equatable
-    
+
     override public func isEqual(_ object: Any?) -> Bool {
         guard let rhs = object as? NumericRefinement else {
             return false
@@ -212,9 +210,9 @@ import Foundation
             && self.value == rhs.value
             && self.inclusive == rhs.inclusive
     }
-    
+
     // MARK: Methods
-    
+
     /// Build a numeric filter corresponding to this refinement.
     ///
     /// + Deprecated: Please use `buildFilter()` instead.
@@ -224,7 +222,7 @@ import Foundation
     @objc public func buildNumericFilter() -> String {
         return "\(name) \(op.toString()) \(value))"
     }
-    
+
     /// Build a filter corresponding to this refinement.
     ///
     /// - returns: An expression suitable for use in `Query.filters`.
@@ -236,7 +234,6 @@ import Foundation
     }
 }
 
-
 /// A high-level representation of a query's filter.
 ///
 /// This class allows manipulating facet and numeric filters individually, then combining them into a string
@@ -246,7 +243,7 @@ import Foundation
 ///
 @objcMembers public class SearchParameters: Query {
     // MARK: - Properties
-    
+
     /// Facets that will be treated as disjunctive.
     @objc public private(set) var disjunctiveFacets: Set<String>
 
@@ -258,10 +255,10 @@ import Foundation
             notifyRefinementChanges()
         }
     }
-    
+
     /// Numeric attributes that will be treated as disjunctive.
     @objc public private(set) var disjunctiveNumerics: Set<String>
-    
+
     /// Numeric filters. Maps attribute names to a list of filters.
     @objc public private(set) var numericRefinements: [String: [NumericRefinement]] {
         didSet {
@@ -270,7 +267,7 @@ import Foundation
     }
 
     // MARK: - Initialization
-    
+
     /// Create new, empty search parameters.
     ///
     @objc public override init() {
@@ -311,7 +308,7 @@ import Foundation
         self.numericRefinements = newNumericFilters
         super.init(parameters: copy.parameters)
     }
-    
+
     /// Support for `NSCopying`.
     ///
     /// + Note: Primarily intended for Objective-C use. Swift coders should use `init(from:)`.
@@ -320,9 +317,9 @@ import Foundation
         // NOTE: As per the docs, the zone argument is ignored.
         return SearchParameters(from: self)
     }
-    
+
     // MARK: - Global state management
-    
+
     /// Reset to an empty state.
     ///
     @objc override open func clear() {
@@ -345,9 +342,9 @@ import Foundation
     @objc public func hasRefinements() -> Bool {
         return hasFacetRefinements() || hasNumericRefinements()
     }
-    
+
     // MARK: - Equatable
-    
+
     override public func isEqual(_ object: Any?) -> Bool {
         guard let rhs = object as? SearchParameters else {
             return false
@@ -384,7 +381,7 @@ import Foundation
     }
 
     // MARK: - Generate filters
-    
+
     /// Build a URL query string from the current parameters, including numeric and facet refinements.
     ///
     /// - returns: A URL query string.
@@ -394,7 +391,7 @@ import Foundation
         parameters["filters"] = buildFilters()
         return AbstractQuery.build(parameters: parameters)
     }
-    
+
     /// Generate a filter expression from the current refinements.
     /// This will combine numeric refinements and facet refinements into the same expression.
     ///
@@ -420,7 +417,7 @@ import Foundation
             return nil
         }
     }
-    
+
     /// Generate a filter expression from the current numeric refinements.
     ///
     /// - returns: An expression suitable for use with `Query.filters`. The expression may be `nil` if no numeric
@@ -472,7 +469,7 @@ import Foundation
         assert(!expression.isEmpty)
         return expression
     }
-    
+
     /// Generate facet refinements from the current filters.
     ///
     /// + Note: Those are intended for use with `Index.searchDisjunctiveFaceting(...)`. In the general case, please
@@ -487,7 +484,7 @@ import Foundation
         }
         return stringRefinements
     }
-    
+
     /// Generate facet filters from the current filters.
     ///
     /// + Note: Those are intended for use with `Query.facetFilters`. In the general case, please use
@@ -512,7 +509,7 @@ import Foundation
         }
         return facetFilters
     }
-    
+
     // MARK: - Update filters in place
 
     /// Update the parameters from the current refinements.
@@ -522,7 +519,7 @@ import Foundation
     @objc public func update() {
         self["filters"] = buildFilters()
     }
-    
+
     /// Update the parameters from the current *facet* refinements. Numeric refinements are ignored.
     ///
     /// + Warning: This will override the `filters` parameter.
@@ -530,7 +527,7 @@ import Foundation
     @objc public func updateFromFacets() {
         self["filters"] = buildFiltersFromFacets()
     }
-    
+
     /// Update the parameters from the current *numeric* refinements. Facet refinements are ignored.
     ///
     /// + Warning: This will override the `filters` parameter.
@@ -538,9 +535,9 @@ import Foundation
     @objc public func updateFromNumerics() {
         self["filters"] = buildFiltersFromNumerics()
     }
-    
+
     // MARK: - Facets
-    
+
     /// Set a given facet as disjunctive or conjunctive.
     ///
     /// - parameter name: The facet's name.
@@ -554,7 +551,7 @@ import Foundation
             disjunctiveFacets.remove(name)
         }
     }
-    
+
     /// Test whether a given facet is disjunctive or conjunctive.
     ///
     /// - parameter name: The facet's name.
@@ -563,7 +560,7 @@ import Foundation
     @objc public func isDisjunctiveFacet(name: String) -> Bool {
         return disjunctiveFacets.contains(name)
     }
-    
+
     /// Add a refinement for a given facet.
     /// The refinement will be treated as conjunctive (`AND`) or disjunctive (`OR`) based on the facet's own
     /// disjunctive/conjunctive status.
@@ -578,7 +575,7 @@ import Foundation
             facetRefinements[name]!.append(FacetRefinement(name: name, value: value, inclusive: inclusive))
         }
     }
-    
+
     /// Remove a refinement for a given facet.
     ///
     /// - parameter name: The facet's name.
@@ -592,7 +589,7 @@ import Foundation
             }
         }
     }
-  
+
   /// Remove a refinement for a given refinement condition.
   ///
   /// - parameter condition: the condition to evaluate.
@@ -606,7 +603,7 @@ import Foundation
       }
     }
   }
-    
+
     /// Test whether a facet has a refinement for a given value.
     ///
     /// - parameter name: The facet's name.
@@ -616,7 +613,7 @@ import Foundation
     @objc public func hasFacetRefinement(name: String, value: String) -> Bool {
         return facetRefinements[name]?.contains(where: { $0.name == name && $0.value == value }) ?? false
     }
-    
+
     /// Test whether a facet has any refinement(s).
     ///
     /// - parameter name: The facet's name.
@@ -629,7 +626,7 @@ import Foundation
             return false
         }
     }
-    
+
     /// Test whether at least one facet refinement is defined.
     ///
     /// - returns: true if at least one refinement is defined for at least one facet, false otherwise.
@@ -637,7 +634,7 @@ import Foundation
     @objc public func hasFacetRefinements() -> Bool {
         return !facetRefinements.isEmpty
     }
-    
+
     /// Add or remove a facet refinement, based on its current state: if it exists, it is removed; otherwise it is
     /// added.
     ///
@@ -651,13 +648,13 @@ import Foundation
             addFacetRefinement(name: name, value: value)
         }
     }
-    
+
     /// Remove all refinements for all facets.
     ///
     @objc public func clearFacetRefinements() {
         facetRefinements.removeAll()
     }
-    
+
     /// Remove all refinements for a given facet.
     ///
     /// - parameter name: The facet's name.
@@ -667,7 +664,7 @@ import Foundation
     }
 
     // MARK: - Numerics
-    
+
     /// Set a given numeric as disjunctive or conjunctive.
     ///
     /// - parameter name: The numeric's name.
@@ -681,7 +678,7 @@ import Foundation
             disjunctiveNumerics.remove(name)
         }
     }
-    
+
     /// Test whether a given numeric is disjunctive or conjunctive.
     ///
     /// - parameter name: The numeric's name.
@@ -690,7 +687,7 @@ import Foundation
     @objc public func isDisjunctiveNumeric(name: String) -> Bool {
         return disjunctiveNumerics.contains(name)
     }
-    
+
     /// Add a refinement for a given numeric.
     /// The refinement will be treated as conjunctive (`AND`) or disjunctive (`OR`) based on the numeric's own
     /// disjunctive/conjunctive status.
@@ -741,7 +738,7 @@ import Foundation
     public func addNumericRefinement(_ name: String, _ op: NumericRefinement.Operator, _ value: Double, inclusive: Bool = true) {
         addNumericRefinement(NumericRefinement(name, op, value, inclusive: inclusive))
     }
-    
+
     /// Add a refinement for a given numeric.
     /// The refinement will be treated as conjunctive (`AND`) or disjunctive (`OR`) based on the numeric's own
     /// disjunctive/conjunctive status.
@@ -755,7 +752,7 @@ import Foundation
             numericRefinements[refinement.name]!.append(refinement)
         }
     }
-    
+
     /// Remove a refinement for a given numeric.
     ///
     /// + Note: This is a convenience shortcut for `removeNumericRefinement(_:)`.
@@ -783,7 +780,7 @@ import Foundation
             }
         }
     }
-    
+
     /// Remove a refinement for a given refinement condition.
     ///
     /// - parameter condition: the condition to evaluate.
@@ -797,7 +794,7 @@ import Foundation
             }
         }
     }
-    
+
     /// Update a refinement for a given numeric.
     ///
     /// - parameter name: The numeric's name (first operand to the operator).
@@ -824,7 +821,7 @@ import Foundation
             return false
         }
     }
-    
+
     /// Test whether at least one numeric refinement is defined.
     ///
     /// - returns: true if at least one refinement is defined for at least one numeric, false otherwise.
@@ -832,13 +829,13 @@ import Foundation
     @objc public func hasNumericRefinements() -> Bool {
         return !numericRefinements.isEmpty
     }
-    
+
     /// Remove all refinements for all numeric.
     ///
     @objc public func clearNumericRefinements() {
         numericRefinements.removeAll()
     }
-    
+
     /// Remove all refinements for a given numeric.
     ///
     /// - parameter name: The numeric's name.
@@ -846,9 +843,9 @@ import Foundation
     @objc public func clearNumericRefinements(name: String) {
         numericRefinements.removeValue(forKey: name)
     }
-    
+
     // MARK: - Notifications
-    
+
     private func notifyRefinementChanges() {
         var userInfo: [String: Any] = [:]
         userInfo[Searcher.userInfoNumericRefinementChangeKey] = numericRefinements

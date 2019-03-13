@@ -16,7 +16,7 @@ import Foundation
     override public func configureView() {
         addTarget(self, action: #selector(facetValueChanged), for: .valueChanged)
     }
-    
+
     @objc private func facetValueChanged() {
         if isOn {
             viewModel.addFacet(value: valueOn, doSearch: true)

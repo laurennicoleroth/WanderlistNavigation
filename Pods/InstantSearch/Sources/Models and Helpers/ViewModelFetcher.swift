@@ -11,7 +11,7 @@ import InstantSearchCore
 
 /// Fetches the ViewModel related to the specific Widget View.
 class ViewModelFetcher {
-    
+
     internal func tryFetchWidgetVM(with widgetV: AlgoliaWidget) -> Any? {
         switch widgetV {
         case let widgetV as HitsViewDelegate:

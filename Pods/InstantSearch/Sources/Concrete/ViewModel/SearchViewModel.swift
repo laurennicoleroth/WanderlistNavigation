@@ -12,7 +12,7 @@ import Foundation
 ///
 /// ViewModel - Searcher: SearchableViewModel, ResultingDelegate, ResettableDelegate.
 @objcMembers public class SearchViewModel: NSObject, SearchControlViewModelDelegate, SearchableIndexViewModel, MultiSearchableViewModel {
-    
+
     // MARK: - Properties
     private var _searcherId: SearcherId?
 
@@ -30,19 +30,19 @@ import Foundation
             }
         }
     }
-    
+
     public var searchers: [Searcher] = []
-    
+
     private var observations: [NSKeyValueObservation] = []
-    
+
     // MARK: - SearchableViewModel
-    
+
     var searcher: Searcher!
-    
+
     public func configure(with searcher: Searcher) {
         configure(withSearchers: [searcher])
     }
-    
+
     public func configure(withSearchers searchers: [Searcher]) {
         self.searchers = searchers
         guard #available(iOS 11.0, *) else { return }
@@ -55,20 +55,20 @@ import Foundation
             observations.append(observation)
         }
     }
-    
+
     // MARK: - SearchViewModelDelegate
-    
+
     public weak var view: SearchControlViewDelegate?
-    
+
     override init() {
         super.init()
     }
-    
+
     convenience public init(view: SearchControlViewDelegate) {
         self.init()
         self.view = view
     }
-    
+
     /// search with a given query text
     public func search(query: String?) {
         for searcher in searchers {

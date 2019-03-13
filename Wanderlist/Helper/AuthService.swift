@@ -10,13 +10,13 @@ import FirebaseAuth
 
 class AuthService {
   static let instance = AuthService()
-  var currentUid : String?
-  var userDisplayName : String?
-  var loggedIn : Bool
-  var email : String?
-  
+  var currentUid: String?
+  var userDisplayName: String?
+  var loggedIn: Bool
+  var email: String?
+
   init() {
-    
+
     self.currentUid = Auth.auth().currentUser?.uid
     self.userDisplayName = Auth.auth().currentUser?.displayName
     if currentUid != nil {
@@ -25,7 +25,7 @@ class AuthService {
       self.loggedIn = false
     }
   }
-  
+
   func logout() {
     do {
       try Auth.auth().signOut()

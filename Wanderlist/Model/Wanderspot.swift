@@ -10,37 +10,34 @@ import Foundation
 import Firebase
 import CoreLocation
 import GooglePlaces
-import Pring
 import InstantSearch
 import InstantSearchCore
 
 struct PlaceWithDistance {
-  var place : GMSPlace
-  var milesDistance : CLLocationDistance
+  var place: GMSPlace
+  var milesDistance: CLLocationDistance
 }
 
-@objcMembers
-class Wanderspot: Object {
-  dynamic var wanderlistOwnerIDs: [String] = []
-  dynamic var name: String = ""
-  dynamic var imageFile: File?
-  dynamic var creatorID: String = ""
-  dynamic var address: String = ""
-  dynamic var latitude : Double = 0.0
-  dynamic var longitude: Double = 0.0
-  dynamic var placeID: String = ""
-  dynamic var distanceAway: Double = 0.0
-  dynamic var categories: [String] = []
-  dynamic var sundayHours : String = ""
-  dynamic var mondayHours : String = ""
-  dynamic var tuesdayHours : String = ""
-  dynamic var wednesdayHours : String = ""
-  dynamic var thursdayHours : String = ""
-  dynamic var fridayHours : String = ""
-  dynamic var saturdayHours : String = ""
-  dynamic var city: String = ""
-  dynamic var zipcode: String?
-  
+class Wanderspot: NSObject {
+   var wanderlistOwnerIDs: [String] = []
+   var  name: String = ""
+   var  creatorID: String = ""
+   var  address: String = ""
+   var  latitude: Double = 0.0
+   var  longitude: Double = 0.0
+   var  placeID: String = ""
+   var  distanceAway: Double = 0.0
+   var  categories: [String] = []
+   var  sundayHours: String = ""
+   var  mondayHours: String = ""
+   var  tuesdayHours: String = ""
+   var  wednesdayHours: String = ""
+   var  thursdayHours: String = ""
+   var  fridayHours: String = ""
+   var  saturdayHours: String = ""
+   var  city: String = ""
+   var  zipcode: String?
+
   class func createNewWanderspot(_ place: GMSPlace, distanceAway: Double?, completion: @escaping (Wanderspot) -> Void) {
     let newWanderspot = Wanderspot()
     if let name = place.name,
@@ -49,7 +46,7 @@ class Wanderspot: Object {
       let placeID = place.placeID,
       let distanceAway = distanceAway,
       let components = place.addressComponents {
-      
+
       newWanderspot.name = name
       newWanderspot.creatorID = creatorID
       newWanderspot.address = address
@@ -57,11 +54,11 @@ class Wanderspot: Object {
       newWanderspot.longitude = place.coordinate.longitude
       newWanderspot.placeID = placeID
       newWanderspot.distanceAway = distanceAway
-      
+
       if let categories = place.types {
         newWanderspot.categories = categories
       }
-      
+
       if let week = place.openingHours?.weekdayText {
         newWanderspot.mondayHours = week[0]
         newWanderspot.tuesdayHours = week[1]
@@ -71,15 +68,15 @@ class Wanderspot: Object {
         newWanderspot.saturdayHours = week[5]
         newWanderspot.sundayHours = week[6]
       }
-      
+
       getPhotoFor(placeID, completion: { (image) in
         if image != nil {
           if let data = image!.jpegData(compressionQuality: 0.8) {
-            newWanderspot.imageFile = File(data: data, mimeType: .jpeg)
+
           }
         }
       })
-      
+
       for component in components {
         if component.type == "locality" {
           newWanderspot.city = component.name
@@ -90,13 +87,13 @@ class Wanderspot: Object {
       completion(newWanderspot)
     }
   }
-  
+
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderspot_search")
     wanderspot.wanderlistOwnerIDs.append(wanderlistID)
     print("Saving spot to algolia: ", wanderspot)
-    let wanderspotJSON : [String: Any] = [
+    let wanderspotJSON: [String: Any] = [
       "wanderlistOwnerIDs": wanderspot.wanderlistOwnerIDs.joined(separator: ", "),
       "name": wanderspot.name as! String,
       "creatorID": wanderspot.creatorID as! String,
@@ -116,33 +113,23 @@ class Wanderspot: Object {
       "city": wanderspot.city as! String,
       "zipcode": wanderspot.zipcode as! String
     ]
-    
+
     print("Spot json: ", wanderspotJSON)
-    
+
     index.addObject(wanderspotJSON, completionHandler: { (content, error) -> Void in
       if error == nil {
-        
+
       } else {
         print("Error indexing")
       }
     })
   }
-  
-  class func saveToFirestore(wanderspot: Wanderspot, completion: @escaping (DocumentReference?) -> ()) {
-    wanderspot.save { (wanderspotRef, error) in
-      if error != nil {
-        print("Something went wrong saving the wanderspot", error)
-      }
-      completion(wanderspotRef)
-    }
-  }
-  
+
   class func getPhotoFor(_ placeID: String, completion: @escaping (UIImage?) -> Void ) {
     // Specify the place data types to return (just photos).
     let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
     let placesClient = GMSPlacesClient()
-    placesClient.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil, callback:
-      { (place: GMSPlace?, error: Error?) in
+    placesClient.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil, callback: { (place: GMSPlace?, error: Error?) in
         if let error = error {
           // TODO: Handle the error.
           print("An error occurred: \(error.localizedDescription)")
@@ -151,7 +138,7 @@ class Wanderspot: Object {
         if let place = place {
           if place.photos?[0] != nil {
             let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
-            
+
             placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
               if let error = error {
                 print("Error loading photo metadata: \(error.localizedDescription)")
@@ -166,13 +153,13 @@ class Wanderspot: Object {
         }
     })
   }
-  
+
   func getHoursForTodayFor(_ wanderspot: Wanderspot) -> String? {
-    
+
     let date = Date()
     let calendar = Calendar.current
     let dayOfWeek = calendar.component(.weekday, from: date)
-    
+
     switch dayOfWeek {
     case 0:
       return wanderspot.saturdayHours
@@ -193,4 +180,3 @@ class Wanderspot: Object {
     }
   }
 }
-

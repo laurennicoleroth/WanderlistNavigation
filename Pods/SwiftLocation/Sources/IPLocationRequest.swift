@@ -13,34 +13,34 @@ import SwiftyJSON
 
 /// Get the current location data using IP address of the device
 public class IPLocationRequest: Request, Hashable, Equatable {
-	
+
 	/// Callback called on success
-	internal var success: LocationRequest.Success? = nil
-	
+	internal var success: LocationRequest.Success?
+
 	/// Callback called on failure
-	internal var failure: LocationRequest.Failure? = nil
-	
+	internal var failure: LocationRequest.Failure?
+
 	/// Hash value
 	public var hashValue: Int {
 		return self.id.hashValue
 	}
-	
+
 	/// Timeout interval
 	public private(set) var timeout: TimeInterval?
-	
+
 	/// JSON Operation to download data
-	private var task: JSONOperation? = nil
-	
+	private var task: JSONOperation?
+
 	/// Identifier of the request
 	public private(set) var id: RequestID = UUID().uuidString
-	
+
 	/// Service used to retrive the location
 	public private(set) var service: IPService
 
 	public static func ==(lhs: IPLocationRequest, rhs: IPLocationRequest) -> Bool {
 		return lhs.id == rhs.id
 	}
-	
+
 	/// Init a new IP service with given data
 	///
 	/// - Parameters:
@@ -50,7 +50,7 @@ public class IPLocationRequest: Request, Hashable, Equatable {
 		self.service = service
 		self.timeout = timeout
 	}
-	
+
 	/// Execute the operation
 	internal func execute() {
 		self.task = JSONOperation(self.service.url, timeout: self.timeout)
@@ -76,15 +76,15 @@ public class IPLocationRequest: Request, Hashable, Equatable {
 		}
 		self.task?.onFailure = { [weak self] err in
             guard let `self` = self else { return }
-			self.failure?(err,nil)
+			self.failure?(err, nil)
 			Locator.ipLocationRequests.remove(self)
 		}
 		self.task?.execute()
 	}
-	
+
 	public func cancel() {
 		self.task?.cancel()
 		Locator.ipLocationRequests.remove(self)
 	}
-	
+
 }

@@ -34,10 +34,10 @@ import Foundation
 public enum Result<Value, Error> {
     /// A success, storing a `Value`.
     case success(Value)
-    
+
     /// A failure, storing an `Error`.
     case failure(Error)
-    
+
     /// The stored value of a successful `Result`. `nil` if the `Result` was a
     /// failure.
     public var value: Value? {
@@ -48,7 +48,7 @@ public enum Result<Value, Error> {
             return nil
         }
     }
-    
+
     /// The stored value of a failure `Result`. `nil` if the `Result` was a
     /// success.
     public var error: Error? {
@@ -59,7 +59,7 @@ public enum Result<Value, Error> {
             return nil
         }
     }
-    
+
     /// A Boolean value indicating whether the `Result` as a success.
     public var isSuccess: Bool {
         switch self {
@@ -69,7 +69,7 @@ public enum Result<Value, Error> {
             return false
         }
     }
-    
+
     /// Evaluates the given transform closure when this `Result` instance is
     /// `.success`, passing the value as a parameter.
     ///
@@ -89,7 +89,7 @@ public enum Result<Value, Error> {
             return .failure(error)
         }
     }
-    
+
     /// Evaluates the given transform closure when this `Result` instance is
     /// `.failure`, passing the error as a parameter.
     ///
@@ -110,7 +110,7 @@ public enum Result<Value, Error> {
             return .failure(transform(error))
         }
     }
-    
+
     /// Evaluates the given transform closure when this `Result` instance is
     /// `.success`, passing the value as a parameter and flattening the result.
     ///
@@ -128,7 +128,7 @@ public enum Result<Value, Error> {
             return .failure(error)
         }
     }
-    
+
     /// Evaluates the given transform closure when this `Result` instance is
     /// `.failure`, passing the error as a parameter and flattening the result.
     ///
@@ -146,7 +146,7 @@ public enum Result<Value, Error> {
             return transform(error)
         }
     }
-    
+
     /// Evaluates the given transform closures to create a single output value.
     ///
     /// - Parameters:
@@ -194,7 +194,7 @@ extension Result where Error == Swift.Error {
             self = .failure(error)
         }
     }
-    
+
     /// Unwraps the `Result` into a throwing expression.
     ///
     /// - Returns: The success value, if the instance is a success.
@@ -207,7 +207,7 @@ extension Result where Error == Swift.Error {
             throw error
         }
     }
-    
+
     /// Evaluates the given transform closure when this `Result` instance is
     /// `.success`, passing the value as a parameter and flattening the result.
     ///
@@ -252,7 +252,7 @@ extension Result : CustomDebugStringConvertible {
             debugPrint(error, terminator: "", to: &output)
         }
         output += ")"
-        
+
         return output
     }
 }

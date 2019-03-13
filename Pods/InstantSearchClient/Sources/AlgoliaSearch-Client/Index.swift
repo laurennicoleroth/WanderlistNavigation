@@ -208,7 +208,7 @@ import Foundation
     for id in objectIDs {
       var request = [
         "indexName": self.name,
-        "objectID": id,
+        "objectID": id
       ]
       request["attributesToRetrieve"] = attributesToRetrieve?.joined(separator: ",")
       requests.append(request as Any)
@@ -274,7 +274,7 @@ import Foundation
       requests.append([
         "action": action,
         "objectID": object["objectID"] as! String,
-        "body": object,
+        "body": object
       ])
     }
     let request = ["requests": requests]
@@ -333,7 +333,7 @@ import Foundation
       requests.append([
         "action": "updateObject",
         "objectID": object["objectID"] as! String,
-        "body": object,
+        "body": object
       ])
     }
     let request = ["requests": requests]
@@ -408,13 +408,13 @@ import Foundation
     if let params = query {
       params["facetQuery"] = text
       requestBody = [
-        "params": params.build(),
+        "params": params.build()
       ]
     } else {
       let params = Query()
       params["facetQuery"] = text
       requestBody = [
-        "params": params.build(),
+        "params": params.build()
       ]
     }
 
@@ -520,7 +520,7 @@ import Foundation
   @discardableResult public func browse(query: Query, requestOptions: RequestOptions? = nil, completionHandler: @escaping CompletionHandler) -> Operation {
     let path = "1/indexes/\(urlEncodedName)/browse"
     let body = [
-      "params": query.build(),
+      "params": query.build()
     ]
     return client.performHTTPQuery(path: path, method: .POST, body: body, hostnames: client.readHosts, requestOptions: requestOptions, completionHandler: completionHandler)
   }
@@ -639,7 +639,7 @@ import Foundation
   @discardableResult public func deleteBy(_ query: Query, requestOptions: RequestOptions? = nil, completionHandler: CompletionHandler? = nil) -> Operation {
     let path = "1/indexes/\(urlEncodedName)/deleteByQuery"
     let body = [
-      "params": query.build(),
+      "params": query.build()
     ]
     return client.performHTTPQuery(path: path, method: .POST, body: body, hostnames: client.writeHosts, requestOptions: requestOptions, completionHandler: completionHandler)
   }

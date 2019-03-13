@@ -35,35 +35,35 @@ import CoreLocation
 import MapKit
 
 public class HeadingRequest: Request, Equatable, Hashable {
-	
+
 	/// Typealias for accuracy, measured in degree
 	public typealias AccuracyDegree = CLLocationDirection
-	
+
 	/// Success callback type
-	public typealias Success = ((CLHeading) -> (Void))
-	
+	public typealias Success = ((CLHeading) -> Void)
+
 	/// Failure callback type
-	public typealias Failure = ((HeadingServiceState) -> (Void))
-	
+	public typealias Failure = ((HeadingServiceState) -> Void)
+
 	/// Success callback
-	internal var success: Success? = nil
-	
+	internal var success: Success?
+
 	/// Failure callback
-	internal var failure: Failure? = nil
-	
+	internal var failure: Failure?
+
 	/// Unique identifier of the request
 	public private(set) var id: RequestID = UUID().uuidString
-	
+
 	/// Last valid measured heading
 	public internal(set) var heading: CLHeading?
-	
+
 	/// Minimum accuracy of values returned
-	public private(set) var minimumAccuracy: AccuracyDegree? = nil
-	
+	public private(set) var minimumAccuracy: AccuracyDegree?
+
 	/// Minimum interval to receive each event.
 	/// If `nil` any interval is received regardeless the timestamp with the last one received.
-	public private(set) var minimumInterval: TimeInterval? = nil
-	
+	public private(set) var minimumInterval: TimeInterval?
+
 	/// Initialize a new request with given settings
 	///
 	/// - Parameters:
@@ -74,20 +74,20 @@ public class HeadingRequest: Request, Equatable, Hashable {
 		self.minimumAccuracy = accuracy
 		self.minimumInterval = minInterval
 	}
-	
+
 	public static func ==(lhs: HeadingRequest, rhs: HeadingRequest) -> Bool {
 		return lhs.id == rhs.id
 	}
-	
+
 	public var hashValue: Int {
 		return self.id.hashValue
 	}
-	
+
 	/// Stop receiving updates for this heading request
 	public func stop() {
 		Locator.stopRequest(self)
 	}
-	
+
 	/// Last error
 	internal var error: HeadingServiceState? {
 		let err = Locator.manager.headingState
@@ -95,7 +95,7 @@ public class HeadingRequest: Request, Equatable, Hashable {
 		if self.heading == nil { return .invalid }
 		return nil
 	}
-	
+
 	/// Check if received heading is valid
 	///
 	/// - Parameter heading: valid

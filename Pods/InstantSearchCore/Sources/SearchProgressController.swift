@@ -23,17 +23,15 @@
 
 import Foundation
 
-
 /// Delegate to a `SearchProgressController`.
 ///
 @objc public protocol SearchProgressDelegate {
     /// Fired when progress should start being reported.
     @objc func searchDidStart(_ searchProgressController: SearchProgressController)
-    
+
     /// Fired when progress should stop being reported.
     @objc func searchDidStop(_ searchProgressController: SearchProgressController)
 }
-
 
 /// Tracks progress of a `Searcher`.
 ///
@@ -45,17 +43,17 @@ import Foundation
 ///
 @objcMembers public class SearchProgressController: NSObject {
     // MARK: Properties
-    
+
     /// Searcher monitored by this progress controller.
     @objc public let searcher: Searcher
-    
+
     /// Delegate to this progress controller.
     @objc public weak var delegate: SearchProgressDelegate?
-    
+
     /// Delay before which search requests are not reported. Default: 0, meaning requests are reported immediately.
     /// When this is non-zero, fast enough requests do not trigger any event.
     @objc public var graceDelay: TimeInterval = 0
-    
+
     /// Whether a search is currently advertised as running.
     @objc public private(set) var running: Bool = false {
         didSet(wasRunning) {
@@ -66,12 +64,12 @@ import Foundation
             }
         }
     }
-    
+
     /// Timer used to start the activity indicator after a delay.
     private var activityIndicatorTimer: Timer?
-    
+
     // MARK: - Initialization
-    
+
     @objc public init(searcher: Searcher) {
         self.searcher = searcher
         super.init()
@@ -80,11 +78,11 @@ import Foundation
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateRunning), name: Searcher.ErrorNotification, object: searcher)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateRunning), name: Searcher.CancelNotification, object: searcher)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     /// Update the running state.
     @objc private func updateRunning(notification: NSNotification) {
         if !searcher.hasPendingRequests {
@@ -106,7 +104,7 @@ import Foundation
             }
         }
     }
-    
+
     @objc private func setRunning() {
         running = true
     }

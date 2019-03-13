@@ -12,16 +12,16 @@ import InstantSearchCore
 import Mapbox
 import SwiftLocation
 
-class WanderlistDetailMapboxMap : MGLMapView {
-  
+class WanderlistDetailMapboxMap: MGLMapView {
+
   func showCurrentLocation() {
-    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
+    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
       self.setCenter(location.coordinate, zoomLevel: 12, animated: false)
-    }) { (error, location) -> (Void) in
+    }) { (error, location) -> Void in
       debugPrint(error)
     }
   }
-  
+
   func zoomToWanderlistWithMapPreview(wanderlist: Wanderlist?) {
     if let latitude = wanderlist?.latitude, let longitude = wanderlist?.longitude {
       let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -29,30 +29,30 @@ class WanderlistDetailMapboxMap : MGLMapView {
       let currentLocation = MGLPointAnnotation()
       currentLocation.coordinate = coordinate
       currentLocation.title = wanderlist?.title
-      
+
       self.addAnnotation(currentLocation)
     }
   }
-  
+
   func getWanderlistsNear(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
-    
+
     let query = Query(query: "")
     query.aroundLatLng = LatLng(lat: latitude, lng: longitude)
     query.attributesToRetrieve = ["title", "city", "latitude", "longitude", "about", "spots_count", "objectID", "zipcode", "_geoloc"]
-    
+
     index.search(query, completionHandler: { (results, error) in
       guard let results = results else {
         return
       }
-      
+
       guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
-      
+
       self.addHitsToMap(hits: hits)
     })
   }
-  
+
   func drawWanderlistPathForWanderlist(wanderlist: Wanderlist) {
 //    if let id = wanderlist.objectID {
 //      Wanderlist.get(id) { [unowned self] (wanderlist, error) in
@@ -67,15 +67,15 @@ class WanderlistDetailMapboxMap : MGLMapView {
 //      }
 //    }
   }
-  
+
   func addWanderspotsToMap(_ wanderspots: [Wanderspot]) {
-    
+
     var annotations = [MGLPointAnnotation]()
     var coordinates = [CLLocationCoordinate2D]()
     for spot in wanderspots {
       let latitude = spot.latitude
       let longitude = spot.longitude
-      
+
       addWanderspotAsAnnotation(wanderspot: spot)
       self.setVisibleCoordinates(
         coordinates,
@@ -85,7 +85,7 @@ class WanderlistDetailMapboxMap : MGLMapView {
       )
     }
   }
-  
+
   func addWanderspotAsAnnotation(wanderspot: Wanderspot) {
     let annotation = MGLPointAnnotation()
     let latitude = wanderspot.latitude
@@ -95,26 +95,26 @@ class WanderlistDetailMapboxMap : MGLMapView {
     annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
-  
+
   func searchQueryForWanderlistsNear(query: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
-    
+
     let query = Query(query: query)
     query.aroundLatLng = LatLng(lat: latitude, lng: longitude)
     query.attributesToRetrieve = ["title", "city", "latitude", "longitude", "about", "spots_count", "objectID", "zipcode", "_geoloc"]
-    
+
     index.search(query, completionHandler: { (results, error) in
       guard let results = results else {
         return
       }
-      
+
       guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
-      
+
       self.addHitsToMap(hits: hits)
     })
   }
-  
+
   func addHitsToMap(hits: [[String: Any]]) {
     var annotations = [MGLPointAnnotation]()
     var coordinates = [CLLocationCoordinate2D]()
@@ -129,7 +129,7 @@ class WanderlistDetailMapboxMap : MGLMapView {
 
       self.addAnnotation(hello)
     }
-    
+
     self.setVisibleCoordinates(
       coordinates,
       count: UInt(coordinates.count),
@@ -137,11 +137,11 @@ class WanderlistDetailMapboxMap : MGLMapView {
       animated: true
     )
   }
-  
+
   func removeAllAnnotations() {
-    
+
     guard let annotations = self.annotations else { return print("Annotations Error") }
-    
+
     if annotations.count != 0 {
       for annotation in annotations {
         self.removeAnnotation(annotation)
@@ -151,4 +151,3 @@ class WanderlistDetailMapboxMap : MGLMapView {
     }
   }
 }
-

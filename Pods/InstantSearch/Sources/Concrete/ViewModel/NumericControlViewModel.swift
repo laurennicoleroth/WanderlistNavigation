@@ -78,11 +78,11 @@ import InstantSearchCore
 
     public func configure(with searcher: Searcher) {
         self.searcher = searcher
-        
+
         guard !attribute.isEmpty else {
             fatalError("you must assign a value to the attribute of a Numeric Control before adding it to InstantSearch")
         }
-        
+
         if let numeric = self.searcher.params.getNumericRefinement(name: attribute, operator: `operator`, inclusive: inclusive) {
             view?.set(value: numeric.value)
         }
@@ -93,17 +93,17 @@ import InstantSearchCore
     // MARK: - NumericControlViewModelDelegate
 
     public weak var view: NumericControlViewDelegate?
-    
+
     override init() { }
-    
+
     public init(view: NumericControlViewDelegate) {
         self.view = view
     }
 
     public func updateNumeric(value: NSNumber, doSearch: Bool) {
-        
+
         self.searcher.params.updateNumericRefinement(self.attribute, self.operator, value, inclusive: inclusive)
-        
+
         if doSearch {
             self.searcher.search()
         }

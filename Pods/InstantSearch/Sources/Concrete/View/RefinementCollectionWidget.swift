@@ -16,35 +16,35 @@ import UIKit
 /// + Remark: You must assign a value to the `attribute` property since the refinement table cannot operate without one.
 /// A FatalError will be thrown if you don't specify anything.
 @objcMembers public class RefinementCollectionWidget: UICollectionView, RefinementMenuViewDelegate, AlgoliaWidget {
-        
+
     @IBInspectable public var attribute: String = Constants.Defaults.attribute
     @IBInspectable public var refinedFirst: Bool = Constants.Defaults.refinedFirst
     @IBInspectable public var `operator`: String = Constants.Defaults.operatorRefinement
     @IBInspectable public var sortBy: String = Constants.Defaults.sortBy
     @IBInspectable public var limit: Int = Constants.Defaults.limit
     @IBInspectable public var areMultipleSelectionsAllowed: Bool = Constants.Defaults.areMultipleSelectionsAllowed
-    
+
     @IBInspectable public var index: String = Constants.Defaults.index
     @IBInspectable public var variant: String = Constants.Defaults.variant
-    
+
     public var viewModel: RefinementMenuViewModelDelegate
-    
+
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         viewModel = RefinementMenuViewModel()
         super.init(frame: frame, collectionViewLayout: layout)
         viewModel.view = self
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         viewModel = RefinementMenuViewModel()
         super.init(coder: aDecoder)
         viewModel.view = self
     }
-    
+
     public func reloadRefinements() {
         reloadData()
     }
-    
+
     public func deselectRow(at indexPath: IndexPath) {
         deselectItem(at: indexPath, animated: true)
     }

@@ -13,9 +13,9 @@ import InstantSearchCore
 ///
 /// ViewModel - Searcher: SearchableViewModel, ResultingDelegate, ResettableDelegate.
 @objcMembers public class StatsViewModel: NSObject, StatsViewModelDelegate, SearchableIndexViewModel {
-    
+
     // MARK: - Properties
-    
+
     private var _searcherId: SearcherId?
 
     public var searcherId: SearcherId {
@@ -32,26 +32,26 @@ import InstantSearchCore
             }
         }
     }
-    
+
     public var resultTemplate: String {
         return view?.resultTemplate ?? Constants.Defaults.resultTemplate
     }
-    
+
     public var errorText: String {
         return view?.errorText ?? Constants.Defaults.errorText
     }
-    
+
     public var clearText: String {
         return view?.clearText ?? Constants.Defaults.clearText
     }
-    
+
     // MARK: - SearchableViewModel
-    
+
     var searcher: Searcher!
-    
+
     public func configure(with searcher: Searcher) {
         self.searcher = searcher
-        
+
         // Initial value of label in case a search was made.
         // If a search wasn't made yet and it is still ongoing, then the label will get initialized in the onResult method
         if let results = searcher.results {
@@ -62,13 +62,13 @@ import InstantSearchCore
             view?.set(text: text)
         }
     }
-    
+
     // MARK: - StatsViewModelDelegate
-    
+
     public weak var view: StatsViewDelegate?
-    
+
     override init() { }
-    
+
     public init(view: StatsViewDelegate) {
         self.view = view
     }
@@ -90,7 +90,7 @@ extension StatsViewModel: ResultingDelegate {
             let text = applyTemplate(resultTemplate: resultTemplate, results: results)
             view?.set(text: text)
         }
-        
+
         if error != nil {
             let text = errorText
             view?.set(text: text)

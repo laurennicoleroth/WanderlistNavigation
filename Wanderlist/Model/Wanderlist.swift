@@ -11,19 +11,19 @@ import CoreLocation
 import InstantSearch
 import InstantSearchCore
 
-struct Wanderlist {
-  var objectID : String = ""
-  var title : String = ""
-  var about : String = ""
-  var creatorID : String = ""
-  var city : String = ""
-  var zipcode : String = ""
-  var latitude : Double = 0.0
-  var longitude : Double = 0.0
-  var categories : String = ""
-  var spotsCount : Int = 1
-  var wanderspots : [Wanderspot] = []
-  
+class Wanderlist {
+   var  objectID: String = ""
+   var  title: String = ""
+   var  about: String = ""
+   var  creatorID: String = ""
+   var  city: String = ""
+   var  zipcode: String = ""
+   var  latitude: Double = 0.0
+   var  longitude: Double = 0.0
+   var  categories: String = ""
+   var  spotsCount: Int = 1
+   var  wanderspots: [Wanderspot] = []
+
   init(json: [String: Any]) {
     self.title = json["title"] as? String ?? ""
     self.about = json["about"] as? String ?? ""
@@ -36,18 +36,18 @@ struct Wanderlist {
     self.longitude = json["longitude"] as? Double ?? 0.0
     self.categories = json["categories"] as? String ?? ""
   }
-  
+
   func distanceFromCurrentLocation(origin: CLLocation) -> CLLocationDistance {
     let destination = CLLocation(latitude: latitude, longitude: longitude)
     return destination.distance(from: origin) / 1609.344
   }
-  
+
   func addWanderlistToAlgolia() {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
-    
-    let wanderlist : [String: Any] = [
-      "objectID" : self.objectID,
+
+    let wanderlist: [String: Any] = [
+      "objectID": self.objectID,
       "title": self.title,
       "about": self.about,
       "zipcode": self.zipcode,
@@ -60,7 +60,7 @@ struct Wanderlist {
     ]
     index.addObject(wanderlist, completionHandler: { (content, error) -> Void in
       if error == nil {
-        
+
       } else {
         print("Error indexing")
       }

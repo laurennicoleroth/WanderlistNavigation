@@ -7,26 +7,10 @@
 //
 
 import Foundation
-import Pring
 
-@objcMembers
-class User: Object {
+class User: NSObject {
+  var  userID = ""
+  var fullname = ""
+  var email = ""
 
-  dynamic var userID: String?
-  dynamic var fullName: String?
-  dynamic var email: String?
-  dynamic var followers: ReferenceCollection<User> = []
-//  dynamic var favoriteWanderlists: ReferenceCollection<Wanderlist> = []
-  
-  func addUserToFirestore(userID: String, fullName: String, email: String) {
-    let user = User()
-    user.userID = userID
-    user.fullName = fullName
-    user.email = email
-    user.save() { (ref, error) in
-      print("User saved to firestore: ", ref?.documentID)
-    }
-  }
-  
-  
 }

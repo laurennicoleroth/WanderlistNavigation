@@ -9,19 +9,17 @@
 import UIKit
 
 class WanderspotCollectionViewCell: UICollectionViewCell {
-  
 
   @IBOutlet var titleLabel: UILabel!
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
-  
+
   func configureCellFrom(wanderspot: Wanderspot) {
     print("Wanderspot in cell", wanderspot.name)
- 
-    
+
 //    let distance = String(format: "%.2f miles first first stop.", wanderspot.distanceAway)
 //
 //    if wanderspot.distanceAway == 0.0 {
@@ -33,5 +31,5 @@ class WanderspotCollectionViewCell: UICollectionViewCell {
 //    let hours = wanderspot.getHoursForTodayFor(wanderspot)
 //    self.hoursLabel.text = hours
   }
-  
+
 }

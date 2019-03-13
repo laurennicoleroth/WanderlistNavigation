@@ -23,7 +23,6 @@
 
 import Foundation
 
-
 // ----------------------------------------------------------------------------
 // IMPLEMENTATION NOTES
 // ----------------------------------------------------------------------------
@@ -90,19 +89,18 @@ import Foundation
 //
 // ----------------------------------------------------------------------------
 
-
 /// A pair of (latitude, longitude).
 /// Used in geo-search.
 ///
 @objc public class LatLng: NSObject {
     // IMPLEMENTATION NOTE: Cannot be `struct` because of Objective-C bridgeability.
-    
+
     /// Latitude.
     public let lat: Double
-    
+
     /// Longitude.
     public let lng: Double
-    
+
     /// Create a geo location.
     ///
     /// - parameter lat: Latitude.
@@ -112,7 +110,7 @@ import Foundation
         self.lat = lat
         self.lng = lng
     }
-    
+
     public override func isEqual(object: AnyObject?) -> Bool {
         if let rhs = object as? LatLng {
             return self.lat == rhs.lat && self.lng == rhs.lng
@@ -126,19 +124,18 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     return lhs.lat == rhs.lat && lhs.lng == rhs.lng
 }
 
-
 /// A rectangle in geo coordinates.
 /// Used in geo-search.
 ///
 @objc public class GeoRect: NSObject {
     // IMPLEMENTATION NOTE: Cannot be `struct` because of Objective-C bridgeability.
-    
+
     /// One of the rectangle's corners (typically the northwesternmost).
     public let p1: LatLng
-    
+
     /// Corner opposite from `p1` (typically the southeasternmost).
     public let p2: LatLng
-    
+
     /// Create a geo rectangle.
     ///
     /// - parameter p1: One of the rectangle's corners (typically the northwesternmost).
@@ -148,7 +145,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         self.p1 = p1
         self.p2 = p2
     }
-    
+
     public override func isEqual(object: AnyObject?) -> Bool {
         if let rhs = object as? GeoRect {
             return self.p1 == rhs.p1 && self.p2 == rhs.p2
@@ -158,7 +155,6 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     }
 }
 
-
 /// Describes all parameters of a search query.
 ///
 /// There are two ways to access parameters:
@@ -167,13 +163,13 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
 /// 2. Using the low-level, **untyped accessors** `get(_:)` and `set(_:value:)` or the subscript operator.
 ///    Use this approach if the parameter you wish to set is not supported by this class.
 ///
-@objc public class Query : NSObject, NSCopying {
-    
+@objc public class Query: NSObject, NSCopying {
+
     // MARK: - Low-level (untyped) parameters
-    
+
     /// Parameters, as untyped values.
     private var parameters: [String: String] = [:]
-    
+
     /// Get a parameter in an untyped fashion.
     ///
     /// - parameter name:   The parameter's name.
@@ -182,7 +178,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     @objc public func get(name: String) -> String? {
         return parameters[name]
     }
-    
+
     /// Set a parameter in an untyped fashion.
     /// This low-level accessor is intended to access parameters that this client does not yet support.
     ///
@@ -196,7 +192,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             parameters[name] = value!
         }
     }
-    
+
     /// Convenience shortcut to `get(_:)` and `set(_:value:)`.
     @objc public subscript(index: String) -> String? {
         get {
@@ -206,9 +202,9 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             set(index, value: newValue)
         }
     }
-    
+
     // MARK: -
-    
+
     // MARK: Full text search parameters
 
     /// The instant-search query string, all words of the query are interpreted as prefixes (for example “John Mc” will
@@ -217,7 +213,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return get("query") }
         set { set("query", value: newValue) }
     }
-    
+
     /// Selects how the query words are interpreted:
     /// - `prefixAll`: all query words are interpreted as prefixes
     /// - `prefixLast`: only the last word is interpreted as a prefix (default behavior)
@@ -243,7 +239,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             set("queryType", value: newValue?.rawValue)
         }
     }
-    
+
     /// This setting has four different options:
     /// - `true`: activate the typo-tolerance.
     /// - `false`: disable the typo-tolerance.
@@ -273,7 +269,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             set("typoTolerance", value: newValue?.rawValue)
         }
     }
-    
+
     /// The minimum number of characters in a query word to accept one typo in this word.
     @objc public var minWordSizefor1Typo: NSNumber? {
         get { return Query.toNumber(self.minWordSizefor1Typo_) }
@@ -283,7 +279,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseUInt(get("minWordSizefor1Typo")) }
         set { set("minWordSizefor1Typo", value: Query.buildUInt(newValue)) }
     }
-    
+
     /// The minimum number of characters in a query word to accept two typos in this word.
     @objc public var minWordSizefor2Typos: NSNumber? {
         get { return Query.toNumber(self.minWordSizefor2Typos_) }
@@ -305,7 +301,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("allowTyposOnNumericTokens")) }
         set { set("allowTyposOnNumericTokens", value: Query.buildBool(newValue)) }
     }
-    
+
     /// If set to true, simple plural forms won’t be considered as typos (for example car/cars will be considered as
     /// equal).
     @objc public var ignorePlurals: NSNumber? {
@@ -316,7 +312,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("ignorePlurals")) }
         set { set("ignorePlurals", value: Query.buildBool(newValue)) }
     }
-    
+
     /// List of attributes you want to use for textual search (must be a subset of the attributesToIndex index setting).
     /// Attributes are separated with a comma (for example "name,address" ), you can also use a JSON string array
     /// encoding (for example encodeURIComponent('["name","address"]') ). By default, all attributes specified in
@@ -325,7 +321,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseStringArray(get("restrictSearchableAttributes")) }
         set { set("restrictSearchableAttributes", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// Enable the advanced query syntax.
     @objc public var advancedSyntax: NSNumber? {
         get { return Query.toNumber(self.advancedSyntax_) }
@@ -335,7 +331,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("advancedSyntax")) }
         set { set("advancedSyntax", value: Query.buildBool(newValue)) }
     }
-    
+
     /// If set to false, this query will not be taken into account for the Analytics.
     @objc public var analytics: NSNumber? {
         get { return Query.toNumber(self.analytics_) }
@@ -345,14 +341,14 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("analytics")) }
         set { set("analytics", value: Query.buildBool(newValue)) }
     }
-    
+
     /// If set, tag your query with the specified identifiers. Tags can then be used in the Analytics to analyze a
     /// subset of searches only.
     @objc public var analyticsTags: [String]? {
         get { return Query.parseStringArray(get("analyticsTags")) }
         set { set("analyticsTags", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// If set to false, this query will not use synonyms defined in configuration.
     @objc public var synonyms: NSNumber? {
         get { return Query.toNumber(self.synonyms_) }
@@ -362,7 +358,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("synonyms")) }
         set { set("synonyms", value: Query.buildBool(newValue)) }
     }
-    
+
     /// If set to false, words matched via synonyms expansion will not be replaced by the matched synonym in the
     /// highlighted result.
     @objc public var replaceSynonymsInHighlight: NSNumber? {
@@ -373,7 +369,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("replaceSynonymsInHighlight")) }
         set { set("replaceSynonymsInHighlight", value: Query.buildBool(newValue)) }
     }
-    
+
     /// Specify a list of words that should be considered as optional when found in the query. This list will be
     /// appended to the one defined in your index settings.
     @objc public var optionalWords: [String]? {
@@ -430,7 +426,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             set("removeWordsIfNoResults", value: newValue?.rawValue)
         }
     }
-    
+
     /// List of attributes on which you want to disable typo tolerance (must be a subset of the `attributesToIndex`
     /// index setting).
     @objc public var disableTypoToleranceOnAttributes: [String]? {
@@ -477,7 +473,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             }
         }
     }
-    
+
     /// This parameter control how the exact ranking criterion is computed when the query contains one word.
     @objc public var exactOnSingleWordQuery: String? {
         get { return exactOnSingleWordQuery_?.rawValue }
@@ -504,7 +500,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             set("exactOnSingleWordQuery", value: newValue?.rawValue)
         }
     }
-    
+
     /// Specify the list of approximation that should be considered as an exact match in the ranking formula.
     ///
     /// - `ignorePlurals`: alternative word added by the ignore plurals feature
@@ -540,7 +536,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             }
         }
         set {
-            var rawValues : [String]?
+            var rawValues: [String]?
             if newValue != nil {
                 rawValues = []
                 for value in newValue! {
@@ -550,9 +546,9 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
             alternativesAsExact = rawValues
         }
     }
-    
+
     // MARK: Pagination parameters
-    
+
     /// Pagination parameter used to select the page to retrieve. Page is zero-based and defaults to 0. Thus, to
     /// retrieve the 10th page you need to set `page=9`
     @objc public var page: NSNumber? {
@@ -563,7 +559,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseUInt(get("page")) }
         set { set("page", value: Query.buildUInt(newValue)) }
     }
-    
+
     /// Pagination parameter used to select the number of hits per page. Defaults to 20.
     @objc public var hitsPerPage: NSNumber? {
         get { return Query.toNumber(self.hitsPerPage_) }
@@ -573,9 +569,9 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseUInt(get("hitsPerPage")) }
         set { set("hitsPerPage", value: Query.buildUInt(newValue)) }
     }
-    
+
     // MARK: Parameters to control results content
-    
+
     /// List of object attributes you want to retrieve (let you minimize the answer size). You can also use `*` to
     /// retrieve all values when an `attributesToRetrieve` setting is specified for your index.
     /// By default all attributes are retrieved.
@@ -583,7 +579,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseStringArray(get("attributesToRetrieve")) }
         set { set("attributesToRetrieve", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// List of attributes you want to highlight according to the query. If an attribute has no match for the query,
     /// the raw value is returned. By default all indexed text attributes are highlighted. You can use `*` if you want
     /// to highlight all textual attributes. Numerical attributes are not highlighted. A `matchLevel` is returned for
@@ -595,14 +591,14 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseStringArray(get("attributesToHighlight")) }
         set { set("attributesToHighlight", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// List of attributes to snippet alongside the number of words to return (syntax is `attributeName:nbWords`).
     /// By default no snippet is computed.
     @objc public var attributesToSnippet: [String]? {
         get { return Query.parseStringArray(get("attributesToSnippet")) }
         set { set("attributesToSnippet", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// If set to true, the result hits will contain ranking information in `_rankingInfo` attribute.
     @objc public var getRankingInfo: NSNumber? {
         get { return Query.toNumber(self.getRankingInfo_) }
@@ -612,25 +608,25 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("getRankingInfo")) }
         set { set("getRankingInfo", value: Query.buildBool(newValue)) }
     }
-    
+
     /// Specify the string that is inserted before the highlighted parts in the query result (defaults to `<em>`).
     @objc public var highlightPreTag: String? {
         get { return get("highlightPreTag") }
         set { set("highlightPreTag", value: newValue) }
     }
-    
+
     /// Specify the string that is inserted after the highlighted parts in the query result (defaults to `</em>`)
     @objc public var highlightPostTag: String? {
         get { return get("highlightPostTag") }
         set { set("highlightPostTag", value: newValue) }
     }
-    
+
     /// String used as an ellipsis indicator when a snippet is truncated (defaults to empty).
-    @objc public var snippetEllipsisText : String? {
+    @objc public var snippetEllipsisText: String? {
         get { return get("snippetEllipsisText") }
         set { set("snippetEllipsisText", value: newValue) }
     }
-    
+
     // MARK: Numeric search parameters
 
     /// Filter on numeric attributes.
@@ -638,7 +634,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseJSONArray(get("numericFilters")) }
         set { set("numericFilters", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     // MARK: Category search parameters
 
     /// Filter the query by a set of tags.
@@ -646,7 +642,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseJSONArray(get("tagFilters")) }
         set { set("tagFilters", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     // MARK: Distinct parameter
 
     /// Enable the distinct feature (disabled by default) if the attributeForDistinct index setting is set. This
@@ -662,9 +658,9 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseUInt(get("distinct")) }
         set { set("distinct", value: Query.buildUInt(newValue)) }
     }
-    
+
     // MARK: Faceting parameters
-    
+
     /// List of object attributes that you want to use for faceting. Only attributes that have been added in
     /// `attributesForFaceting` index setting can be used in this parameter. You can also use `*` to perform faceting
     /// on all attributes specified in `attributesForFaceting`. If the number of results is important, the count can
@@ -673,13 +669,13 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseStringArray(get("facets")) }
         set { set("facets", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// Filter the query by a list of facets.
     @objc public var facetFilters: [AnyObject]? {
         get { return Query.parseJSONArray(get("facetFilters")) }
         set { set("facetFilters", value: Query.buildJSONArray(newValue)) }
     }
-    
+
     /// Limit the number of facet values returned for each facet. For example: `maxValuesPerFacet=10` will retrieve
     /// max 10 values per facet.
     @objc public var maxValuesPerFacet: NSNumber? {
@@ -713,7 +709,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     }
 
     // MARK: Geo-search parameters
-    
+
     /// Search for entries around a given latitude/longitude. You can specify the maximum distance in meters with the
     /// `aroundRadius` parameter but we recommend to let it unset and let our automatic radius computation adapt it
     /// depending of the density of the are. At indexing, you should specify the geo-location of an object with the
@@ -745,7 +741,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseBool(get("aroundLatLngViaIP")) }
         set { set("aroundLatLngViaIP", value: Query.buildBool(newValue)) }
     }
-    
+
     /// Control the radius associated with a `aroundLatLng` or `aroundLatLngViaIP` query. Defined in meters.
     /// If not set, the radius is computed automatically using the density of the area, you can retrieve the computed
     /// radius in the `automaticRadius` attribute of the answer. You can also specify a minimum value for the automatic
@@ -775,7 +771,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     }
     /// Special value for `aroundRadius` to compute the geo distance without filtering.
     @objc public static let aroundRadiusAll: UInt = UInt.max
-    
+
     /// Control the precision of a `aroundLatLng` query. In meter. For example if you set `aroundPrecision=100`, two
     /// objects that are in the range 0-99m will be considered as identical in the ranking for the .variable geo
     /// ranking parameter (same for 100-199, 200-299, … ranges).
@@ -799,7 +795,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         get { return Query.parseUInt(get("minimumAroundRadius")) }
         set { set("minimumAroundRadius", value: Query.buildUInt(newValue)) }
     }
-    
+
     /// Search for entries inside a given area defined by the two extreme points of a rectangle.
     /// You can use several bounding boxes (OR) by passing more than 1 value.
     @objc public var insideBoundingBox: [GeoRect]? {
@@ -871,29 +867,29 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
     @objc override public var description: String {
         get { return "Query{\(parameters)}" }
     }
-    
+
     // MARK: - Initialization
 
     /// Construct an empty query.
     @objc public override init() {
     }
-    
+
     /// Construct a query with the specified full text query.
     @objc public init(query: String?) {
         super.init()
         self.query = query
     }
-    
+
     /// Construct a query with the specified low-level parameters.
     @objc public init(parameters: [String: String]) {
         self.parameters = parameters
     }
-    
+
     /// Clone an existing query.
     @objc public init(copy: Query) {
         parameters = copy.parameters
     }
-    
+
     /// Support for `NSCopying`.
     ///
     /// + Note: Primarily intended for Objective-C use. Swift coders should use `init(copy:)`.
@@ -938,18 +934,18 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return query
     }
-    
+
     // MARK: Equatable
-    
+
     override public func isEqual(object: AnyObject?) -> Bool {
         guard let rhs = object as? Query else {
             return false
         }
         return self.parameters == rhs.parameters
     }
-    
+
     // MARK: - Helper methods to build & parse URL
-    
+
     /// Build a plain, comma-separated array of strings.
     ///
     class func buildStringArray(array: [String]?) -> String? {
@@ -958,7 +954,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func parseStringArray(string: String?) -> [String]? {
         if string != nil {
             // First try to parse the JSON notation:
@@ -973,7 +969,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func buildJSONArray(array: [AnyObject]?) -> String? {
         if array != nil {
             do {
@@ -986,7 +982,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func parseJSONArray(string: String?) -> [AnyObject]? {
         if string != nil {
             do {
@@ -998,11 +994,11 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func buildUInt(int: UInt?) -> String? {
         return int == nil ? nil : String(int!)
     }
-    
+
     class func parseUInt(string: String?) -> UInt? {
         if string != nil {
             if let intValue = UInt(string!) {
@@ -1011,11 +1007,11 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func buildBool(bool: Bool?) -> String? {
         return bool == nil ? nil : String(bool!)
     }
-    
+
     class func parseBool(string: String?) -> Bool? {
         if string != nil {
             switch (string!.lowercaseString) {
@@ -1029,7 +1025,7 @@ public func ==(lhs: LatLng, rhs: LatLng) -> Bool {
         }
         return nil
     }
-    
+
     class func toNumber(bool: Bool?) -> NSNumber? {
         return bool == nil ? nil : NSNumber(bool: bool!)
     }

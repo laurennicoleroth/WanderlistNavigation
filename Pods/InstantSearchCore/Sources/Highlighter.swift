@@ -23,15 +23,14 @@
 
 import Foundation
 
-
 /// Renders marked up text into attributed strings with markup removed and the visual attributes applied to highlights.
 ///
 @objcMembers public class Highlighter: NSObject {
     // MARK: Properties
-    
+
     /// Visual attributes to apply to the highlights.
     @objc public var highlightAttrs: [NSAttributedString.Key: Any]
-    
+
     /// Markup identifying the beginning of a highlight. Defaults to `<em>`.
     @objc public var preTag: String = "<em>"
 
@@ -63,7 +62,7 @@ import Foundation
     public func render(text: String) -> NSAttributedString {
         let newText = NSMutableString(string: text)
         var rangesToHighlight = [NSRange]()
-        
+
         // Remove markup and identify ranges to highlight at the same time.
         while true {
             let matchBegin = newText.range(of: preTag, options: caseSensitive ? [] : [.caseInsensitive])
@@ -79,7 +78,7 @@ import Foundation
                 break
             }
         }
-        
+
         // Apply the specified attributes to the highlighted ranges.
         let attributedString = NSMutableAttributedString(string: String(newText))
         for range in rangesToHighlight {
@@ -87,7 +86,7 @@ import Foundation
         }
         return attributedString
     }
-    
+
     /// Inverse highlights in a text.
     /// The highlighted parts lose highlighting, and the not highlighted parts become highlighted.
     ///

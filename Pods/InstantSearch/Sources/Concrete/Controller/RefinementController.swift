@@ -15,30 +15,30 @@ import UIKit
 /// - collectionDataSource: DataSource to specify the layout of a collection refinement cell.
 /// - collectionDelegate: Delegate to specify the behavior when a collection refinement cell is selected.
 @objcMembers public class RefinementController: NSObject {
-    
+
     /// Reference to the viewModel associated with the refinement widget.
     var viewModel: RefinementMenuViewModelDelegate
-    
+
     /// DataSource that takes care of the content of the table refinement widget.
     @objc public weak var tableDataSource: RefinementTableViewDataSource?
-    
+
     /// Delegate that takes care of the behavior of the table refinement widget.
     @objc public weak var tableDelegate: RefinementTableViewDelegate?
-    
+
     /// DataSource that takes care of the content of the collection refinement widget.
     @objc public weak var collectionDataSource: RefinementCollectionViewDataSource?
-    
+
     /// Delegate that takes care of the behavior of the collection refinement widget.
     @objc public weak var collectionDelegate: RefinementCollectionViewDelegate?
-    
+
     @objc convenience public init(table: RefinementTableWidget) {
         self.init(refinementView: table)
     }
-    
+
     @objc convenience public init(collection: RefinementCollectionWidget) {
         self.init(refinementView: collection)
     }
-    
+
     @objc init(refinementView: RefinementMenuViewDelegate) {
         self.viewModel = refinementView.viewModel
         super.init()
@@ -46,7 +46,7 @@ import UIKit
 }
 
 extension RefinementController: UITableViewDataSource {
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let facetValue = viewModel.facetForRow(at: indexPath)
         let isRefined = viewModel.isRefined(at: indexPath)
@@ -56,21 +56,21 @@ extension RefinementController: UITableViewDataSource {
                                           with: facetValue.count,
                                           is: isRefined) ?? UITableViewCell()
     }
-    
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
-    
+
     public func numberOfSections(in tableView: UITableView) -> Int {
         var numOfSections: Int = 0
-        
+
         if viewModel.numberOfRows() > 0 {
             tableView.separatorStyle = .singleLine
             numOfSections            = 1
             tableView.backgroundView = nil
         } else {
             tableView.separatorStyle  = .none
-            
+
             if let noResultView = tableDataSource?.viewForNoResults?(in: tableView) {
                 tableView.backgroundView  = noResultView
             } else { // Default view
@@ -81,7 +81,7 @@ extension RefinementController: UITableViewDataSource {
                 noDataLabel.textColor     = UIColor.black
                 noDataLabel.textAlignment = .center
                 tableView.backgroundView  = noDataLabel
-                
+
             }
         }
         return numOfSections
@@ -101,11 +101,11 @@ extension RefinementController: UITableViewDelegate {
 }
 
 extension RefinementController: UICollectionViewDataSource {
-    
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let facetValue = viewModel.facetForRow(at: indexPath)
         let isRefined = viewModel.isRefined(at: indexPath)
@@ -115,10 +115,10 @@ extension RefinementController: UICollectionViewDataSource {
                                                     with: facetValue.count,
                                                     is: isRefined) ?? UICollectionViewCell()
     }
-    
+
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         var numOfSections: Int = 0
-        
+
         if viewModel.numberOfRows() > 0 {
             numOfSections            = 1
             collectionView.backgroundView = nil
@@ -136,7 +136,7 @@ extension RefinementController: UICollectionViewDataSource {
             }
         }
         return numOfSections
-        
+
     }
 }
 
