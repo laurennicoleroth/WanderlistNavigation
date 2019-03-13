@@ -38,7 +38,7 @@ class WanderlistCollectionViewCell: UICollectionViewCell {
   
   func configureCellFrom(wanderlist: Wanderlist) {
     self.wanderlist = wanderlist
-    titleLabel.text = wanderlist.title
+    titleLabel.text = wanderlist.title.uppercased()
     aboutLabel.text = wanderlist.about
     let count = wanderlist.spotsCount
 

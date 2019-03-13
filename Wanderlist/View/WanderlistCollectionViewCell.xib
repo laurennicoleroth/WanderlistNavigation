@@ -43,14 +43,14 @@
                                     <constraint firstAttribute="height" constant="100" id="lwz-uw-4he"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="KaK-cF-6lo">
-                                <rect key="frame" x="10" y="10" width="280" height="37"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KaK-cF-6lo">
+                                <rect key="frame" x="10" y="10" width="280" height="27"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNe-rP-uVm">
-                                        <rect key="frame" x="0.0" y="0.0" width="206" height="37"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNe-rP-uVm" customClass="RoundedView" customModule="Wanderlist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="27"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v5d-Mn-WEx">
-                                                <rect key="frame" x="10" y="10" width="186" height="17"/>
+                                                <rect key="frame" x="5" y="5" width="225" height="17"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin-small-gray" translatesAutoresizingMaskIntoConstraints="NO" id="cgJ-Fa-68F">
                                                         <rect key="frame" x="0.0" y="0.0" width="14" height="17"/>
@@ -60,8 +60,8 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.34 Miles Away | 4 Spots | 3.2 Miles Walking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LF-OU-ei7">
-                                                        <rect key="frame" x="24" y="0.0" width="162" height="17"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="9"/>
+                                                        <rect key="frame" x="24" y="0.0" width="201" height="17"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -71,16 +71,21 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="v5d-Mn-WEx" secondAttribute="bottom" constant="10" id="8bx-kF-gs6"/>
-                                            <constraint firstAttribute="trailing" secondItem="v5d-Mn-WEx" secondAttribute="trailing" constant="10" id="NqT-2W-fis"/>
-                                            <constraint firstItem="v5d-Mn-WEx" firstAttribute="leading" secondItem="PNe-rP-uVm" secondAttribute="leading" constant="10" id="cLi-BW-8pt"/>
-                                            <constraint firstItem="v5d-Mn-WEx" firstAttribute="top" secondItem="PNe-rP-uVm" secondAttribute="top" constant="10" id="zCa-6Z-AQ2"/>
+                                            <constraint firstAttribute="trailing" secondItem="v5d-Mn-WEx" secondAttribute="trailing" constant="5" id="6V6-dy-2yM"/>
+                                            <constraint firstItem="v5d-Mn-WEx" firstAttribute="top" secondItem="PNe-rP-uVm" secondAttribute="top" constant="5" id="AEH-gz-HlB"/>
+                                            <constraint firstAttribute="bottom" secondItem="v5d-Mn-WEx" secondAttribute="bottom" constant="5" id="cQE-Aa-YbH"/>
+                                            <constraint firstItem="v5d-Mn-WEx" firstAttribute="leading" secondItem="PNe-rP-uVm" secondAttribute="leading" constant="5" id="exq-6C-4Bq"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-DZ-eWW">
-                                        <rect key="frame" x="251" y="0.0" width="29" height="37"/>
+                                        <rect key="frame" x="243" y="0.0" width="37" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="29" id="4lP-0e-ZXj"/>
+                                            <constraint firstAttribute="width" constant="37" id="4lP-0e-ZXj"/>
                                         </constraints>
                                         <state key="normal" image="Favorite-Button"/>
                                         <connections>
@@ -90,23 +95,23 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-zn-15b">
-                                <rect key="frame" x="10" y="110" width="280" height="81"/>
+                                <rect key="frame" x="10" y="105" width="280" height="86"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="BATTERY PARK MONUMENT TOUR" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOF-K9-UAF">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="BATTERY PARK MONUMENT TOUR" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOF-K9-UAF">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBI-nK-2dL">
-                                        <rect key="frame" x="0.0" y="25" width="280" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBI-nK-2dL">
+                                        <rect key="frame" x="0.0" y="43.5" width="280" height="27.5"/>
                                         <string key="text">Battery park is where New York got its start, and the area is home to a surprising number of interesting specialty museums and several</string>
                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5nx-Cv-SIq">
-                                        <rect key="frame" x="0.0" y="71" width="280" height="10"/>
+                                        <rect key="frame" x="0.0" y="76" width="280" height="10"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gRN-0R-vcy">
                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="10"/>
@@ -114,7 +119,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rsb-tM-9QK">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="10"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-outline-gray" translatesAutoresizingMaskIntoConstraints="NO" id="xEw-5k-MF2">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart-Outline" translatesAutoresizingMaskIntoConstraints="NO" id="xEw-5k-MF2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="13" height="10"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="10" id="ZKv-6D-bOV"/>
@@ -132,14 +137,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="f2o-Ji-1VL">
                                                         <rect key="frame" x="60" y="0.0" width="27" height="10"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-outline-gray" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-Li-m4F">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Comment-Outline" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-Li-m4F">
                                                                 <rect key="frame" x="0.0" y="0.0" width="13" height="10"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="10" id="37r-rl-Dhz"/>
                                                                     <constraint firstAttribute="width" constant="13" id="yxW-J5-hMX"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5R-Pw-kXb">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5R-Pw-kXb">
                                                                 <rect key="frame" x="16" y="0.0" width="11" height="10"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="9"/>
                                                                 <nil key="textColor"/>
@@ -154,8 +159,8 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Transit: Bowling Green (4/5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah3-Eq-nt4">
-                                                <rect key="frame" x="162.5" y="0.0" width="117.5" height="10"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-BoldItalic" family="Open Sans" pointSize="9"/>
+                                                <rect key="frame" x="136" y="0.0" width="144" height="10"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-BoldItalic" family="Open Sans" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -171,7 +176,7 @@
                             <constraint firstItem="ic4-kt-JyT" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" id="JSC-o1-5oM"/>
                             <constraint firstAttribute="trailing" secondItem="fcf-zn-15b" secondAttribute="trailing" constant="10" id="QJ5-ss-Phl"/>
                             <constraint firstAttribute="trailing" secondItem="KaK-cF-6lo" secondAttribute="trailing" constant="10" id="Qp7-d6-DMH"/>
-                            <constraint firstItem="fcf-zn-15b" firstAttribute="top" secondItem="ic4-kt-JyT" secondAttribute="bottom" constant="10" id="aMP-Y7-nVY"/>
+                            <constraint firstItem="fcf-zn-15b" firstAttribute="top" secondItem="ic4-kt-JyT" secondAttribute="bottom" constant="5" id="aMP-Y7-nVY"/>
                             <constraint firstItem="KaK-cF-6lo" firstAttribute="top" secondItem="aBr-3F-yuS" secondAttribute="top" constant="10" id="fCe-wG-ddy"/>
                             <constraint firstAttribute="trailing" secondItem="ic4-kt-JyT" secondAttribute="trailing" id="jmR-3y-B3S"/>
                             <constraint firstItem="fcf-zn-15b" firstAttribute="leading" secondItem="aBr-3F-yuS" secondAttribute="leading" constant="10" id="u3g-SF-dXP"/>
@@ -200,8 +205,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Comment-Outline" width="16" height="15"/>
         <image name="Favorite-Button" width="60" height="60"/>
-        <image name="heart-outline-gray" width="20" height="19"/>
+        <image name="Heart-Outline" width="17" height="14"/>
         <image name="map-pin-small-gray" width="14" height="17"/>
         <image name="times-square" width="290" height="174"/>
     </resources>
