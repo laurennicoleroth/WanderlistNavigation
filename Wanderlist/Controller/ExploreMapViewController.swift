@@ -14,7 +14,7 @@ import InstantSearchClient
 import SwiftLocation
 import GooglePlaces
 import Kingfisher
-import Pring
+import MMBannerLayout
 
 class ExploreMapViewController: UIViewController {
   
@@ -82,6 +82,13 @@ class ExploreMapViewController: UIViewController {
     self.view.layoutIfNeeded()
     wanderlistsHitsCollectionView.showsHorizontalScrollIndicator = true
     wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
+    
+    if let layout = wanderlistsHitsCollectionView.collectionViewLayout as? MMBannerLayout {
+      layout.itemSpace = 10
+      layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 40, dy: 40).size
+      layout.minimuAlpha = 0.4
+      layout.angle = 30.0
+    }
   }
   
   private func findWanderlistFromAnnotation(annotation: MGLAnnotation) -> Wanderlist? {
@@ -254,3 +261,9 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
   }
 }
 
+extension ExploreMapViewController: BannerLayoutDelegate {
+  func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
+    let wanderlist = wanderlists[indexPath.row]
+    print("Focus is at ", wanderlist.title)
+  }
+}
