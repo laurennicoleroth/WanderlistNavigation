@@ -24,11 +24,24 @@ class ExploreMapViewController: UIViewController {
   var wanderlists = [Wanderlist]()
   var query = Query()
   var selectedWanderlist: Wanderlist?
+  var currentLocation : CLLocationCoordinate2D? {
+    didSet {
+      searchQueryNearby(queryString: "")
+    }
+  }
   var haveResults = false {
     didSet {
       if haveResults {
         wanderlistsHitsCollectionView.reloadData()
       }
+    }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    Locator.currentPosition(accuracy: .city, onSuccess: { [unowned self] (location) in
+      self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    }) { (error, location) in
+      print("Error \(error)")
     }
   }
 
@@ -40,27 +53,27 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
-    searchQueryNearby(queryString: "")
   }
 
   func searchQueryNearby(queryString: String) {
-    
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
     let query = Query(query: queryString)
     
-    query.aroundLatLng = LatLng(lat: mapView.currentLocation?.coordinate.latitude ?? 0.0, lng: mapView.currentLocation?.coordinate.longitude ?? 0.0)
-    
-    index.search(query, completionHandler: { [unowned self] (results, error) in
-      guard let results = results else {
-        return
-      }
-      guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
+    if let location = currentLocation {
+      query.aroundLatLng = LatLng(lat: location.latitude, lng: location.longitude)
       
-      self.wanderlists = hits.compactMap({ Wanderlist(json: $0) })
-      self.haveResults = true
-   
-    })
+      index.search(query, completionHandler: { [unowned self] (results, error) in
+        guard let results = results else {
+          return
+        }
+        guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
+        
+        self.wanderlists = hits.map({ Wanderlist(json: $0) })
+        self.haveResults = true
+        
+      })
+    }
   }
 
   private func setupMapUI() {
@@ -125,20 +138,6 @@ extension ExploreMapViewController: MGLMapViewDelegate {
     return annotationImage
   }
 
-  func mapView(_ mapView: MGLMapView, leftCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    if (annotation.title! == "Kinkaku-ji") {
-      // Callout height is fixed; width expands to fit its content.
-      let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-      label.textAlignment = .right
-      label.textColor = UIColor(red: 0.81, green: 0.71, blue: 0.23, alpha: 1)
-      label.text = "金閣寺"
-
-      return label
-    }
-
-    return nil
-  }
-
   func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
     return UIButton(type: .detailDisclosure)
   }
@@ -157,14 +156,12 @@ extension ExploreMapViewController: MGLMapViewDelegate {
 
 extension ExploreMapViewController: UICollectionViewDelegate {
 
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    print("Selected item", wanderlists?[indexPath.row].title)
-//    let wanderlist = wanderlists?[indexPath.row]
-//    let storyboard = UIStoryboard(name: "Explore", bundle: nil)
-//    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
-//    controller.wanderlist = wanderlist
-//    self.navigationController?.pushViewController(controller, animated: true)
-//  }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "Explore", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
+    controller.wanderlist = wanderlists[indexPath.row]
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
 }
 
 extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionViewDataSource {
