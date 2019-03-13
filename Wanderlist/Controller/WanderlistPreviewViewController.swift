@@ -52,6 +52,11 @@ class WanderlistPreviewViewController: UIViewController {
     wanderspotsCollectionView.register(UINib(nibName: "WanderspotCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderspotCollectionViewCell")
   }
   
+  
+  func setupWanderlist(objectID: String) {
+    
+  }
+  
   func setupData() {
     if let wanderspots = wanderlist?.wanderspots.enumerated() {
       for (index, spot) in wanderspots {

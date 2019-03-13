@@ -163,22 +163,17 @@ extension ExploreMapViewController: MGLMapViewDelegate {
     return true
   }
   
-  func zoomToWanderlist() {
-    
-  }
-  
 }
 
-extension ExploreMapViewController: UICollectionViewDelegate, HitsCollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, containing hit: [String : Any]) {
-    print("hit \(String(describing: hit["name"]!)) has been clicked")
-    
-  }
+extension ExploreMapViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Selected item", wanderlists[indexPath.row].title)
     let wanderlist = wanderlists[indexPath.row]
-    mapView.zoomToWanderlistWithMapPreview(wanderlist: wanderlist)
+    let storyboard = UIStoryboard(name: "Explore", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
+    controller.wanderlist = wanderlist
+    self.navigationController?.pushViewController(controller, animated: true)
   }
 }
 
@@ -265,5 +260,6 @@ extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
     let wanderlist = wanderlists[indexPath.row]
     print("Focus is at ", wanderlist.title)
+    
   }
 }
