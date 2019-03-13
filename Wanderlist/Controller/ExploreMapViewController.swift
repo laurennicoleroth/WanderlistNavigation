@@ -85,8 +85,8 @@ class ExploreMapViewController: UIViewController {
     
     if let layout = wanderlistsHitsCollectionView.collectionViewLayout as? MMBannerLayout {
       layout.itemSpace = 10
-      layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 40, dy: 40).size
-      layout.minimuAlpha = 0.4
+      layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 10, dy: 10).size
+      layout.minimuAlpha = 0.7
       layout.angle = 30.0
     }
   }
