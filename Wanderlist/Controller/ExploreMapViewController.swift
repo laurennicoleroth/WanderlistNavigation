@@ -19,7 +19,7 @@ import MMBannerLayout
 class ExploreMapViewController: UIViewController {
   
   @IBOutlet var mapView: WanderlistMapboxMap!
-  @IBOutlet var wanderlistsHitsCollectionView: HitsCollectionWidget!
+  @IBOutlet weak var wanderlistsHitsCollectionView: HitsCollectionWidget!
   
   var originIsLocal: Bool = false
   var currentUser : User?
@@ -67,7 +67,7 @@ class ExploreMapViewController: UIViewController {
       self.wanderlists = hits.map({Wanderlist(json: $0)})
     
       self.wanderlistsHitsCollectionView.reloadHits()
-//      self.mapView.addHitsToMap(hits: hits)
+      self.mapView.addHitsToMap(hits: hits)
     })
   }
   
