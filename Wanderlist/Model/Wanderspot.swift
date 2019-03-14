@@ -13,6 +13,7 @@ import GooglePlaces
 import InstantSearch
 import InstantSearchCore
 import UIKit
+import GEOSwift
 
 struct PlaceWithDistance {
   var place: GMSPlace
