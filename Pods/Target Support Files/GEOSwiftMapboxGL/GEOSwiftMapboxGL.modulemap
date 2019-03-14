@@ -1,0 +1,6 @@
+framework module GEOSwiftMapboxGL {
+  umbrella header "GEOSwiftMapboxGL-umbrella.h"
+
+  export *
+  module * { export * }
+}
