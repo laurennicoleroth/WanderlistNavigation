@@ -17,6 +17,7 @@ target 'Wanderlist' do
   pod 'SwiftLocation', '~> 3.2.3'
   pod 'MMBannerLayout'
   pod 'Kingfisher'
+  pod 'GEOSwift'
 
   target 'WanderlistTests' do
     inherit! :search_paths

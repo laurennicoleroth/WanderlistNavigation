@@ -125,6 +125,10 @@ class Wanderspot: NSObject {
     return json
   }
   
+  func saveToFirestore() {
+    
+  }
+  
   func toGeoJSON() {
     
   }

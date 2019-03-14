@@ -59,6 +59,9 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
+  - geos (3.7.1)
+  - GEOSwift (3.1.0):
+    - geos (= 3.7.1)
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -148,6 +151,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Storage
+  - GEOSwift
   - GooglePlaces
   - InstantSearch (~> 3.0)
   - InstantSearchClient (~> 6.0)
@@ -169,6 +173,8 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseStorage
+    - geos
+    - GEOSwift
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlaces
@@ -208,6 +214,8 @@ SPEC CHECKSUMS:
   FirebaseFirestore: e95af4fe30552092d6e72a8f97ea475d93891b75
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
   FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
+  geos: 4f86329dc270f513bc220c77d9079aef38c5960d
+  GEOSwift: 663f79f312f61dbc50ea7d233b8d04642f9aa1fb
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
@@ -237,6 +245,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: c46d5c713dd250ac3b750d2a38dff1cc0dc8824d
+PODFILE CHECKSUM: 85aeccbaa7e299982098ce694f4047e7872166fb
 
 COCOAPODS: 1.6.0.beta.1
