@@ -44,6 +44,8 @@
 		9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E122386F7A005FC76F /* SearchViewController.swift */; };
 		9695B3E422387427005FC76F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695B3E322387427005FC76F /* Search.storyboard */; };
 		9695B3E622398ECC005FC76F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E522398ECC005FC76F /* UIView+Extensions.swift */; };
+		96F2F6CD223AC6BB0023BC53 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F2F6CC223AC6BB0023BC53 /* Create.storyboard */; };
+		96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,8 @@
 		9695B3E122386F7A005FC76F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9695B3E322387427005FC76F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9695B3E522398ECC005FC76F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		96F2F6CC223AC6BB0023BC53 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
+		96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWanderlistViewController.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		968ED3212233302A005F6AE1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				96F2F6CC223AC6BB0023BC53 /* Create.storyboard */,
 				9695B3E322387427005FC76F /* Search.storyboard */,
 				968ED31F22331902005F6AE1 /* Explore.storyboard */,
 				969354DB222EF1B400752858 /* Main.storyboard */,
@@ -211,6 +216,7 @@
 				969354FD222F151000752858 /* ExploreMapViewController.swift */,
 				968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */,
 				9695B3E122386F7A005FC76F /* SearchViewController.swift */,
+				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 				9695B3D922384504005FC76F /* OpenSans-Italic.ttf in Resources */,
 				969354E5222EF1B400752858 /* LaunchScreen.storyboard in Resources */,
 				968ED32922334C96005F6AE1 /* WanderspotCollectionViewCell.xib in Resources */,
+				96F2F6CD223AC6BB0023BC53 /* Create.storyboard in Resources */,
 				9695B3E422387427005FC76F /* Search.storyboard in Resources */,
 				9695B3DE22384504005FC76F /* OpenSans-Semibold.ttf in Resources */,
 				969354E2222EF1B400752858 /* Assets.xcassets in Resources */,
@@ -552,6 +559,7 @@
 				968ED32822334C96005F6AE1 /* WanderspotCollectionViewCell.swift in Sources */,
 				964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */,
 				9693550C222F1B6B00752858 /* AuthService.swift in Sources */,
+				96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */,
 				968ED31D22330220005F6AE1 /* User.swift in Sources */,
 				964BF9492236C3A0003E77DC /* Wanderlist.swift in Sources */,
 			);
