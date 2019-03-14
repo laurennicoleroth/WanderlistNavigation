@@ -13,12 +13,15 @@ import Mapbox
 class CreateWanderlistViewController: UIViewController {
   @IBOutlet var mapView: WanderlistMapboxMap!
   
+  lazy var annotations : [WanderspotAnnotation] = []
+  lazy var wanderspots : [Wanderspot] = []
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    mapView.showCurrentLocation()
     
+    setupMapUI()
   }
-  
+
   @IBAction func addButtonTouched(_ sender: Any) {
     let autocompleteController = GMSAutocompleteViewController()
     autocompleteController.delegate = self
@@ -27,17 +30,25 @@ class CreateWanderlistViewController: UIViewController {
       UInt(GMSPlaceField.placeID.rawValue))!
     autocompleteController.placeFields = fields
 
-    let filter = GMSAutocompleteFilter()
-    filter.type = .address
-    autocompleteController.autocompleteFilter = filter
-
     present(autocompleteController, animated: true, completion: nil)
+  }
+  
+  func setupMapUI() {
+    mapView.showBlankCurrentLocation()
   }
 }
 
 extension CreateWanderlistViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-    print("Autocompleted place ", place)
+    
+    let wanderspot = Wanderspot(place: place)
+    wanderspot.addPhotoToWanderspot()
+    
+    print(wanderspot.image)
+    
+    dismiss(animated: true) {
+      print("Add point to map")
+    }
   }
   
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {

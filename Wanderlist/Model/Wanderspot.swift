@@ -12,6 +12,7 @@ import CoreLocation
 import GooglePlaces
 import InstantSearch
 import InstantSearchCore
+import UIKit
 
 struct PlaceWithDistance {
   var place: GMSPlace
@@ -19,75 +20,87 @@ struct PlaceWithDistance {
 }
 
 class Wanderspot: NSObject {
-   var wanderlistOwnerIDs: [String] = []
-   var  name: String = ""
-   var  creatorID: String = ""
-   var  address: String = ""
-   var  latitude: Double = 0.0
-   var  longitude: Double = 0.0
-   var  placeID: String = ""
-   var  distanceAway: Double = 0.0
-   var  categories: [String] = []
-   var  sundayHours: String = ""
-   var  mondayHours: String = ""
-   var  tuesdayHours: String = ""
-   var  wednesdayHours: String = ""
-   var  thursdayHours: String = ""
-   var  fridayHours: String = ""
-   var  saturdayHours: String = ""
-   var  city: String = ""
-   var  zipcode: String?
-
-  class func createNewWanderspot(_ place: GMSPlace, distanceAway: Double?, completion: @escaping (Wanderspot) -> Void) {
-    let newWanderspot = Wanderspot()
-    if let name = place.name,
-      let creatorID = AuthService.instance.currentUid,
-      let address = place.formattedAddress,
-      let placeID = place.placeID,
-      let distanceAway = distanceAway,
-      let components = place.addressComponents {
-
-      newWanderspot.name = name
-      newWanderspot.creatorID = creatorID
-      newWanderspot.address = address
-      newWanderspot.latitude = place.coordinate.latitude
-      newWanderspot.longitude = place.coordinate.longitude
-      newWanderspot.placeID = placeID
-      newWanderspot.distanceAway = distanceAway
-
+  var  wanderlistOwnerIDs: [String] = []
+  var  name: String = ""
+  var  creatorID: String = ""
+  var  address: String = ""
+  var  latitude: Double = 0.0
+  var  longitude: Double = 0.0
+  var  placeID: String = ""
+  var  distanceAway: Double = 0.0
+  var  categories: [String] = []
+  var  sundayHours: String = ""
+  var  mondayHours: String = ""
+  var  tuesdayHours: String = ""
+  var  wednesdayHours: String = ""
+  var  thursdayHours: String = ""
+  var  fridayHours: String = ""
+  var  saturdayHours: String = ""
+  var  city: String = ""
+  var  zipcode: String?
+  var  image : UIImage?
+  
+  init(place: GMSPlace?) {
+    if let place = place {
+      self.name = place.name ?? ""
+      self.address = place.formattedAddress ?? ""
+      self.latitude = place.coordinate.latitude
+      self.longitude = place.coordinate.longitude
+      self.placeID = place.placeID ?? ""
       if let categories = place.types {
-        newWanderspot.categories = categories
+        self.categories = categories
       }
-
+      
       if let week = place.openingHours?.weekdayText {
-        newWanderspot.mondayHours = week[0]
-        newWanderspot.tuesdayHours = week[1]
-        newWanderspot.wednesdayHours = week[2]
-        newWanderspot.thursdayHours = week[3]
-        newWanderspot.fridayHours = week[4]
-        newWanderspot.saturdayHours = week[5]
-        newWanderspot.sundayHours = week[6]
+        self.mondayHours = week[0]
+        self.tuesdayHours = week[1]
+        self.wednesdayHours = week[2]
+        self.thursdayHours = week[3]
+        self.fridayHours = week[4]
+        self.saturdayHours = week[5]
+        self.sundayHours = week[6]
       }
-
-      getPhotoFor(placeID, completion: { (image) in
-        if image != nil {
-          if let data = image!.jpegData(compressionQuality: 0.8) {
-
+      
+      if let components = place.addressComponents {
+        for component in components {
+          if component.type == "locality" {
+            self.city = component.name
+          } else if component.type == "postal_code" {
+            self.zipcode = component.name
           }
         }
-      })
-
-      for component in components {
-        if component.type == "locality" {
-          newWanderspot.city = component.name
-        } else if component.type == "postal_code" {
-          newWanderspot.zipcode = component.name
-        }
       }
-      completion(newWanderspot)
     }
   }
-
+  
+  func addPhotoToWanderspot() {
+    if self.placeID != "" {
+      let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
+      let placesClient = GMSPlacesClient()
+      placesClient.fetchPlace(fromPlaceID: self.placeID, placeFields: fields, sessionToken: nil, callback: { (place: GMSPlace?, error: Error?) in
+        if let error = error {
+          print("An error occurred: \(error.localizedDescription)")
+          return
+        }
+        if let place = place {
+          let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
+          placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+            if let error = error {
+              print("Error loading photo metadata: \(error.localizedDescription)")
+              return
+            } else {
+              print("Got a photo: " , photo)
+              self.image = photo
+            }
+          })
+        }
+      })
+    } else {
+      print("Can't get photo because the placeID is nil")
+    }
+  }
+  
+  
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderspot_search")
@@ -113,53 +126,53 @@ class Wanderspot: NSObject {
       "city": wanderspot.city as! String,
       "zipcode": wanderspot.zipcode as! String
     ]
-
+    
     print("Spot json: ", wanderspotJSON)
-
+    
     index.addObject(wanderspotJSON, completionHandler: { (content, error) -> Void in
       if error == nil {
-
+        
       } else {
         print("Error indexing")
       }
     })
   }
-
+  
   class func getPhotoFor(_ placeID: String, completion: @escaping (UIImage?) -> Void ) {
     // Specify the place data types to return (just photos).
     let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
     let placesClient = GMSPlacesClient()
     placesClient.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil, callback: { (place: GMSPlace?, error: Error?) in
-        if let error = error {
-          // TODO: Handle the error.
-          print("An error occurred: \(error.localizedDescription)")
-          return
+      if let error = error {
+        // TODO: Handle the error.
+        print("An error occurred: \(error.localizedDescription)")
+        return
+      }
+      if let place = place {
+        if place.photos?[0] != nil {
+          let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
+          
+          placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+            if let error = error {
+              print("Error loading photo metadata: \(error.localizedDescription)")
+              return
+            } else {
+              completion(photo)
+            }
+          })
+        } else {
+          completion(UIImage(named: "wanderlist-8"))
         }
-        if let place = place {
-          if place.photos?[0] != nil {
-            let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
-
-            placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-              if let error = error {
-                print("Error loading photo metadata: \(error.localizedDescription)")
-                return
-              } else {
-                completion(photo)
-              }
-            })
-          } else {
-            completion(UIImage(named: "wanderlist-8"))
-          }
-        }
+      }
     })
   }
-
+  
   func getHoursForTodayFor(_ wanderspot: Wanderspot) -> String? {
-
+    
     let date = Date()
     let calendar = Calendar.current
     let dayOfWeek = calendar.component(.weekday, from: date)
-
+    
     switch dayOfWeek {
     case 0:
       return wanderspot.saturdayHours

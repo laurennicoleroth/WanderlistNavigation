@@ -26,7 +26,7 @@ class ExploreMapViewController: UIViewController {
   var selectedWanderlist: Wanderlist?
   var currentLocation : CLLocationCoordinate2D? {
     didSet {
-      searchQueryNearby(queryString: "")
+//      searchQueryNearby(queryString: "")
     }
   }
   var haveResults = false {

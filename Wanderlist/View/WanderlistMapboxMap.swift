@@ -29,6 +29,14 @@ class WanderlistMapboxMap: MGLMapView {
       debugPrint(error)
     }
   }
+  
+  func showBlankCurrentLocation() {
+    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
+      self.setCenter(location.coordinate, zoomLevel: 12, animated: true)
+    }) { (error, location) -> Void in
+      debugPrint(error)
+    }
+  }
 
   func zoomToWanderlistWithMapPreview(wanderlist: Wanderlist?) {
     if let latitude = wanderlist?.latitude, let longitude = wanderlist?.longitude {

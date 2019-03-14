@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let backImage = UIImage(named: "Back")?.withRenderingMode(.alwaysOriginal)
     UINavigationBar.appearance().backIndicatorImage = backImage
     UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
-//    UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 0.0), for: .default)
     
     setupDependencies()
 
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func setupDependencies() {
 
     FirebaseApp.configure()
-    GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_KEY)
+    GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_API)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
