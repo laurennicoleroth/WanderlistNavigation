@@ -100,6 +100,35 @@ class Wanderspot: NSObject {
     }
   }
   
+  func toJSON() -> [String: Any] {
+    var json = [String: Any]()
+    json = [
+      "name": self.name,
+      "creatorID": self.creatorID,
+      "address": self.address,
+      "latitude": self.latitude,
+      "longitude": self.longitude,
+      "placeID": self.placeID,
+      "distanceAway": self.distanceAway,
+      "categories": self.categories,
+      "sundayHours": self.sundayHours,
+      "mondayHours": self.mondayHours,
+      "tuesdayHours": self.tuesdayHours,
+      "wednesdayHours": self.wednesdayHours,
+      "thursdayHours": self.thursdayHours,
+      "fridayHours": self.fridayHours,
+      "saturdayHours": self.saturdayHours,
+      "city": self.city,
+      "zipcode": self.zipcode,
+      "image": self.image as! UIImage
+    ]
+    return json
+  }
+  
+  func toGeoJSON() {
+    
+  }
+  
   
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
