@@ -15,7 +15,6 @@ class Wanderlist {
   var  objectID: String = ""
   var  title: String = ""
   var  about: String = ""
-  var  creatorID: String = ""
   var  city: String = ""
   var  zipcode: String = ""
   var  latitude: Double = 0.0
@@ -29,7 +28,6 @@ class Wanderlist {
     self.title = json["title"] as? String ?? ""
     self.about = json["about"] as? String ?? ""
     self.objectID = json["objectID"] as? String ?? ""
-    self.creatorID = json["creatorID"] as? String ?? ""
     self.city = json["city"] as? String ?? ""
     self.spotsCount = json["spots_count"] as? Int ?? 1
     self.zipcode = json["zipcode"] as? String ?? ""
@@ -45,7 +43,6 @@ class Wanderlist {
       "objectID" : self.objectID,
       "title": self.title,
       "about": self.about,
-      "creatorID": self.creatorID,
       "city": self.city,
       "zipcode": self.zipcode,
       "latitude": self.latitude,
