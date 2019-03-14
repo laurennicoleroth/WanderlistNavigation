@@ -24,12 +24,11 @@
 import InstantSearchClient
 import Foundation
 
-
 /// Various helpers to deal with JSON data.
 ///
 internal class JSONHelper {
     // NOTE: Should be an extension, but restricting a generic type non the non-protocol type String does not compile.
-    
+
     /// Get the value for an attribute with a "deep" path (dot notation).
     /// Example: asking for "foo.bar" will retrieve the "bar" attribute of the "foo" attribute, provided that the
     /// latter exists and is a dictionary.

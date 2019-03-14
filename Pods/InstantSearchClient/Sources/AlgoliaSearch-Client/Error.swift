@@ -44,7 +44,7 @@ public struct InvalidJSONError: CustomNSError {
 
   public var errorUserInfo: [String: Any] {
     return [
-      NSLocalizedDescriptionKey: description,
+      NSLocalizedDescriptionKey: description
     ]
   }
 }

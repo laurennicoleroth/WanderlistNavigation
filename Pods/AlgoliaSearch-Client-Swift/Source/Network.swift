@@ -41,7 +41,6 @@ protocol URLSession {
 extension NSURLSession: URLSession {
 }
 
-
 #if os(iOS) && DEBUG
 
 import CoreTelephony
@@ -51,7 +50,7 @@ import SystemConfiguration
 ///
 class URLSessionLogger: NSObject, URLSession {
     static var epoch: NSDate!
-    
+
     struct RequestStat {
         // TODO: Log network type.
         let startTime: NSDate
@@ -61,12 +60,12 @@ class URLSessionLogger: NSObject, URLSession {
         var cancelled: Bool = false
         var dataSize: Int?
         var statusCode: Int?
-        
+
         init(startTime: NSDate, host: String) {
             self.startTime = startTime
             self.host = host
         }
-        
+
         var description: String {
             var description = "@\(Int(startTime.timeIntervalSinceDate(URLSessionLogger.epoch) * 1000))ms; \(host); \(networkType != nil ? networkType! : "?")"
             if let responseTime = responseTime, dataSize = dataSize, statusCode = statusCode {
@@ -75,25 +74,25 @@ class URLSessionLogger: NSObject, URLSession {
             return description
         }
     }
-    
+
     /// The wrapped session.
     let session: NSURLSession
-    
+
     /// Stats.
     private(set) var stats: [RequestStat] = []
-    
+
     /// Queue used to serialize concurrent accesses to this object.
     private let queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
-    
+
     /// Temporary stats under construction (ongoing requests).
     private var tmpStats: [NSURLSessionTask: RequestStat] = [:]
-    
+
     /// Used to determine overall network type.
     private let defaultRouteReachability: SCNetworkReachability
-    
+
     /// Used to get the mobile data network type.
     private let networkInfo = CTTelephonyNetworkInfo()
-    
+
     init(session: NSURLSession) {
         self.session = session
         var zeroAddress = sockaddr_in()
@@ -102,11 +101,11 @@ class URLSessionLogger: NSObject, URLSession {
         defaultRouteReachability = withUnsafePointer(&zeroAddress) {
             SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))!
         }
-        
+
         // Reset the (global) epoch for logging.
         URLSessionLogger.epoch = NSDate()
     }
-    
+
     func dataTaskWithRequest(request: NSURLRequest, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) -> NSURLSessionDataTask {
         var task: NSURLSessionDataTask!
         let startTime = NSDate()
@@ -119,7 +118,7 @@ class URLSessionLogger: NSObject, URLSession {
         task.addObserver(self, forKeyPath: "state", options: .New, context: nil)
         return task
     }
-    
+
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if let task = object as? NSURLSessionTask {
             if keyPath == "state" {
@@ -148,7 +147,7 @@ class URLSessionLogger: NSObject, URLSession {
             }
         }
     }
-    
+
     func dump() {
         dispatch_sync(self.queue) {
             for stat in self.stats {
@@ -157,9 +156,9 @@ class URLSessionLogger: NSObject, URLSession {
             self.stats.removeAll()
         }
     }
-    
+
     // MARK: Network status
-    
+
     /// Return the current network type as a human-friendly string.
     ///
     private func getNetworkType() -> String? {

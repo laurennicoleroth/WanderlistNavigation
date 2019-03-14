@@ -24,7 +24,6 @@
 import InstantSearchClient
 import Foundation
 
-
 /// Request strategy that adapts to the current network conditions.
 ///
 /// This strategies switches between three modes, depending on reponse time statistics:
@@ -48,17 +47,17 @@ import Foundation
 @objcMembers public class AdaptiveNetworkStrategy: NSObject, RequestStrategy {
 
     // MARK: Types
-    
+
     /// Possible search nodes.
     @objc(DefaultRequestStrategyMode)
     public enum Mode: Int {
         /// As-you-type search in realtime: every keystroke immediately triggers a request.
         case Realtime = 1
-        
+
         /// As-you-type search with throttling: requests are slightly delayed and merged if necessary, to avoid spawning
         /// too many of them.
         case Throttled = 2
-        
+
         /// Search has to be explicitly triggered by the user.
         case Manual = 3
     }
@@ -75,13 +74,13 @@ import Foundation
             }
         }
     }
-    
+
     /// Throttlers used in throttled mode.
     /// There must be one throttler per searcher, otherwise results of throttling will be inconsistent.
     /// The keys are defined as weak to prevent memory cycles.
     ///
     private var throttlers: NSMapTable<Searcher, Throttler> = NSMapTable<Searcher, Throttler>(keyOptions: .weakMemory, valueOptions: .strongMemory)
-    
+
     /// Maximum number of requests from the statistics that will be considered.
     @objc public var windowSize: Int = 5
 
@@ -91,14 +90,14 @@ import Foundation
             updateTriggers()
         }
     }
-    
+
     /// Threshold beyond which manual mode is activated.
     @objc public var manualThreshold: TimeInterval = 3.0 {
         didSet {
             updateTriggers()
         }
     }
-    
+
     /// The current strategy.
     ///
     /// + Note: KVO-observable.
@@ -119,14 +118,14 @@ import Foundation
             }
         }
     }
-    
+
     /// Response time statistics used to decide between strategies.
     @objc public let stats: ResponseTimeStats
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Initialization
     // ----------------------------------------------------------------------
-    
+
     /// Construct a new strategy using the specified statistics.
     ///
     @objc public init(stats: ResponseTimeStats) {
@@ -135,7 +134,7 @@ import Foundation
         updateTriggers()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateStrategy), name:ResponseTimeStats.UpdateNotification, object: stats)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -145,11 +144,11 @@ import Foundation
     private func updateTriggers() {
         stats.triggerDelays = [throttleThreshold, manualThreshold]
     }
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Search
     // ----------------------------------------------------------------------
-    
+
     /// Perform a search on behalf of a searcher.
     ///
     /// - parameter searcher: Searcher asking for the search.
@@ -179,7 +178,7 @@ import Foundation
             }
         }
     }
-    
+
     private func throttler(for searcher: Searcher) -> Throttler {
         if let throttler = throttlers.object(forKey: searcher) {
             return throttler
@@ -189,15 +188,15 @@ import Foundation
             return throttler
         }
     }
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Events
     // ----------------------------------------------------------------------
-   
+
     /// Update the strategy based on the current stats.
     @objc private func updateStrategy() {
         let requests = stats.requestStats
-        
+
         // Compute average duration
         // ------------------------
         // We have a dilemma here:
@@ -214,14 +213,14 @@ import Foundation
         let overallAverageDuration = avg(overallStats)
         let completedAverageDuration = avg(completedStats)
         let worstAverageDuration = max(overallAverageDuration, completedAverageDuration)
-        
+
         let lastDuration = requests.last?.duration ?? 0.0
         let lastCompleted = requests.last?.completed ?? false
         #if DEBUG
             NSLog("Request history: \(stats)")
             NSLog("AVG: overall=\(overallAverageDuration), completed=\(completedAverageDuration); LAST: \(lastDuration)")
         #endif
-        
+
         // Choose the strategy
         // -------------------
         // NOTE: One last good duration is enough to consider that realtime conditions are back. This optimistic
@@ -242,7 +241,7 @@ import Foundation
             mode = .Manual
         }
     }
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Notifications
     // ----------------------------------------------------------------------
@@ -252,7 +251,7 @@ import Foundation
     /// + Note: You can also observe the `mode` property through KVO.
     ///
     @objc public static let ModeSwitchNotification = Notification.Name("modeSwitch")
-    
+
     /// Notification posted when a request is dropped (only occurs in `Manual` strategy).
     @objc public static let DropNotification = Notification.Name("drop")
 }

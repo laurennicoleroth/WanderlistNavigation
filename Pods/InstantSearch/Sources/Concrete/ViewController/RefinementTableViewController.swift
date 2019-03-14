@@ -17,15 +17,15 @@ import UIKit
 /// to specify the layout of your refinement cells, or else you will get a fatalError.
 @objc open class RefinementTableViewController: UIViewController,
     UITableViewDataSource, UITableViewDelegate, RefinementTableViewDataSource, RefinementTableViewDelegate {
-    
+
     public var refinementTableView: RefinementTableWidget! {
         didSet {
             refinementTableViews = [refinementTableView]
         }
     }
-    
+
     var refinementControllers: [RefinementController] = []
-    
+
     /// Reference to the Refinement Table Widgets if there are more than one.
     public var refinementTableViews: [RefinementTableWidget] = [] {
         didSet {
@@ -39,35 +39,35 @@ import UIKit
             }
         }
     }
-    
+
     // Forward the 3 important dataSource and delegate methods to the RefinementTableWidget
-    
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let tableView = tableView as? RefinementTableWidget,
             let index = self.refinementTableViews.index(of: tableView) else { return 0 }
         return self.refinementControllers[index].tableView(tableView, numberOfRowsInSection: section)
     }
-    
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let tableView = tableView as? RefinementTableWidget,
             let index = self.refinementTableViews.index(of: tableView) else { return UITableViewCell() }
         return self.refinementControllers[index].tableView(tableView, cellForRowAt: indexPath)
     }
-    
+
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let tableView = tableView as? RefinementTableWidget,
             let index = self.refinementTableViews.index(of: tableView) else { return }
         self.refinementControllers[index].tableView(tableView, didSelectRowAt: indexPath)
     }
-    
+
     public func numberOfSections(in tableView: UITableView) -> Int {
         guard let tableView = tableView as? RefinementTableWidget,
             let index = self.refinementTableViews.index(of: tableView) else { return 0 }
         return self.refinementControllers[index].numberOfSections(in: tableView)
     }
-    
+
     // The follow methods are to be implemented by the class extending RefinementTableViewController
-    
+
     /// DataSource method called to specify the layout of a facet cell.
     open func tableView(_ tableView: UITableView,
                         cellForRowAt indexPath: IndexPath,
@@ -76,13 +76,13 @@ import UIKit
                         is refined: Bool) -> UITableViewCell {
         fatalError("Must Override tableView(_:cellForRowAt:containing:with:is:)")
     }
-    
+
     /// Delegate method called when a facet cell is selected.
     open func tableView(_ tableView: UITableView,
                         didSelectRowAt indexPath: IndexPath,
                         containing facet: String,
                         with count: Int,
                         is refined: Bool) {
-        
+
     }
 }

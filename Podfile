@@ -4,9 +4,11 @@ target 'Wanderlist' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Pring'
+  pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
   pod 'GooglePlaces'

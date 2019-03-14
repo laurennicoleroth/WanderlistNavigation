@@ -9,49 +9,49 @@
 import Foundation
 import SwiftyJSON
 
-public typealias FindPlaceRequest_Success = (([PlaceMatch]) -> (Void))
-public typealias FindPlaceRequest_Failure = ((LocationError) -> (Void))
+public typealias FindPlaceRequest_Success = (([PlaceMatch]) -> Void)
+public typealias FindPlaceRequest_Failure = ((LocationError) -> Void)
 
 /// Public protocol for place find request
 public protocol FindPlaceRequest {
-	
+
 	/// Success handler
 	var success: FindPlaceRequest_Success? { get set }
-	
+
 	/// Failure handler
 	var failure: FindPlaceRequest_Failure? { get set }
-	
+
 	/// Timeout interval
 	var timeout: TimeInterval { get set }
-	
+
 	/// Execute operation
 	func execute()
-	
+
 	/// Cancel current execution (if any)
 	func cancel()
 }
 
 /// Find Place with Google
 public class FindPlaceRequest_Google: FindPlaceRequest {
-	
+
 	/// session task
-	private var task: JSONOperation? = nil
-	
+	private var task: JSONOperation?
+
 	/// Success callback
 	public var success: FindPlaceRequest_Success?
-	
+
 	/// Failure callback
 	public var failure: FindPlaceRequest_Failure?
-	
+
 	/// Timeout interval
 	public var timeout: TimeInterval
-	
+
 	/// Input to search
 	public private(set) var input: String
 
     /// Language in which the results are displayed
     public private(set) var language: FindPlaceRequest_Google_Language?
-	
+
 	/// Init new find place operation
 	///
 	/// - Parameters:
@@ -62,7 +62,7 @@ public class FindPlaceRequest_Google: FindPlaceRequest {
 		self.timeout = timeout ?? 10
         self.language = language ?? FindPlaceRequest_Google_Language.english
 	}
-	
+
 	public func execute() {
 		guard let APIKey = Locator.api.googleAPIKey else {
 			self.failure?(LocationError.missingAPIKey(forService: "google"))
@@ -86,11 +86,11 @@ public class FindPlaceRequest_Google: FindPlaceRequest {
 		}
 		self.task?.execute()
 	}
-	
+
 	public func cancel() {
 		self.task?.cancel()
 	}
-	
+
 }
 
 /// Google Autocomplete supported languages
@@ -150,19 +150,19 @@ public class FindPlaceRequest_Google: FindPlaceRequest {
 /// - vietnamese: Vietnamese
 public enum FindPlaceRequest_Google_Language: String {
     case arabic = "ar"
-    case bulgarian = "bg"    
+    case bulgarian = "bg"
     case bengali = "bn"
     case catalan    = "ca"
     case czech = "cs"
     case danish = "da"
     case dutch = "nl"
     case german = "de"
-    case greek = "el"    
-    case english = "en"    
+    case greek = "el"
+    case english = "en"
     case english_AU = "en-AU"
     case english_GB = "en-GB"
     case spanish = "es"
-    case basque = "eu"    
+    case basque = "eu"
     case chinese_simplified = "zh-CN"
     case chinese_traditional = "zh-TW"
     case farsi = "fa"
@@ -206,22 +206,22 @@ public enum FindPlaceRequest_Google_Language: String {
 
 /// Identify a single match entry for a place search
 public class PlaceMatch {
-	
+
 	/// Identifier of the place
 	public internal(set) var placeID: String
-	
+
 	/// Name of the place
 	public internal(set) var name: String
-	
+
 	/// Main text of the place
 	public internal(set) var mainText: String
-	
+
 	/// Secondary text of the place
 	public internal(set) var secondaryText: String
-	
+
 	/// Place types string (google)
 	public internal(set) var types: [String]
-	
+
 	/// Place detail cache
 	public private(set) var detail: Place?
 
@@ -233,14 +233,14 @@ public class PlaceMatch {
 		self.secondaryText = json["structured_formatting"]["secondary_text"].stringValue
 		self.types = json["types"].arrayValue.map { $0.stringValue }
 	}
-	
+
 	public static func load(list: [JSON]) -> [PlaceMatch] {
 		return list.flatMap { PlaceMatch($0) }
 	}
-	
+
 	public func detail(timeout: TimeInterval? = nil,
-	                   onSuccess: @escaping ((Place) -> (Void)),
-	                   onFail: ((LocationError) -> (Void))? = nil) {
+	                   onSuccess: @escaping ((Place) -> Void),
+	                   onFail: ((LocationError) -> Void)? = nil) {
 		if let p = self.detail {
 			onSuccess(p)
 			return

@@ -35,13 +35,13 @@ import CoreLocation
 import MapKit
 
 public class LocationRequest: Request, Equatable, Hashable {
-	
+
 	/// Typealias for success handler
-	public typealias Success = ((CLLocation) -> (Void))
-	
+	public typealias Success = ((CLLocation) -> Void)
+
 	/// Typealias for failure handler
-	public typealias Failure = ((_ error: LocationError, _ location: CLLocation?) -> (Void))
-	
+	public typealias Failure = ((_ error: LocationError, _ location: CLLocation?) -> Void)
+
 	/// Type of operation of the request
 	///
 	/// - oneshot: one shot; request will be stopped when a a success or failure is triggered.
@@ -52,38 +52,38 @@ public class LocationRequest: Request, Equatable, Hashable {
 		case continous
 		case significant
 	}
-	
+
 	/// Last achieved location for this request.
-	public internal(set) var location: CLLocation? = nil
-	
+	public internal(set) var location: CLLocation?
+
 	/// Callback called on success
-	internal var success: Success? = nil
-	
+	internal var success: Success?
+
 	/// Callback called on failure
-	internal var failure: Failure? = nil
-	
+	internal var failure: Failure?
+
 	/// Operation mode the request
 	public private(set) var mode: Mode
-	
+
 	/// Unique identifier of the request
 	public private(set) var id: RequestID = UUID().uuidString
-	
+
 	/// Accuracy of the request
 	public private(set) var accuracy: Accuracy
-	
+
 	/// Timeout manager
 	public private(set) var timeout: TimeoutManager?
-	
+
 	/// Return the interval set for timeout
 	public var timeoutInterval: TimeInterval? {
 		return timeout?.value
 	}
-	
+
 	/// Returns whether this is a subscription request or not
 	public var isRecurring: Bool {
 		return (self.mode == .continous || self.mode == .significant)
 	}
-	
+
 	/// Initialize a new location request with given paramters.
 	/// You don't need to allocate your own request, just user the `Location` functions.
 	///
@@ -98,7 +98,7 @@ public class LocationRequest: Request, Equatable, Hashable {
 			Locator.locationRequestDidTimedOut(self)
 		})
 	}
-	
+
 	/// Set the timeout interval of the request.
 	///
 	/// - Parameter timeout: timeout, `nil` to ignore timeout (manual stop is required)
@@ -110,12 +110,12 @@ public class LocationRequest: Request, Equatable, Hashable {
 		})
 		return self
 	}
-	
+
 	/// Stop running request
 	public func stop() {
 		Locator.stopRequest(self)
 	}
-	
+
 	/// Passed location has valid results for current request
 	///
 	/// - Parameter location: location to verify
@@ -151,11 +151,11 @@ public class LocationRequest: Request, Equatable, Hashable {
 			return nil
 		}
 	}
-	
+
 	public static func ==(lhs: LocationRequest, rhs: LocationRequest) -> Bool {
 		return lhs.id == rhs.id
 	}
-	
+
 	public var hashValue: Int {
 		return self.id.hashValue
 	}

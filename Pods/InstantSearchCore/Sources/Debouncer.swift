@@ -23,7 +23,6 @@
 
 import Foundation
 
-
 /// Merges multiple calls into a single one.
 ///
 /// The debouncer works by delaying every call by a given delay; if another call happens before the delay is expired,
@@ -39,10 +38,10 @@ import Foundation
     /// + Note: Modifying the delay while the debouncer is active will only take affect after the next call.
     ///
     @objc public var delay: TimeInterval
-    
+
     /// The next call to fire.
     private var block: Caller.Call!
-    
+
     /// Timer used to delay the next call.
     private var timer: Timer?
 
@@ -55,12 +54,12 @@ import Foundation
     @objc public init(delay: TimeInterval) {
         self.delay = delay
     }
-    
+
     deinit {
         timer?.invalidate()
         block = nil
     }
-    
+
     // MARK: Methods
 
     /// Register another call.
@@ -73,7 +72,7 @@ import Foundation
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(self.runBlock), userInfo: nil, repeats: false)
     }
-    
+
     @objc private func runBlock() {
         block()
         timer = nil

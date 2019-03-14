@@ -70,7 +70,7 @@ import Foundation
     let fallbackHosts = [
       "places-1.algolianet.com",
       "places-2.algolianet.com",
-      "places-3.algolianet.com",
+      "places-3.algolianet.com"
     ].shuffle()
     readHosts = ["places-dsn.algolia.net"] + fallbackHosts
   }

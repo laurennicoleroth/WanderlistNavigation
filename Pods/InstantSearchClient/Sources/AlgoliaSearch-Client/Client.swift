@@ -71,7 +71,7 @@ import Foundation
     let fallbackHosts = [
       "\(appID)-1.algolianet.com",
       "\(appID)-2.algolianet.com",
-      "\(appID)-3.algolianet.com",
+      "\(appID)-3.algolianet.com"
     ].shuffle()
     let readHosts = ["\(appID)-dsn.algolia.net"] + fallbackHosts
     let writeHosts = ["\(appID).algolia.net"] + fallbackHosts
@@ -151,7 +151,7 @@ import Foundation
     let path = "1/indexes/\(srcIndexName.urlEncodedPathComponent())/operation"
     let request = [
       "destination": dstIndexName,
-      "operation": "move",
+      "operation": "move"
     ]
     return performHTTPQuery(path: path, method: .POST, body: request as [String: Any]?, hostnames: writeHosts, requestOptions: requestOptions, completionHandler: completionHandler)
   }
@@ -177,7 +177,7 @@ import Foundation
     let path = "1/indexes/\(srcIndexName.urlEncodedPathComponent())/operation"
     let request = [
       "destination": dstIndexName,
-      "operation": "copy",
+      "operation": "copy"
     ]
     return performHTTPQuery(path: path, method: .POST, body: request as [String: Any]?, hostnames: writeHosts, requestOptions: requestOptions, completionHandler: completionHandler)
   }
@@ -216,7 +216,7 @@ import Foundation
     for query in queries {
       requests.append([
         "indexName": query.indexName as Any,
-        "params": query.query.build() as Any,
+        "params": query.query.build() as Any
       ])
     }
     var request = [String: Any]()

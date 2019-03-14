@@ -15,14 +15,14 @@ let clearAllFiltersNotification = Notification.Name(rawValue: "clearAllFiltersNo
 
     @IBInspectable public var index: String = Constants.Defaults.index
     @IBInspectable public var variant: String = Constants.Defaults.variant
-    
+
     public var searcher: Searcher!
-    
+
     func configure(with searcher: Searcher) {
         self.searcher = searcher
         addTarget(self, action: #selector(self.clearFilter), for: .touchUpInside)
     }
-    
+
     @objc internal func clearFilter() {
         searcher.reset()
         NotificationCenter.default.post(name: clearAllFiltersNotification, object: nil)

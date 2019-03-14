@@ -9,15 +9,15 @@
 import UIKit
 
 class CollectionViewCalculate: NSObject {
-    fileprivate var sections:Int = 0
-    fileprivate var sectionItemsCount = [Int:Int]()
+    fileprivate var sections: Int = 0
+    fileprivate var sectionItemsCount = [Int: Int]()
     var totalCount = 0
-    
+
     unowned let collect: UICollectionView
     init(collect: UICollectionView) {
         self.collect = collect
     }
-    
+
     func isNeedUpdate() -> Bool {
         var isUpdate = false
         totalCount = 0

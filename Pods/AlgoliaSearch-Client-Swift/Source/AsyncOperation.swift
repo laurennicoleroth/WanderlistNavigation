@@ -32,21 +32,21 @@ import Foundation
 /// - `cancel`
 ///
 class AsyncOperation: NSOperation {
-    
+
     // Mark this operation as aynchronous.
     override var asynchronous: Bool {
         get {
             return true
         }
     }
-    
+
     // NOTE: Overriding `NSOperation`'s properties
     // -------------------------------------------
     // These properties are defined as read-only by `NSOperation`. As a consequence, they must be computed properties.
     // But they must also fire KVO notifications, which are crucial for `NSOperationQueue` to work.
     // This is why we use a private (underscore-prefixed) property to store the state.
-    
-    var _executing : Bool = false {
+
+    var _executing: Bool = false {
         willSet {
             self.willChangeValueForKey("isExecuting")
         }
@@ -54,14 +54,14 @@ class AsyncOperation: NSOperation {
             self.didChangeValueForKey("isExecuting")
         }
     }
-    
+
     override var executing: Bool {
         get {
             return _executing
         }
     }
-    
-    var _finished : Bool = false {
+
+    var _finished: Bool = false {
         willSet {
             self.willChangeValueForKey("isFinished")
         }
@@ -69,14 +69,14 @@ class AsyncOperation: NSOperation {
             self.didChangeValueForKey("isFinished")
         }
     }
-    
+
     override var finished: Bool {
         get {
             return _finished
         }
     }
-    
-    var _cancelled : Bool = false {
+
+    var _cancelled: Bool = false {
         willSet {
             self.willChangeValueForKey("isCancelled")
         }
@@ -84,7 +84,7 @@ class AsyncOperation: NSOperation {
             self.didChangeValueForKey("isCancelled")
         }
     }
-    
+
     override var cancelled: Bool {
         get {
             return _cancelled
@@ -100,7 +100,7 @@ class AsyncOperation: NSOperation {
         _cancelled = true
         finish()
     }
-    
+
     /// Mark the operation as finished.
     func finish() {
         _executing = false

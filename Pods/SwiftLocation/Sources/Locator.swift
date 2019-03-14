@@ -39,42 +39,42 @@ public let Locator: LocatorManager = LocatorManager.shared
 
 /// The main class responsibile of location services
 public class LocatorManager: NSObject, CLLocationManagerDelegate {
-	
+
 	// MARK: PROPERTIES
 
 	public class APIs {
-		
+
 		/// Google API key
 		public var googleAPIKey: String?
-		
+
 	}
-	
+
 	public class Events {
-		
+
 		public typealias Token = UInt64
-		
+
 		/// Token
 		private var nextTokenID: Token = 0
-		
+
 		/// Did Change Auth Closure type
-		public typealias AuthorizationDidChangeEvent = ((CLAuthorizationStatus) -> (Void))
-		
+		public typealias AuthorizationDidChangeEvent = ((CLAuthorizationStatus) -> Void)
+
 		/// Listeners of auth status change
 		internal var callbacks: [Token : AuthorizationDidChangeEvent] = [:]
-	
+
 		/// Add a listener for authorization change status
 		///
 		/// - Parameter callback: callback to call
 		/// - Returns: token used to remove the listener in a second time.
 		public func listen(forAuthChanges callback: @escaping AuthorizationDidChangeEvent) -> Token {
-			var (next,overflow) = self.nextTokenID.addingReportingOverflow(1)
+			var (next, overflow) = self.nextTokenID.addingReportingOverflow(1)
 			if overflow {
 				next = 0
 			}
 			self.callbacks[next] = callback
 			return next
 		}
-		
+
 		/// Remove listener from token.
 		///
 		/// - Parameter token: token
@@ -83,60 +83,60 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		public func remove(token: Token) -> Bool {
 			return (self.callbacks.removeValue(forKey: token) != nil)
 		}
-		
+
 		/// Remove all registered listeners.
 		public func removeAll() {
 			self.callbacks.removeAll()
 		}
 	}
-	
+
 	/// Events listener
 	public private(set) var events: Events = Events()
-	
+
 	/// Api key for helper services
 	public private(set) var api = APIs()
-	
+
 	/// Shared instance of the location manager
 	internal static let shared = LocatorManager()
-	
+
 	/// Core location internal manager
 	internal var manager: CLLocationManager
-	
+
 	/// Current queued location requests
 	private var locationRequests = SafeList<LocationRequest>()
-	
+
 	/// Current queued heading requests
 	private var headingRequests = SafeList<HeadingRequest>()
-	
+
 	/// Geocoder requests
 	internal var geocoderRequests = SafeList<GeocoderRequest>()
-	
+
 	/// Ip requests
 	internal var ipLocationRequests = SafeList<IPLocationRequest>()
 
 	/// `true` if service is currently updating current location
 	public private(set) var isUpdatingLocation: Bool = false
-	
+
 	/// `true` if service is currently updating current heading
 	public private(set) var isUpdatingHeading: Bool = false
-	
+
 	/// `true` if service is currenlty monitoring significant location changes
 	public private(set) var isMonitoringSignificantLocationChanges = false
-	
+
 	/// It is possible to force enable background location fetch even if your set any kind of Authorizations
 	public var backgroundLocationUpdates: Bool {
 		set { self.manager.allowsBackgroundLocationUpdates = true }
 		get { return self.manager.allowsBackgroundLocationUpdates }
 	}
-	
+
 	/// Current authorization status of the location manager
 	public var authorizationStatus: CLAuthorizationStatus {
 		return CLLocationManager.authorizationStatus()
 	}
-	
+
 	/// Returns the most recent current location, or nil if the current
 	/// location is unknown, invalid, or stale.
-	private var _currentLocation: CLLocation? = nil
+	private var _currentLocation: CLLocation?
 	public var currentLocation: CLLocation? {
 		guard let l = self._currentLocation else {
 			return nil
@@ -148,19 +148,19 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		}
 		return l
 	}
-	
+
 	/// Last measured heading value
-	public private(set) var currentHeading: CLHeading? = nil
-	
+	public private(set) var currentHeading: CLHeading?
+
 	/// Last occurred error
 	public private(set) var updateFailed: Bool = false
-	
+
 	/// Returns the current state of location services for this app,
 	/// based on the system settings and user authorization status.
 	public var state: ServiceState {
 		return self.manager.serviceState
 	}
-	
+
 	/// Return the current accuracy level of the location manager
 	/// This value is managed automatically based upon current queued requests
 	/// in order to better manage power consumption.
@@ -172,12 +172,12 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			}
 		}
 	}
-	
+
 	private override init() {
 		self.manager = CLLocationManager()
 		super.init()
 		self.manager.delegate = self
-		
+
 		// iOS 9 requires setting allowsBackgroundLocationUpdates to true in order to receive
 		// background location updates.
 		// We only set it to true if the location background mode is enabled for this app,
@@ -188,7 +188,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			}
 		}
 	}
-	
+
 	// MARK: CURRENT LOCATION FUNCTIONS
 
 	/// Asynchronously requests the current location of the device using location services,
@@ -214,7 +214,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		self.addLocation(request)
 		return request
 	}
-	
+
 	/// Get the current position using the IP address of the device (one shot).
 	/// Location is not very accurate but it does not require user authorizations.
 	///
@@ -259,7 +259,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		self.addLocation(request)
 		return request
 	}
-	
+
 	/// Creates a subscription for significant location changes that will execute the
 	/// block once per change indefinitely (until canceled).
 	/// If an error occurs, the block will execute with a status other than INTULocationStatusSuccess,
@@ -279,9 +279,9 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		self.addLocation(request)
 		return request
 	}
-	
+
 	// MARK: REVERSE GEOCODING
-	
+
 	/// Get the location from address string and return a `CLLocation` object.
 	/// Request is started automatically.
 	///
@@ -331,7 +331,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	}
 
 	// MARK: AUTOCOMPLETE PLACES & DETAILS
-	
+
 	/// Autocomplete places from input string. It uses Google Places API for Autocomplete.
 	/// In order to use it you must obtain a free api key and set it to `Locator.apis.googleApiKey` property
 	///
@@ -350,9 +350,9 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		request.execute()
 		return request
 	}
-	
+
 	// MARK: DEVICE HEADING FUNCTIONS
-	
+
 	/// Asynchronously requests the current heading of the device using location services.
 	/// The current heading (the most recent one acquired, regardless of accuracy level),
 	/// or nil if no valid heading was acquired
@@ -374,7 +374,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		self.addHeadingRequest(request)
 		return request
 	}
-	
+
 	/// Stop running request
 	///
 	/// - Parameter request: request to stop
@@ -388,7 +388,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		}
 		return false
 	}
-	
+
 	/// HEADING HELPER FUNCTIONS
 
 	/// Add heading request to queue
@@ -402,18 +402,18 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			}
 			return
 		}
-		
+
 		self.headingRequests.add(request)
 		self.startUpdatingHeadingIfNeeded()
 	}
-	
+
 	/// Start updating heading service if needed
 	private func startUpdatingHeadingIfNeeded() {
 		guard self.headingRequests.count > 0 else { return }
 		self.manager.startUpdatingHeading()
 		self.isUpdatingHeading = true
 	}
-	
+
 	/// Stop heading services if possible
 	private func stopUpdatingHeadingIfPossible() {
 		if self.headingRequests.count == 0 {
@@ -421,8 +421,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.isUpdatingHeading = false
 		}
 	}
-	
-	
+
 	/// Remove heading request
 	///
 	/// - Parameter request: request to remove
@@ -433,9 +432,9 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		self.stopUpdatingHeadingIfPossible()
 		return removed
 	}
-	
+
 	// MARK: LOCATION HELPER FUNCTIONS
-	
+
 	/// Stop location request
 	///
 	/// - Parameter request: request
@@ -443,7 +442,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	@discardableResult
 	private func stopLocationRequest(_ request: LocationRequest?) -> Bool {
 		guard let r = request else { return false }
-		
+
 		if r.isRecurring { // Recurring requests can only be canceled
 			r.timeout?.abort()
 			self.locationRequests.remove(r)
@@ -453,7 +452,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		}
 		return true
 	}
-	
+
 	/// Adds the given location request to the array of requests, updates
 	/// the maximum desired accuracy, and starts location updates if needed.
 	///
@@ -465,18 +464,18 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.completeLocationRequest(request)
 			return
 		}
-		
+
 		switch request.mode {
 		case .oneshot, .continous:
 			// Determine the maximum desired accuracy for all existing location requests including the new one
 			let maxAccuracy = self.maximumAccuracyInQueue(andRequest: request)
 			self.accuracy = maxAccuracy
-			
+
 			self.startUpdatingLocationIfNeeded()
 		case .significant:
 			self.startMonitoringSignificantLocationChangesIfNeeded()
 		}
-		
+
 		// Add to the queue
 		self.locationRequests.add(request)
 		// Process all location requests now, as we may be able to immediately
@@ -484,46 +483,46 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		// If a location update was recently received (stored in self.currentLocation)
 		// that satisfies its criteria.
 	}
-	
+
 	/// Return the max accuracy between the current queued requests and another request
 	///
 	/// - Parameter request: request, `nil` to compare only queued requests
 	/// - Returns: max accuracy detail
 	private func maximumAccuracyInQueue(andRequest request: LocationRequest? = nil) -> Accuracy {
-		let maxAccuracy: Accuracy = self.locationRequests.list.map { $0.accuracy }.reduce(request?.accuracy ?? .any) { max($0,$1) }
+		let maxAccuracy: Accuracy = self.locationRequests.list.map { $0.accuracy }.reduce(request?.accuracy ?? .any) { max($0, $1) }
 		return maxAccuracy
 	}
-	
+
 	internal func locationRequestDidTimedOut(_ request: LocationRequest) {
 		if let _ = self.locationRequests.index(of: request) {
 			self.completeLocationRequest(request)
 		}
 	}
-	
+
 	internal func startUpdatingLocationIfNeeded() {
 		// Request authorization if not set yet
 		self.requestAuthorizationIfNeeded()
-		
+
 		let requests = self.activeLocationRequest(excludingMode: .significant)
 		if requests.count == 0 {
 			self.manager.startUpdatingLocation()
 			self.isUpdatingLocation = true
 		}
 	}
-	
+
 	/// Inform CLLocationManager to start monitoring significant location changes.
 	internal func startMonitoringSignificantLocationChangesIfNeeded() {
 		// request authorization if needed
 		self.requestAuthorizationIfNeeded()
-		
+
 		let requests = self.activeLocationRequest(forMode: .significant)
 		if requests.count == 0 {
 			self.manager.startMonitoringSignificantLocationChanges()
 			self.isMonitoringSignificantLocationChanges = true
 		}
-		
+
 	}
-	
+
 	/// Return active requests excluding the one with given mode
 	///
 	/// - Parameter mode: mode
@@ -531,7 +530,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	private func activeLocationRequest(excludingMode mode: LocationRequest.Mode) -> [LocationRequest] {
 		return self.locationRequests.list.filter { $0.mode != mode }
 	}
-	
+
 	/// Return active request of the given type
 	///
 	/// - Parameter mode: type to get
@@ -552,13 +551,13 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	public func requestAuthorizationIfNeeded(_ type: AuthorizationLevel? = nil) {
 		let currentAuthLevel = CLLocationManager.authorizationStatus()
 		guard currentAuthLevel == .notDetermined else { return } // already authorized
-		
+
 		// Level to set is the one passed as argument or, if value is `nil`
 		// is determined by reading values in host application's Info.plist
 		let levelToSet = type ?? CLLocationManager.authorizationLevelFromInfoPlist
 		self.manager.requestAuthorization(level: levelToSet)
 	}
-	
+
 	// Iterates over the array of active location requests to check and see
 	// if the most recent current location successfully satisfies any of their criteria so we
 	// can return it without waiting for a new fresh value.
@@ -588,7 +587,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			}
 		}
 	}
-	
+
 	/// Immediately completes all active location requests.
 	/// Used in cases such as when the location services authorization
 	/// status changes to `.denied` or `.restricted`.
@@ -598,16 +597,16 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.completeLocationRequest($0)
 		}
 	}
-	
+
 	/// Complete passed location request and remove from queue if possible.
 	///
 	/// - Parameter request: request
 	public func completeLocationRequest(_ request: LocationRequest?) {
 		guard let r = request else { return }
-		
+
 		r.timeout?.abort() // stop any running timer
 		self.removeLocationRequest(r) // remove from queue
-		
+
 		// SwiftLocation is not thread safe and should only be called from the main thread,
 		// so we should already be executing on the main thread now.
 		// DispatchQueue.main.async() is used to ensure that the completion block for a request
@@ -616,28 +615,28 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 		// is immediately completed with the appropriate error.
 		DispatchQueue.main.async {
 			if let error = r.error { // failed for some sort of error
-				r.failure?(error,r.location)
+				r.failure?(error, r.location)
 			} else if let loc = r.location { // succeded
 				r.success?(loc)
 			}
 		}
 	}
-	
+
 	/// Handles calling a recurring location request's block with the current location.
 	///
 	/// - Parameter request: request
 	private func processRecurringRequest(_ request: LocationRequest?) {
 		guard let r = request, r.isRecurring else { return } // should be called by valid recurring request
-		
+
 		DispatchQueue.main.async {
 			if let error = r.error {
-				r.failure?(error,r.location)
+				r.failure?(error, r.location)
 			} else if let loc = r.location {
 				r.success?(loc)
 			}
 		}
 	}
-	
+
 	/// Removes a given location request from the array of requests,
 	/// updates the maximum desired accuracy, and stops location updates if needed.
 	///
@@ -645,7 +644,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	private func removeLocationRequest(_ request: LocationRequest?) {
 		guard let r = request else { return }
 		self.locationRequests.remove(r)
-		
+
 		switch r.mode {
 		case .oneshot, .continous:
 			// Determine the maximum desired accuracy for all remaining location requests
@@ -657,7 +656,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.stopMonitoringSignificantLocationChangesIfPossible()
 		}
 	}
-	
+
 	/// Checks to see if there are any outstanding locationRequests,
 	/// and if there are none, informs CLLocationManager to stop sending
 	/// location updates. This is done as soon as location updates are no longer
@@ -669,7 +668,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.isUpdatingLocation = false
 		}
 	}
-	
+
 	/// Checks to see if there are any outsanding significant location request in queue.
 	/// If not we can stop monitoring for significant location changes and conserve device's battery.
 	private func stopMonitoringSignificantLocationChangesIfPossible() {
@@ -679,26 +678,26 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.isMonitoringSignificantLocationChanges = false
 		}
 	}
-	
+
 	// MARK: CLLocationManager Delegates
-	
+
 	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 	 	// Clear any previous errors
 		self.updateFailed = false
-		
+
 		// Store last data
 		let recentLocations = locations.min(by: { (a, b) -> Bool in
 			return a.timestamp.timeIntervalSinceNow < b.timestamp.timeIntervalSinceNow
 		})
 		self._currentLocation = recentLocations
-		
+
 		// Process the location requests using the updated location
 		self.processLocationRequests()
 	}
-	
+
 	public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		self.updateFailed = true // an error has occurred
-		
+
 		self.locationRequests.list.forEach {
 			if $0.isRecurring { // Keep the recurring request alive
 				self.processRecurringRequest($0)
@@ -707,7 +706,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			}
 		}
 	}
-	
+
 	public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 
 		// Alert any listener
@@ -720,7 +719,7 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			self.completeAllLocationRequests()
 			return
 		}
-		
+
 		if status == .authorizedAlways || status == .authorizedWhenInUse {
 			self.locationRequests.list.forEach({
 				// Start the timeout timer for location requests that were waiting for authorization
@@ -728,12 +727,12 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 			})
 		}
 	}
-	
+
 	public func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
 		self.currentHeading = newHeading
 		self.processRecurringHeadingRequests()
 	}
-	
+
 	private func processRecurringHeadingRequests() {
 		let h = self.currentHeading
 		DispatchQueue.main.async {

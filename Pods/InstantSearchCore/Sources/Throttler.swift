@@ -23,16 +23,15 @@
 
 import Foundation
 
-
 /// Ensures a maximum throughput on a stream of calls.
 /// The throughput is expressed as a minimum delay between calls, via the `delay` property.
 ///
 @objcMembers public class Throttler: NSObject, Caller {
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Properties
     // ----------------------------------------------------------------------
-    
+
     /// Minimum delay between two calls.
     @objc public var delay: TimeInterval {
         didSet {
@@ -42,7 +41,7 @@ import Foundation
             }
         }
     }
-    
+
     /// Whether to fire immediately the initial call in a series. Default = `true`.
     ///
     /// A series begins when a call is enqueued, and ends when the `delay` expires without any call being fired.
@@ -50,18 +49,18 @@ import Foundation
     /// enqueued for deferred firing. When it is false, all calls are enqueued, including the initial call.
     ///
     @objc public var fireInitialCall: Bool = true
-    
+
     /// The next call to fire.
     private var pendingCall: Caller.Call!
-    
+
     /// Timer used to fire the calls.
     /// For performance reasons, it is only activated when and as long as necessary.
     private var timer: Timer?
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Initialization
     // ----------------------------------------------------------------------
-    
+
     /// Init a throttler with a given delay.
     ///
     /// - parameter delay: The minimum delay between two calls.
@@ -70,7 +69,7 @@ import Foundation
         self.delay = delay
         super.init()
     }
-    
+
     deinit {
         timer?.invalidate()
     }
@@ -93,11 +92,11 @@ import Foundation
         timer?.invalidate()
         timer = nil
     }
-    
+
     // ----------------------------------------------------------------------
     // MARK: - Scheduling calls
     // ----------------------------------------------------------------------
-    
+
     /// Register another call.
     /// It may be eventually fired or not, depending on the throttler's policy and current state.
     ///
@@ -119,7 +118,7 @@ import Foundation
             self.pendingCall = block
         }
     }
-    
+
     @objc private func runBlock() {
         if self.pendingCall == nil { // series has ended
             deinitTimer()

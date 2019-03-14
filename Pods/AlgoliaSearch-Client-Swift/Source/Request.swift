@@ -23,7 +23,6 @@
 
 import Foundation
 
-
 /// An API request.
 ///
 /// This class encapsulates a sequence of normally one (nominal case), potentially many (in case of retry) network
@@ -31,45 +30,45 @@ import Foundation
 ///
 class Request: AsyncOperation {
     let session: URLSession
-    
+
     /// Request method.
     let method: HTTPMethod
-    
+
     /// Hosts to which the request will be sent.
     let hosts: [String]
-    
+
     /// Index of the first host that will be tried.
     let firstHostIndex: Int
-    
+
     /// Index of the next host to be tried.
     var nextHostIndex: Int
-    
+
     /// The URL path (actually everything after the host, so including the query string).
     let path: String
-    
+
     /// Optional HTTP headers.
     let headers: [String: String]?
-    
+
     /// Optional body, in JSON format.
     let jsonBody: [String: AnyObject]?
-    
+
     /// Timeout for individual network queries.
     let timeout: NSTimeInterval
-    
+
     /// Timeout to be used for the next query.
     var nextTimeout: NSTimeInterval
-    
+
     /// The current network task.
     var task: NSURLSessionTask?
-    
+
     /// User completion block to be called.
     let completion: CompletionHandler?
-    
+
     /// Dispatch queue used to execute the completion handler.
     var completionQueue: dispatch_queue_t?
-    
+
     // MARK: - Initialization
-    
+
     init(session: URLSession, method: HTTPMethod, hosts: [String], firstHostIndex: Int, path: String, headers: [String: String]?, jsonBody: [String: AnyObject]?, timeout: NSTimeInterval, completion: CompletionHandler?) {
         self.session = session
         self.method = method
@@ -91,9 +90,9 @@ class Request: AsyncOperation {
             self.name = "Request{\(method) /\(path)}"
         }
     }
-    
+
     // MARK: - Debug
-    
+
     override var description: String {
         get {
             if #available(iOS 8.0, *) {
@@ -103,9 +102,9 @@ class Request: AsyncOperation {
             }
         }
     }
-    
+
     // MARK: - Request logic
-    
+
     /// Create a URL request for the specified host index.
     private func createRequest(hostIndex: Int) -> NSMutableURLRequest {
         let url = NSURL(string: "https://\(hosts[hostIndex])/\(path)")
@@ -128,7 +127,7 @@ class Request: AsyncOperation {
         }
         return request
     }
-    
+
     private func startNext() {
         // Shortcut when cancelled.
         if _cancelled {
@@ -147,7 +146,7 @@ class Request: AsyncOperation {
             if (finalError == nil) {
                 assert(data != nil)
                 assert(response != nil)
-                
+
                 // Parse JSON response.
                 // NOTE: We parse JSON even in case of failure to get the error message.
                 do {
@@ -160,22 +159,22 @@ class Request: AsyncOperation {
                 } catch {
                     finalError = NSError(domain: Client.ErrorDomain, code: StatusCode.Unknown.rawValue, userInfo: [NSLocalizedDescriptionKey: "Unknown error when parsing JSON"])
                 }
-                
+
                 // Handle HTTP status code.
                 let httpResponse = response! as! NSHTTPURLResponse
                 if (finalError == nil && !StatusCode.isSuccess(httpResponse.statusCode)) {
                     var userInfo = [String: AnyObject]()
-                    
+
                     // Get the error message from JSON if available.
                     if let errorMessage = json?["message"] as? String {
                         userInfo[NSLocalizedDescriptionKey] = errorMessage
                     }
-                    
+
                     finalError = NSError(domain: Client.ErrorDomain, code: httpResponse.statusCode, userInfo: userInfo)
                 }
             }
             assert(json != nil || finalError != nil)
-            
+
             // Success: call completion block.
             if finalError == nil {
                 self.callCompletion(json, error: nil)
@@ -192,7 +191,7 @@ class Request: AsyncOperation {
         }
         task!.resume()
     }
-    
+
     /// Finish this operation.
     /// This method should be called exactly once per operation.
     private func callCompletion(content: [String: AnyObject]?, error: NSError?) {
@@ -207,7 +206,7 @@ class Request: AsyncOperation {
             _callCompletion(content, error: error)
         }
     }
-    
+
     private func _callCompletion(content: [String: AnyObject]?, error: NSError?) {
         // WARNING: In case of asynchronous dispatch, the request could have been cancelled in the meantime
         // => check again.
@@ -218,17 +217,17 @@ class Request: AsyncOperation {
             finish()
         }
     }
-    
+
     // ----------------------------------------------------------------------
     // MARK: - NSOperation interface
     // ----------------------------------------------------------------------
-    
+
     /// Start this request.
     override func start() {
         super.start()
         startNext()
     }
-    
+
     /// Cancel this request.
     /// The completion block (if any was provided) will not be called after a request has been cancelled.
     ///
@@ -241,7 +240,7 @@ class Request: AsyncOperation {
         task = nil
         super.cancel()
     }
-    
+
     override func finish() {
         task = nil
         super.finish()

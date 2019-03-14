@@ -13,7 +13,7 @@ import InstantSearchCore
 ///
 /// ViewModel - Searcher: SearchableViewModel, ResultingDelegate, ResettableDelegate.
 @objcMembers public class RefinementMenuViewModel: NSObject, RefinementMenuViewModelDelegate, SearchableIndexViewModel {
-    
+
     // MARK: - Properties
     private var _searcherId: SearcherId?
 
@@ -31,7 +31,7 @@ import InstantSearchCore
             }
         }
     }
-    
+
     private var _refinedFirst: Bool?
 
     public var refinedFirst: Bool {
@@ -88,7 +88,7 @@ import InstantSearchCore
             return _limit ?? view?.limit ?? Constants.Defaults.limit
         }
     }
-    
+
     var transformRefinementList: TransformRefinementList {
         if let view = view {
             return TransformRefinementList(named: view.sortBy.lowercased())
@@ -96,71 +96,71 @@ import InstantSearchCore
             return TransformRefinementList(named: Constants.Defaults.sortBy.lowercased())
         }
     }
-    
+
     // TODO" The state for this should be on IS Core, not in the VM.
     public var facetResults: [FacetValue] = []
-    
+
     // MARK: - SearchableViewModel
-    
+
     var searcher: Searcher!
-    
+
     public func configure(with searcher: Searcher) {
         self.searcher = searcher
-        
+
         guard !attribute.isEmpty else {
             fatalError("you must assign a value to the attribute of a refinement before adding it to InstantSearch")
         }
-        
+
         // check if need to search again, if we didn't search with the facet added
-        
+
         guard let facets = searcher.params.facets else {
             searcher.params.facets = [attribute]
-            
+
             return
         }
-        
+
         guard facets.contains(attribute) else {
             searcher.params.facets! += [attribute]
-            
+
             return
         }
-        
+
         // If facet variable has been set beforehand, then we fill
         // the refinement List with the facets that are already fetched from Algolia
-        
+
         if let results = searcher.results, let facetCounts = results.facets(name: attribute) {
             facetResults = getRefinementList(params: searcher.params,
                                              facetCounts: facetCounts,
                                              andFacetName: attribute,
                                              transformRefinementList: transformRefinementList,
                                              areRefinedValuesFirst: refinedFirst)
-            
+
             view?.reloadRefinements()
         }
     }
-    
+
     // MARK: - RefinementMenuViewModelDelegate
-    
+
     public weak var view: RefinementMenuViewDelegate?
-    
+
     override init() { }
-    
+
     public init(view: RefinementMenuViewDelegate) {
         self.view = view
     }
-    
+
     public func numberOfRows() -> Int {
         return min(facetResults.count, limit)
     }
-    
+
     public func facetForRow(at indexPath: IndexPath) -> FacetValue {
         return facetResults[indexPath.row]
     }
-    
+
     public func isRefined(at indexPath: IndexPath) -> Bool {
         return searcher.params.hasFacetRefinement(name: attribute, value: facetResults[indexPath.item].value)
     }
-    
+
     /// This simulated selecting a facet
     /// it will tggle the facet refinement, deselect the row and then execute a search
     public func didSelectRow(at indexPath: IndexPath) {
@@ -176,14 +176,14 @@ import InstantSearchCore
           // we need to keep the other values visible, so we still do a disjunctive facet
           searcher.params.setFacet(withName: attribute, disjunctive: true)
           let value = facetResults[indexPath.item].value
-          
+
           if searcher.params.hasFacetRefinement(name: attribute, value: value) { // deselect if already selected
             searcher.params.clearFacetRefinements(name: attribute)
           } else { // select new one only.
             searcher.params.clearFacetRefinements(name: attribute)
             searcher.params.addFacetRefinement(name: attribute, value: value)
           }
-          
+
         }
         view?.deselectRow(at: indexPath)
         searcher.search()
@@ -201,14 +201,14 @@ extension RefinementMenuViewModel: ResultingDelegate {
             print(error ?? "")
             return
         }
-        
+
         guard let facetCounts = results.facets(name: attribute) else {
             print("No facet counts found for attribute: \(attribute)")
             facetResults = []
 
             return
         }
-        
+
         facetResults = getRefinementList(params: searcher.params,
                                          facetCounts: facetCounts,
                                          andFacetName: attribute,

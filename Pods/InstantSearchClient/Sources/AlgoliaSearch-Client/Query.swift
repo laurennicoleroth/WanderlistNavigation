@@ -208,7 +208,7 @@ open class Query: AbstractQuery {
     get { return Query.parseBool(self["clickAnalytics"]) }
     set { self["clickAnalytics"] = Query.buildBool(newValue) }
   }
-  
+
   /// If set to false, this query will not be taken into account for the Personalization.
   public var enablePersonalization: Bool? {
     get { return Query.parseBool(self["enablePersonalization"]) }
@@ -973,7 +973,7 @@ open class Query: AbstractQuery {
     get { return AbstractQuery.toNumber(clickAnalytics) }
     set { clickAnalytics = newValue?.boolValue }
   }
-  
+
   @objc(enablePersonalization)
   public var z_objc_enablePersonalization: NSNumber? {
     get { return AbstractQuery.toNumber(enablePersonalization) }

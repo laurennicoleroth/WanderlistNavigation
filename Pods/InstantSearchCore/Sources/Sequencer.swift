@@ -24,7 +24,6 @@
 import InstantSearchClient
 import Foundation
 
-
 internal protocol SequencerDelegate: class {
     /// Start the next request.
     ///
@@ -33,7 +32,7 @@ internal protocol SequencerDelegate: class {
     /// - returns: A cancellable operation.
     ///
     func startRequest(seqNo: Int, completionHandler: @escaping CompletionHandler) -> Operation
-    
+
     /// Handle a response to a request.
     ///
     /// + Note: This method will not be called for cancelled requests.
@@ -43,14 +42,13 @@ internal protocol SequencerDelegate: class {
     /// - parameter error: The error (in case of failure).
     ///
     func handleResponse(seqNo: Int, content: [String: Any]?, error: Error?)
-    
+
     /// Handle a request cancellation.
     ///
     /// - parameter seqNo: Sequence number of the cancelled request.
     ///
     func requestWasCancelled(seqNo: Int)
 }
-
 
 /// Manages a sequence of requests.
 /// A `Sequencer` keeps track of the order in which requests have been issued, and cancels obsolete requests whenever a
@@ -60,44 +58,44 @@ internal protocol SequencerDelegate: class {
 /// + Note: Requests can be any kind of `Operation`.
 ///
 internal class Sequencer: NSObject {
-    
+
     // MARK: Properties
-    
+
     /// Delegate to this sequencer.
     public weak var delegate: SequencerDelegate?
-    
+
     /// Sequence number for the next request.
     ///
     /// + Note: Shared across all instances for ease of observation.
     ///
     /// Sequence number for the next request.
     private static var nextSeqNo: Int = 0
-    
+
     /// Queue used to serialize accesses to `nextSeqNo`.
     private static let lockQueue = DispatchQueue(label: "Sequencer.lock")
-    
+
     /// Sequence number of the last request.
     public private(set) var lastRequestedSeqNo: Int?
-    
+
     /// Sequence number of the last received response.
     public private(set) var lastReceivedSeqNo: Int?
-    
+
     /// All currently ongoing requests.
     private var pendingRequests: [Int: Operation] = [:]
-    
+
     /// Maximum number of pending requests allowed.
     /// If many requests are made in a short time, this will keep only the N most recent and cancel the older ones.
     /// This helps to avoid filling up the request queue when the network is slow.
     ///
     public var maxPendingRequests: Int = 3
-    
+
     // MARK: - Initialization, termination
-    
+
     internal init(delegate: SequencerDelegate) {
         self.delegate = delegate
         super.init()
     }
-    
+
     // MARK: - Sequencing logic
 
     /// Launch next request.
@@ -110,7 +108,7 @@ internal class Sequencer: NSObject {
             return Sequencer.nextSeqNo
         }
         lastRequestedSeqNo = currentSeqNo
-        
+
         // Cancel obsolete requests.
         let obsoleteRequests = pendingRequests.filter({ $0.0 <= currentSeqNo - maxPendingRequests })
         for (seqNo, _) in obsoleteRequests {
@@ -133,28 +131,28 @@ internal class Sequencer: NSObject {
 
             // Remove the current request.
             this.pendingRequests.removeValue(forKey: currentSeqNo)
-            
+
             // Obsolete requests should not happen since they have been cancelled by more recent requests (see above).
             // WARNING: Only works if the current queue is serial!
             assert(this.lastReceivedSeqNo == nil || this.lastReceivedSeqNo! < currentSeqNo)
 
             // Update last received response.
             this.lastReceivedSeqNo = currentSeqNo
-            
+
             // Call the response handler.
             this.delegate?.handleResponse(seqNo: currentSeqNo, content: content, error: error)
         }
         operation = delegate.startRequest(seqNo: currentSeqNo, completionHandler: completionHandler)
         self.pendingRequests[currentSeqNo] = operation
     }
-    
+
     // MARK: - Manage requests
-    
+
     /// Indicates whether there are any pending requests.
     public var hasPendingRequests: Bool {
         return !pendingRequests.isEmpty
     }
-    
+
     /// Cancel all pending requests.
     public func cancelPendingRequests() {
         for seqNo in pendingRequests.keys {
@@ -162,7 +160,7 @@ internal class Sequencer: NSObject {
         }
         assert(pendingRequests.isEmpty)
     }
-    
+
     /// Cancel a specific request.
     ///
     /// - parameter seqNo: The request's sequence number.

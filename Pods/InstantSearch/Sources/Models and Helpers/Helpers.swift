@@ -29,7 +29,7 @@ private var isHighlightingInversedKey: Void?
 
 /// Extension menthods for UILabel used to highlight hits
 extension UILabel {
-    
+
     /// The highlighted background color of the string that matches the search query in Algolia's index.
     /// + Note: This can only be used with the InstantSearch library.
     @objc public var highlightedBackgroundColor: UIColor? {
@@ -40,7 +40,7 @@ extension UILabel {
             objc_setAssociatedObject(self, &highlightedBackgroundColorKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
-    
+
     /// Whether or not the highlighted background color of the string that matches the search query is inverted or not.
     /// + Note: This can only be used with the InstantSearch library.
     @objc public var isHighlightingInversed: Bool {
@@ -48,14 +48,14 @@ extension UILabel {
             guard let isHighlightingInversed = objc_getAssociatedObject(self, &isHighlightingInversedKey) as? Bool else {
                 return false
             }
-            
+
             return isHighlightingInversed
         }
         set(newValue) {
             objc_setAssociatedObject(self, &isHighlightingInversedKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
-    
+
     /// The text to be highlighte. This should be the string that matches the search query in Algolia's index.
     /// + Note: This can only be used with the InstantSearch library.
     @objc public var highlightedText: String? {
@@ -64,12 +64,12 @@ extension UILabel {
         }
         set {
             guard let newValue = newValue, !newValue.isEmpty else { return }
-            
+
             let text = isHighlightingInversed ? Highlighter(highlightAttrs: [:]).inverseHighlights(in: newValue) : newValue
-            
+
             let textColor = highlightedTextColor ?? self.tintColor ?? UIColor.blue
             let backgroundColor = highlightedBackgroundColor ?? UIColor.clear
-            
+
           attributedText = Highlighter(highlightAttrs: [NSAttributedString.Key.foregroundColor: textColor,
                                                         NSAttributedString.Key.backgroundColor: backgroundColor]).render(text: text)
         }
@@ -83,42 +83,42 @@ func print(_ item: @autoclosure () -> Any, separator: String = " ", terminator: 
 }
 
 internal struct WeakSet<T>: Sequence where T: AnyObject {
-    
+
   private var _objects: NSHashTable<T>
-  
+
   public init() {
     _objects = NSHashTable<T>.weakObjects()
   }
-  
+
   public init(_ objects: [T]) {
     self.init()
     add(objects)
   }
-  
+
   public var objects: [T] {
     return _objects.allObjects
   }
-  
+
   public func contains(object: T) -> Bool {
     return _objects.contains(object)
   }
-  
+
   public mutating func add(_ object: T) {
     _objects.add(object)
   }
-  
+
   public mutating func add(_ objects: [T]) {
     objects.forEach({ self._objects.add($0)})
   }
-  
+
   public mutating func remove(_ object: T) {
     _objects.remove(object)
   }
-  
+
   public mutating func remove(_ objects: [T]) {
     objects.forEach({ self._objects.remove($0)})
   }
-  
+
   public func makeIterator() -> AnyIterator<T> {
     let objects = self.objects
     var index = 0

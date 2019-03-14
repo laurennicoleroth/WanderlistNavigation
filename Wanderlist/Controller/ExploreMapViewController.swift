@@ -17,70 +17,75 @@ import Kingfisher
 import MMBannerLayout
 
 class ExploreMapViewController: UIViewController {
-  
-  @IBOutlet var mapView: WanderlistMapboxMap!
+
+  @IBOutlet weak var mapView: WanderlistMapboxMap!
   @IBOutlet weak var wanderlistsHitsCollectionView: HitsCollectionWidget!
-  
-  var originIsLocal: Bool = false
-  var currentUser : User?
+
   var wanderlists = [Wanderlist]()
-  var currentLocation : CLLocation?
-  var isExpanded = [Bool]()
   var query = Query()
-  var selectedWanderlist : Wanderlist? {
+  var selectedWanderlist: Wanderlist?
+  var currentLocation : CLLocationCoordinate2D? {
     didSet {
-      print("Wanderlist selected: ", selectedWanderlist?.title)
+      searchQueryNearby(queryString: "")
+    }
+  }
+  var haveResults = false {
+    didSet {
+      if haveResults {
+        wanderlistsHitsCollectionView.reloadData()
+      }
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    Locator.currentPosition(accuracy: .city, onSuccess: { [unowned self] (location) in
+      self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    }) { (error, location) in
+      print("Error \(error)")
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-  
-    setupMapUI()
-    setupCollectionUI()
-    Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> (Void) in
-      self.searchQueryNearby(queryString: "", lat: location.coordinate.latitude, lon: location.coordinate.longitude)
-    }) { (error, location) -> (Void) in
-      print("Error getting location: ", error)
-    }
-  }
-  
-  func searchQueryNearby(queryString: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
+
     InstantSearch.shared.configure(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY, index: "wanderlist_search")
     InstantSearch.shared.params.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
-    InstantSearch.shared.params.attributesToHighlight = ["title"]
+    
+    setupMapUI()
+    setupCollectionUI()
+  }
 
-    InstantSearch.shared.registerAllWidgets(in: self.view, doSearch: true)
-    query.aroundLatLng = LatLng(lat: lat, lng: lon)
-    query.query = queryString
-    query.attributesToRetrieve = ["title", "city", "about", "latitude", "longitude", "spots_count", "categories"]
+  func searchQueryNearby(queryString: String) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
     let index = client.index(withName: "wanderlist_search")
-   
-    index.search(query, completionHandler: { [unowned self] (results, error) in
-      guard let results = results else {
-        return
-      }
-
-      guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
-
-      self.wanderlists = hits.map({Wanderlist(json: $0)})
+    let query = Query(query: queryString)
     
-      self.wanderlistsHitsCollectionView.reloadHits()
-      self.mapView.addHitsToMap(hits: hits)
-    })
+    if let location = currentLocation {
+      query.aroundLatLng = LatLng(lat: location.latitude, lng: location.longitude)
+      
+      index.search(query, completionHandler: { [unowned self] (results, error) in
+        guard let results = results else {
+          return
+        }
+        guard let hits = results["hits"] as? [[String: AnyObject]] else { return }
+        
+        self.wanderlists = hits.map({ Wanderlist(json: $0) })
+        self.haveResults = true
+        
+      })
+    }
   }
-  
+
   private func setupMapUI() {
     mapView.showCurrentLocation()
     mapView.delegate = self
   }
-  
+
   private func setupCollectionUI() {
     self.view.layoutIfNeeded()
     wanderlistsHitsCollectionView.showsHorizontalScrollIndicator = true
     wanderlistsHitsCollectionView.register(UINib(nibName: "WanderlistCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderlistCollectionViewCell")
-    
+
     if let layout = wanderlistsHitsCollectionView.collectionViewLayout as? MMBannerLayout {
       layout.itemSpace = 10
       layout.itemSize = self.wanderlistsHitsCollectionView.frame.insetBy(dx: 20, dy: 20).size
@@ -88,89 +93,73 @@ class ExploreMapViewController: UIViewController {
       layout.angle = 30.0
     }
   }
-  
-  private func findWanderlistFromAnnotation(annotation: MGLAnnotation) -> Wanderlist? {
-    var wanderlist : Wanderlist?
-    if let index = wanderlists.firstIndex(where: { $0.title == annotation.title }) {
-      print("The first index = \(index)")
-      wanderlist = wanderlists[index]
-      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index , section: 0), at: .centeredHorizontally, animated: true)
-      wanderlistsHitsCollectionView.layoutSubviews()
-      mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists[index].latitude, longitude: wanderlists[index].longitude), animated: true)
-    }
-    return wanderlist
-  }
+
+//  private func findWanderlistFromAnnotation(annotation: MGLAnnotation) -> Wanderlist? {
+//    var wanderlist: Wanderlist?
+//    if let index = wanderlists?.firstIndex(where: { $0.title == annotation.title }) {
+//      print("The first index = \(index)")
+//      wanderlist = wanderlists?[index]
+//      wanderlistsHitsCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+//      wanderlistsHitsCollectionView.layoutSubviews()
+//      mapView.setCenter(CLLocationCoordinate2D(latitude: wanderlists?[index].latitude ?? 0.0, longitude: wanderlists?[index].longitude ?? 0.0), animated: true)
+//    }
+//    return wanderlist
+//  }
 }
 
 extension ExploreMapViewController: MGLMapViewDelegate {
-  
+
   func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
     if annotation is MGLUserLocation && mapView.userLocation != nil {
       print("Have annotation ", annotation)
     }
     return nil
   }
-  
-  func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-    // Optionally handle taps on the callout.
-    
-    let wanderlist = findWanderlistFromAnnotation(annotation: annotation)
-    print("Tapped the callout. Let's go see \(wanderlist?.title)")
 
-    mapView.deselectAnnotation(annotation, animated: true)
-  }
-  
+//  func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+//    // Optionally handle taps on the callout.
+//
+//    var wanderlist = findWanderlistFromAnnotation(annotation: annotation)
+//    print("Tapped the callout. Let's go see \(wanderlist?.title)")
+//    wanderlist = nil
+//    mapView.deselectAnnotation(annotation, animated: true)
+//  }
+
   func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
-  
+
     var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: "map-pin-purple")
-    
+
     if annotationImage == nil {
       var image = UIImage(named: "map-pin-purple")!
       image = image.withAlignmentRectInsets(UIEdgeInsets(top: 0, left: 0, bottom: image.size.height/4, right: 0))
       annotationImage = MGLAnnotationImage(image: image, reuseIdentifier: "map-pin-purple")
     }
-    
+
     return annotationImage
   }
-  
-  func mapView(_ mapView: MGLMapView, leftCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
-    if (annotation.title! == "Kinkaku-ji") {
-      // Callout height is fixed; width expands to fit its content.
-      let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-      label.textAlignment = .right
-      label.textColor = UIColor(red: 0.81, green: 0.71, blue: 0.23, alpha: 1)
-      label.text = "金閣寺"
-      
-      return label
-    }
-    
-    return nil
-  }
-  
+
   func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
     return UIButton(type: .detailDisclosure)
   }
-  
+
   func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
-    findWanderlistFromAnnotation(annotation: annotation)
+//    findWanderlistFromAnnotation(annotation: annotation)
   }
-  
+
   // Allow callout view to appear when an annotation is tapped.
   func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
-  
+
     return true
   }
-  
+
 }
 
 extension ExploreMapViewController: UICollectionViewDelegate {
-  
+
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Selected item", wanderlists[indexPath.row].title)
-    let wanderlist = wanderlists[indexPath.row]
     let storyboard = UIStoryboard(name: "Explore", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
-    controller.wanderlist = wanderlist
+    controller.wanderlist = wanderlists[indexPath.row]
     self.navigationController?.pushViewController(controller, animated: true)
   }
 }
@@ -178,23 +167,21 @@ extension ExploreMapViewController: UICollectionViewDelegate {
 extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
-    let wanderlist = wanderlists[indexPath.row]
-    cell.configureCellFrom(wanderlist: wanderlist)
+    cell.configureCellFrom(wanderlist: wanderlists[indexPath.row])
     return cell
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return wanderlists.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, containing hit: [String : Any]) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
-    let wanderlist = Wanderlist(json: hit)
-    cell.configureCellFrom(wanderlist: wanderlist)
+    cell.configureCellFrom(wanderlist: wanderlists[indexPath.row])
+    
     return cell
   }
-  
-  
+
   func setPhotoOnCell(cell: WanderlistCollectionViewCell, id: String) {
     let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
     let placesClient = GMSPlacesClient()
@@ -221,15 +208,14 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
                                     }
                                   })
                                 }
-                                
-                                
+
                               }
     })
   }
-  
+
   private func setImage(cell: WanderlistCollectionViewCell, placeID: String) {
     let imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(placeID)&key=\(GOOGLE_PLACES_KEY)"
-    
+
     let url = URL(string: imageURL)
     cell.imageView.kf.indicatorType = .activity
     let processor = DownsamplingImageProcessor(size: cell.imageView.frame.size)
@@ -241,8 +227,7 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
         .scaleFactor(UIScreen.main.scale),
         .transition(.fade(1)),
         .cacheOriginalImage
-      ])
-    {
+      ]) {
       result in
       switch result {
       case .success(let value):
@@ -256,8 +241,7 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
 
 extension ExploreMapViewController: BannerLayoutDelegate {
   func collectionView(_ collectionView: UICollectionView, focusAt indexPath: IndexPath) {
-    let wanderlist = wanderlists[indexPath.row]
-    print("Focus is at ", wanderlist.title)
-    
+
+    print("Focus is at ", indexPath.row)
   }
 }

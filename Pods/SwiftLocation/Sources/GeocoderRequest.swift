@@ -12,29 +12,29 @@ import MapKit
 import Contacts
 import SwiftyJSON
 
-//MARK: Geocoder Google
+// MARK: Geocoder Google
 
 public final class Geocoder_Google: GeocoderRequest {
-	
+
 	/// session task
-	private var task: JSONOperation? = nil
-	
+	private var task: JSONOperation?
+
 	public override func execute() {
 		guard self.isFinished == false else { return }
 		switch self.operation {
-		case .getLocation(let a,_):
+		case .getLocation(let a, _):
 			self.execute_getLocation(a)
-		case .getPlace(let l,_):
+		case .getPlace(let l, _):
 			self.execute_getPlace(l)
 		}
 	}
-	
+
 	/// Cancel any currently running task
 	public override func cancel() {
 		self.task?.cancel()
 		super.cancel()
 	}
-	
+
 	private func execute_getPlace(_ c: CLLocationCoordinate2D) {
 		guard let APIKey = Locator.api.googleAPIKey else {
 			self.failure?(LocationError.missingAPIKey(forService: "google"))
@@ -55,7 +55,7 @@ public final class Geocoder_Google: GeocoderRequest {
 		}
 		self.task?.execute()
 	}
-	
+
 	private func execute_getLocation(_ address: String) {
 		guard let APIKey = Locator.api.googleAPIKey else {
 			self.failure?(LocationError.missingAPIKey(forService: "google"))
@@ -79,23 +79,23 @@ public final class Geocoder_Google: GeocoderRequest {
 
 }
 
-//MARK: Geocoder OpenStreetMap
+// MARK: Geocoder OpenStreetMap
 
 public final class Geocoder_OpenStreet: GeocoderRequest {
-	
+
 	/// session task
-	private var task: JSONOperation? = nil
-	
+	private var task: JSONOperation?
+
 	public override func execute() {
 		guard self.isFinished == false else { return }
 		switch self.operation {
-		case .getLocation(let a,_):
+		case .getLocation(let a, _):
 			self.execute_getLocation(a)
-		case .getPlace(let l,_):
+		case .getPlace(let l, _):
 			self.execute_getPlace(l)
 		}
 	}
-	
+
 	/// Cancel any currently running task
 	public override func cancel() {
 		self.task?.cancel()
@@ -117,7 +117,7 @@ public final class Geocoder_OpenStreet: GeocoderRequest {
 		}
 		self.task?.execute()
 	}
-	
+
 	private func execute_getLocation(_ address: String) {
 		let fAddr = address.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
 		let url =  URL(string:"https://nominatim.openstreetmap.org/search/\(fAddr)?format=json&addressdetails=1&limit=1")!
@@ -135,7 +135,7 @@ public final class Geocoder_OpenStreet: GeocoderRequest {
 		}
 		self.task?.execute()
 	}
-	
+
 	private func parseResultPlace(_ json: JSON) -> Place {
 		let place = Place()
 		place.coordinates = CLLocationCoordinate2DMake(json["lat"].doubleValue, json["lon"].doubleValue)
@@ -155,7 +155,7 @@ public final class Geocoder_OpenStreet: GeocoderRequest {
 
 }
 
-//MARK: Geocoder Apple
+// MARK: Geocoder Apple
 
 public final class Geocoder_Apple: GeocoderRequest {
 
@@ -164,7 +164,7 @@ public final class Geocoder_Apple: GeocoderRequest {
 
 	public override func execute() {
 		guard self.isFinished == false else { return }
-	
+
 		let geocoder = CLGeocoder()
 		self.task = geocoder
 
@@ -194,17 +194,17 @@ public final class Geocoder_Apple: GeocoderRequest {
 			}
 		}
 	}
-	
+
 	public override func cancel() {
 		self.task?.cancelGeocode()
 		super.cancel()
 	}
-	
+
 	public func onSuccess(_ success: @escaping GeocoderRequest_Success) -> Self {
 		self.success = success
 		return self
 	}
-	
+
 	public func onFailure(_ failure: @escaping GeocoderRequest_Failure) -> Self {
 		self.failure = failure
 		return self

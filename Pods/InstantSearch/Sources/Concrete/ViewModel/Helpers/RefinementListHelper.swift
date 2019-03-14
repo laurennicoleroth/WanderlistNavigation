@@ -29,7 +29,7 @@ import InstantSearchCore
     case countDesc
     case nameAsc
     case nameDsc
-    
+
     public init(named transformName: String) {
         switch transformName.lowercased() {
         case "count:asc": self = .countAsc
@@ -47,26 +47,26 @@ extension RefinementMenuViewModel {
                                           andFacetName facetName: String,
                                           transformRefinementList: TransformRefinementList,
                                           areRefinedValuesFirst: Bool) -> [FacetValue] {
-        
+
         let allRefinements = params.buildFacetRefinements()
         let refinementsForFacetName = allRefinements[facetName]
-        
+
         let facetList = FacetValue.listFrom(facetCounts: facetCounts, refinements: refinementsForFacetName)
-        
+
         let sortedFacetList = facetList.sorted { (lhs, rhs) in
-            
+
             let lhsChecked = params.hasFacetRefinement(name: facetName, value: lhs.value)
             let rhsChecked = params.hasFacetRefinement(name: facetName, value: rhs.value)
-            
+
             if areRefinedValuesFirst && lhsChecked != rhsChecked { // Refined wins
                 return lhsChecked
             }
-            
+
             let leftCount = lhs.count
             let rightCount = rhs.count
             let leftValueLowercased = lhs.value.lowercased()
             let rightValueLowercased = rhs.value.lowercased()
-            
+
             switch transformRefinementList {
             case .countDesc:
                 if leftCount != rightCount { // Biggest Count wins
@@ -74,21 +74,21 @@ extension RefinementMenuViewModel {
                 } else {
                     return leftValueLowercased < rightValueLowercased // Name ascending wins by default
                 }
-                
+
             case .countAsc:
                 if leftCount != rightCount { // Smallest Count wins
                     return leftCount < rightCount
                 } else {
                     return leftValueLowercased < rightValueLowercased // Name ascending wins by default
                 }
-                
+
             case .nameAsc:
                 if leftValueLowercased != rightValueLowercased {
                     return leftValueLowercased < rightValueLowercased // Name ascending
                 } else {
                     return leftCount > rightCount // Biggest Count wins by default
                 }
-                
+
             case .nameDsc:
                 if leftValueLowercased != rightValueLowercased {
                     return leftValueLowercased > rightValueLowercased // Name descending
@@ -97,7 +97,7 @@ extension RefinementMenuViewModel {
                 }
             }
         }
-        
+
         return sortedFacetList
     }
 }

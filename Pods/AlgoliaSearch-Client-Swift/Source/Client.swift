@@ -23,7 +23,6 @@
 
 import Foundation
 
-
 /// Signature of most completion handlers used by this library.
 ///
 /// - parameter content: The JSON response (in case of success) or `nil` (in case of error).
@@ -33,17 +32,16 @@ import Foundation
 ///
 public typealias CompletionHandler = (content: [String: AnyObject]?, error: NSError?) -> Void
 
-
 /// A version of a software library.
 /// Used to construct the `User-Agent` header.
 ///
 @objc public class LibraryVersion: NSObject {
     /// Library name.
     @objc public let name: String
-    
+
     /// Version string.
     @objc public let version: String
-    
+
     @objc public init(name: String, version: String) {
         self.name = name
         self.version = version
@@ -54,26 +52,24 @@ public func ==(lhs: LibraryVersion, rhs: LibraryVersion) -> Bool {
     return lhs.name == rhs.name && lhs.version == rhs.version
 }
 
-
 /// Error domain used for errors raised by this module.
 public let ErrorDomain = "AlgoliaSearch"
 
-
 /// Entry point into the Swift API.
 ///
-@objc public class Client : NSObject {
+@objc public class Client: NSObject {
     // MARK: Constants
-    
+
     /// Error domain used for errors raised by this module.
     ///
     /// + Note: This shortcut is provided for Objective-C bridging. See the top-level `ErrorDomain` constant.
     ///
     @objc public static let ErrorDomain = AlgoliaSearch.ErrorDomain
-    
+
     // MARK: Properties
-    
+
     /// HTTP headers that will be sent with every request.
-    @objc public var headers = [String:String]()
+    @objc public var headers = [String: String]()
 
     /// Algolia API key.
     @objc public var apiKey: String {
@@ -102,7 +98,7 @@ public let ErrorDomain = "AlgoliaSearch"
 
     /// Default timeout for network requests. Default: 30 seconds.
     @objc public let timeout: NSTimeInterval = 30
-    
+
     /// Timeout for search requests. Default: 5 seconds.
     @objc public let searchTimeout: NSTimeInterval = 5
 
@@ -120,7 +116,7 @@ public let ErrorDomain = "AlgoliaSearch"
             assert(!newValue.isEmpty)
         }
     }
-    
+
     /// Hosts for write queries, in priority order.
     /// The first host will always be used, then subsequent hosts in case of retry.
     ///
@@ -132,21 +128,21 @@ public let ErrorDomain = "AlgoliaSearch"
             assert(!newValue.isEmpty)
         }
     }
-    
+
     // NOTE: Not constant only for the sake of mocking during unit tests.
     var session: URLSession
-    
+
     /// Operation queue used to keep track of requests.
     /// `Request` instances are inherently asynchronous, since they are merely wrappers around `NSURLSessionTask`.
     /// The sole purpose of the queue is to retain them for the duration of their execution!
     ///
     let requestQueue: NSOperationQueue
-    
+
     /// Dispatch queue used to run completion handlers.
     private var completionQueue = dispatch_get_main_queue()
-    
+
     // MARK: Initialization
-    
+
     /// Create a new Algolia Search client.
     ///
     /// - parameter appID:  The application ID (available in your Algolia Dashboard).
@@ -171,7 +167,7 @@ public let ErrorDomain = "AlgoliaSearch"
         ].shuffle()
         readHosts = [ "\(appID)-dsn.algolia.net" ] + fallbackHosts
         writeHosts = [ "\(appID).algolia.net" ] + fallbackHosts
-        
+
         // WARNING: Those headers cannot be changed for the lifetime of the session.
         // Other headers are likely to change during the lifetime of the session: they will be passed at every request.
         let fixedHTTPHeaders = [
@@ -180,16 +176,16 @@ public let ErrorDomain = "AlgoliaSearch"
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = fixedHTTPHeaders
         session = NSURLSession(configuration: configuration)
-        
+
         requestQueue = NSOperationQueue()
         requestQueue.maxConcurrentOperationCount = 8
-        
+
         super.init()
-        
+
         // Add this library's version to the user agents.
         let version = NSBundle(forClass: self.dynamicType).infoDictionary!["CFBundleShortVersionString"] as! String
         self.userAgents = [ LibraryVersion(name: "Algolia for Swift", version: version) ]
-        
+
         // Add the operating system's version to the user agents.
         if #available(iOS 8.0, OSX 10.0, tvOS 9.0, *) {
             let osVersion = NSProcessInfo.processInfo().operatingSystemVersion
@@ -201,7 +197,7 @@ public let ErrorDomain = "AlgoliaSearch"
                 self.userAgents.append(LibraryVersion(name: osName, version: osVersionString))
             }
         }
-        
+
         // WARNING: `didSet` not called during initialization => we need to update the headers manually here.
         updateHeadersFromAPIKey()
         updateHeadersFromUserAgents()
@@ -216,7 +212,7 @@ public let ErrorDomain = "AlgoliaSearch"
         readHosts = hosts
         writeHosts = hosts
     }
-    
+
     /// Set an HTTP header that will be sent with every request.
     ///
     /// + Note: You may also use the `headers` property directly.
@@ -227,7 +223,7 @@ public let ErrorDomain = "AlgoliaSearch"
     @objc public func setHeader(name: String, value: String?) {
         headers[name] = value
     }
-    
+
     /// Get an HTTP header.
     ///
     /// + Note: You may also use the `headers` property directly.
@@ -312,7 +308,7 @@ public let ErrorDomain = "AlgoliaSearch"
         // Therefore, `initIndex` would fail to compile in Objective-C, because its return type is not `instancetype`.
         return Index(client: self, indexName: indexName)
     }
-    
+
     /// Strategy when running multiple queries. See `Client.multipleQueries(...)`.
     ///
     public enum MultipleQueriesStrategy: String {
@@ -347,7 +343,7 @@ public let ErrorDomain = "AlgoliaSearch"
         }
         return performHTTPQuery(path, method: .POST, body: request, hostnames: readHosts, completionHandler: completionHandler)
     }
-    
+
     /// Query multiple indexes with one API call.
     ///
     /// - parameter queries: List of queries.
@@ -359,7 +355,7 @@ public let ErrorDomain = "AlgoliaSearch"
         // IMPLEMENTATION NOTE: Not Objective-C bridgeable because of enum.
         return multipleQueries(queries, strategy: strategy?.rawValue, completionHandler: completionHandler)
     }
-    
+
     /// Batch operations.
     ///
     /// - parameter operations: List of operations.
@@ -371,7 +367,7 @@ public let ErrorDomain = "AlgoliaSearch"
         let body = ["requests": operations]
         return performHTTPQuery(path, method: .POST, body: body, hostnames: writeHosts, completionHandler: completionHandler)
     }
-    
+
     /// Ping the server.
     /// This method returns nothing except a message indicating that the server is alive.
     ///
@@ -393,7 +389,7 @@ public let ErrorDomain = "AlgoliaSearch"
         requestQueue.addOperation(request)
         return request
     }
-    
+
     /// Create a request with this client's settings.
     func newRequest(method: HTTPMethod, path: String, body: [String: AnyObject]?, hostnames: [String], isSearchQuery: Bool = false, completion: CompletionHandler? = nil) -> Request {
         let currentTimeout = isSearchQuery ? searchTimeout : timeout

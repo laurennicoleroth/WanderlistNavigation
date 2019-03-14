@@ -24,7 +24,6 @@
 import InstantSearchClient
 import Foundation
 
-
 /// Records a history of searches.
 ///
 @objcMembers public class HistoryRecorder: NSObject {
@@ -32,10 +31,10 @@ import Foundation
 
     /// The searcher being observed.
     @objc public let searcher: Searcher
-    
+
     /// The history being fed.
     @objc public let history: History
-    
+
     /// Delay by which to debounce searches before recording them.
     /// This is to avoid making too many requests to the history, especially when it is remote.
     @objc public var delay: TimeInterval = 1.0 {
@@ -48,7 +47,7 @@ import Foundation
     private let debouncer: Debouncer
 
     // MARK: Initialization
-    
+
     /// Create a new recorder observing a searcher and feeding a history.
     ///
     /// - parameter searcher: The searcher to observer.
@@ -61,7 +60,7 @@ import Foundation
         super.init()
         observeSearchNotifications()
     }
-  
+
     private func observeSearchNotifications() {
       NotificationCenter.default.addObserver(forName: Searcher.SearchNotification, object: searcher, queue: nil) { (notification) in
         guard let params = notification.userInfo?[Searcher.userInfoParamsKey] as? SearchParameters else { return }
@@ -85,7 +84,7 @@ import Foundation
     /// - parameter params: The search parameters of the query to add.
     ///
     @objc func add(_ params: SearchParameters)
-    
+
     /// Search the history.
     ///
     /// - parameter query: The searched query.
@@ -100,7 +99,7 @@ import Foundation
 @objcMembers public class HistorySearchOptions: NSObject {
     /// Tag prepended to highlights.
     @objc public var highlightPreTag: String = "<em>"
-    
+
     /// Tag appended to highlights.
     @objc public var highlightPostTag: String = "</em>"
 
@@ -115,7 +114,7 @@ import Foundation
 
     /// Search parameters corresponding to this hit.
     @objc public let params: SearchParameters
-    
+
     /// An highlighted text representation of the hit.
     /// Usually contains the `params.query` parameter, highlighted to show which part matched the searched string.
     @objc public let highlightedText: String
@@ -135,7 +134,7 @@ import Foundation
 ///
 @objcMembers public class LocalHistory: NSObject, History {
     // MARK: Properties
-    
+
     /// The in-memory cache of the history's content.
     private var queries: NSMutableOrderedSet = NSMutableOrderedSet()
 
@@ -143,30 +142,30 @@ import Foundation
     @objc public var contents: [String] {
         return queries.array as! [String]
     }
-    
+
     /// Maximum number of entries allowed in this history. Default = 10.
     @objc public var maxCount: Int = 10 {
         didSet {
             purge()
         }
     }
-    
+
     /// Whether each query added automatically trigges a save. Default = `true`.
     ///
     /// + Note: The save will be performed asynchronously for better performance.
     ///
     @objc public var autosave: Bool = true
-    
+
     /// File path to the history on disk.
     /// If `nil` (default), the history will sit purely in memory.
     @objc public var filePath: String?
-    
+
     // MARK: Initialization
-    
+
     /// Create a new, empty history that sits purely in memory.
     public override init() {
     }
-    
+
     /// Create a new history that is persisted on disk.
     ///
     /// - parameter filePath: Path to the history file on disk.
@@ -176,9 +175,9 @@ import Foundation
         super.init()
         self.load()
     }
-    
+
     // MARK: History management
-    
+
     /// Search the history.
     ///
     /// + Complexity: O(n): grows linearly with the size of the history.
@@ -202,7 +201,7 @@ import Foundation
                 break
             }
             let queryString = query as! String
-            
+
             var highlightedText: String
             if searchedText.isEmpty { // empty search: everything matches, no highlighting necessary
                 highlightedText = queryString
@@ -222,7 +221,7 @@ import Foundation
         }
         return hits
     }
-    
+
     /// Add a new query to the history.
     ///
     /// Deduplication will occur:
@@ -241,13 +240,13 @@ import Foundation
     ///
     @objc public func add(_ params: SearchParameters) {
         guard var newText = params.query else { return }
-        
+
         // Normalize query string.
         newText = normalize(newText)
         if newText.isEmpty {
             return
         }
-        
+
         // Add or update the query.
         let index = queries.index(of: newText)
         if index != NSNotFound {
@@ -287,22 +286,22 @@ import Foundation
         purge()
         saveIfNeeded()
     }
-    
+
     /// Remove all entries from the history.
     ///
     @objc public func clear() {
         queries.removeAllObjects()
         saveIfNeeded()
     }
-    
+
     // MARK: Persistence
-    
+
     private func purge() {
         if queries.count > maxCount {
             queries.removeObjects(at: IndexSet(integersIn: Range(uncheckedBounds: (maxCount, queries.count))))
         }
     }
-    
+
     private func saveIfNeeded() {
         if autosave && filePath != nil {
             saveAsync()
@@ -352,13 +351,13 @@ import Foundation
             // Ignore
         }
     }
-    
+
     // MARK: Utils
-    
+
     private let whitespaceRegex: NSRegularExpression = {
         return (try? NSRegularExpression(pattern: "\\s+"))!
     }()
-    
+
     /// Normalize a string for storage in the history.
     ///
     private func normalize(_ text: String) -> String {
