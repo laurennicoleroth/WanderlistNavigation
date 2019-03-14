@@ -22,7 +22,7 @@ class WanderlistPreviewViewController: UIViewController {
   let placesClient = GMSPlacesClient()
   var wanderspots: [Wanderspot] = [] {
     didSet {
-      wanderspots = wanderspots.sorted(by: { $0.distanceAway ?? 0.0 < $1.distanceAway ?? 0.0 })
+      wanderspots = wanderspots.sorted(by: { $0.distanceAway < $1.distanceAway})
       wanderspotsCollectionView.reloadData()
       addAnnotationsToMap()
     }
@@ -57,12 +57,12 @@ class WanderlistPreviewViewController: UIViewController {
   }
 
   func setupData() {
-    if let wanderspots = wanderlist?.wanderspots.enumerated() {
-      for (index, spot) in wanderspots {
-        self.wanderspots.append(spot)
-      }
-    }
-    wanderspots = wanderspots.sorted(by: { $0.distanceAway ?? 0.0 < $1.distanceAway ?? 0.0 })
+//    if let wanderspots = wanderlist?.wanderspots.enumerated() {
+//      for (index, spot) in wanderspots {
+//        self.wanderspots.append(spot)
+//      }
+//    }
+//    wanderspots = wanderspots.sorted(by: { $0.distanceAway ?? 0.0 < $1.distanceAway ?? 0.0 })
 
     wanderspotsCollectionView.reloadData()
     //    if let id = wanderlist?.objectID {
