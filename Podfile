@@ -7,6 +7,8 @@ target 'Wanderlist' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
   pod 'GooglePlaces'

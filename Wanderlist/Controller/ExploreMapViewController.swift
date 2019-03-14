@@ -178,6 +178,7 @@ extension ExploreMapViewController: UICollectionViewDataSource, HitsCollectionVi
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, containing hit: [String : Any]) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderlistCollectionViewCell", for: indexPath) as! WanderlistCollectionViewCell
     cell.configureCellFrom(wanderlist: wanderlists[indexPath.row])
+    
     return cell
   }
 

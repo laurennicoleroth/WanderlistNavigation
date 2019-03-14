@@ -1,4 +1,10 @@
 PODS:
+  - BoringSSL-GRPC (0.0.2):
+    - BoringSSL-GRPC/Implementation (= 0.0.2)
+    - BoringSSL-GRPC/Interface (= 0.0.2)
+  - BoringSSL-GRPC/Implementation (0.0.2):
+    - BoringSSL-GRPC/Interface (= 0.0.2)
+  - BoringSSL-GRPC/Interface (0.0.2)
   - Firebase/Auth (5.17.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.3.1)
@@ -7,6 +13,12 @@ PODS:
     - FirebaseAnalytics (= 5.6.0)
   - Firebase/CoreOnly (5.17.0):
     - FirebaseCore (= 5.3.0)
+  - Firebase/Firestore (5.17.0):
+    - Firebase/CoreOnly
+    - FirebaseFirestore (= 1.0.1)
+  - Firebase/Storage (5.17.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.1.0)
   - FirebaseAnalytics (5.6.0):
     - FirebaseCore (~> 5.3)
     - FirebaseInstanceID (~> 3.5)
@@ -24,10 +36,29 @@ PODS:
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.3.0):
     - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseFirestore (1.0.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - FirebaseFirestore/abseil-cpp (= 1.0.1)
+    - "gRPC-C++ (= 0.0.6)"
+    - leveldb-library (~> 1.20)
+    - nanopb (~> 0.3.901)
+    - Protobuf (~> 3.1)
+  - FirebaseFirestore/abseil-cpp (1.0.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - "gRPC-C++ (= 0.0.6)"
+    - leveldb-library (~> 1.20)
+    - nanopb (~> 0.3.901)
+    - Protobuf (~> 3.1)
   - FirebaseInstanceID (3.5.0):
     - FirebaseCore (~> 5.3)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.1.0):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -55,6 +86,22 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
+  - "gRPC-C++ (0.0.6)":
+    - "gRPC-C++/Implementation (= 0.0.6)"
+    - "gRPC-C++/Interface (= 0.0.6)"
+  - "gRPC-C++/Implementation (0.0.6)":
+    - "gRPC-C++/Interface (= 0.0.6)"
+    - gRPC-Core (= 1.17.0)
+    - nanopb (~> 0.3)
+  - "gRPC-C++/Interface (0.0.6)"
+  - gRPC-Core (1.17.0):
+    - gRPC-Core/Implementation (= 1.17.0)
+    - gRPC-Core/Interface (= 1.17.0)
+  - gRPC-Core/Implementation (1.17.0):
+    - BoringSSL-GRPC (= 0.0.2)
+    - gRPC-Core/Interface (= 1.17.0)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.17.0)
   - GTMSessionFetcher/Core (1.2.1)
   - InstantSearch (3.1.3):
     - InstantSearch/UI (= 3.1.3)
@@ -64,6 +111,7 @@ PODS:
   - InstantSearchCore (4.0.0):
     - InstantSearchClient (~> 6.0)
   - Kingfisher (5.1.1)
+  - leveldb-library (1.20)
   - Mapbox-iOS-SDK (4.8.0)
   - MapboxCoreNavigation (0.29.1):
     - MapboxDirections.swift (~> 0.27.0)
@@ -87,6 +135,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Polyline (4.2.0)
+  - Protobuf (3.6.1)
   - Solar (2.1.0)
   - SwiftLint (0.30.1)
   - SwiftLocation (3.2.3):
@@ -97,6 +146,8 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Firestore
+  - Firebase/Storage
   - GooglePlaces
   - InstantSearch (~> 3.0)
   - InstantSearchClient (~> 6.0)
@@ -109,21 +160,27 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
+    - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlaces
     - GoogleUtilities
+    - "gRPC-C++"
+    - gRPC-Core
     - GTMSessionFetcher
     - InstantSearch
     - InstantSearchClient
     - InstantSearchCore
     - Kingfisher
+    - leveldb-library
     - Mapbox-iOS-SDK
     - MapboxCoreNavigation
     - MapboxDirections.swift
@@ -134,6 +191,7 @@ SPEC REPOS:
     - MMBannerLayout
     - nanopb
     - Polyline
+    - Protobuf
     - Solar
     - SwiftLint
     - SwiftLocation
@@ -141,21 +199,27 @@ SPEC REPOS:
     - Turf
 
 SPEC CHECKSUMS:
+  BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
   FirebaseAuth: 0f61e1329237da5682c49c9abd135e8f9d07a151
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
+  FirebaseFirestore: e95af4fe30552092d6e72a8f97ea475d93891b75
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
+  FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
+  "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
+  gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   InstantSearch: c5ec1dd67f2d68b68026dd8086ad858659b5a2cd
   InstantSearchClient: b307f315542bb9db47b1a3480a6cd654c89d7da4
   InstantSearchCore: d7213fee88c766297624c54f8257cff987cd1037
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
   MapboxCoreNavigation: 7a6dea9a19dea2ad3247f43e6b6854f4afe3341e
   MapboxDirections.swift: b53792956b0233c8c5aa75972ce99b2001cafd10
@@ -166,12 +230,13 @@ SPEC CHECKSUMS:
   MMBannerLayout: ca952bbfcb6b27b5753a17c4733da53345ffcae5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 4184f830f09a1bda209dabed8d3ee6c081dd7569
+PODFILE CHECKSUM: c46d5c713dd250ac3b750d2a38dff1cc0dc8824d
 
 COCOAPODS: 1.6.0.beta.1
