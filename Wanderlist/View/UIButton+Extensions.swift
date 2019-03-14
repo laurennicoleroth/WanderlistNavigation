@@ -28,5 +28,4 @@ class RoundedButton: UIButton {
       self.layer.cornerRadius = cornerRadius
     }
   }
-  
 }

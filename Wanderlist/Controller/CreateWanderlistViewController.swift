@@ -19,7 +19,35 @@ class CreateWanderlistViewController: UIViewController {
     
   }
   
+  @IBAction func addButtonTouched(_ sender: Any) {
+    let autocompleteController = GMSAutocompleteViewController()
+    autocompleteController.delegate = self
+
+    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+      UInt(GMSPlaceField.placeID.rawValue))!
+    autocompleteController.placeFields = fields
+
+    let filter = GMSAutocompleteFilter()
+    filter.type = .address
+    autocompleteController.autocompleteFilter = filter
+
+    present(autocompleteController, animated: true, completion: nil)
+  }
+}
+
+extension CreateWanderlistViewController: GMSAutocompleteViewControllerDelegate {
+  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+    print("Autocompleted place ", place)
+  }
   
+  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    print("Error in gms autocomplete ", error)
+  }
+  
+  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+    print("Autocomplet request was cancelled")
+  }
+
 }
 
 
