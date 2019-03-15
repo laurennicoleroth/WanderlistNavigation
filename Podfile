@@ -12,7 +12,7 @@ target 'Wanderlist' do
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
   pod 'Alamofire', '~> 4.5'
-  pod 'PromiseKit', '~> 4.4'
+  pod 'PromiseKit'
   pod 'InstantSearch', '~> 3.0'
   pod 'InstantSearchClient', '~> 6.0'
   pod 'SwiftLocation', '~> 3.2.3'

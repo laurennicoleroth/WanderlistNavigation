@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 import CoreLocation
-import GooglePlaces
 import InstantSearch
 import InstantSearchCore
 import UIKit

@@ -168,7 +168,7 @@ DEPENDENCIES:
   - Mapbox-iOS-SDK
   - MapboxNavigation
   - MMBannerLayout
-  - PromiseKit (~> 4.4)
+  - PromiseKit
   - SwiftLint
   - SwiftLocation (~> 3.2.3)
 
@@ -255,6 +255,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: d2dad9c0293aea22d9fb7f06e674cbf5db4a055c
+PODFILE CHECKSUM: 43ddfced311ad26202c5baa35e13d5abd443d003
 
 COCOAPODS: 1.6.0.beta.1
