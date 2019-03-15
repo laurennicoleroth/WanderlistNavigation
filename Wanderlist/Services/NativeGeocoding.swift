@@ -58,7 +58,7 @@ class NativeGeocoding {
         let geocoding = Geocoding(coordinates: location.coordinate)
         fulfill(geocoding)
       } else {
-        reject(Error.noMatchingLocation)
+        reject(Errors.noMatchingLocation)
       }
     }
   }
