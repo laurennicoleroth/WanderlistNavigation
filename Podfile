@@ -11,8 +11,6 @@ target 'Wanderlist' do
   pod 'Firebase/Storage'
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'InstantSearch', '~> 3.0'
   pod 'InstantSearchClient', '~> 6.0'
   pod 'SwiftLocation', '~> 3.2.3'
