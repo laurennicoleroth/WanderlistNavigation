@@ -14,6 +14,7 @@ import InstantSearch
 import InstantSearchCore
 import UIKit
 import GEOSwift
+import Mapbox
 
 struct PlaceWithDistance {
   var place: GMSPlace
@@ -130,8 +131,10 @@ class Wanderspot: NSObject {
     
   }
   
-  func toGeoJSON() {
-    
+  func toAnnotation() -> MGLPointAnnotation {
+    let point = Waypoint(WKT: "POINT(10 45)")!
+  
+    return point.mapboxShape()
   }
   
   

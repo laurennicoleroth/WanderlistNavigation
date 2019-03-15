@@ -43,9 +43,7 @@ extension CreateWanderlistViewController: GMSAutocompleteViewControllerDelegate 
     
     let wanderspot = Wanderspot(place: place)
     wanderspot.addPhotoToWanderspot()
-    
-    
-    print(wanderspot.toGeoJSON())
+    mapView.addAnnotation(wanderspot.toAnnotation())
     
     dismiss(animated: true) {
       print("Add point to map")

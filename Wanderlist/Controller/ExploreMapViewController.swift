@@ -15,6 +15,7 @@ import SwiftLocation
 import GooglePlaces
 import Kingfisher
 import MMBannerLayout
+import GEOSwift
 
 class ExploreMapViewController: UIViewController {
 
@@ -53,6 +54,14 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
+  }
+  
+  func addPolygonsToMap() {
+    if let geoJSONURL = Bundle.main.url(forResource: "nyc_neighborhoods", withExtension: "geojson") {
+      let features = try! Features.fromGeoJSoN(geoJSONURL)
+      let firstNeighborhood = features.first?.geometries?.first as? MGLMultiPolygon
+      print(firstNeighborhood)
+    }
   }
 
   func searchQueryNearby(queryString: String) {

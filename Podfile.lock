@@ -62,9 +62,6 @@ PODS:
   - geos (3.7.1)
   - GEOSwift (3.1.0):
     - geos (= 3.7.1)
-  - GEOSwiftMapboxGL (1.0.0):
-    - GEOSwift
-    - Mapbox-iOS-SDK
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -155,7 +152,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - GEOSwift
-  - GEOSwiftMapboxGL
   - GooglePlaces
   - InstantSearch (~> 3.0)
   - InstantSearchClient (~> 6.0)
@@ -179,7 +175,6 @@ SPEC REPOS:
     - FirebaseStorage
     - geos
     - GEOSwift
-    - GEOSwiftMapboxGL
     - GoogleAppMeasurement
     - GoogleMaps
     - GooglePlaces
@@ -221,7 +216,6 @@ SPEC CHECKSUMS:
   FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
   geos: 4f86329dc270f513bc220c77d9079aef38c5960d
   GEOSwift: 663f79f312f61dbc50ea7d233b8d04642f9aa1fb
-  GEOSwiftMapboxGL: 98e9680de370b159964055bd5d8661c64d3c7c5b
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
@@ -251,6 +245,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: e93752df5338c785726860e2743dd7b42f33b8b0
+PODFILE CHECKSUM: 2363716cb0677ccffefe2a7ebe44841085d7ac51
 
 COCOAPODS: 1.6.0.beta.1

@@ -105,6 +105,7 @@
 		9695B3E122386F7A005FC76F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9695B3E322387427005FC76F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9695B3E522398ECC005FC76F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		96B962DA223B04E60086B710 /* nyc_neighborhoods.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = nyc_neighborhoods.geojson; sourceTree = "<group>"; };
 		96F2F6CC223AC6BB0023BC53 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWanderlistViewController.swift; sourceTree = "<group>"; };
 		96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -264,6 +265,7 @@
 				9695B3CC22384502005FC76F /* OpenSans-SemiboldItalic.ttf */,
 				969354E1222EF1B400752858 /* Assets.xcassets */,
 				96F2F6D4223AFD990023BC53 /* Directions.geojson */,
+				96B962DA223B04E60086B710 /* nyc_neighborhoods.geojson */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -416,7 +418,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/GEOSwiftMapboxGL/GEOSwiftMapboxGL.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/InstantSearch/InstantSearch.framework",
@@ -451,7 +452,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GEOSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GEOSwiftMapboxGL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearch.framework",
