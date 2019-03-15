@@ -121,6 +121,7 @@ PODS:
     - Turf (~> 0.3.0)
   - MapboxDirections.swift (0.27.1):
     - Polyline (~> 4.2)
+  - MapboxGeocoder.swift (0.10.2)
   - MapboxMobileEvents (0.8.1)
   - MapboxNavigation (0.29.1):
     - Mapbox-iOS-SDK (~> 4.3)
@@ -166,6 +167,7 @@ DEPENDENCIES:
   - InstantSearchClient (~> 6.0)
   - Kingfisher
   - Mapbox-iOS-SDK
+  - MapboxGeocoder.swift
   - MapboxNavigation
   - MMBannerLayout
   - PromiseKit
@@ -199,6 +201,7 @@ SPEC REPOS:
     - Mapbox-iOS-SDK
     - MapboxCoreNavigation
     - MapboxDirections.swift
+    - MapboxGeocoder.swift
     - MapboxMobileEvents
     - MapboxNavigation
     - MapboxNavigationNative
@@ -240,6 +243,7 @@ SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
   MapboxCoreNavigation: 7a6dea9a19dea2ad3247f43e6b6854f4afe3341e
   MapboxDirections.swift: b53792956b0233c8c5aa75972ce99b2001cafd10
+  MapboxGeocoder.swift: 8cff5dddf98d87838509bf80a5bce5f1d0cf8393
   MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
   MapboxNavigation: 6093c01352cfda65ea7a15b5588e024f66d4bae2
   MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
@@ -255,6 +259,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 43ddfced311ad26202c5baa35e13d5abd443d003
+PODFILE CHECKSUM: f89f2351227d424886efa2be313ab49f684df52f
 
 COCOAPODS: 1.6.0.beta.1
