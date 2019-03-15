@@ -38,14 +38,7 @@ class CreateWanderlistViewController: UIViewController {
   }
 
   @IBAction func addButtonTouched(_ sender: Any) {
-    let autocompleteController = GMSAutocompleteViewController()
-    autocompleteController.delegate = self
-
-    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-      UInt(GMSPlaceField.placeID.rawValue))!
-    autocompleteController.placeFields = fields
-
-    present(autocompleteController, animated: true, completion: nil)
+    print("Add button touched")
   }
   @IBAction func nextButtonTouched(_ sender: Any) {
     
