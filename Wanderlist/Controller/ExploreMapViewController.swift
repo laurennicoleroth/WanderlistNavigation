@@ -12,9 +12,9 @@ import InstantSearch
 import InstantSearchCore
 import InstantSearchClient
 import SwiftLocation
-import GooglePlaces
 import Kingfisher
 import MMBannerLayout
+import GEOSwift
 
 class ExploreMapViewController: UIViewController {
 
@@ -26,7 +26,7 @@ class ExploreMapViewController: UIViewController {
   var selectedWanderlist: Wanderlist?
   var currentLocation : CLLocationCoordinate2D? {
     didSet {
-      searchQueryNearby(queryString: "")
+//      searchQueryNearby(queryString: "")
     }
   }
   var haveResults = false {
@@ -53,6 +53,15 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
+    addPolygonsToMap()
+  }
+  
+  func addPolygonsToMap() {
+    if let geoJSONURL = Bundle.main.url(forResource: "nyc_neighborhoods", withExtension: "geojson") {
+      let features = try! Features.fromGeoJSON(geoJSONURL)
+      let firstNeighborhood = features?.first?.geometries?.first as? MGLMultiPolygon
+      print(firstNeighborhood)
+    }
   }
 
   func searchQueryNearby(queryString: String) {
