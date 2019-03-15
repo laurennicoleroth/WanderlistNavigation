@@ -23,6 +23,7 @@ class Wanderlist {
   var  categories: String = ""
   var  spotsCount: Int = 0
   var  geoloc : [String: Double] = ["latitude": 0.0, "longitude": 0.0]
+  var wanderspots : [[String: Any]] = [[:]]
   
   init(json: [String: Any]) {
     self.title = json["title"] as? String ?? ""

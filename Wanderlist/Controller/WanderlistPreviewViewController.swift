@@ -10,7 +10,6 @@ import UIKit
 import Mapbox
 import SwiftLocation
 import MMBannerLayout
-import GooglePlaces
 
 class WanderlistPreviewViewController: UIViewController {
 
