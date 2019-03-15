@@ -51,6 +51,7 @@
 		96F7A235223BFAD9000FF76E /* GeoMapbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A234223BFAD9000FF76E /* GeoMapbox.swift */; };
 		96F7A237223C0307000FF76E /* EditWanderspotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */; };
 		96F7A23D223C2771000FF76E /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A23C223C2771000FF76E /* Geocode.swift */; };
+		96F7A23F223C2B0D000FF76E /* NativeGeocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		96F7A234223BFAD9000FF76E /* GeoMapbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMapbox.swift; sourceTree = "<group>"; };
 		96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWanderspotsViewController.swift; sourceTree = "<group>"; };
 		96F7A23C223C2771000FF76E /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
+		96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeGeocoding.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				964BF9462236B99D003E77DC /* AlgoliaService.swift */,
 				96F7A23C223C2771000FF76E /* Geocode.swift */,
+				96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				96935509222F1AFF00752858 /* secret.swift in Sources */,
 				96935507222F17F400752858 /* Wanderspot.swift in Sources */,
 				96F7A235223BFAD9000FF76E /* GeoMapbox.swift in Sources */,
+				96F7A23F223C2B0D000FF76E /* NativeGeocoding.swift in Sources */,
 				96935500222F174500752858 /* WanderlistMapboxMap.swift in Sources */,
 				969354D8222EF1B400752858 /* AppDelegate.swift in Sources */,
 				9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */,
