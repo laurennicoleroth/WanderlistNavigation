@@ -32,7 +32,7 @@ class CreateWanderlistViewController: UIViewController {
     super.viewDidLoad()
     
     setupMapUI()
-    testAddresses()
+   
   }
   
   func testAddresses() {
@@ -69,7 +69,6 @@ class CreateWanderlistViewController: UIViewController {
   private func addGeocodingResult(_ geocodingResult: GeocodingResult) {
     self.geocodingResults.append(geocodingResult)
     
-    print(geocodingResult.googleMaps?.coordinates)
     if geocodingResults.count == getAddresses().count {
 //      tableView.reloadData()
 //      tableView.tableHeaderView = UIView()

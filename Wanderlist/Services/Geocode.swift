@@ -101,7 +101,7 @@ class GeocodingManager {
     
     if let resultArray = self.geocodingDictionary["results"] as? NSArray {
       if let resultDictionary = resultArray[0] as? [String:AnyObject] {
-        
+        print("Result Dictionary: ", resultDictionary.first)
         //coordinates
         var coordinates = CLLocationCoordinate2D()
         if let value = resultDictionary["geometry"] as? NSDictionary {
