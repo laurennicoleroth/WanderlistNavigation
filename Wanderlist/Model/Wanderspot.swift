@@ -41,6 +41,13 @@ class Wanderspot: NSObject {
   var  city: String = ""
   var  zipcode: String?
   var  image : UIImage?
+  var  geoPoint : [String: Any] {
+    let point : [String: Any] = [
+      "type" : "Point",
+      "coordinate": [self.latitude, self.longitude]
+    ]
+    return point
+  }
   
   init(place: GMSPlace?) {
     if let place = place {
@@ -129,14 +136,7 @@ class Wanderspot: NSObject {
   
   func saveToFirestore() {
     
-  }
-  
-  func toAnnotation() -> MGLPointAnnotation {
-    let point = Waypoint(WKT: "POINT(10 45)")!
-  
-    return point.mapboxShape()
-  }
-  
+  }  
   
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
