@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
 import Mapbox
 
 class CreateWanderlistViewController: UIViewController {
@@ -56,27 +54,6 @@ class CreateWanderlistViewController: UIViewController {
   func setupMapUI() {
     mapView.showCurrentLocation()
   }
-}
-
-extension CreateWanderlistViewController: GMSAutocompleteViewControllerDelegate {
-  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-    
-  
-    places.append(place)
-    
-    dismiss(animated: true) {
-      print("Add point to map")
-    }
-  }
-  
-  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-    print("Error in gms autocomplete ", error)
-  }
-  
-  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-    print("Autocomplet request was cancelled")
-  }
-
 }
 
 

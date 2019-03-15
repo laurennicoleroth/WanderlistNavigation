@@ -12,7 +12,6 @@ import InstantSearch
 import InstantSearchCore
 import InstantSearchClient
 import SwiftLocation
-import GooglePlaces
 import Kingfisher
 import MMBannerLayout
 import GEOSwift

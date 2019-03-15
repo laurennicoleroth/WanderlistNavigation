@@ -9,8 +9,6 @@
 import UIKit
 import CoreData
 import Firebase
-import GooglePlaces
-import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,8 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func setupDependencies() {
 
     FirebaseApp.configure()
-    GMSServices.provideAPIKey(GOOGLE_API_KEY)
-    GMSPlacesClient.provideAPIKey(GOOGLE_PLACES_API)
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
