@@ -18,7 +18,6 @@ class WanderlistPreviewViewController: UIViewController {
 
   var currentLocation: CLLocation?
   var selectedWanderspot: Wanderspot?
-  let placesClient = GMSPlacesClient()
   var wanderspots: [Wanderspot] = [] {
     didSet {
       wanderspots = wanderspots.sorted(by: { $0.distanceAway < $1.distanceAway})
@@ -151,40 +150,9 @@ extension WanderlistPreviewViewController: UICollectionViewDataSource {
     let wanderspot = wanderspots[indexPath.row]
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderspotCollectionViewCell", for: indexPath) as! WanderspotCollectionViewCell
     cell.configureCellFrom(wanderspot: wanderspot)
-    setPhotoOnCellForWanderspotID(cell: cell, id: wanderspot.placeID)
+//    setPhotoOnCellForWanderspotID(cell: cell, id: wanderspot.placeID)
     cell.backgroundColor = .white
     return cell
-  }
-
-  func setPhotoOnCellForWanderspotID(cell: WanderspotCollectionViewCell, id: String) {
-    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
-
-    placesClient.fetchPlace(fromPlaceID: id,
-                            placeFields: fields,
-                            sessionToken: nil, callback: {
-                              (place: GMSPlace?, error: Error?) in
-                              if let error = error {
-                                print("An error occurred: \(error.localizedDescription)")
-                                return
-                              }
-                              if let place = place {
-                                // Get the metadata for the first photo in the place photo metadata list.
-                                if let photoMetadata: GMSPlacePhotoMetadata = place.photos![0] {
-                                  // Call loadPlacePhoto to display the bitmap and attribution.
-                                  self.placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-                                    if let error = error {
-                                      // TODO: Handle the error.
-                                      print("Error loading photo metadata: \(error.localizedDescription)")
-                                      return
-                                    } else {
-                                      // Display the first image and its attributions.
-                                      //                                    cell.imageView.image = photo
-                                    }
-                                  })
-                                }
-
-                              }
-    })
   }
 
 }

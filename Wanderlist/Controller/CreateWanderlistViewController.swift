@@ -8,14 +8,15 @@
 
 import UIKit
 import Mapbox
+import PromiseKit
 
 class CreateWanderlistViewController: UIViewController {
 
   @IBOutlet var mapView: WanderlistDetailMapboxMap!
   @IBOutlet var nextButton: UIButton!
   
+  var geocodingResults = [GeocodingResult]()
   var annotations : [WanderspotAnnotation]?
- 
   var wanderspots : [Wanderspot] = [] {
     didSet {
       print("Wanderspot added", wanderspots.last?.latitude, wanderspots.last?.longitude)
@@ -44,10 +45,10 @@ class CreateWanderlistViewController: UIViewController {
       let nativeGeocoding = NativeGeocoding(address)
       
       //configure Geocoding
-      let geocodingRequest = GeocodingRequest(address)
+      let geocodingRequest = GeocodingRequest(address: address)
       let geocodingService = GeocodingService(geocodingRequest)
       
-      firstly{
+      firstly {
         //use native geocoding
         nativeGeocoding.geocode()
         }.then { (geocoding) -> Void in
@@ -65,6 +66,15 @@ class CreateWanderlistViewController: UIViewController {
     }
   }
   
+  private func addGeocodingResult(_ geocodingResult: GeocodingResult) {
+    self.geocodingResults.append(geocodingResult)
+    
+    print(geocodingResult.googleMaps?.coordinates)
+    if geocodingResults.count == getAddresses().count {
+//      tableView.reloadData()
+//      tableView.tableHeaderView = UIView()
+    }
+  }
   
   private func getAddresses() -> [String] {
     return [

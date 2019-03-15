@@ -231,37 +231,6 @@ extension SearchViewController: UICollectionViewDataSource, HitsCollectionViewDa
     return cell
   }
 
-  func setPhotoOnCell(cell: WanderlistCollectionViewCell, id: String) {
-    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
-    let placesClient = GMSPlacesClient()
-    placesClient.fetchPlace(fromPlaceID: id,
-                            placeFields: fields,
-                            sessionToken: nil, callback: {
-                              (place: GMSPlace?, error: Error?) in
-                              if let error = error {
-                                print("An error occurred: \(error.localizedDescription)")
-                                return
-                              }
-                              if let place = place {
-                                // Get the metadata for the first photo in the place photo metadata list.
-                                if let photoMetadata: GMSPlacePhotoMetadata = place.photos?[0] {
-                                  // Call loadPlacePhoto to display the bitmap and attribution.
-                                  placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-                                    if let error = error {
-                                      // TODO: Handle the error.
-                                      print("Error loading photo metadata: \(error.localizedDescription)")
-                                      return
-                                    } else {
-                                      // Display the first image and its attributions.
-                                      cell.imageView.image = photo
-                                    }
-                                  })
-                                }
-
-                              }
-    })
-  }
-
   private func setImage(cell: WanderlistCollectionViewCell, placeID: String) {
     let imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(placeID)&key=\(GOOGLE_PLACES_KEY)"
 
