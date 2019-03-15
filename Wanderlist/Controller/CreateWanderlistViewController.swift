@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import GoogleMaps
 import GooglePlaces
 import Mapbox
 
 class CreateWanderlistViewController: UIViewController {
-  @IBOutlet var mapView: WanderlistMapboxMap!
+
+  @IBOutlet var mapView: WanderlistDetailMapboxMap!
+  @IBOutlet var nextButton: UIButton!
   
-  lazy var annotations : [WanderspotAnnotation] = []
-  lazy var wanderspots : [Wanderspot] = []
+  var annotations : [WanderspotAnnotation]?
+  var places : [GMSPlace] = [] {
+    didSet {
+      print("Place added: ", places.last?.coordinate)
+    }
+  }
+  var wanderspots : [Wanderspot] = [] {
+    didSet {
+      print("Wanderspot added", wanderspots.last?.latitude, wanderspots.last?.longitude)
+      if wanderspots.count > 0 {
+        nextButton.isEnabled = true
+      } else {
+        nextButton.isEnabled = false
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,18 +49,20 @@ class CreateWanderlistViewController: UIViewController {
 
     present(autocompleteController, animated: true, completion: nil)
   }
+  @IBAction func nextButtonTouched(_ sender: Any) {
+    
+  }
   
   func setupMapUI() {
-    mapView.showBlankCurrentLocation()
+    mapView.showCurrentLocation()
   }
 }
 
 extension CreateWanderlistViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
     
-    let wanderspot = Wanderspot(place: place)
-    wanderspot.addPhotoToWanderspot()
-    mapView.addAnnotation(wanderspot.toAnnotation())
+  
+    places.append(place)
     
     dismiss(animated: true) {
       print("Add point to map")

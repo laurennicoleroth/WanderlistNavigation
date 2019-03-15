@@ -68,7 +68,11 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
   - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
+    - GoogleMaps/Base
   - GooglePlaces (3.0.3):
     - GoogleMaps/Base (= 3.0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.3.7):
@@ -152,6 +156,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - GEOSwift
+  - GoogleMaps
   - GooglePlaces
   - InstantSearch (~> 3.0)
   - InstantSearchClient (~> 6.0)
@@ -245,6 +250,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 2363716cb0677ccffefe2a7ebe44841085d7ac51
+PODFILE CHECKSUM: a0606b31116d93001bbcf309da94e726463c2090
 
 COCOAPODS: 1.6.0.beta.1

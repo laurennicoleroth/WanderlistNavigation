@@ -54,12 +54,13 @@ class ExploreMapViewController: UIViewController {
     
     setupMapUI()
     setupCollectionUI()
+    addPolygonsToMap()
   }
   
   func addPolygonsToMap() {
     if let geoJSONURL = Bundle.main.url(forResource: "nyc_neighborhoods", withExtension: "geojson") {
-      let features = try! Features.fromGeoJSoN(geoJSONURL)
-      let firstNeighborhood = features.first?.geometries?.first as? MGLMultiPolygon
+      let features = try! Features.fromGeoJSON(geoJSONURL)
+      let firstNeighborhood = features?.first?.geometries?.first as? MGLMultiPolygon
       print(firstNeighborhood)
     }
   }

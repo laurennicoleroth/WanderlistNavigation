@@ -55,6 +55,8 @@ class Wanderspot: NSObject {
       self.address = place.formattedAddress ?? ""
       self.latitude = place.coordinate.latitude
       self.longitude = place.coordinate.longitude
+      
+      print("Initializing wanderspot with ", self.latitude, self.longitude)
       self.placeID = place.placeID ?? ""
       if let categories = place.types {
         self.categories = categories
@@ -129,14 +131,11 @@ class Wanderspot: NSObject {
       "saturdayHours": self.saturdayHours,
       "city": self.city,
       "zipcode": self.zipcode,
-      "image": self.image as! UIImage
+      "image": self.image as! UIImage,
+      "geoPoint": self.geoPoint
     ]
     return json
   }
-  
-  func saveToFirestore() {
-    
-  }  
   
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
     let client = Client(appID: ALGOLIA_APPLICATION_ID, apiKey: ALGOLIA_API_KEY)
