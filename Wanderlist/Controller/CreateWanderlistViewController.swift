@@ -31,6 +31,18 @@ class CreateWanderlistViewController: UIViewController {
     }
   }
   
+  private func getAddresses() -> [String] {
+    return [
+      "700 West End Ave, New York, NY",
+      "18 w 18th St., New York, NY",
+      "New York, NY",
+      "Empire State Building, New York, NY",
+      "Guggenheim, New York",
+      "Central Park Tennis Center, NY",
+      "Flatiron Building, NY"
+    ]
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
