@@ -14,6 +14,7 @@ import InstantSearchCore
 import UIKit
 import GEOSwift
 import Mapbox
+import PromiseKit
 
 //struct PlaceWithDistance {
 //  var place: GMSPlace
