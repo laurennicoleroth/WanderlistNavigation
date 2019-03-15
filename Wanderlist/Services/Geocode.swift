@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
+import PromiseKit
 
 class GeocodingRequest {
   var address: String
@@ -137,7 +139,6 @@ class GeocodingManager {
   }
   
 }
-
 
 class Geocoding {
   

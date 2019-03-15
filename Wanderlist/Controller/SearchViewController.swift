@@ -13,7 +13,6 @@ import InstantSearchCore
 import InstantSearchClient
 import MMBannerLayout
 import SwiftLocation
-import GooglePlaces
 import Kingfisher
 
 class SearchViewController: UIViewController {

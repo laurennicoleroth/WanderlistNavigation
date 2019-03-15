@@ -15,11 +15,7 @@ class CreateWanderlistViewController: UIViewController {
   @IBOutlet var nextButton: UIButton!
   
   var annotations : [WanderspotAnnotation]?
-  var places : [GMSPlace] = [] {
-    didSet {
-      print("Place added: ", places.last?.coordinate)
-    }
-  }
+ 
   var wanderspots : [Wanderspot] = [] {
     didSet {
       print("Wanderspot added", wanderspots.last?.latitude, wanderspots.last?.longitude)

@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import PromiseKit
+import Alamofire
+import CoreLocation
 
 class NativeGeocoding {
   var address: String
@@ -55,7 +58,7 @@ class NativeGeocoding {
         let geocoding = Geocoding(coordinates: location.coordinate)
         fulfill(geocoding)
       } else {
-        reject( Errors.noMatchingLocation)
+        reject(Error.noMatchingLocation)
       }
     }
   }
