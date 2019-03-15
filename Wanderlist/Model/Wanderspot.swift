@@ -48,68 +48,6 @@ class Wanderspot: NSObject {
     return point
   }
   
-//  init(place: GMSPlace?) {
-//    if let place = place {
-//      self.name = place.name ?? ""
-//      self.address = place.formattedAddress ?? ""
-//      self.latitude = place.coordinate.latitude
-//      self.longitude = place.coordinate.longitude
-//
-//      print("Initializing wanderspot with ", self.latitude, self.longitude)
-//      self.placeID = place.placeID ?? ""
-//      if let categories = place.types {
-//        self.categories = categories
-//      }
-//
-//      if let week = place.openingHours?.weekdayText {
-//        self.mondayHours = week[0]
-//        self.tuesdayHours = week[1]
-//        self.wednesdayHours = week[2]
-//        self.thursdayHours = week[3]
-//        self.fridayHours = week[4]
-//        self.saturdayHours = week[5]
-//        self.sundayHours = week[6]
-//      }
-//
-//      if let components = place.addressComponents {
-//        for component in components {
-//          if component.type == "locality" {
-//            self.city = component.name
-//          } else if component.type == "postal_code" {
-//            self.zipcode = component.name
-//          }
-//        }
-//      }
-//    }
-//  }
-  
-//  func addPhotoToWanderspot() {
-//    if self.placeID != "" {
-//      let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
-//      let placesClient = GMSPlacesClient()
-//      placesClient.fetchPlace(fromPlaceID: self.placeID, placeFields: fields, sessionToken: nil, callback: { (place: GMSPlace?, error: Error?) in
-//        if let error = error {
-//          print("An error occurred: \(error.localizedDescription)")
-//          return
-//        }
-//        if let place = place {
-//          let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
-//          placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-//            if let error = error {
-//              print("Error loading photo metadata: \(error.localizedDescription)")
-//              return
-//            } else {
-//              print("Got a photo: " , photo)
-//              self.image = photo
-//            }
-//          })
-//        }
-//      })
-//    } else {
-//      print("Can't get photo because the placeID is nil")
-//    }
-//  }
-  
   func toJSON() -> [String: Any] {
     var json = [String: Any]()
     json = [
@@ -173,34 +111,7 @@ class Wanderspot: NSObject {
     })
   }
   
-//  class func getPhotoFor(_ placeID: String, completion: @escaping (UIImage?) -> Void ) {
-//    // Specify the place data types to return (just photos).
-//    let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
-//    let placesClient = GMSPlacesClient()
-//    placesClient.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil, callback: { (place: GMSPlace?, error: Error?) in
-//      if let error = error {
-//        // TODO: Handle the error.
-//        print("An error occurred: \(error.localizedDescription)")
-//        return
-//      }
-//      if let place = place {
-//        if place.photos?[0] != nil {
-//          let photoMetadata: GMSPlacePhotoMetadata = place.photos![0]
-//          
-//          placesClient.loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-//            if let error = error {
-//              print("Error loading photo metadata: \(error.localizedDescription)")
-//              return
-//            } else {
-//              completion(photo)
-//            }
-//          })
-//        } else {
-//          completion(UIImage(named: "wanderlist-8"))
-//        }
-//      }
-//    })
-//  }
+
   
   func getHoursForTodayFor(_ wanderspot: Wanderspot) -> String? {
     
