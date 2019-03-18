@@ -14,9 +14,9 @@ class CreateWanderlistViewController: UIViewController {
 
   @IBOutlet var mapView: WanderlistDetailMapboxMap!
   @IBOutlet var nextButton: UIButton!
-
   @IBOutlet var searchView: UIView!
   @IBOutlet var searchBar: UISearchBar!
+  @IBOutlet var addButton: UIButton!
   
   let geocoder = Geocoder.shared
   var annotations : [WanderspotAnnotation]?
@@ -52,6 +52,11 @@ class CreateWanderlistViewController: UIViewController {
       let wanderspot = Wanderspot(placemark: placemark)
       print(wanderspot.toJSON())
     }
+  }
+  
+  private func toggleSearchState() {
+    searchView.isHidden = !searchView.isHidden
+    addButton.isHidden = !addButton.isHidden
   }
 
   @IBAction func addButtonTouched(_ sender: Any) {
