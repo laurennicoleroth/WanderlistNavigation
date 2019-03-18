@@ -6,8 +6,7 @@
 //  Copyright © 2019 Lauren Nicole Roth. All rights reserved.
 //
 
-import Foundation
-import PromiseKit
+/* import Foundation
 import Alamofire
 import CoreLocation
 
@@ -63,3 +62,4 @@ class NativeGeocoding {
     }
   }
 }
+*/

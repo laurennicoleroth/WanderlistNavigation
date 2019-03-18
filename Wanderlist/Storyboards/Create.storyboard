@@ -41,25 +41,6 @@
                                     <outlet property="delegate" destination="wKe-lz-hRq" id="gAm-p2-Mfh"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko9-ld-WgA" customClass="RoundedButton" customModule="Wanderlist" customModuleProvider="target">
-                                <rect key="frame" x="275" y="114" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PK9-ZQ-WeF"/>
-                                    <constraint firstAttribute="width" constant="50" id="adN-g1-LIS"/>
-                                </constraints>
-                                <state key="normal" image="plus-button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addButtonTouched:" destination="wKe-lz-hRq" eventType="touchUpInside" id="UL7-Uh-WxR"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcI-4V-Mp7">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,14 +55,37 @@
                                     <action selector="nextButtonTouched:" destination="wKe-lz-hRq" eventType="touchUpInside" id="VQ2-U1-ctd"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqg-jN-Pmf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-nl-QY7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="5kN-g7-cFI"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wKe-lz-hRq" id="bMg-A0-NYS"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="6qb-nl-QY7" firstAttribute="top" secondItem="hqg-jN-Pmf" secondAttribute="top" id="IWr-2I-4bJ"/>
+                                    <constraint firstAttribute="height" constant="56" id="PPb-Dp-VC7"/>
+                                    <constraint firstItem="6qb-nl-QY7" firstAttribute="leading" secondItem="hqg-jN-Pmf" secondAttribute="leading" id="vKf-hY-0FX"/>
+                                    <constraint firstAttribute="trailing" secondItem="6qb-nl-QY7" secondAttribute="trailing" id="wWx-FJ-Zcb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hqg-jN-Pmf" firstAttribute="top" secondItem="wGP-ae-bdg" secondAttribute="top" id="93W-yK-Rxn"/>
                             <constraint firstItem="wGP-ae-bdg" firstAttribute="trailing" secondItem="6u7-EH-ztC" secondAttribute="trailing" id="LaI-jq-xgV"/>
                             <constraint firstItem="6u7-EH-ztC" firstAttribute="leading" secondItem="wGP-ae-bdg" secondAttribute="leading" id="Nh6-Vv-hKK"/>
-                            <constraint firstItem="ko9-ld-WgA" firstAttribute="top" secondItem="wGP-ae-bdg" secondAttribute="top" constant="50" id="VtO-am-4bJ"/>
-                            <constraint firstItem="wGP-ae-bdg" firstAttribute="trailing" secondItem="ko9-ld-WgA" secondAttribute="trailing" constant="50" id="kQg-Zd-oSz"/>
+                            <constraint firstItem="wGP-ae-bdg" firstAttribute="trailing" secondItem="hqg-jN-Pmf" secondAttribute="trailing" id="TsL-6b-HNg"/>
                             <constraint firstItem="wGP-ae-bdg" firstAttribute="bottom" secondItem="6u7-EH-ztC" secondAttribute="bottom" id="kfU-Pg-AFc"/>
+                            <constraint firstItem="hqg-jN-Pmf" firstAttribute="leading" secondItem="wGP-ae-bdg" secondAttribute="leading" id="pfK-cO-lEK"/>
                             <constraint firstItem="wGP-ae-bdg" firstAttribute="bottom" secondItem="RcI-4V-Mp7" secondAttribute="bottom" id="rM2-JU-Y41"/>
                             <constraint firstItem="RcI-4V-Mp7" firstAttribute="leading" secondItem="wGP-ae-bdg" secondAttribute="leading" id="rmE-kK-8Qv"/>
                             <constraint firstItem="6u7-EH-ztC" firstAttribute="top" secondItem="wGP-ae-bdg" secondAttribute="top" id="sIF-E1-HWA"/>
@@ -93,12 +97,23 @@
                     <connections>
                         <outlet property="mapView" destination="6u7-EH-ztC" id="1fC-vP-bXc"/>
                         <outlet property="nextButton" destination="RcI-4V-Mp7" id="hs3-HC-UQV"/>
+                        <outlet property="searchBar" destination="6qb-nl-QY7" id="Rde-fZ-Vzb"/>
+                        <outlet property="searchDisplayController" destination="K6t-SL-Jw8" id="GMc-5e-6N9"/>
+                        <outlet property="searchView" destination="hqg-jN-Pmf" id="0v0-eh-eC9"/>
                         <segue destination="XXo-me-XNZ" kind="show" id="E1k-H8-2LS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRj-C8-Lg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="K6t-SL-Jw8">
+                    <connections>
+                        <outlet property="delegate" destination="wKe-lz-hRq" id="dcv-lG-qKY"/>
+                        <outlet property="searchContentsController" destination="wKe-lz-hRq" id="SKd-dH-W3O"/>
+                        <outlet property="searchResultsDataSource" destination="wKe-lz-hRq" id="jvO-4n-BeU"/>
+                        <outlet property="searchResultsDelegate" destination="wKe-lz-hRq" id="YzD-gn-nmA"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="273" y="1506"/>
+            <point key="canvasLocation" x="272.80000000000001" y="1505.3973013493255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Vn-2l-r2k">

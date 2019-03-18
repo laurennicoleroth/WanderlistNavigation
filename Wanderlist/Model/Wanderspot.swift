@@ -14,7 +14,7 @@ import InstantSearchCore
 import UIKit
 import GEOSwift
 import Mapbox
-import PromiseKit
+import MapboxGeocoder
 
 //struct PlaceWithDistance {
 //  var place: GMSPlace
@@ -22,26 +22,28 @@ import PromiseKit
 //}
 
 class Wanderspot: NSObject {
-  var  wanderlistOwnerIDs: [String] = []
-  var  name: String = ""
-  var  creatorID: String = ""
-  var  address: String = ""
-  var  latitude: Double = 0.0
-  var  longitude: Double = 0.0
-  var  placeID: String = ""
-  var  distanceAway: Double = 0.0
-  var  categories: [String] = []
-  var  sundayHours: String = ""
-  var  mondayHours: String = ""
-  var  tuesdayHours: String = ""
-  var  wednesdayHours: String = ""
-  var  thursdayHours: String = ""
-  var  fridayHours: String = ""
-  var  saturdayHours: String = ""
-  var  city: String = ""
-  var  zipcode: String?
-  var  image : UIImage?
-  var  geoPoint : [String: Any] {
+  var wanderlistOwnerIDs: [String] = []
+  var name: String = ""
+  var about: String = ""
+  var address: String = ""
+  var neighborhood: String = ""
+  var phoneNumber: String = ""
+  var sublocality : String = ""
+  var latitude: Double = 0.0
+  var longitude: Double = 0.0
+  var distanceAway: Double = 0.0
+  var categories: [String] = []
+  var sundayHours: String = ""
+  var mondayHours: String = ""
+  var tuesdayHours: String = ""
+  var wednesdayHours: String = ""
+  var thursdayHours: String = ""
+  var fridayHours: String = ""
+  var saturdayHours: String = ""
+  var city: String = ""
+  var zipcode: String?
+  var imageName : String? = ""
+  var geoPoint : [String: Any] {
     let point : [String: Any] = [
       "type" : "Point",
       "coordinate": [self.latitude, self.longitude]
@@ -53,11 +55,11 @@ class Wanderspot: NSObject {
     var json = [String: Any]()
     json = [
       "name": self.name,
-      "creatorID": self.creatorID,
+      "about": self.about,
       "address": self.address,
+      "phoneNumber": self.phoneNumber,
       "latitude": self.latitude,
       "longitude": self.longitude,
-      "placeID": self.placeID,
       "distanceAway": self.distanceAway,
       "categories": self.categories,
       "sundayHours": self.sundayHours,
@@ -67,12 +69,35 @@ class Wanderspot: NSObject {
       "thursdayHours": self.thursdayHours,
       "fridayHours": self.fridayHours,
       "saturdayHours": self.saturdayHours,
+      "imageName": self.imageName,
       "city": self.city,
       "zipcode": self.zipcode,
-      "image": self.image as! UIImage,
       "geoPoint": self.geoPoint
     ]
     return json
+  }
+  
+  init(placemark: GeocodedPlacemark) {
+   
+    guard let place : GeocodedPlacemark? = placemark else { return }
+
+//    guard let placeMark = place?.place else { return }
+    self.categories = place?.genres ?? []
+    self.name = place?.formattedName ?? ""
+    self.latitude = place?.location?.coordinate.latitude ?? 0.0
+    self.longitude = place?.location?.coordinate.longitude ?? 0.0
+    self.imageName = place?.imageName ?? ""
+    self.phoneNumber = place?.phoneNumber ?? ""
+    self.address = place?.place?.address ?? ""
+    self.about = place?.description ?? ""
+    self.phoneNumber = place?.place?.phoneNumber ?? ""
+    
+//    print("Placemark: ", placeMark.debugDescription)
+  
+    print("Routable locations: ", place?.routableLocations.debugDescription)
+    
+    
+    
   }
   
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
@@ -83,11 +108,9 @@ class Wanderspot: NSObject {
     let wanderspotJSON: [String: Any] = [
       "wanderlistOwnerIDs": wanderspot.wanderlistOwnerIDs.joined(separator: ", "),
       "name": wanderspot.name as! String,
-      "creatorID": wanderspot.creatorID as! String,
       "address": wanderspot.address as! String,
       "latitude": wanderspot.latitude as! Double,
       "longitude": wanderspot.longitude as! Double,
-      "placeID": wanderspot.placeID as! String,
       "distanceAway": wanderspot.distanceAway as! Double,
       "categories": wanderspot.categories.joined(separator: ", ") as! String,
       "sundayHours": wanderspot.sundayHours as! String,
@@ -172,8 +195,8 @@ class Wanderspot: NSObject {
   }
   
   private func addGeocodingResult(_ geocodingResult: GeocodingResult) {
-    let geocodingResults : [GeocodingResult] = []
-    geocodingResults.append(geocodingResult)
+    var geocodingResults : [GeocodingResult] = []
+//    geocodingResults.append(geocodingResult)
     
     if geocodingResults.count == getAddresses().count {
       //      tableView.reloadData()

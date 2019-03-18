@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.8.1)
   - BoringSSL-GRPC (0.0.2):
     - BoringSSL-GRPC/Implementation (= 0.0.2)
     - BoringSSL-GRPC/Interface (= 0.0.2)
@@ -130,24 +129,20 @@ PODS:
     - Solar (~> 2.1)
   - MapboxNavigationNative (5.0.0)
   - MapboxSpeech (0.1.0)
+  - Material (2.16.4):
+    - Material/Core (= 2.16.4)
+  - Material/Core (2.16.4):
+    - Motion (~> 1.4.3)
   - MMBannerLayout (1.1.1)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Polyline (4.2.0)
-  - PromiseKit (4.5.2):
-    - PromiseKit/Foundation (= 4.5.2)
-    - PromiseKit/QuartzCore (= 4.5.2)
-    - PromiseKit/UIKit (= 4.5.2)
-  - PromiseKit/CorePromise (4.5.2)
-  - PromiseKit/Foundation (4.5.2):
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.2):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.2):
-    - PromiseKit/CorePromise
   - Protobuf (3.6.1)
   - Solar (2.1.0)
   - SwiftLint (0.30.1)
@@ -157,7 +152,6 @@ PODS:
   - Turf (0.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -169,14 +163,13 @@ DEPENDENCIES:
   - Mapbox-iOS-SDK
   - MapboxGeocoder.swift
   - MapboxNavigation
+  - Material
   - MMBannerLayout
-  - PromiseKit
   - SwiftLint
   - SwiftLocation (~> 3.2.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -206,10 +199,11 @@ SPEC REPOS:
     - MapboxNavigation
     - MapboxNavigationNative
     - MapboxSpeech
+    - Material
     - MMBannerLayout
+    - Motion
     - nanopb
     - Polyline
-    - PromiseKit
     - Protobuf
     - Solar
     - SwiftLint
@@ -218,7 +212,6 @@ SPEC REPOS:
     - Turf
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
@@ -248,10 +241,11 @@ SPEC CHECKSUMS:
   MapboxNavigation: 6093c01352cfda65ea7a15b5588e024f66d4bae2
   MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
   MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
+  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   MMBannerLayout: ca952bbfcb6b27b5753a17c4733da53345ffcae5
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
-  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
@@ -259,6 +253,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: f89f2351227d424886efa2be313ab49f684df52f
+PODFILE CHECKSUM: 6d3e4fbc0f708ca52f6f6c8c339ffd460933c77d
 
 COCOAPODS: 1.6.0.beta.1

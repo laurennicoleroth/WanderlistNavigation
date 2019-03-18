@@ -11,8 +11,6 @@ target 'Wanderlist' do
   pod 'Firebase/Storage'
   pod 'Mapbox-iOS-SDK'
   pod 'MapboxNavigation'
-  pod 'Alamofire', '~> 4.5'
-  pod 'PromiseKit'
   pod 'InstantSearch', '~> 3.0'
   pod 'InstantSearchClient', '~> 6.0'
   pod 'SwiftLocation', '~> 3.2.3'
@@ -20,6 +18,7 @@ target 'Wanderlist' do
   pod 'Kingfisher'
   pod 'GEOSwift'
   pod 'MapboxGeocoder.swift'
+  pod 'Material'
  
   target 'WanderlistTests' do
     inherit! :search_paths
