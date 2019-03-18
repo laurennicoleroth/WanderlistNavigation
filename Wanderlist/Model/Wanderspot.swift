@@ -162,7 +162,8 @@ class Wanderspot: NSObject {
       return "No hours"
     }
   }
-  
+
+  /*
   func testAddresses() {
     for address in getAddresses() {
       
@@ -214,5 +215,5 @@ class Wanderspot: NSObject {
       "Central Park Tennis Center, NY",
       "Flatiron Building, NY"
     ]
-  }
+  } */
 }
