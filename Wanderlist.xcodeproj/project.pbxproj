@@ -233,11 +233,9 @@
 		96935502222F176500752858 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				969354FD222F151000752858 /* ExploreMapViewController.swift */,
-				968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */,
-				9695B3E122386F7A005FC76F /* SearchViewController.swift */,
-				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
-				96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */,
+				96FD6E6D2240628300579231 /* Explore */,
+				96FD6E6E2240629400579231 /* Search */,
+				96FD6E6F2240629B00579231 /* Create */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +319,32 @@
 				96F2F6D2223AD97B0023BC53 /* WanderspotAnnotation.swift */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		96FD6E6D2240628300579231 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */,
+				969354FD222F151000752858 /* ExploreMapViewController.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		96FD6E6E2240629400579231 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9695B3E122386F7A005FC76F /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		96FD6E6F2240629B00579231 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
+				96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		AA226DDD2DC226378A47DEFA /* Frameworks */ = {

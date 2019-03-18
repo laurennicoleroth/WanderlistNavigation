@@ -68,7 +68,10 @@ class CreateWanderlistViewController: UIViewController {
     toggleSearchState()
   }
   @IBAction func nextButtonTouched(_ sender: Any) {
-    
+    let storyboard = UIStoryboard(name: "Create", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "EditWanderspotsViewController") as! EditWanderspotsViewController
+    controller.wanderspots = mapView.wanderspots
+    self.navigationController?.pushViewController(controller, animated: true)
   }
   
   func setupMapUI() {
