@@ -17,9 +17,11 @@ class CreateWanderlistViewController: UIViewController {
   @IBOutlet var searchView: UIView!
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var addButton: UIButton!
+  @IBOutlet var placeResultsCollection: UICollectionView!
   
   let geocoder = Geocoder.shared
   var annotations : [WanderspotAnnotation]?
+  var results : [String] = []
   var wanderspots : [Wanderspot] = [] {
     didSet {
       print("Wanderspot added", wanderspots.last?.latitude, wanderspots.last?.longitude)
@@ -34,7 +36,7 @@ class CreateWanderlistViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    setupMapUI()
+    setupMapUI()
 
   }
   
@@ -60,7 +62,7 @@ class CreateWanderlistViewController: UIViewController {
   }
 
   @IBAction func addButtonTouched(_ sender: Any) {
-    print("Add button touched")
+    toggleSearchState()
   }
   @IBAction func nextButtonTouched(_ sender: Any) {
     
@@ -89,5 +91,25 @@ extension CreateWanderlistViewController: UISearchBarDelegate {
   
   func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
     print("Results list button clicked")
+  }
+}
+
+extension CreateWanderlistViewController : UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return results.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceResultCollectionViewCell", for: indexPath) as! PlaceResultCollectionViewCell
+    cell.configureCellFrom(result: results[indexPath.row])
+    return cell
+  }
+  
+}
+
+extension CreateWanderlistViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print("Did select address: ", results[indexPath.row])
   }
 }
