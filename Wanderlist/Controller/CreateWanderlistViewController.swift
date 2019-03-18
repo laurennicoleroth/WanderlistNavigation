@@ -86,6 +86,7 @@ extension CreateWanderlistViewController: UISearchBarDelegate {
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     print("Cancel clicked")
     results = []
+    toggleSearchState()
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
