@@ -57,22 +57,22 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-bX-c6J">
-                        <rect key="frame" x="5" y="115.5" width="190" height="55.5"/>
+                        <rect key="frame" x="5" y="100" width="190" height="71"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3z-0h-Duq">
                                 <rect key="frame" x="0.0" y="0.0" width="190" height="25"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="0.3 miles away" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ0-6a-7HB">
-                                <rect key="frame" x="0.0" y="25" width="190" height="16.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="0.3 miles away" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ0-6a-7HB">
+                                <rect key="frame" x="0.0" y="25" width="190" height="31"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Italic" family="Open Sans" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="OPEN TODAY: 5:30AM - 2:00AM" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kn-FG-v6R">
-                                <rect key="frame" x="0.0" y="41.5" width="190" height="14"/>
+                                <rect key="frame" x="0.0" y="56" width="190" height="15"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="11"/>
                                 <color key="textColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -95,16 +95,16 @@
                     </stackView>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="8FD-HQ-JLW" firstAttribute="top" secondItem="eCK-dX-pX2" secondAttribute="top" id="4Og-Pe-Oxj"/>
                 <constraint firstItem="UbK-bX-c6J" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" constant="5" id="9Ol-gV-amd"/>
                 <constraint firstAttribute="trailing" secondItem="qBh-Vl-tUZ" secondAttribute="trailing" id="CwG-ej-X8n"/>
                 <constraint firstItem="qBh-Vl-tUZ" firstAttribute="top" secondItem="eCK-dX-pX2" secondAttribute="top" id="I08-4y-NvG"/>
                 <constraint firstAttribute="trailing" secondItem="UbK-bX-c6J" secondAttribute="trailing" constant="5" id="LaX-Zz-zZF"/>
-                <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="8FD-HQ-JLW" secondAttribute="bottom" constant="15.5" id="W2X-qJ-6Yl"/>
+                <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="8FD-HQ-JLW" secondAttribute="bottom" id="W2X-qJ-6Yl"/>
                 <constraint firstAttribute="bottom" secondItem="UbK-bX-c6J" secondAttribute="bottom" constant="5" id="a4K-6Z-rMF"/>
-                <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="qBh-Vl-tUZ" secondAttribute="bottom" constant="15.5" id="a7t-ds-oPQ"/>
+                <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="qBh-Vl-tUZ" secondAttribute="bottom" id="a7t-ds-oPQ"/>
                 <constraint firstAttribute="trailing" secondItem="8FD-HQ-JLW" secondAttribute="trailing" id="fif-BS-g6Z"/>
                 <constraint firstItem="8FD-HQ-JLW" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" id="lh1-5V-fZZ"/>
                 <constraint firstItem="qBh-Vl-tUZ" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" id="wYu-pU-avg"/>
