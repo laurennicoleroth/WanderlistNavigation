@@ -18,6 +18,12 @@ class WanderlistDetailMapboxMap: MGLMapView {
   var wanderspots : [Wanderspot] = [] {
     didSet {
       print("Wanderspot added", wanderspots.last?.name)
+      if wanderspots.count > 1 {
+        fitMapToWanderspots()
+      } else if wanderspots.count == 1 {
+        addWanderspotToMap(wanderspot: wanderspots.first!)
+      }
+      
     }
   }
   

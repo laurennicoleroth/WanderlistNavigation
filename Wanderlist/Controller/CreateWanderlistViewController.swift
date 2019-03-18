@@ -80,22 +80,25 @@ class CreateWanderlistViewController: UIViewController {
 
 extension CreateWanderlistViewController: UISearchBarDelegate {
   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    print("search bar text did end editing")
+    performSearch()
   }
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     print("Cancel clicked")
+    results = []
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-  
-    print("Text to search:", searchBar.text)
-    guard let query = searchBar.text else { return }
-    lookupAddress(query)
+    performSearch()
   }
   
   func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-    print("Results list button clicked")
+    performSearch()
+  }
+  
+  func performSearch() {
+    guard let query = searchBar.text else { return }
+    lookupAddress(query)
   }
 }
 
@@ -117,7 +120,12 @@ extension CreateWanderlistViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Did select address: ", results[indexPath.row])
     guard let placemark : Placemark? = results[indexPath.row] else { return }
-    mapView.addPlacemarkToMap(placemark: placemark!)
+    mapView.wanderspots.append(Wanderspot(placemark: placemark!))
+    if mapView.wanderspots.count > 0 {
+      nextButton.isEnabled = true
+    } else {
+      nextButton.isEnabled = false
+    }
     toggleResultsState()
   }
 }

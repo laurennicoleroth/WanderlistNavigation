@@ -77,13 +77,12 @@ class Wanderspot: NSObject {
     return json
   }
   
-  init(placemark: GeocodedPlacemark) {
+  init(placemark: Placemark) {
    
-    guard let place : GeocodedPlacemark? = placemark else { return }
+    guard let place : Placemark? = placemark else { return }
 
-//    guard let placeMark = place?.place else { return }
     self.categories = place?.genres ?? []
-    self.name = place?.formattedName ?? ""
+    self.name = place?.name ?? ""
     self.latitude = place?.location?.coordinate.latitude ?? 0.0
     self.longitude = place?.location?.coordinate.longitude ?? 0.0
     self.imageName = place?.imageName ?? ""
@@ -91,13 +90,6 @@ class Wanderspot: NSObject {
     self.address = place?.place?.address ?? ""
     self.about = place?.description ?? ""
     self.phoneNumber = place?.place?.phoneNumber ?? ""
-    
-//    print("Placemark: ", placeMark.debugDescription)
-  
-    print("Routable locations: ", place?.routableLocations.debugDescription)
-    
-    
-    
   }
   
   class func saveToAlgolia(wanderlistID: String, wanderspot: Wanderspot) {
