@@ -11,7 +11,8 @@ import UIKit
 class WanderspotCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
-
+  @IBOutlet weak var addressLabel: UILabel!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -19,7 +20,7 @@ class WanderspotCollectionViewCell: UICollectionViewCell {
 
   func configureCellFrom(wanderspot: Wanderspot) {
     print("Wanderspot in cell", wanderspot.name)
-
+    titleLabel.text = wanderspot.name
 //    let distance = String(format: "%.2f miles first first stop.", wanderspot.distanceAway)
 //
 //    if wanderspot.distanceAway == 0.0 {

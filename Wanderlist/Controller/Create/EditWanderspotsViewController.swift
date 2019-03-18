@@ -9,6 +9,7 @@
 import UIKit
 
 class EditWanderspotsViewController: UIViewController {
+  
   var wanderspots: [Wanderspot] = []
   @IBOutlet var wanderspotsCollection: UICollectionView!
   
