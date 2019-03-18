@@ -10,9 +10,16 @@ import Foundation
 import CoreLocation
 import InstantSearchCore
 import Mapbox
+import MapboxGeocoder
 import SwiftLocation
 
 class WanderlistDetailMapboxMap: MGLMapView {
+  var wanderlist : Wanderlist?
+  var wanderspots : [Wanderspot] = [] {
+    didSet {
+      print("Wanderspot added", wanderspots.last?.name)
+    }
+  }
   
   func showCurrentLocation() {
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
@@ -20,6 +27,34 @@ class WanderlistDetailMapboxMap: MGLMapView {
     }) { (error, location) -> Void in
       debugPrint(error)
     }
+  }
+  
+  
+  func fitMapToWanderspots() {
+    var annotations = [MGLPointAnnotation]()
+    var coordinates = [CLLocationCoordinate2D]()
+    for spot in self.wanderspots {
+      let latitude = spot.latitude
+      let longitude = spot.longitude
+      
+      addWanderspotAsAnnotation(wanderspot: spot)
+      self.setVisibleCoordinates(
+        coordinates,
+        count: UInt(coordinates.count),
+        edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 80, right: 40),
+        animated: true
+      )
+    }
+  }
+  
+  func addPlacemarkToMap(placemark: Placemark ) {
+    let annotation = MGLPointAnnotation()
+    let latitude = placemark.location?.coordinate.latitude as! Double
+    let longitude = placemark.location?.coordinate.longitude as! Double
+    
+    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    annotation.title = placemark.name
+    self.addAnnotation(annotation)
   }
   
   func addWanderspotToMap(wanderspot: Wanderspot) {

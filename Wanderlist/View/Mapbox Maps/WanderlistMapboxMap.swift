@@ -30,6 +30,8 @@ class WanderlistMapboxMap: MGLMapView {
     }
   }
   
+  
+  
   func showBlankCurrentLocation() {
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
       self.setCenter(location.coordinate, zoomLevel: 12, animated: true)
