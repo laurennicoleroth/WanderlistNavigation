@@ -15,15 +15,16 @@ import SwiftLocation
 
 class WanderlistDetailMapboxMap: MGLMapView {
   var wanderlist : Wanderlist?
+  var currentLocation : CLLocationCoordinate2D?
+  
   var wanderspots : [Wanderspot] = [] {
     didSet {
-      print("Wanderspot added", wanderspots.last?.name)
-      if wanderspots.count > 1 {
-        fitMapToWanderspots()
-      } else if wanderspots.count == 1 {
+      if wanderspots.count == 1 {
+        setCenter(CLLocationCoordinate2D(latitude: wanderspots.first?.latitude ?? 0.0, longitude: wanderspots.first?.longitude ?? 0.0), zoomLevel: 14, animated: true)
         addWanderspotToMap(wanderspot: wanderspots.first!)
+      } else {
+        fitMapToWanderspots()
       }
-      
     }
   }
   
@@ -37,17 +38,16 @@ class WanderlistDetailMapboxMap: MGLMapView {
   
   
   func fitMapToWanderspots() {
-    var annotations = [MGLPointAnnotation]()
     var coordinates = [CLLocationCoordinate2D]()
     for spot in self.wanderspots {
       let latitude = spot.latitude
       let longitude = spot.longitude
-      
+      coordinates.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
       addWanderspotAsAnnotation(wanderspot: spot)
       self.setVisibleCoordinates(
         coordinates,
         count: UInt(coordinates.count),
-        edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 80, right: 40),
+        edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40),
         animated: true
       )
     }

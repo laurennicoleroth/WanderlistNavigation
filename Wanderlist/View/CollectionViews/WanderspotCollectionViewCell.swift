@@ -13,9 +13,13 @@ class WanderspotCollectionViewCell: UICollectionViewCell {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
   
+  @IBOutlet weak var imageView: UIImageView!
+  
+  
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    
+    imageView.setRounded()
   }
 
   func configureCellFrom(index: Int, wanderspot: Wanderspot) {

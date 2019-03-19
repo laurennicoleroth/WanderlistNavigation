@@ -123,6 +123,7 @@ extension CreateWanderlistViewController : UICollectionViewDataSource {
 extension CreateWanderlistViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("Did select address: ", results[indexPath.row])
+    searchBar.text = ""
     guard let placemark : Placemark? = results[indexPath.row] else { return }
     mapView.wanderspots.append(Wanderspot(placemark: placemark!))
     if mapView.wanderspots.count > 0 {
