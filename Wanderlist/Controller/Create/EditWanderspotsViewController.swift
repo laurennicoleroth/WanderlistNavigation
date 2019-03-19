@@ -17,6 +17,13 @@ class EditWanderspotsViewController: UIViewController {
     super.viewDidLoad()
     wanderspotsCollection.register(UINib(nibName: "WanderspotCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderspotCollectionViewCell")
   }
+  
+  func nextButtonTouched() {
+    let storyboard = UIStoryboard(name: "Create", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "EditWanderspotsViewController") as! EditWanderspotsViewController
+    controller.wanderspots = self.wanderspots
+    self.navigationController?.pushViewController(controller, animated: true)
+  }
 }
 
 extension EditWanderspotsViewController: UICollectionViewDataSource, UICollectionViewDelegate {

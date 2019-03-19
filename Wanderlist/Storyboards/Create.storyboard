@@ -202,19 +202,23 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PUW-r5-qPh">
-                                    <size key="itemSize" width="375" height="200"/>
+                                    <size key="itemSize" width="375" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WanderspotCollectionViewCell" id="KJT-Je-0at" customClass="WanderspotCollectionViewCell" customModule="Wanderlist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDividerHidden" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -222,23 +226,56 @@
                                     <outlet property="delegate" destination="XXo-me-XNZ" id="Hws-f6-yej"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1e-Nd-Mu1">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S4f-7Y-7yR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTouched:" destination="wKe-lz-hRq" eventType="touchUpInside" id="B52-Ys-A43"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LD8-Z7-tI8" firstAttribute="trailing" secondItem="5or-1t-olu" secondAttribute="trailing" id="3Kr-1d-VPF"/>
                             <constraint firstItem="LD8-Z7-tI8" firstAttribute="bottom" secondItem="5or-1t-olu" secondAttribute="bottom" id="Kb2-kd-29P"/>
+                            <constraint firstItem="G1e-Nd-Mu1" firstAttribute="leading" secondItem="LD8-Z7-tI8" secondAttribute="leading" id="TnP-HG-tyQ"/>
                             <constraint firstItem="5or-1t-olu" firstAttribute="leading" secondItem="LD8-Z7-tI8" secondAttribute="leading" id="brF-yy-ZTw"/>
+                            <constraint firstItem="LD8-Z7-tI8" firstAttribute="bottom" secondItem="G1e-Nd-Mu1" secondAttribute="bottom" id="ppw-BC-3Er"/>
                             <constraint firstItem="5or-1t-olu" firstAttribute="top" secondItem="LD8-Z7-tI8" secondAttribute="top" id="trm-Ef-BTt"/>
+                            <constraint firstAttribute="trailing" secondItem="G1e-Nd-Mu1" secondAttribute="trailing" id="vG3-gh-IO9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LD8-Z7-tI8"/>
                     </view>
                     <connections>
                         <outlet property="wanderspotsCollection" destination="5or-1t-olu" id="S4S-hJ-aQF"/>
+                        <segue destination="sRl-gZ-vhI" kind="show" id="K7I-LV-Nkz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaI-qz-BY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1001" y="1505"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NTz-eK-ocO">
+            <objects>
+                <viewController id="sRl-gZ-vhI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y5W-3A-Pew">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BQ4-gb-eNi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPm-wf-cD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="1506"/>
         </scene>
     </scenes>
     <resources>

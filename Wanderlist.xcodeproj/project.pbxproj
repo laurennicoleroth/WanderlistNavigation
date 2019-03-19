@@ -55,6 +55,7 @@
 		96F7A24B223C3651000FF76E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A24A223C3651000FF76E /* Errors.swift */; };
 		96F7A25022403DD5000FF76E /* PlaceResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A24E22403DD5000FF76E /* PlaceResultCollectionViewCell.swift */; };
 		96F7A25122403DD5000FF76E /* PlaceResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F7A24F22403DD5000FF76E /* PlaceResultCollectionViewCell.xib */; };
+		96FD6E712240699500579231 /* AddWanderlistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		96F7A24A223C3651000FF76E /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		96F7A24E22403DD5000FF76E /* PlaceResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		96F7A24F22403DD5000FF76E /* PlaceResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceResultCollectionViewCell.xib; sourceTree = "<group>"; };
+		96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWanderlistDetailsViewController.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			children = (
 				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
 				96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */,
+				96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				9693550E222F1BC000752858 /* ArrayExt.swift in Sources */,
 				9695B3E622398ECC005FC76F /* UIView+Extensions.swift in Sources */,
 				96935509222F1AFF00752858 /* secret.swift in Sources */,
+				96FD6E712240699500579231 /* AddWanderlistDetailsViewController.swift in Sources */,
 				96935507222F17F400752858 /* Wanderspot.swift in Sources */,
 				96F7A235223BFAD9000FF76E /* GeoMapbox.swift in Sources */,
 				96F7A23F223C2B0D000FF76E /* NativeGeocoding.swift in Sources */,
