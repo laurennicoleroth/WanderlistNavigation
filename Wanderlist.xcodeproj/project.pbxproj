@@ -45,6 +45,7 @@
 		9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E122386F7A005FC76F /* SearchViewController.swift */; };
 		9695B3E422387427005FC76F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695B3E322387427005FC76F /* Search.storyboard */; };
 		9695B3E622398ECC005FC76F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E522398ECC005FC76F /* UIView+Extensions.swift */; };
+		96DE3B9622415D8C009E6FBC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3B9522415D8C009E6FBC /* Result.swift */; };
 		96F2F6CD223AC6BB0023BC53 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F2F6CC223AC6BB0023BC53 /* Create.storyboard */; };
 		96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */; };
 		96F2F6D1223AD5180023BC53 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */; };
@@ -116,6 +117,7 @@
 		9695B3E322387427005FC76F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9695B3E522398ECC005FC76F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		96B962DA223B04E60086B710 /* nyc_neighborhoods.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = nyc_neighborhoods.geojson; sourceTree = "<group>"; };
+		96DE3B9522415D8C009E6FBC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		96F2F6CC223AC6BB0023BC53 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWanderlistViewController.swift; sourceTree = "<group>"; };
 		96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				968ED31C22330220005F6AE1 /* User.swift */,
 				964BF9482236C3A0003E77DC /* Wanderlist.swift */,
 				96935506222F17F400752858 /* Wanderspot.swift */,
+				96DE3B9522415D8C009E6FBC /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */,
 				968ED32822334C96005F6AE1 /* WanderspotCollectionViewCell.swift in Sources */,
 				964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */,
+				96DE3B9622415D8C009E6FBC /* Result.swift in Sources */,
 				9693550C222F1B6B00752858 /* AuthService.swift in Sources */,
 				96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */,
 				968ED31D22330220005F6AE1 /* User.swift in Sources */,

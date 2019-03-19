@@ -11,19 +11,16 @@ import Mapbox
 import MapboxGeocoder
 
 class PlaceResultCollectionViewCell: UICollectionViewCell {
-
+  
   @IBOutlet weak var addressLabel: UILabel!
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-  
-  func configureCellFrom(result: Placemark) {
-    print("Configuring from ", result.qualifiedName )
-    print(addressLabel)
-    addressLabel.text = result.qualifiedName
+    super.awakeFromNib()
   }
-
-
+  
+  func configureCellFrom(result: Result) {
+    addressLabel.text = result.name
+  }
+  
+  
 }

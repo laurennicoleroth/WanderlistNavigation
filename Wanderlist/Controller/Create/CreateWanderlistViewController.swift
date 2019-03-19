@@ -10,6 +10,8 @@ import UIKit
 import Mapbox
 import MapboxGeocoder
 
+
+
 class CreateWanderlistViewController: UIViewController {
 
   @IBOutlet var mapView: WanderlistDetailMapboxMap!
@@ -20,24 +22,54 @@ class CreateWanderlistViewController: UIViewController {
   @IBOutlet var placeResultsCollection: UICollectionView!
   
   let geocoder = Geocoder.shared
-  var annotations : [WanderspotAnnotation]?
-  var results : [Placemark] = []
+  var results : [Result] = []
   var wanderspots : [Wanderspot] = [] {
     didSet {
-      print("Wanderspot added", wanderspots.last?.latitude, wanderspots.last?.longitude)
-      if wanderspots.count > 0 {
-        nextButton.isEnabled = true
-      } else {
-        nextButton.isEnabled = false
-      }
+      updateMap()
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.title = "Create"
+    
     setupMapUI()
     placeResultsCollection.register(UINib(nibName: "PlaceResultCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "PlaceResultCollectionViewCell")
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    self.results = []
+    self.wanderspots = []
+    self.mapView?.removeFromSuperview()
+    self.mapView = nil
+  }
+  
+  func updateMap() {
+    nextButton.isEnabled = true
+    if wanderspots.count == 1 {
+      mapView.addWanderspotToMap(wanderspot: wanderspots.first!)
+    } else if wanderspots.count == 0 {
+      nextButton.isEnabled = false
+    } else {
+      fitMapToWanderspots()
+    }
+  }
+  
+  func fitMapToWanderspots() {
+    var coordinates = [CLLocationCoordinate2D]()
+    for spot in self.wanderspots {
+      let latitude = spot.latitude
+      let longitude = spot.longitude
+      coordinates.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+      mapView.addWanderspotAsAnnotation(wanderspot: spot)
+      mapView.setVisibleCoordinates(
+        coordinates,
+        count: UInt(coordinates.count),
+        edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40),
+        animated: true
+      )
+    }
   }
   
   func lookupAddress(_ address: String) {
@@ -46,10 +78,15 @@ class CreateWanderlistViewController: UIViewController {
     options.focalLocation = CLLocation(latitude: 40.792143, longitude: -73.974156)
     options.allowedScopes = [.address, .pointOfInterest]
     
+    results = []
+    
     let task = geocoder.geocode(options) { [unowned self] (placemarks, attribution, error) in
       guard let placemarks = placemarks else { return }
+      for place in placemarks {
+        self.results.append(Result(name: place.name, address: place.formattedName, coordinate: place.location?.coordinate))
+        print(self.results.count)
+      }
 
-      self.results = placemarks
       self.placeResultsCollection.reloadData()
       self.toggleResultsState()
     }
@@ -68,14 +105,14 @@ class CreateWanderlistViewController: UIViewController {
     toggleSearchState()
   }
   @IBAction func nextButtonTouched(_ sender: Any) {
+
     let storyboard = UIStoryboard(name: "Create", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "EditWanderspotsViewController") as! EditWanderspotsViewController
-    controller.wanderspots = mapView.wanderspots
+    controller.wanderspots = wanderspots
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
   func setupMapUI() {
-    
     let center = CLLocationCoordinate2D(latitude: 40.792143, longitude: -73.974156)
     self.mapView?.setCenter(center, zoomLevel: 12, animated: true)
   }
@@ -103,6 +140,9 @@ extension CreateWanderlistViewController: UISearchBarDelegate {
   func performSearch() {
     guard let query = searchBar.text else { return }
     lookupAddress(query)
+    
+    results = []
+    searchBar.text = ""
   }
 }
 
@@ -122,15 +162,10 @@ extension CreateWanderlistViewController : UICollectionViewDataSource {
 
 extension CreateWanderlistViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Did select address: ", results[indexPath.row])
-    searchBar.text = ""
-    guard let placemark : Placemark? = results[indexPath.row] else { return }
-    mapView.wanderspots.append(Wanderspot(placemark: placemark!))
-    if mapView.wanderspots.count > 0 {
-      nextButton.isEnabled = true
-    } else {
-      nextButton.isEnabled = false
-    }
+
+    let wanderspot = Wanderspot(result: results[indexPath.row])
+    self.wanderspots.append(wanderspot)
+    
     toggleResultsState()
   }
 }
@@ -147,5 +182,29 @@ extension CreateWanderlistViewController: MGLMapViewDelegate {
     }
     
     return annotationImage
+  }
+  
+  func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+    if annotation is MGLUserLocation && mapView.userLocation != nil {
+      print("Have annotation ", annotation)
+    }
+    return nil
+  }
+  
+  func mapView(_ mapView: MGLMapView, rightCalloutAccessoryViewFor annotation: MGLAnnotation) -> UIView? {
+    return UIButton(type: .detailDisclosure)
+  }
+  
+  func mapViewDidStopLocatingUser(_ mapView: MGLMapView) {
+    print("Found user")
+  }
+  
+  func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+    
+    return true
+  }
+  
+  func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+    print("Annotation selected")
   }
 }

@@ -161,7 +161,6 @@ extension WanderlistPreviewViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
     selectedWanderspot = wanderspots[indexPath.row]
-    print("Wanderspot selected: ", selectedWanderspot)
     let storyboard = UIStoryboard(name: "Home", bundle: nil)
     //    let controller = storyboard.instantiateViewController(withIdentifier: "WanderlistPreviewViewController") as! WanderlistPreviewViewController
     ////    controller.wanderlist = wanderspots[indexPath.row]

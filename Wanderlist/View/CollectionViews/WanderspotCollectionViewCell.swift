@@ -23,8 +23,8 @@ class WanderspotCollectionViewCell: UICollectionViewCell {
   }
 
   func configureCellFrom(index: Int, wanderspot: Wanderspot) {
-    print("Wanderspot in cell", wanderspot.name)
     titleLabel.text = "\(index + 1). \(wanderspot.name)"
+    addressLabel.text = wanderspot.address
 //    let distance = String(format: "%.2f miles first first stop.", wanderspot.distanceAway)
 //
 //    if wanderspot.distanceAway == 0.0 {

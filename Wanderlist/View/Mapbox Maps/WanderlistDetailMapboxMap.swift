@@ -14,19 +14,6 @@ import MapboxGeocoder
 import SwiftLocation
 
 class WanderlistDetailMapboxMap: MGLMapView {
-  var wanderlist : Wanderlist?
-  var currentLocation : CLLocationCoordinate2D?
-  
-  var wanderspots : [Wanderspot] = [] {
-    didSet {
-      if wanderspots.count == 1 {
-        setCenter(CLLocationCoordinate2D(latitude: wanderspots.first?.latitude ?? 0.0, longitude: wanderspots.first?.longitude ?? 0.0), zoomLevel: 14, animated: true)
-        addWanderspotToMap(wanderspot: wanderspots.first!)
-      } else {
-        fitMapToWanderspots()
-      }
-    }
-  }
   
   func showCurrentLocation() {
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
@@ -37,9 +24,9 @@ class WanderlistDetailMapboxMap: MGLMapView {
   }
   
   
-  func fitMapToWanderspots() {
+  func fitMapToWanderspots(wanderspots: [Wanderspot]) {
     var coordinates = [CLLocationCoordinate2D]()
-    for spot in self.wanderspots {
+    for spot in wanderspots {
       let latitude = spot.latitude
       let longitude = spot.longitude
       coordinates.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
