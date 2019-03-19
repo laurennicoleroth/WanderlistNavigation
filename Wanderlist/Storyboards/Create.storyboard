@@ -104,22 +104,20 @@
                                     <constraint firstAttribute="bottom" secondItem="rb7-BC-yA3" secondAttribute="bottom" id="wpI-vb-qS5"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-5B-kvq" customClass="RoundedButton" customModule="Wanderlist" customModuleProvider="target">
-                                <rect key="frame" x="275" y="114" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-5B-kvq" customClass="RoundedButton" customModule="Wanderlist" customModuleProvider="target">
+                                <rect key="frame" x="250" y="114" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.75294117650000003" blue="0.035294117649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Aol-7U-O6p"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Stj-Q6-RvP"/>
-                                    <constraint firstAttribute="width" constant="50" id="Taz-5t-sWR"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zNw-lG-LaC"/>
+                                    <constraint firstAttribute="height" constant="75" id="4me-3u-rqi"/>
+                                    <constraint firstAttribute="width" constant="75" id="Taz-5t-sWR"/>
                                 </constraints>
-                                <state key="normal" title="+">
+                                <state key="normal" image="plus-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
+                                        <real key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -129,7 +127,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wGP-ae-bdg" firstAttribute="trailing" secondItem="8gN-5B-kvq" secondAttribute="trailing" constant="50" id="Gjf-bO-Pzd"/>
                             <constraint firstItem="RcI-4V-Mp7" firstAttribute="trailing" secondItem="wGP-ae-bdg" secondAttribute="trailing" id="HaL-9F-Bth"/>
                             <constraint firstItem="RcI-4V-Mp7" firstAttribute="bottom" secondItem="wGP-ae-bdg" secondAttribute="bottom" id="KPb-eA-1Fu"/>
                             <constraint firstItem="wGP-ae-bdg" firstAttribute="trailing" secondItem="6u7-EH-ztC" secondAttribute="trailing" id="LaI-jq-xgV"/>
