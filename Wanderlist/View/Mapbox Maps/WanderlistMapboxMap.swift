@@ -103,7 +103,6 @@ class WanderlistMapboxMap: MGLMapView {
     
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
 

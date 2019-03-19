@@ -10,8 +10,6 @@ import UIKit
 import Mapbox
 import MapboxGeocoder
 
-
-
 class CreateWanderlistViewController: UIViewController {
 
   @IBOutlet var mapView: WanderlistDetailMapboxMap!
@@ -41,8 +39,6 @@ class CreateWanderlistViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     self.results = []
     self.wanderspots = []
-    self.mapView?.removeFromSuperview()
-    self.mapView = nil
   }
   
   func updateMap() {
@@ -84,7 +80,6 @@ class CreateWanderlistViewController: UIViewController {
       guard let placemarks = placemarks else { return }
       for place in placemarks {
         self.results.append(Result(name: place.name, address: place.formattedName, coordinate: place.location?.coordinate))
-        print(self.results.count)
       }
 
       self.placeResultsCollection.reloadData()
@@ -186,7 +181,7 @@ extension CreateWanderlistViewController: MGLMapViewDelegate {
   
   func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
     if annotation is MGLUserLocation && mapView.userLocation != nil {
-      print("Have annotation ", annotation)
+      
     }
     return nil
   }
@@ -196,7 +191,7 @@ extension CreateWanderlistViewController: MGLMapViewDelegate {
   }
   
   func mapViewDidStopLocatingUser(_ mapView: MGLMapView) {
-    print("Found user")
+
   }
   
   func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {

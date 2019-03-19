@@ -56,7 +56,6 @@ class WanderlistDetailMapboxMap: MGLMapView {
     let longitude = wanderspot.longitude
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
   
@@ -130,7 +129,6 @@ class WanderlistDetailMapboxMap: MGLMapView {
     let longitude = wanderspot.longitude
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
   

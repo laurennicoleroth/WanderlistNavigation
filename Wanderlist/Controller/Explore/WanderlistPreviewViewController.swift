@@ -20,7 +20,6 @@ class WanderlistPreviewViewController: UIViewController {
   var selectedWanderspot: Wanderspot?
   var wanderspots: [Wanderspot] = [] {
     didSet {
-      wanderspots = wanderspots.sorted(by: { $0.distanceAway < $1.distanceAway})
       wanderspotsCollectionView.reloadData()
       addAnnotationsToMap()
     }

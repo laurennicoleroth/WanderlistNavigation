@@ -10,7 +10,6 @@ import UIKit
 
 class EditWanderspotsViewController: UIViewController {
   
-  var wanderlist : Wanderlist?
   var wanderspots : [Wanderspot] = []
   
   @IBOutlet var wanderspotsCollection: UICollectionView!
@@ -18,19 +17,9 @@ class EditWanderspotsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if wanderspots.count > 0 {
-       wanderspotsCollection.reloadData()
-    }
-   
     wanderspotsCollection.register(UINib(nibName: "WanderspotCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "WanderspotCollectionViewCell")
   }
   
-  func nextButtonTouched() {
-    let storyboard = UIStoryboard(name: "Create", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "EditWanderspotsViewController") as! EditWanderspotsViewController
-    controller.wanderspots = wanderspots
-    self.navigationController?.pushViewController(controller, animated: true)
-  }
 }
 
 extension EditWanderspotsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -40,8 +29,10 @@ extension EditWanderspotsViewController: UICollectionViewDataSource, UICollectio
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderspotCollectionViewCell", for: indexPath) as! WanderspotCollectionViewCell
-//    cell.configureCellFrom(index: indexPath.row, wanderspot: wanderspots[indexPath.row])
+    let wanderspot = wanderspots[indexPath.row]
+    cell.configureCellFrom(index: indexPath.row, wanderspot: wanderspot)
+    
     return cell
   }
-
+  
 }
