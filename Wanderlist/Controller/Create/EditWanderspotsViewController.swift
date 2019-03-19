@@ -26,7 +26,7 @@ extension EditWanderspotsViewController: UICollectionViewDataSource, UICollectio
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderspotCollectionViewCell", for: indexPath) as! WanderspotCollectionViewCell
-    cell.configureCellFrom(wanderspot: wanderspots[indexPath.row])
+    cell.configureCellFrom(index: indexPath.row, wanderspot: wanderspots[indexPath.row])
     return cell
   }
   

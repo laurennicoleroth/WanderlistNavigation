@@ -149,7 +149,7 @@ extension WanderlistPreviewViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let wanderspot = wanderspots[indexPath.row]
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WanderspotCollectionViewCell", for: indexPath) as! WanderspotCollectionViewCell
-    cell.configureCellFrom(wanderspot: wanderspot)
+    cell.configureCellFrom(index: indexPath.row, wanderspot: wanderspot)
 //    setPhotoOnCellForWanderspotID(cell: cell, id: wanderspot.placeID)
     cell.backgroundColor = .white
     return cell

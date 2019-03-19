@@ -34,28 +34,6 @@
                             <constraint firstAttribute="height" constant="100" id="hf8-d0-bHL"/>
                         </constraints>
                     </imageView>
-                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBh-Vl-tUZ" customClass="GradientView" customModule="Wanderlist" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-gh-JOb">
-                                <rect key="frame" x="170" y="10" width="20" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="XoC-mE-aHA"/>
-                                    <constraint firstAttribute="height" constant="29" id="ef7-AD-fcK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="x">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zaV-gh-JOb" secondAttribute="trailing" constant="10" id="V2x-bk-5Gp"/>
-                            <constraint firstAttribute="height" constant="100" id="bCM-xc-G9w"/>
-                            <constraint firstItem="zaV-gh-JOb" firstAttribute="top" secondItem="qBh-Vl-tUZ" secondAttribute="top" constant="10" id="tCC-vL-Hee"/>
-                        </constraints>
-                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UbK-bX-c6J">
                         <rect key="frame" x="5" y="100" width="190" height="71"/>
                         <subviews>
@@ -99,22 +77,18 @@
             <constraints>
                 <constraint firstItem="8FD-HQ-JLW" firstAttribute="top" secondItem="eCK-dX-pX2" secondAttribute="top" id="4Og-Pe-Oxj"/>
                 <constraint firstItem="UbK-bX-c6J" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" constant="5" id="9Ol-gV-amd"/>
-                <constraint firstAttribute="trailing" secondItem="qBh-Vl-tUZ" secondAttribute="trailing" id="CwG-ej-X8n"/>
-                <constraint firstItem="qBh-Vl-tUZ" firstAttribute="top" secondItem="eCK-dX-pX2" secondAttribute="top" id="I08-4y-NvG"/>
                 <constraint firstAttribute="trailing" secondItem="UbK-bX-c6J" secondAttribute="trailing" constant="5" id="LaX-Zz-zZF"/>
                 <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="8FD-HQ-JLW" secondAttribute="bottom" id="W2X-qJ-6Yl"/>
                 <constraint firstAttribute="bottom" secondItem="UbK-bX-c6J" secondAttribute="bottom" constant="5" id="a4K-6Z-rMF"/>
-                <constraint firstItem="UbK-bX-c6J" firstAttribute="top" secondItem="qBh-Vl-tUZ" secondAttribute="bottom" id="a7t-ds-oPQ"/>
                 <constraint firstAttribute="trailing" secondItem="8FD-HQ-JLW" secondAttribute="trailing" id="fif-BS-g6Z"/>
                 <constraint firstItem="8FD-HQ-JLW" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" id="lh1-5V-fZZ"/>
-                <constraint firstItem="qBh-Vl-tUZ" firstAttribute="leading" secondItem="eCK-dX-pX2" secondAttribute="leading" id="wYu-pU-avg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hTa-IA-zRe"/>
             <connections>
                 <outlet property="addressLabel" destination="oQ0-6a-7HB" id="hK8-dB-Wal"/>
                 <outlet property="titleLabel" destination="o3z-0h-Duq" id="mPQ-4u-9bd"/>
             </connections>
-            <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
+            <point key="canvasLocation" x="283" y="133"/>
         </collectionViewCell>
     </objects>
     <resources>
