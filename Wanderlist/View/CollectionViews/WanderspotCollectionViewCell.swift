@@ -11,15 +11,20 @@ import UIKit
 class WanderspotCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet var titleLabel: UILabel!
-
+  @IBOutlet weak var addressLabel: UILabel!
+  
+  @IBOutlet weak var imageView: UIImageView!
+  
+  
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    
+    imageView.setRounded()
   }
 
-  func configureCellFrom(wanderspot: Wanderspot) {
-    print("Wanderspot in cell", wanderspot.name)
-
+  func configureCellFrom(index: Int, wanderspot: Wanderspot) {
+    titleLabel.text = "\(index + 1). \(wanderspot.name)"
+    addressLabel.text = wanderspot.address
 //    let distance = String(format: "%.2f miles first first stop.", wanderspot.distanceAway)
 //
 //    if wanderspot.distanceAway == 0.0 {

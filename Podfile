@@ -17,6 +17,8 @@ target 'Wanderlist' do
   pod 'MMBannerLayout'
   pod 'Kingfisher'
   pod 'GEOSwift'
+  pod 'MapboxGeocoder.swift'
+  pod 'Material'
  
   target 'WanderlistTests' do
     inherit! :search_paths

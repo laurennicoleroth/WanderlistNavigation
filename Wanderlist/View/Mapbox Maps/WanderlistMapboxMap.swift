@@ -30,6 +30,8 @@ class WanderlistMapboxMap: MGLMapView {
     }
   }
   
+  
+  
   func showBlankCurrentLocation() {
     Locator.currentPosition(accuracy: .city, onSuccess: { (location) -> Void in
       self.setCenter(location.coordinate, zoomLevel: 12, animated: true)
@@ -101,7 +103,6 @@ class WanderlistMapboxMap: MGLMapView {
     
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
 

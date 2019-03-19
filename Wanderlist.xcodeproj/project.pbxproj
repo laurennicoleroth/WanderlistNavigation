@@ -10,6 +10,7 @@
 		7B8FF32AF21AA93E1F410E1C /* Pods_WanderlistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD87FABFE7F9809E2933975 /* Pods_WanderlistTests.framework */; };
 		964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BF9462236B99D003E77DC /* AlgoliaService.swift */; };
 		964BF9492236C3A0003E77DC /* Wanderlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BF9482236C3A0003E77DC /* Wanderlist.swift */; };
+		9674246B22412A89007CB0E1 /* UIImage_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9674246A22412A89007CB0E1 /* UIImage_Extensions.swift */; };
 		968ED31D22330220005F6AE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ED31C22330220005F6AE1 /* User.swift */; };
 		968ED32022331902005F6AE1 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968ED31F22331902005F6AE1 /* Explore.storyboard */; };
 		968ED323223347AA005F6AE1 /* WanderlistPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */; };
@@ -44,12 +45,19 @@
 		9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E122386F7A005FC76F /* SearchViewController.swift */; };
 		9695B3E422387427005FC76F /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9695B3E322387427005FC76F /* Search.storyboard */; };
 		9695B3E622398ECC005FC76F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695B3E522398ECC005FC76F /* UIView+Extensions.swift */; };
+		96DE3B9622415D8C009E6FBC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3B9522415D8C009E6FBC /* Result.swift */; };
 		96F2F6CD223AC6BB0023BC53 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F2F6CC223AC6BB0023BC53 /* Create.storyboard */; };
 		96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */; };
 		96F2F6D1223AD5180023BC53 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */; };
 		96F2F6D3223AD97B0023BC53 /* WanderspotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2F6D2223AD97B0023BC53 /* WanderspotAnnotation.swift */; };
 		96F7A235223BFAD9000FF76E /* GeoMapbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A234223BFAD9000FF76E /* GeoMapbox.swift */; };
 		96F7A237223C0307000FF76E /* EditWanderspotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */; };
+		96F7A23D223C2771000FF76E /* Geocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A23C223C2771000FF76E /* Geocode.swift */; };
+		96F7A23F223C2B0D000FF76E /* NativeGeocoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */; };
+		96F7A24B223C3651000FF76E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A24A223C3651000FF76E /* Errors.swift */; };
+		96F7A25022403DD5000FF76E /* PlaceResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F7A24E22403DD5000FF76E /* PlaceResultCollectionViewCell.swift */; };
+		96F7A25122403DD5000FF76E /* PlaceResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F7A24F22403DD5000FF76E /* PlaceResultCollectionViewCell.xib */; };
+		96FD6E712240699500579231 /* AddWanderlistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */; };
 		C1CFEF6CCE3FD11A31979A6E /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +77,7 @@
 		63A2F5A35146DD408797D780 /* Pods-Wanderlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.debug.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.debug.xcconfig"; sourceTree = "<group>"; };
 		964BF9462236B99D003E77DC /* AlgoliaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaService.swift; sourceTree = "<group>"; };
 		964BF9482236C3A0003E77DC /* Wanderlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wanderlist.swift; sourceTree = "<group>"; };
+		9674246A22412A89007CB0E1 /* UIImage_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extensions.swift; sourceTree = "<group>"; };
 		968ED31C22330220005F6AE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		968ED31F22331902005F6AE1 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderlistPreviewViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 		9695B3E322387427005FC76F /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9695B3E522398ECC005FC76F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		96B962DA223B04E60086B710 /* nyc_neighborhoods.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = nyc_neighborhoods.geojson; sourceTree = "<group>"; };
+		96DE3B9522415D8C009E6FBC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		96F2F6CC223AC6BB0023BC53 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWanderlistViewController.swift; sourceTree = "<group>"; };
 		96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
@@ -115,6 +125,12 @@
 		96F2F6D4223AFD990023BC53 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 		96F7A234223BFAD9000FF76E /* GeoMapbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMapbox.swift; sourceTree = "<group>"; };
 		96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWanderspotsViewController.swift; sourceTree = "<group>"; };
+		96F7A23C223C2771000FF76E /* Geocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocode.swift; sourceTree = "<group>"; };
+		96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeGeocoding.swift; sourceTree = "<group>"; };
+		96F7A24A223C3651000FF76E /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		96F7A24E22403DD5000FF76E /* PlaceResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		96F7A24F22403DD5000FF76E /* PlaceResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceResultCollectionViewCell.xib; sourceTree = "<group>"; };
+		96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWanderlistDetailsViewController.swift; sourceTree = "<group>"; };
 		9767A4068246C767C6364A45 /* Pods-WanderlistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTests.release.xcconfig"; path = "Target Support Files/Pods-WanderlistTests/Pods-WanderlistTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0446F8C4F214C716E8E3738 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF2E8B94E52D1CD6E2C054C /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				964BF9462236B99D003E77DC /* AlgoliaService.swift */,
+				96F7A23C223C2771000FF76E /* Geocode.swift */,
+				96F7A23E223C2B0D000FF76E /* NativeGeocoding.swift */,
+				96F7A24A223C3651000FF76E /* Errors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,11 +239,9 @@
 		96935502222F176500752858 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				969354FD222F151000752858 /* ExploreMapViewController.swift */,
-				968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */,
-				9695B3E122386F7A005FC76F /* SearchViewController.swift */,
-				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
-				96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */,
+				96FD6E6D2240628300579231 /* Explore */,
+				96FD6E6E2240629400579231 /* Search */,
+				96FD6E6F2240629B00579231 /* Create */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,6 +253,7 @@
 				968ED31C22330220005F6AE1 /* User.swift */,
 				964BF9482236C3A0003E77DC /* Wanderlist.swift */,
 				96935506222F17F400752858 /* Wanderspot.swift */,
+				96DE3B9522415D8C009E6FBC /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +305,8 @@
 				968ED32722334C96005F6AE1 /* WanderspotCollectionViewCell.xib */,
 				96935513222F2B0E00752858 /* WanderlistCollectionViewCell.swift */,
 				96935514222F2B0E00752858 /* WanderlistCollectionViewCell.xib */,
+				96F7A24E22403DD5000FF76E /* PlaceResultCollectionViewCell.swift */,
+				96F7A24F22403DD5000FF76E /* PlaceResultCollectionViewCell.xib */,
 			);
 			path = CollectionViews;
 			sourceTree = "<group>";
@@ -296,6 +316,7 @@
 			children = (
 				9695B3E522398ECC005FC76F /* UIView+Extensions.swift */,
 				96F2F6D0223AD5180023BC53 /* UIButton+Extensions.swift */,
+				9674246A22412A89007CB0E1 /* UIImage_Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,6 +327,33 @@
 				96F2F6D2223AD97B0023BC53 /* WanderspotAnnotation.swift */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		96FD6E6D2240628300579231 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				968ED322223347AA005F6AE1 /* WanderlistPreviewViewController.swift */,
+				969354FD222F151000752858 /* ExploreMapViewController.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		96FD6E6E2240629400579231 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9695B3E122386F7A005FC76F /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		96FD6E6F2240629B00579231 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				96F2F6CE223AC7160023BC53 /* CreateWanderlistViewController.swift */,
+				96F7A236223C0307000FF76E /* EditWanderspotsViewController.swift */,
+				96FD6E702240699500579231 /* AddWanderlistDetailsViewController.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		AA226DDD2DC226378A47DEFA /* Frameworks */ = {
@@ -427,6 +475,7 @@
 				9695B3DC22384504005FC76F /* OpenSans-Bold.ttf in Resources */,
 				9695B3D722384504005FC76F /* OpenSans-Light.ttf in Resources */,
 				9695B3DB22384504005FC76F /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				96F7A25122403DD5000FF76E /* PlaceResultCollectionViewCell.xib in Resources */,
 				968ED32022331902005F6AE1 /* Explore.storyboard in Resources */,
 				9695B3DA22384504005FC76F /* OpenSans-Regular.ttf in Resources */,
 				969354DD222EF1B400752858 /* Main.storyboard in Resources */,
@@ -466,11 +515,14 @@
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxGeocoder.swift/MapboxGeocoder.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
 				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework",
 				"${PODS_ROOT}/MapboxNavigationNative/MapboxNavigationNative.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
@@ -500,11 +552,14 @@
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxGeocoder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigationNative.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/MapboxNavigationNative.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxSpeech.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
@@ -578,19 +633,26 @@
 				96935515222F2B0E00752858 /* WanderlistCollectionViewCell.swift in Sources */,
 				96F7A237223C0307000FF76E /* EditWanderspotsViewController.swift in Sources */,
 				96F2F6D3223AD97B0023BC53 /* WanderspotAnnotation.swift in Sources */,
+				96F7A23D223C2771000FF76E /* Geocode.swift in Sources */,
 				968ED323223347AA005F6AE1 /* WanderlistPreviewViewController.swift in Sources */,
+				96F7A25022403DD5000FF76E /* PlaceResultCollectionViewCell.swift in Sources */,
 				968ED32522334C15005F6AE1 /* WanderlistDetailMapboxMap.swift in Sources */,
 				969354E0222EF1B400752858 /* Wanderlist.xcdatamodeld in Sources */,
 				9693550E222F1BC000752858 /* ArrayExt.swift in Sources */,
 				9695B3E622398ECC005FC76F /* UIView+Extensions.swift in Sources */,
 				96935509222F1AFF00752858 /* secret.swift in Sources */,
+				96FD6E712240699500579231 /* AddWanderlistDetailsViewController.swift in Sources */,
 				96935507222F17F400752858 /* Wanderspot.swift in Sources */,
 				96F7A235223BFAD9000FF76E /* GeoMapbox.swift in Sources */,
+				96F7A23F223C2B0D000FF76E /* NativeGeocoding.swift in Sources */,
 				96935500222F174500752858 /* WanderlistMapboxMap.swift in Sources */,
+				96F7A24B223C3651000FF76E /* Errors.swift in Sources */,
+				9674246B22412A89007CB0E1 /* UIImage_Extensions.swift in Sources */,
 				969354D8222EF1B400752858 /* AppDelegate.swift in Sources */,
 				9695B3E222386F7A005FC76F /* SearchViewController.swift in Sources */,
 				968ED32822334C96005F6AE1 /* WanderspotCollectionViewCell.swift in Sources */,
 				964BF9472236B99D003E77DC /* AlgoliaService.swift in Sources */,
+				96DE3B9622415D8C009E6FBC /* Result.swift in Sources */,
 				9693550C222F1B6B00752858 /* AuthService.swift in Sources */,
 				96F2F6CF223AC7160023BC53 /* CreateWanderlistViewController.swift in Sources */,
 				968ED31D22330220005F6AE1 /* User.swift in Sources */,

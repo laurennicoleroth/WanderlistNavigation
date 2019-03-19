@@ -120,6 +120,7 @@ PODS:
     - Turf (~> 0.3.0)
   - MapboxDirections.swift (0.27.1):
     - Polyline (~> 4.2)
+  - MapboxGeocoder.swift (0.10.2)
   - MapboxMobileEvents (0.8.1)
   - MapboxNavigation (0.29.1):
     - Mapbox-iOS-SDK (~> 4.3)
@@ -128,7 +129,14 @@ PODS:
     - Solar (~> 2.1)
   - MapboxNavigationNative (5.0.0)
   - MapboxSpeech (0.1.0)
+  - Material (2.16.4):
+    - Material/Core (= 2.16.4)
+  - Material/Core (2.16.4):
+    - Motion (~> 1.4.3)
   - MMBannerLayout (1.1.1)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -153,7 +161,9 @@ DEPENDENCIES:
   - InstantSearchClient (~> 6.0)
   - Kingfisher
   - Mapbox-iOS-SDK
+  - MapboxGeocoder.swift
   - MapboxNavigation
+  - Material
   - MMBannerLayout
   - SwiftLint
   - SwiftLocation (~> 3.2.3)
@@ -184,11 +194,14 @@ SPEC REPOS:
     - Mapbox-iOS-SDK
     - MapboxCoreNavigation
     - MapboxDirections.swift
+    - MapboxGeocoder.swift
     - MapboxMobileEvents
     - MapboxNavigation
     - MapboxNavigationNative
     - MapboxSpeech
+    - Material
     - MMBannerLayout
+    - Motion
     - nanopb
     - Polyline
     - Protobuf
@@ -223,11 +236,14 @@ SPEC CHECKSUMS:
   Mapbox-iOS-SDK: 864bc732a20c183d87f04923295e988b504453d9
   MapboxCoreNavigation: 7a6dea9a19dea2ad3247f43e6b6854f4afe3341e
   MapboxDirections.swift: b53792956b0233c8c5aa75972ce99b2001cafd10
+  MapboxGeocoder.swift: 8cff5dddf98d87838509bf80a5bce5f1d0cf8393
   MapboxMobileEvents: 0f30fe39687f26fd8f255335053023ba039a0392
   MapboxNavigation: 6093c01352cfda65ea7a15b5588e024f66d4bae2
   MapboxNavigationNative: bb220f45f93123adae2c05dfb74080773af128f3
   MapboxSpeech: d7569ee91dd8bdca3ef8d19b6828e8754c1073ec
+  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   MMBannerLayout: ca952bbfcb6b27b5753a17c4733da53345ffcae5
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
@@ -237,6 +253,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: 7683b22e7deaa862bc143fda3a7a68a9e8aaad41
+PODFILE CHECKSUM: 6d3e4fbc0f708ca52f6f6c8c339ffd460933c77d
 
 COCOAPODS: 1.6.0.beta.1

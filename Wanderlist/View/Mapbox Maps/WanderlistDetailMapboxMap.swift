@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import InstantSearchCore
 import Mapbox
+import MapboxGeocoder
 import SwiftLocation
 
 class WanderlistDetailMapboxMap: MGLMapView {
@@ -22,13 +23,39 @@ class WanderlistDetailMapboxMap: MGLMapView {
     }
   }
   
+  
+  func fitMapToWanderspots(wanderspots: [Wanderspot]) {
+    var coordinates = [CLLocationCoordinate2D]()
+    for spot in wanderspots {
+      let latitude = spot.latitude
+      let longitude = spot.longitude
+      coordinates.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+      addWanderspotAsAnnotation(wanderspot: spot)
+      self.setVisibleCoordinates(
+        coordinates,
+        count: UInt(coordinates.count),
+        edgePadding: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40),
+        animated: true
+      )
+    }
+  }
+  
+  func addPlacemarkToMap(placemark: Placemark ) {
+    let annotation = MGLPointAnnotation()
+    let latitude = placemark.location?.coordinate.latitude as! Double
+    let longitude = placemark.location?.coordinate.longitude as! Double
+    
+    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    annotation.title = placemark.name
+    self.addAnnotation(annotation)
+  }
+  
   func addWanderspotToMap(wanderspot: Wanderspot) {
     let annotation = MGLPointAnnotation()
     let latitude = wanderspot.latitude
     let longitude = wanderspot.longitude
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
   
@@ -102,7 +129,6 @@ class WanderlistDetailMapboxMap: MGLMapView {
     let longitude = wanderspot.longitude
     annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     annotation.title = wanderspot.name
-    annotation.subtitle = "\(wanderspot.distanceAway) away"
     self.addAnnotation(annotation)
   }
   
